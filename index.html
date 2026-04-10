@@ -197,6 +197,17 @@ footer .sep { margin:0 10px; opacity:.3; }
   .home-cards { grid-template-columns: 1fr !important; }
   .perks-cards { grid-template-columns: 1fr 1fr !important; }
 }
+
+.preview-copy-btn {
+  display:inline-flex;align-items:center;
+  font-size:9px;font-weight:700;padding:1px 6px;
+  border-radius:3px;border:.5px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.05);color:#8a96aa;
+  cursor:pointer;transition:all .15s;vertical-align:middle;
+  margin-left:5px;
+}
+.preview-copy-btn:hover{border-color:rgba(240,180,41,.4);color:var(--accent);background:rgba(240,180,41,.08);}
+.preview-copy-btn.copied{border-color:rgba(34,197,94,.4);color:#4ade80;background:rgba(34,197,94,.08);}
 </style>
 </head>
 <body>
@@ -527,8 +538,22 @@ footer .sep { margin:0 10px; opacity:.3; }
   </div>
 </div>
 
+<!-- ── 出海路线图入口 ── -->
+<div style="max-width:1080px;margin:0 auto;padding:24px 28px 20px;">
+  <a href="nifulei-journey.html" style="display:block;background:linear-gradient(135deg,#0f1319,#13080f);border:.5px solid rgba(248,113,113,.3);border-radius:14px;padding:28px 32px;text-decoration:none;transition:border-color .18s;" onmouseover="this.style.borderColor='rgba(248,113,113,.55)'" onmouseout="this.style.borderColor='rgba(248,113,113,.3)'">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div style="font-size:10px;color:#f87171;letter-spacing:.1em;margin-bottom:8px;">OVERSEAS JOURNEY · 出海路线图</div>
+        <div style="font-size:18px;font-weight:700;color:#e8edf5;margin-bottom:6px;">🚀 7 关出海闯关系统</div>
+        <div style="font-size:12px;color:var(--text-muted);line-height:1.9;">网络环境 → 海外号码 → 银行账户 → 港美股 → 加密交易所 → 加密支付卡<br>每关有学习清单，全部勾选自动解锁，追踪你的出海进度</div>
+      </div>
+      <div style="background:#f87171;color:#0a0c10;font-size:12px;font-weight:700;padding:10px 22px;border-radius:8px;white-space:nowrap;flex-shrink:0;">开始闯关 →</div>
+    </div>
+  </a>
+</div>
+
 <!-- ── 精选福利 ── -->
-<div style="max-width:1080px;margin:0 auto;padding:48px 28px 0;">
+<div style="max-width:1080px;margin:0 auto;padding:20px 28px 0;">
   <p style="font-size:10px;color:var(--text-dim);letter-spacing:.12em;font-weight:600;margin-bottom:20px;">FEATURED PERKS · 精选福利</p>
 
   <!-- 加密交易所 -->
@@ -541,7 +566,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">欧易 OKX</div>
       </div>
       <div style="font-size:10px;color:var(--accent);background:var(--accent-dim);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">返佣 20%</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">SOL999</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">SOL999</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'SOL999')">复制</button></div>
       <a href="https://www.promooboost.com/join/SOL999" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即领取 →</a>
     </div>
 
@@ -551,7 +576,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">币安 Binance</div>
       </div>
       <div style="font-size:10px;color:var(--accent);background:var(--accent-dim);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">返佣 20%</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">TALA888</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">TALA888</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'TALA888')">复制</button></div>
       <a href="https://www.binance.com/zh-CN/join?ref=TALA888" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即领取 →</a>
     </div>
 
@@ -561,7 +586,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">Bybit</div>
       </div>
       <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">返佣 20%</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">NIFULEI20</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">NIFULEI20</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'NIFULEI20')">复制</button></div>
       <a href="https://partner.bybit.com/b/NIFULEI20" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即领取 →</a>
     </div>
 
@@ -571,7 +596,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">Bitget</div>
       </div>
       <div style="font-size:10px;color:#34d399;background:rgba(52,211,153,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">返佣 20%</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">nifulei20</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">nifulei20</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'nifulei20')">复制</button></div>
       <a href="https://partner.hdmune.cn/bg/nifulei20" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即领取 →</a>
     </div>
 
@@ -583,11 +608,11 @@ footer .sep { margin:0 10px; opacity:.3; }
 
     <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
       <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
-        <div style="width:32px;height:32px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#60a5fa;flex-shrink:0;">uSMART</div>
+        <div style="width:32px;height:32px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#60a5fa;flex-shrink:0;">YL</div>
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">盈立证券</div>
       </div>
       <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">新人礼丰厚</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">U02662</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">U02662</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'U02662')">复制</button></div>
       <a href="https://m.usmart66.com/webapp/open-account/apply.html?ICode=U02662#/register" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
     </div>
 
@@ -597,7 +622,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">必贝证券</div>
       </div>
       <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">美股零佣金</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">stcb8stkb</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">stcb8stkb</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'stcb8stkb')">复制</button></div>
       <a href="https://landing.bbaecache.com/m/h5/new-user-reward-v4?lang=zh-CN&f=invite&referral=stcb8stkb" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
     </div>
 
@@ -607,7 +632,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">嘉信 Schwab</div>
       </div>
       <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">美股零佣金</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">REFERF8MARZGG</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">REFERF8MARZGG</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'REFERF8MARZGG')">复制</button></div>
       <a href="https://www.schwab.com/client-referral?refrid=REFERF8MARZGG" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
     </div>
 
@@ -617,7 +642,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">致富证券</div>
       </div>
       <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">港股专业</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">EA6728</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">EA6728</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'EA6728')">复制</button></div>
       <a href="https://www.chiefgroup.com.hk/hk/open?rl=ECR&PromoCode=EA6728" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
     </div>
 
@@ -653,7 +678,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">Redteago</div>
       </div>
       <div style="font-size:10px;color:#f87171;background:rgba(239,68,68,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">190+ 国家流量</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">折扣码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">RTGF94EFR</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">折扣码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">RTGF94EFR</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'RTGF94EFR')">复制</button></div>
       <a href="https://esim.redteago.com?c=pfkq0ygi" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即购买 →</a>
     </div>
 
@@ -663,7 +688,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         <div style="font-size:12px;font-weight:600;color:#e2e8f0;">SafePal Card</div>
       </div>
       <div style="font-size:10px;color:#a78bfa;background:rgba(167,139,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">加密 Visa 卡</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">766177</span></div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">766177</span><button class="preview-copy-btn" onclick="previewCopyCode(this,'766177')">复制</button></div>
       <a href="nifulei-crypto.html#card" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
     </div>
 
@@ -701,19 +726,46 @@ footer .sep { margin:0 10px; opacity:.3; }
   </div>
 </div>
 
-<!-- ── 出海路线图入口 ── -->
-<div style="max-width:1080px;margin:0 auto;padding:44px 28px 56px;">
-  <a href="nifulei-journey.html" style="display:block;background:linear-gradient(135deg,#0f1319,#13080f);border:.5px solid rgba(248,113,113,.3);border-radius:14px;padding:28px 32px;text-decoration:none;transition:border-color .18s;" onmouseover="this.style.borderColor='rgba(248,113,113,.55)'" onmouseout="this.style.borderColor='rgba(248,113,113,.3)'">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-      <div>
-        <div style="font-size:10px;color:#f87171;letter-spacing:.1em;margin-bottom:8px;">OVERSEAS JOURNEY · 出海路线图</div>
-        <div style="font-size:18px;font-weight:700;color:#e8edf5;margin-bottom:6px;">🚀 7 关出海闯关系统</div>
-        <div style="font-size:12px;color:var(--text-muted);line-height:1.9;">网络环境 → 海外号码 → 银行账户 → 港美股 → 加密交易所 → 加密支付卡<br>每关有学习清单，全部勾选自动解锁，追踪你的出海进度</div>
-      </div>
-      <div style="background:#f87171;color:#0a0c10;font-size:12px;font-weight:700;padding:10px 22px;border-radius:8px;white-space:nowrap;flex-shrink:0;">开始闯关 →</div>
-    </div>
-  </a>
-</div>
-
+<script>
+function previewCopyCode(btn, code) {
+  var copy = function(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text);
+    } else {
+      var el = document.createElement('textarea');
+      el.value = text; document.body.appendChild(el);
+      el.select(); document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+  };
+  copy(code);
+  btn.classList.add('copied');
+  btn.innerHTML = '✓ 已复制';
+  setTimeout(function(){ btn.classList.remove('copied'); btn.innerHTML = '复制'; }, 2000);
+}
+</script>
+<footer>
+  <div class="footer-copy">
+    © 2026 泥伏雷闯关记
+    <span class="sep">·</span>
+    内容仅供参考，不构成投资建议
+    <span class="sep">·</span>
+    投资有风险，入市需谨慎
+  </div>
+  <div class="footer-socials">
+    <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      𝕏 关注
+    </a>
+    <a href="https://t.me/talakang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      TG
+    </a>
+    <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+  </div>
+</footer>
 </body>
 </html>
