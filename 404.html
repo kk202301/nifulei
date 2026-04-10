@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>泥伏雷闯关记</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0c10; --bg-card: #111318; --bg-card-hover: #161920;
+  --bg-dropdown: #13161e;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(240,180,41,0.35);
+  --text: #dde3ee; --text-muted: #5a6478; --text-dim: #363d4e;
+  --accent: #f0b429; --accent-dim: rgba(240,180,41,0.12); --accent-border: rgba(240,180,41,0.28);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "SF Pro Text","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+  font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; cursor: pointer; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(10,12,16,.92); backdrop-filter: blur(16px);
+  border-bottom: .5px solid var(--border);
+}
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between; height: 52px;
+}
+.logo { font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: .01em; white-space: nowrap; }
+
+.nav-links { display: flex; align-items: center; gap: 4px; }
+
+/* each top-level item */
+.nav-item { position: relative; }
+.nav-item > .nav-label {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 12px; color: var(--text-muted);
+  padding: 6px 10px; border-radius: 6px;
+  cursor: pointer; user-select: none;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.nav-item:hover > .nav-label,
+.nav-item > .nav-label:hover { color: var(--text); background: rgba(255,255,255,.05); }
+
+/* arrow indicator */
+.nav-label .arr {
+  font-size: 8px; color: var(--text-dim);
+  transition: transform .2s, color .2s;
+  display: inline-block;
+}
+.nav-item:hover .arr { transform: rotate(180deg); color: var(--accent); }
+
+/* dropdown */
+.dropdown {
+  position: absolute; top: calc(100% + 6px); left: 0;
+  min-width: 148px;
+  background: var(--bg-dropdown);
+  border: .5px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 6px;
+  opacity: 0; pointer-events: none; transform: translateY(-6px);
+  transition: opacity .18s, transform .18s;
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+}
+.nav-item:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+.dropdown a {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--text-muted);
+  padding: 7px 10px; border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.dropdown a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+.dropdown-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); flex-shrink: 0; }
+.dropdown a:hover .dropdown-dot { background: var(--accent); }
+
+/* divider inside dropdown */
+.dropdown-divider { height: .5px; background: var(--border); margin: 4px 6px; }
+
+/* single link (no dropdown) */
+.nav-single {
+  font-size: 12px; color: var(--text-muted);
+  padding: 6px 10px; border-radius: 6px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.nav-single:hover { color: var(--text); background: rgba(255,255,255,.05); }
+
+.nav-cta {
+  font-size: 11px; color: #0a0c10; background: var(--accent);
+  padding: 6px 16px; border-radius: 6px; font-weight: 700;
+  letter-spacing: .02em; margin-left: 8px; white-space: nowrap;
+  transition: opacity .15s;
+}
+.nav-cta:hover { opacity: .88; }
+
+/* ── TICKER ── */
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.ticker-track { display:inline-flex; animation:ticker 34s linear infinite; white-space:nowrap; }
+
+/* ── HERO ── */
+@keyframes glow { 0%,100%{opacity:.45} 50%{opacity:.8} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+.fade-up  { animation:fadeUp .55s ease both; }
+.fade-up-1{ animation-delay:.08s; }
+.fade-up-2{ animation-delay:.17s; }
+.fade-up-3{ animation-delay:.27s; }
+
+/* ── CARDS ── */
+.nav-card, .promo-card, .tweet-row { transition: border-color .18s, background .18s; }
+.nav-card:hover  { border-color: var(--border-hover) !important; background: var(--bg-card-hover) !important; }
+.tweet-row:hover { border-color: rgba(255,255,255,.13) !important; background: var(--bg-card-hover) !important; }
+.promo-card:hover{ border-color: var(--border-hover) !important; }
+
+/* ── SECTION ── */
+.section { max-width: 1080px; margin: 0 auto; padding: 52px 28px 0; }
+.section-label { font-size: 10px; color: var(--text-dim); letter-spacing: .12em; margin-bottom: 18px; text-transform: uppercase; }
+.section-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:18px; }
+.section-more { font-size: 11px; color: var(--accent); }
+
+footer { border-top:.5px solid var(--border); padding:28px; text-align:center; }
+footer p { font-size:11px; color:var(--text-dim); line-height:2; }
+footer .sep { margin:0 10px; opacity:.3; }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .nav-inner { padding: 0 16px; }
+
+  .page-header { padding: 28px 16px 24px; }
+  .content, .broker-section, .crypto-section, .comm-section, .map-section, .about-section { padding-left: 16px; padding-right: 16px; }
+
+  /* grids */
+  .cards-grid, .cards-grid.cols-3, .cards-grid.cols-2 { grid-template-columns: 1fr 1fr !important; }
+  .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr 1fr !important; }
+  .cn-card.highlight { grid-column: span 2; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .promos-grid, .contact-grid { grid-template-columns: 1fr !important; }
+  .contact-card.full-width { grid-column: span 1; }
+
+  /* hero */
+  .hero h1, h1 { font-size: 30px !important; }
+  .hero-btns { flex-direction: column; align-items: center; }
+
+  /* anchor nav */
+  .anchor-nav { gap: 0; padding: 0 12px; }
+  .anchor-btn { padding: 10px 10px; font-size: 11px; }
+
+  /* diagrams scroll */
+  .diagram-wrap { padding: 16px 12px; }
+
+  /* footer */
+  footer { flex-direction: column; align-items: flex-start; padding: 20px 16px; gap: 12px; }
+
+  /* broker dual-span cards */
+  [style*="grid-column: span 2"] { grid-column: span 1 !important; }
+
+  /* section */
+  .section { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+@media (max-width: 480px) {
+  .cards-grid, .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr !important; }
+  .cn-card.highlight { grid-column: span 1; }
+  .region-toggle { flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) { .nav-cta { display: none; } }
+
+@media (max-width: 768px) {
+  .home-cards { grid-template-columns: 1fr 1fr !important; }
+  .perks-cards { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .home-cards { grid-template-columns: 1fr !important; }
+  .perks-cards { grid-template-columns: 1fr 1fr !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">泥伏雷闯关记</a>
+
+    <div class="nav-links">
+
+      <!-- 国外银行卡 -->
+      <div class="nav-item">
+        <div class="nav-label">国外银行卡 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a>
+          <a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a>
+          <a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a>
+          <a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a>
+        </div>
+      </div>
+
+      <!-- 港美股券商 -->
+      <div class="nav-item">
+        <div class="nav-label">港美股券商 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a>
+          <a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a>
+        </div>
+      </div>
+
+      <!-- 加密 Web3 -->
+      <div class="nav-item">
+        <div class="nav-label">加密 Web3 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-crypto.html#exchange"><span class="dropdown-dot"></span>交易所</a>
+          <a href="nifulei-crypto.html#card"><span class="dropdown-dot"></span>加密银行卡</a>
+          <a href="nifulei-crypto.html#cold"><span class="dropdown-dot"></span>冷钱包</a>
+          <a href="nifulei-crypto.html#hot"><span class="dropdown-dot"></span>热钱包</a>
+        </div>
+      </div>
+
+      <!-- 跨境通讯 -->
+      <div class="nav-item">
+        <div class="nav-label">跨境通讯 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-esim.html#esim-num"><span class="dropdown-dot"></span>eSIM 号码</a>
+          <a href="nifulei-esim.html#esim-data"><span class="dropdown-dot"></span>eSIM 流量平台</a>
+          <a href="nifulei-esim.html#esim-writer"><span class="dropdown-dot"></span>eSIM 写卡器</a>
+        </div>
+      </div>
+
+      <!-- 其他资源 -->
+      <div class="nav-item">
+        <div class="nav-label">其他资源 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="#"><span class="dropdown-dot"></span>休闲娱乐</a>
+          <a href="#"><span class="dropdown-dot"></span>出海工具</a>
+        </div>
+      </div>
+
+      <!-- 资金流转图 单页 -->
+      <a href="nifulei-roadmap.html" class="nav-single">金融路线图</a>
+      <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
+
+      <!-- 关于泥伏雷 -->
+      <div class="nav-item">
+        <div class="nav-label">关于泥伏雷 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-about.html#origin"><span class="dropdown-dot"></span>泥伏雷缘起</a>
+          <a href="nifulei-about.html#contact"><span class="dropdown-dot"></span>联系方式</a>
+        </div>
+      </div>
+
+      <a href="https://x.com/" target="_blank" class="nav-cta">关注 𝕏</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section style="position:relative;text-align:center;padding:80px 24px 60px;overflow:hidden;">
+  <div style="position:absolute;top:20%;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(240,180,41,.09) 0%,transparent 70%);pointer-events:none;animation:glow 4s ease-in-out infinite;"></div>
+
+  <div class="fade-up" style="display:inline-block;background:var(--accent-dim);color:var(--accent);font-size:11px;padding:4px 14px;border-radius:20px;margin-bottom:22px;border:.5px solid var(--accent-border);letter-spacing:.06em;">
+    CRYPTO × WEB3 × 数字游民
+  </div>
+  <h1 class="fade-up fade-up-1" style="font-size:46px;font-weight:700;letter-spacing:-.02em;margin-bottom:16px;background:linear-gradient(135deg,#f1f5f9 30%,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+    泥伏雷闯关记
+  </h1>
+  <p class="fade-up fade-up-2" style="font-size:14px;color:var(--text-muted);line-height:2;margin:0 auto 36px;max-width:360px;">
+    从普通到不凡，资金永不眠。以科技与金融之力，打破知识壁垒，助你突破世界的高墙。<br><span style="color:var(--accent);font-size:12px;letter-spacing:.04em;">～资金永不眠～普通人亦可全球通～</span>
+  </p>
+  <div class="fade-up fade-up-3" style="display:flex;gap:12px;justify-content:center;">
+    <a href="https://x.com/nicole_yang88" target="_blank" style="background:var(--accent);color:#0a0c10;padding:10px 28px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.02em;">看推文干货</a>
+    <a href="https://www.youtube.com/@tala-kang" target="_blank" style="border:.5px solid rgba(255,255,255,.13);color:var(--text-muted);padding:10px 28px;border-radius:8px;font-size:13px;">看视频干货 →</a>
+  </div>
+</section>
+
+<!-- ── TICKER ── -->
+<div style="border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);padding:9px 0;overflow:hidden;background:rgba(255,255,255,.015);">
+  <div class="ticker-track">
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>国外银行卡开户</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>OKX 注册教程</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>Binance 返佣攻略</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>OneKey 硬件钱包</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>eSIM 号码注册</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>港股券商开户</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>加密银行卡指南</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>数字游民出海工具</span>
+    <!-- repeat for loop -->
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>国外银行卡开户</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>OKX 注册教程</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>Binance 返佣攻略</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>OneKey 硬件钱包</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>eSIM 号码注册</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>港股券商开户</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>加密银行卡指南</span>
+    <span style="font-size:11px;color:var(--text-muted);margin:0 24px;display:inline-flex;align-items:center;gap:7px;"><span style="color:var(--accent);font-size:8px;">◆</span>数字游民出海工具</span>
+  </div>
+</div>
+
+<!-- ── 栏目卡片 ── -->
+<div style="max-width:1080px;margin:0 auto;padding:52px 28px 0;">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;">
+    <p style="font-size:10px;color:var(--text-dim);letter-spacing:.12em;font-weight:600;">EXPLORE · 全部栏目</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;" class="home-cards">
+
+    <!-- 国外银行卡 -->
+    <div onclick="location.href='nifulei-bank.html'" style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:22px;cursor:pointer;transition:border-color .18s,transform .18s;" onmouseover="this.style.borderColor='rgba(240,180,41,.35)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.transform='translateY(0)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:36px;height:36px;background:var(--accent-dim);border:.5px solid var(--accent-border);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🏦</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;">国外银行卡</div>
+          <div style="font-size:10px;color:var(--text-dim);margin-top:1px;">Banking</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">Wise · iFAST · 香港银行 · 美国银行 · 国内代办</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;">
+        <a href="nifulei-bank.html#intl" onclick="event.stopPropagation()" style="font-size:10px;color:var(--accent);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:2px 9px;border-radius:4px;text-decoration:none;">国外</a>
+        <a href="nifulei-bank.html#hk"   onclick="event.stopPropagation()" style="font-size:10px;color:var(--accent);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:2px 9px;border-radius:4px;text-decoration:none;">香港</a>
+        <a href="nifulei-bank.html#us"   onclick="event.stopPropagation()" style="font-size:10px;color:var(--accent);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:2px 9px;border-radius:4px;text-decoration:none;">美国</a>
+        <a href="nifulei-bank.html#cn"   onclick="event.stopPropagation()" style="font-size:10px;color:var(--accent);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:2px 9px;border-radius:4px;text-decoration:none;">代办</a>
+      </div>
+    </div>
+
+    <!-- 港美股券商 -->
+    <div onclick="location.href='nifulei-broker.html'" style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:22px;cursor:pointer;transition:border-color .18s,transform .18s;" onmouseover="this.style.borderColor='rgba(96,165,250,.35)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.transform='translateY(0)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:36px;height:36px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.25);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">📈</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;">港美股券商</div>
+          <div style="font-size:10px;color:var(--text-dim);margin-top:1px;">Brokerage</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">长桥 · 盈立 · 嘉信 · IBKR · 必贝 · 14家</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;">
+        <a href="nifulei-broker.html#hk" onclick="event.stopPropagation()" style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);border:.5px solid rgba(96,165,250,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">港股</a>
+        <a href="nifulei-broker.html#us" onclick="event.stopPropagation()" style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);border:.5px solid rgba(96,165,250,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">美股</a>
+      </div>
+    </div>
+
+    <!-- 加密 Web3 -->
+    <div onclick="location.href='nifulei-crypto.html'" style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:22px;cursor:pointer;transition:border-color .18s,transform .18s;" onmouseover="this.style.borderColor='rgba(240,180,41,.35)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.transform='translateY(0)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:36px;height:36px;background:rgba(251,146,60,.1);border:.5px solid rgba(251,146,60,.25);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">₿</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;">加密 Web3</div>
+          <div style="font-size:10px;color:var(--text-dim);margin-top:1px;">Crypto &amp; DeFi</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">OKX · Binance · Bybit · 加密卡 · 冷热钱包</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;">
+        <a href="nifulei-crypto.html#exchange" onclick="event.stopPropagation()" style="font-size:10px;color:#fb923c;background:rgba(251,146,60,.1);border:.5px solid rgba(251,146,60,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">交易所</a>
+        <a href="nifulei-crypto.html#card"     onclick="event.stopPropagation()" style="font-size:10px;color:#fb923c;background:rgba(251,146,60,.1);border:.5px solid rgba(251,146,60,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">加密卡</a>
+        <a href="nifulei-crypto.html#cold"     onclick="event.stopPropagation()" style="font-size:10px;color:#fb923c;background:rgba(251,146,60,.1);border:.5px solid rgba(251,146,60,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">冷钱包</a>
+        <a href="nifulei-crypto.html#hot"      onclick="event.stopPropagation()" style="font-size:10px;color:#fb923c;background:rgba(251,146,60,.1);border:.5px solid rgba(251,146,60,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">热钱包</a>
+      </div>
+    </div>
+
+    <!-- 跨境通讯 -->
+    <div onclick="location.href='nifulei-esim.html'" style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:22px;cursor:pointer;transition:border-color .18s,transform .18s;" onmouseover="this.style.borderColor='rgba(52,211,153,.35)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.transform='translateY(0)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:36px;height:36px;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">📡</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;">跨境通讯</div>
+          <div style="font-size:10px;color:var(--text-dim);margin-top:1px;">eSIM &amp; Telecom</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">giffgaff · Redteago · Eskimo · 写卡器</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;">
+        <a href="nifulei-esim.html#esim-num"    onclick="event.stopPropagation()" style="font-size:10px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">eSIM号码</a>
+        <a href="nifulei-esim.html#esim-data"   onclick="event.stopPropagation()" style="font-size:10px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">流量卡</a>
+        <a href="nifulei-esim.html#esim-writer" onclick="event.stopPropagation()" style="font-size:10px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">写卡器</a>
+      </div>
+    </div>
+
+    <!-- 金融路线图 -->
+    <div onclick="location.href='nifulei-roadmap.html'" style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:22px;cursor:pointer;transition:border-color .18s,transform .18s;" onmouseover="this.style.borderColor='rgba(167,139,250,.35)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)';this.style.transform='translateY(0)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:36px;height:36px;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🗺</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;">金融路线图</div>
+          <div style="font-size:10px;color:var(--text-dim);margin-top:1px;">Finance Map</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">交易所→钱包→银行→券商 资金流转全图</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;">
+        <a href="nifulei-roadmap.html#map1" onclick="event.stopPropagation()" style="font-size:10px;color:#a78bfa;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">无港卡路线</a>
+        <a href="nifulei-roadmap.html#map2" onclick="event.stopPropagation()" style="font-size:10px;color:#a78bfa;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">资金流转图</a>
+      </div>
+    </div>
+
+    <!-- 出海路线图 -->
+    <div onclick="location.href='nifulei-journey.html'" style="background:linear-gradient(135deg,#0f1319,#130c1a);border:.5px solid rgba(248,113,113,.25);border-radius:12px;padding:22px;cursor:pointer;transition:border-color .18s,transform .18s;" onmouseover="this.style.borderColor='rgba(248,113,113,.5)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(248,113,113,.25)';this.style.transform='translateY(0)'">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="width:36px;height:36px;background:rgba(248,113,113,.12);border:.5px solid rgba(248,113,113,.3);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🚀</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#e2e8f0;">出海路线图</div>
+          <div style="font-size:10px;color:#f87171;margin-top:1px;">7 关闯关系统</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.8;margin-bottom:12px;">从网络环境到加密支付，7步解锁全球自由</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;">
+        <a href="nifulei-journey.html" onclick="event.stopPropagation()" style="font-size:10px;color:#f87171;background:rgba(248,113,113,.1);border:.5px solid rgba(248,113,113,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">开始闯关</a>
+        <a href="nifulei-journey.html" onclick="event.stopPropagation()" style="font-size:10px;color:#f87171;background:rgba(248,113,113,.1);border:.5px solid rgba(248,113,113,.25);padding:2px 9px;border-radius:4px;text-decoration:none;">追踪进度</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 精选福利 ── -->
+<div style="max-width:1080px;margin:0 auto;padding:48px 28px 0;">
+  <p style="font-size:10px;color:var(--text-dim);letter-spacing:.12em;font-weight:600;margin-bottom:20px;">FEATURED PERKS · 精选福利</p>
+
+  <!-- 加密交易所 -->
+  <div style="font-size:10px;color:var(--text-muted);letter-spacing:.06em;margin-bottom:10px;padding-left:2px;">₿ 加密交易所</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;" class="perks-cards">
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:var(--accent-dim);border:.5px solid var(--accent-border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--accent);flex-shrink:0;">OKX</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">欧易 OKX</div>
+      </div>
+      <div style="font-size:10px;color:var(--accent);background:var(--accent-dim);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">返佣 20%</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">SOL999</span></div>
+      <a href="https://www.promooboost.com/join/SOL999" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即领取 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:var(--accent-dim);border:.5px solid var(--accent-border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--accent);flex-shrink:0;">BNB</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">币安 Binance</div>
+      </div>
+      <div style="font-size:10px;color:var(--accent);background:var(--accent-dim);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">返佣 20%</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">TALA888</span></div>
+      <a href="https://www.binance.com/zh-CN/join?ref=TALA888" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即领取 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#60a5fa;flex-shrink:0;">BBT</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">Bybit</div>
+      </div>
+      <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">返佣 20%</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">NIFULEI20</span></div>
+      <a href="https://partner.bybit.com/b/NIFULEI20" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即领取 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#34d399;flex-shrink:0;">BG</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">Bitget</div>
+      </div>
+      <div style="font-size:10px;color:#34d399;background:rgba(52,211,153,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">返佣 20%</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">nifulei20</span></div>
+      <a href="https://partner.hdmune.cn/bg/nifulei20" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即领取 →</a>
+    </div>
+
+  </div>
+
+  <!-- 港美股券商 -->
+  <div style="font-size:10px;color:var(--text-muted);letter-spacing:.06em;margin-bottom:10px;padding-left:2px;">📈 港美股券商</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;" class="perks-cards">
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#60a5fa;flex-shrink:0;">uSMART</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">盈立证券</div>
+      </div>
+      <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">新人礼丰厚</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">U02662</span></div>
+      <a href="https://m.usmart66.com/webapp/open-account/apply.html?ICode=U02662#/register" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#60a5fa;flex-shrink:0;">BBAE</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">必贝证券</div>
+      </div>
+      <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">美股零佣金</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">stcb8stkb</span></div>
+      <a href="https://landing.bbaecache.com/m/h5/new-user-reward-v4?lang=zh-CN&f=invite&referral=stcb8stkb" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#60a5fa;flex-shrink:0;">SCH</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">嘉信 Schwab</div>
+      </div>
+      <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">美股零佣金</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">REFERF8MARZGG</span></div>
+      <a href="https://www.schwab.com/client-referral?refrid=REFERF8MARZGG" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#60a5fa;flex-shrink:0;">致富</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">致富证券</div>
+      </div>
+      <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">港股专业</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">EA6728</span></div>
+      <a href="https://www.chiefgroup.com.hk/hk/open?rl=ECR&PromoCode=EA6728" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
+    </div>
+
+  </div>
+
+  <!-- 银行卡/eSIM -->
+  <div style="font-size:10px;color:var(--text-muted);letter-spacing:.06em;margin-bottom:10px;padding-left:2px;">🏦 银行 &amp; 📡 通讯</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:4px;" class="perks-cards">
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(0,176,141,.1);border:.5px solid rgba(0,176,141,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#00b08d;flex-shrink:0;">W</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">Wise</div>
+      </div>
+      <div style="font-size:10px;color:#34d399;background:rgba(16,185,129,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">多币种换汇</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">专属链接注册，首次汇款优惠</div>
+      <a href="https://wise.com/register?referralCode=haiyang27" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(96,165,250,.1);border:.5px solid rgba(96,165,250,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#60a5fa;flex-shrink:0;">gg</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">giffgaff</div>
+      </div>
+      <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">🇬🇧 英国号码</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">保号每年仅 0.6 英镑</div>
+      <a href="http://www.giffgaff.com/orders/affiliate/mjboo546_1731680040526" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即购买 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#f87171;flex-shrink:0;">RT</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">Redteago</div>
+      </div>
+      <div style="font-size:10px;color:#f87171;background:rgba(239,68,68,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">190+ 国家流量</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">折扣码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">RTGF94EFR</span></div>
+      <a href="https://esim.redteago.com?c=pfkq0ygi" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即购买 →</a>
+    </div>
+
+    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+        <div style="width:32px;height:32px;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#a78bfa;flex-shrink:0;">SP</div>
+        <div style="font-size:12px;font-weight:600;color:#e2e8f0;">SafePal Card</div>
+      </div>
+      <div style="font-size:10px;color:#a78bfa;background:rgba(167,139,250,.1);padding:1px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;">加密 Visa 卡</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-bottom:11px;">邀请码：<span style="color:#ef4444;font-family:monospace;font-weight:700;">766177</span></div>
+      <a href="nifulei-crypto.html#card" style="background:var(--accent);color:#0a0c10;font-size:10px;font-weight:700;padding:5px 12px;border-radius:5px;display:inline-block;text-decoration:none;">立即开通 →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── 最新推文 ── -->
+<div style="max-width:1080px;margin:0 auto;padding:44px 28px 0;">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;">
+    <p style="font-size:10px;color:var(--text-dim);letter-spacing:.1em;">LATEST VIDEOS</p>
+    <a href="https://www.youtube.com/@tala-kang" target="_blank" style="font-size:11px;color:var(--accent);">查看全部 →</a>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;">
+    <a href="https://www.youtube.com/watch?v=fBlVgOUhMso" target="_blank" class="tweet-row" style="display:flex;align-items:center;justify-content:space-between;background:var(--bg-card);border:.5px solid var(--border);border-radius:8px;padding:13px 18px;gap:16px;">
+      <div style="display:flex;align-items:center;gap:10px;min-width:0;">
+        <span style="font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;background:rgba(255,0,0,.12);color:#f87171;flex-shrink:0;">视频</span>
+        <span style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">OKX 欧易注册+KYC 完整图文教程，最新版</span>
+      </div>
+      <span style="font-size:11px;color:var(--text-dim);flex-shrink:0;">▶ →</span>
+    </a>
+    <a href="https://youtu.be/M3X1cOtfUCo" target="_blank" class="tweet-row" style="display:flex;align-items:center;justify-content:space-between;background:var(--bg-card);border:.5px solid var(--border);border-radius:8px;padding:13px 18px;gap:16px;">
+      <div style="display:flex;align-items:center;gap:10px;min-width:0;">
+        <span style="font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;background:rgba(255,0,0,.12);color:#f87171;flex-shrink:0;">视频</span>
+        <span style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">长桥证券注册+入金完整教程，港美股入门</span>
+      </div>
+      <span style="font-size:11px;color:var(--text-dim);flex-shrink:0;">▶ →</span>
+    </a>
+    <a href="https://www.youtube.com/watch?v=NbL0JXtbpek" target="_blank" class="tweet-row" style="display:flex;align-items:center;justify-content:space-between;background:var(--bg-card);border:.5px solid var(--border);border-radius:8px;padding:13px 18px;gap:16px;">
+      <div style="display:flex;align-items:center;gap:10px;min-width:0;">
+        <span style="font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;background:rgba(255,0,0,.12);color:#f87171;flex-shrink:0;">视频</span>
+        <span style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Wise 开户全教程：多币种账户最完整指南</span>
+      </div>
+      <span style="font-size:11px;color:var(--text-dim);flex-shrink:0;">▶ →</span>
+    </a>
+  </div>
+</div>
+
+<!-- ── 出海路线图入口 ── -->
+<div style="max-width:1080px;margin:0 auto;padding:44px 28px 56px;">
+  <a href="nifulei-journey.html" style="display:block;background:linear-gradient(135deg,#0f1319,#13080f);border:.5px solid rgba(248,113,113,.3);border-radius:14px;padding:28px 32px;text-decoration:none;transition:border-color .18s;" onmouseover="this.style.borderColor='rgba(248,113,113,.55)'" onmouseout="this.style.borderColor='rgba(248,113,113,.3)'">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div style="font-size:10px;color:#f87171;letter-spacing:.1em;margin-bottom:8px;">OVERSEAS JOURNEY · 出海路线图</div>
+        <div style="font-size:18px;font-weight:700;color:#e8edf5;margin-bottom:6px;">🚀 7 关出海闯关系统</div>
+        <div style="font-size:12px;color:var(--text-muted);line-height:1.9;">网络环境 → 海外号码 → 银行账户 → 港美股 → 加密交易所 → 加密支付卡<br>每关有学习清单，全部勾选自动解锁，追踪你的出海进度</div>
+      </div>
+      <div style="background:#f87171;color:#0a0c10;font-size:12px;font-weight:700;padding:10px 22px;border-radius:8px;white-space:nowrap;flex-shrink:0;">开始闯关 →</div>
+    </div>
+  </a>
+</div>
+
+</body>
+</html>

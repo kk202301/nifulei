@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>港美股券商推荐｜香港券商与美股平台开户指南与对比 - 泥伏雷闯关记</title>
+<meta name="description" content="精选主流港股与美股券商平台，整理开户流程、开户链接、费用结构及使用体验，适合新手投资者进行全球资产配置与证券投资参考。">
+
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="港美股开户,美股券商推荐,香港券商,海外投资,股票开户">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0c10; --bg-card: #111318; --bg-card-hover: #161920;
+  --bg-dropdown: #13161e;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(240,180,41,0.35);
+  --text: #dde3ee; --text-muted: #5a6478; --text-dim: #363d4e;
+  --accent: #f0b429; --accent-dim: rgba(240,180,41,0.12); --accent-border: rgba(240,180,41,0.28);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "SF Pro Text","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+  font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; cursor: pointer; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(10,12,16,.92); backdrop-filter: blur(16px);
+  border-bottom: .5px solid var(--border);
+}
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between; height: 52px;
+}
+.logo { font-size: 13px; font-weight: 700; color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-item { position: relative; }
+.nav-item > .nav-label {
+  display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-muted);
+  padding: 6px 10px; border-radius: 6px; cursor: pointer;
+  transition: color .15s, background .15s; white-space: nowrap;
+}
+.nav-item:hover > .nav-label { color: var(--text); background: rgba(255,255,255,.05); }
+.arr { font-size: 8px; color: var(--text-dim); transition: transform .2s; display: inline-block; }
+.nav-item:hover .arr { transform: rotate(180deg); color: var(--accent); }
+.dropdown {
+  position: absolute; top: calc(100% + 6px); left: 0; min-width: 148px;
+  background: var(--bg-dropdown); border: .5px solid rgba(255,255,255,.1);
+  border-radius: 10px; padding: 6px; opacity: 0; pointer-events: none;
+  transform: translateY(-6px); transition: opacity .18s, transform .18s;
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+}
+.nav-item:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.dropdown a {
+  display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted);
+  padding: 7px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap;
+}
+.dropdown a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+.dropdown-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); flex-shrink: 0; }
+.dropdown a:hover .dropdown-dot { background: var(--accent); }
+.nav-single { font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-single:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.nav-cta { font-size: 11px; color: #0a0c10; background: var(--accent); padding: 6px 16px; border-radius: 6px; font-weight: 700; margin-left: 8px; }
+
+/* ANCHOR NAV */
+.anchor-nav {
+  position: sticky; top: 52px; z-index: 100;
+  background: rgba(10,12,16,.95); backdrop-filter: blur(12px);
+  padding: 0 28px; display: flex; gap: 6px; align-items: center;
+  border-bottom: .5px solid var(--border); overflow-x: auto; scrollbar-width: none;
+}
+.anchor-nav::-webkit-scrollbar { display: none; }
+.anchor-btn {
+  font-size: 12px; color: var(--text-muted); padding: 12px 14px; white-space: nowrap;
+  border-bottom: 1.5px solid transparent; transition: color .15s, border-color .15s; cursor: pointer;
+}
+.anchor-btn:hover { color: var(--text); }
+.anchor-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* PAGE HEADER */
+.page-header { max-width: 1080px; margin: 0 auto; padding: 44px 28px 36px; border-bottom: .5px solid var(--border); }
+.breadcrumb { font-size: 11px; color: var(--text-dim); margin-bottom: 14px; }
+.breadcrumb span { color: var(--text-muted); }
+
+/* CONTENT */
+.content { max-width: 1080px; margin: 0 auto; padding: 0 28px 80px; }
+.broker-section { padding-top: 52px; }
+.section-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.section-heading h2 { font-size: 18px; font-weight: 700; }
+.section-count { font-size: 10px; color: var(--text-dim); background: rgba(255,255,255,.05); padding: 2px 8px; border-radius: 20px; }
+.section-sub { font-size: 12px; color: var(--text-dim); margin-bottom: 24px; }
+.section-divider { height: .5px; background: var(--border); margin: 52px 0 0; }
+
+/* INFO BOX */
+.info-box {
+  background: rgba(240,180,41,.07); border: .5px solid rgba(240,180,41,.25);
+  border-radius: 10px; padding: 14px 18px; margin-bottom: 28px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.info-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.info-text { font-size: 12px; color: #fbbf24; line-height: 1.8; }
+.info-text strong { font-weight: 700; }
+.info-tag {
+  display: inline-block; background: rgba(240,180,41,.15); color: var(--accent);
+  font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 4px;
+  margin: 0 2px; border: .5px solid var(--accent-border);
+}
+
+/* CARDS */
+.cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cards-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+.broker-card {
+  background: var(--bg-card); border: .5px solid var(--border);
+  border-radius: 12px; padding: 20px; display: flex; flex-direction: column;
+  transition: border-color .18s, background .18s; position: relative;
+}
+.broker-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+.broker-card.featured { border-color: var(--accent-border); background: linear-gradient(135deg, #111318 0%, #161208 100%); }
+
+.badge-row { display: flex; gap: 6px; margin-bottom: 12px; min-height: 20px; flex-wrap: wrap; }
+.badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; letter-spacing: .03em; }
+.badge-rec  { background: var(--accent-dim); color: var(--accent); border: .5px solid var(--accent-border); }
+.badge-hot  { background: rgba(239,68,68,.12); color: #f87171; border: .5px solid rgba(239,68,68,.25); }
+.badge-free { background: rgba(16,185,129,.1); color: #34d399; border: .5px solid rgba(16,185,129,.2); }
+.badge-new  { background: rgba(99,102,241,.12); color: #a5b4fc; border: .5px solid rgba(99,102,241,.25); }
+.badge-must { background: rgba(239,68,68,.12); color: #f87171; border: .5px solid rgba(239,68,68,.3); }
+.badge-sg   { background: rgba(16,185,129,.1); color: #34d399; border: .5px solid rgba(16,185,129,.2); }
+.badge-hk   { background: rgba(248,113,113,.1); color: #fca5a5; border: .5px solid rgba(248,113,113,.2); }
+.badge-us   { background: rgba(96,165,250,.1); color: #93c5fd; border: .5px solid rgba(96,165,250,.2); }
+
+.card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.card-logo {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(255,255,255,.06); border: .5px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: var(--text-muted);
+  letter-spacing: -.02em; flex-shrink: 0;
+}
+.card-name { font-size: 14px; font-weight: 700; color: #e8edf5; }
+.card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.75; flex: 1; margin-bottom: 14px; }
+
+/* stars */
+.stars { display: flex; align-items: center; gap: 3px; margin-bottom: 14px; }
+.star-score { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+
+/* invite code box */
+.invite-box {
+  background: rgba(255,255,255,.04); border: .5px solid rgba(255,255,255,.1);
+  border-radius: 7px; padding: 8px 12px; margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.invite-label { font-size: 10px; color: var(--text-dim); }
+.invite-code { font-size: 12px; font-weight: 700; color: #ef4444; font-family: monospace; letter-spacing: .06em; }
+
+/* buttons */
+.card-btns { display: flex; gap: 7px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent); color: #0a0c10; font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 6px; transition: opacity .15s;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-ghost {
+  border: .5px solid rgba(255,255,255,.13); color: var(--text-muted);
+  font-size: 11px; padding: 6px 12px; border-radius: 6px;
+  transition: color .15s, border-color .15s;
+}
+.btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.25); }
+
+/* region toggle */
+.region-toggle {
+  display: inline-flex; background: rgba(255,255,255,.05);
+  border: .5px solid var(--border); border-radius: 8px; padding: 3px; gap: 2px;
+  margin-bottom: 20px;
+}
+.region-btn {
+  font-size: 11px; padding: 5px 14px; border-radius: 6px;
+  color: var(--text-muted); cursor: pointer; transition: all .18s; white-space: nowrap;
+}
+.region-btn.active { background: var(--bg-card); color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,.4); }
+
+/* region panels */
+.region-panel { display: none; }
+.region-panel.active { display: grid; }
+
+footer { border-top: .5px solid var(--border); padding: 28px; text-align: center; }
+footer p { font-size: 11px; color: var(--text-dim); line-height: 2; }
+footer .sep { margin: 0 10px; opacity: .3; }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .nav-inner { padding: 0 16px; }
+
+  .page-header { padding: 28px 16px 24px; }
+  .content, .broker-section, .crypto-section, .comm-section, .map-section, .about-section { padding-left: 16px; padding-right: 16px; }
+
+  /* grids */
+  .cards-grid, .cards-grid.cols-3, .cards-grid.cols-2 { grid-template-columns: 1fr 1fr !important; }
+  .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr 1fr !important; }
+  .cn-card.highlight { grid-column: span 2; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .promos-grid, .contact-grid { grid-template-columns: 1fr !important; }
+  .contact-card.full-width { grid-column: span 1; }
+
+  /* hero */
+  .hero h1, h1 { font-size: 30px !important; }
+  .hero-btns { flex-direction: column; align-items: center; }
+
+  /* anchor nav */
+  .anchor-nav { gap: 0; padding: 0 12px; }
+  .anchor-btn { padding: 10px 10px; font-size: 11px; }
+
+  /* diagrams scroll */
+  .diagram-wrap { padding: 16px 12px; }
+
+  /* footer */
+  footer { flex-direction: column; align-items: flex-start; padding: 20px 16px; gap: 12px; }
+
+  /* broker dual-span cards */
+  [style*="grid-column: span 2"] { grid-column: span 1 !important; }
+
+  /* section */
+  .section { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+@media (max-width: 480px) {
+  .cards-grid, .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr !important; }
+  .cn-card.highlight { grid-column: span 1; }
+  .region-toggle { flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) { .nav-cta { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="nifulei-preview.html" class="logo">泥伏雷闯关记</a>
+    <div class="nav-links">
+      <div class="nav-item">
+        <div class="nav-label">国外银行卡 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a>
+          <a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a>
+          <a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a>
+          <a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label">港美股券商 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a>
+          <a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label">加密 Web3 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-crypto.html#exchange"><span class="dropdown-dot"></span>交易所</a>
+          <a href="nifulei-crypto.html#card"><span class="dropdown-dot"></span>加密银行卡</a>
+          <a href="nifulei-crypto.html#cold"><span class="dropdown-dot"></span>冷钱包</a>
+          <a href="nifulei-crypto.html#hot"><span class="dropdown-dot"></span>热钱包</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label">跨境通讯 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-esim.html#esim-num"><span class="dropdown-dot"></span>eSIM 号码</a>
+          <a href="nifulei-esim.html#esim-data"><span class="dropdown-dot"></span>eSIM 流量平台</a>
+          <a href="nifulei-esim.html#esim-writer"><span class="dropdown-dot"></span>eSIM 写卡器</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label">其他资源 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="#"><span class="dropdown-dot"></span>休闲娱乐</a>
+          <a href="#"><span class="dropdown-dot"></span>出海工具</a>
+        </div>
+      </div>
+      <a href="#" class="nav-single">金融路线图</a>
+      <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
+      <div class="nav-item">
+        <div class="nav-label">关于泥伏雷 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-about.html#origin"><span class="dropdown-dot"></span>泥伏雷缘起</a>
+          <a href="nifulei-about.html#contact"><span class="dropdown-dot"></span>联系方式</a>
+        </div>
+      </div>
+      <a href="https://x.com/" target="_blank" class="nav-cta">关注 𝕏</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ANCHOR NAV -->
+<div class="anchor-nav">
+  <a href="#hk" class="anchor-btn active">🇭🇰 港股券商</a>
+  <a href="#us" class="anchor-btn">🇺🇸 美股券商</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="breadcrumb">首页 › <span>港美股券商</span></div>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+    <span style="font-size:24px;">📈</span>
+    <h1 style="font-size:26px;font-weight:700;letter-spacing:-.01em;">港美股券商</h1>
+  </div>
+  <p style="font-size:13px;color:var(--text-muted);line-height:1.8;white-space:nowrap;">
+    收录主流港股及美股券商，附开户教程、邀请码和返佣信息。普通人也能低成本参与全球资本市场。
+  </p>
+</div>
+
+<div class="content">
+
+<!-- ══ 港股券商 ══ -->
+<div class="broker-section" id="hk">
+  <div class="section-heading">
+    <h2>🇭🇰 港股券商</h2>
+    <span class="section-count">14 个资源</span>
+  </div>
+  <p class="section-sub">以下券商均支持港股交易，部分同时支持美股、A股及其他市场</p>
+
+  <div class="info-box">
+    <div class="info-icon">💡</div>
+    <div class="info-text">
+      <strong>新人开户优先推荐：</strong>
+      投资港股推荐 <span class="info-tag">盈立证券</span> <span class="info-tag">FSMone</span>，
+      投资美股推荐 <span class="info-tag">必贝证券</span> <span class="info-tag">嘉信证券</span>
+      — 开户流程简单、新人礼丰厚、费率竞争力强，都开效果最佳。
+    </div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- 长桥证券（带区域切换） -->
+    <div class="broker-card featured" style="grid-column: span 2;">
+      <div class="badge-row">
+        <span class="badge badge-rec">推荐</span>
+        <span class="badge badge-hot">双版本</span>
+      </div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">长桥</div>
+        <div class="card-name">长桥证券 Longbridge</div>
+      </div>
+      <div class="card-desc">界面美观、社区活跃，支持港股/美股/A股/期权，新人礼丰厚。分香港和新加坡两个注册实体，权益略有差异。</div>
+
+      <div class="region-toggle" id="lb-toggle">
+        <div class="region-btn active" onclick="switchRegion('lb','hk',this)">🇭🇰 香港版</div>
+        <div class="region-btn" onclick="switchRegion('lb','sg',this)">🇸🇬 新加坡版</div>
+      </div>
+
+      <div id="lb-hk" class="region-panel active" style="grid-template-columns:1fr;">
+        <div class="invite-box">
+          <span class="invite-label">邀请码（香港）</span>
+          <span class="invite-code" style="color:#ef4444;">32V2M2</span>
+        </div>
+        <div class="stars">
+          <span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://app.longbridgehk.com/ac/oa?account_channel=lb&channel=HB100036&invite-code=32V2M2" class="btn-primary">点击开通 →</a>
+          <a href="https://youtu.be/M3X1cOtfUCo" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+      <div id="lb-sg" class="region-panel" style="grid-template-columns:1fr;">
+        <div class="invite-box">
+          <span class="invite-label">邀请码（新加坡）</span>
+          <span class="invite-code" style="color:#ef4444;">AVZT6A</span>
+        </div>
+        <div class="stars">
+          <span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://activity.lbmkt.ing/pages/longbridge/7415/index.html?app_id=longbridge&org_id=1&account_channel=lb&lang=zh-CN&channel=HB100036&invite-code=AVZT6A" class="btn-primary">点击开通 →</a>
+          <a href="https://youtu.be/M3X1cOtfUCo" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 盈立证券（带区域切换） -->
+    <div class="broker-card featured" style="grid-column: span 2;">
+      <div class="badge-row">
+        <span class="badge badge-rec">新人首选</span>
+        <span class="badge badge-hot">双版本</span>
+      </div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(16,185,129,.1);color:#34d399;border-color:rgba(16,185,129,.2);">盈立</div>
+        <div class="card-name">盈立证券 uSMART</div>
+      </div>
+      <div class="card-desc">富途旗下国际券商，数据工具强大，新人礼丰厚，支持港股/美股/A股。香港版和新加坡版权益不同，建议都开。</div>
+
+      <div class="region-toggle" id="mm-toggle">
+        <div class="region-btn active" onclick="switchRegion('mm','hk',this)">🇭🇰 香港版</div>
+        <div class="region-btn" onclick="switchRegion('mm','sg',this)">🇸🇬 新加坡版</div>
+      </div>
+
+      <div id="mm-hk" class="region-panel active" style="grid-template-columns:1fr;">
+        <div class="invite-box">
+          <span class="invite-label">邀请码（香港）</span>
+          <span class="invite-code" style="color:#ef4444;">U02662</span>
+        </div>
+        <div class="stars">
+          <span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://m.usmart66.com/webapp/open-account/apply.html?ICode=U02662#/register" class="btn-primary">点击开通 →</a>
+          <a href="https://youtu.be/qbYGst9gQy4" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+      <div id="mm-sg" class="region-panel" style="grid-template-columns:1fr;">
+        <div class="invite-box">
+          <span class="invite-label">邀请码（新加坡）</span>
+          <span class="invite-code" style="color:#ef4444;">n76gea</span>
+        </div>
+        <div class="stars">
+          <span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://m.usmartsg.com/promo/overseas/sg-register.html?langType=1&HCode=n76gea&HBox=1#/marketing-register" class="btn-primary">点击开通 →</a>
+          <a href="https://youtu.be/qbYGst9gQy4" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 其余港股券商 -->
+  <div class="cards-grid" style="margin-top:12px;">
+
+    <!-- 华盛通 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#60a5fa;">华盛</div>
+        <div class="card-name">华盛通证券</div>
+      </div>
+      <div class="card-desc">腾讯系券商，界面简洁，支持港股/美股，新人礼稳定，适合初学者</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">CBZQ</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.hstbroker.com/kh/apply/online?_scnl=CBZQ" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 尊嘉 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-free">零佣金</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#a78bfa;">尊嘉</div>
+        <div class="card-name">尊嘉证券</div>
+      </div>
+      <div class="card-desc">主打零佣金，港股/美股/A股均支持，费率极低，适合高频交易者</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">Q77XCR</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://opt.investassistant.com/miningopt/inviteSeventeen/index?channelopen=GFYQYJ318&shareNew=473095" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=FISI9Ri-c20" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 富途 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hot">热门</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#f0b429;">富途</div>
+        <div class="card-name">富途证券</div>
+      </div>
+      <div class="card-desc">港股老牌券商，数据完善，社区活跃，适合有一定经验的投资者</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">AZEW8</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.5</span></div>
+      <div class="card-btns"><a href="#" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=KcajqboiXW8" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 老虎 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#fb923c;">老虎</div>
+        <div class="card-name">老虎证券</div>
+      </div>
+      <div class="card-desc">支持港股/美股，新人礼丰厚，国内用户接受度高，界面友好</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">TALATIGER</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.tigersecurities.com/signup?source=inner&invite=TALATIGER" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=ikHtCxbwCAY" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 盈宝 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">盈宝</div>
+        <div class="card-name">盈宝证券</div>
+      </div>
+      <div class="card-desc">香港持牌券商，主攻港股，费率低，适合轻量入门</div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="https://winbulls.com/s/index.html?activityId=211&activityUserId=81381843&lang=zh_CN" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 卓锐 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#60a5fa;">卓锐</div>
+        <div class="card-name">卓锐证券</div>
+      </div>
+      <div class="card-desc">香港本地券商，主攻港股，适合港居人士及有香港银行卡用户</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">ZR5953</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="https://channel.zr.hk/zhuorui_web_h5/login?inviteCode=ZR5953" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 致富 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#fbbf24;">致富</div>
+        <div class="card-name">致富证券</div>
+      </div>
+      <div class="card-desc">香港老牌券商，主攻港股及 IPO 认购，适合有认购需求的用户</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">EA6728</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="https://www.chiefgroup.com.hk/hk/open?rl=ECR&PromoCode=EA6728" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=oE2ayYnbErQ" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 胜利通 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#f87171;">胜利</div>
+        <div class="card-name">胜利通</div>
+      </div>
+      <div class="card-desc">主攻港股，费率较低，提供基础港股交易功能，适合轻量使用</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">R39DD</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="#" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 熊猫 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-new">新兴</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#a78bfa;">熊猫</div>
+        <div class="card-name">熊猫证券</div>
+      </div>
+      <div class="card-desc">新兴港股券商，主打新人礼及低佣金，适合尝鲜开户薅羊毛</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">SPUMYJTR</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="https://panda.activity.wbrks.com/pages/panda/8939/index.html?app_id=panda&org_id=1&account_channel=hk_panda&invite-code=SPUMYJTR&utm_source=panda_app_share" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 立桥 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">立桥</div>
+        <div class="card-name">立桥证券</div>
+      </div>
+      <div class="card-desc">立桥银行旗下券商，港股交易专注，可与立桥银行账户联动管理资金</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">117124</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="#" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 复星 -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#fb923c;">复星</div>
+        <div class="card-name">复星证券</div>
+      </div>
+      <div class="card-desc">复星国际旗下香港券商，提供港股/美股交易，品牌背书稳健</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">R7AUJK</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="https://h5.fotechwealth.com/pages/startAccount.html?channel=030010&aeCode=B2&invitationCode=R7AUJK&langType=zhCn" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- FSMone -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-sg">新加坡系</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">FSM</div>
+        <div class="card-name">FSMone 证券</div>
+      </div>
+      <div class="card-desc">iFAST 旗下港股及基金交易平台，费率低廉，可同时管理证券与基金账户，适合多元配置</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.fsmone.com.hk/account-opening" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=AebrLV6BV2I" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ 美股券商 ══ -->
+<div class="broker-section" id="us">
+  <div class="section-heading">
+    <h2>🇺🇸 美股券商</h2>
+    <span class="section-count">3 个资源</span>
+  </div>
+  <p class="section-sub">专注美股市场，低费率、高流动性，适合长期持有美股 ETF 及个股</p>
+
+  <div class="cards-grid cols-3">
+
+    <!-- 盈透 -->
+    <div class="broker-card featured">
+      <div class="badge-row"><span class="badge badge-rec">专业首选</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">IB</div>
+        <div class="card-name">盈透证券 IBKR</div>
+      </div>
+      <div class="card-desc">Interactive Brokers，全球最专业在线券商，支持 150+ 市场，费率极低，适合进阶投资者</div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+      <div class="card-btns"><a href="https://ibkr.com/referral/yanming865" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=GsFA-eaYJQQ" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 嘉信 -->
+    <div class="broker-card featured">
+      <div class="badge-row"><span class="badge badge-rec">新人首选</span><span class="badge badge-free">零佣金</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(96,165,250,.1);color:#93c5fd;border-color:rgba(96,165,250,.2);">CS</div>
+        <div class="card-name">嘉信证券 Charles Schwab</div>
+      </div>
+      <div class="card-desc">美国最大零售券商之一，美股零佣金，账户无最低要求，适合长期定投 ETF</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">REFERF8MARZGG</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+      <div class="card-btns"><a href="https://www.schwab.com/client-referral?refrid=REFERF8MARZGG" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=BTAJQ7foi_g" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 必贝 -->
+    <div class="broker-card featured">
+      <div class="badge-row"><span class="badge badge-rec">新人首选</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(16,185,129,.1);color:#34d399;border-color:rgba(16,185,129,.2);">BB</div>
+        <div class="card-name">必贝证券 BBAE</div>
+      </div>
+      <div class="card-desc">美股零佣金券商，数据工具完善，新人礼丰厚，界面专业，适合有一定基础的用户</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">stcb8stkb</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
+      <div class="card-btns"><a href="https://landing.bbaecache.com/m/h5/new-user-reward-v4?lang=zh-CN&f=invite&referral=stcb8stkb" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=JlOel4GkiPQ" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<footer>
+  <div class="footer-copy">
+    © 2026 泥伏雷闯关记
+    <span class="sep">·</span>
+    内容仅供参考，不构成投资建议
+    <span class="sep">·</span>
+    投资有风险，入市需谨慎
+  </div>
+  <div class="footer-socials">
+    <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      𝕏 关注
+    </a>
+    <a href="https://t.me/talakang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      TG
+    </a>
+    <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+  </div>
+</footer>
+
+<script>
+// Region toggle
+function switchRegion(prefix, region, btn) {
+  document.querySelectorAll(`#${prefix}-hk, #${prefix}-sg`).forEach(p => p.classList.remove('active'));
+  document.getElementById(`${prefix}-${region}`).classList.add('active');
+  const toggle = btn.closest('.region-toggle');
+  toggle.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Anchor scroll
+const btns = document.querySelectorAll('.anchor-btn');
+btns.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    const navH = document.querySelector('nav').offsetHeight;
+    const anchorH = document.querySelector('.anchor-nav').offsetHeight;
+    const offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+    btns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+const sections = document.querySelectorAll('.broker-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      btns.forEach(b => b.classList.remove('active'));
+      const a = document.querySelector(`.anchor-btn[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
+sections.forEach(s => observer.observe(s));
+</script>
+
+<script>
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  if (m.style.display === 'none') {
+    m.style.display = 'block';
+    btn.textContent = '✕';
+  } else {
+    m.style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+// Show mobile btn on small screens
+function checkScreen() {
+  const btn = document.getElementById('menuBtn');
+  const links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  if (window.innerWidth <= 768) {
+    btn.style.display = 'flex';
+    links.style.display = 'none';
+  } else {
+    btn.style.display = 'none';
+    links.style.display = 'flex';
+    document.getElementById('mobileMenu').style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+window.addEventListener('resize', checkScreen);
+checkScreen();</script>
+</body>
+</html>

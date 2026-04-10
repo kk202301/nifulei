@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>跨境通讯解决方案｜eSIM手机号、流量平台与国际上网指南 - 泥伏雷闯关记</title>
+<meta name="description" content="提供全球eSIM手机号、跨境流量平台及大流量卡解决方案，支持海外注册、接码验证与长期上网需求，适用于出海用户与跨境业务场景。">
+
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="eSIM,国外手机号,接码平台,国际流量卡,跨境通讯">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0c10; --bg-card: #111318; --bg-card-hover: #161920;
+  --bg-dropdown: #13161e;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(240,180,41,0.35);
+  --text: #dde3ee; --text-muted: #5a6478; --text-dim: #363d4e;
+  --accent: #f0b429; --accent-dim: rgba(240,180,41,0.12); --accent-border: rgba(240,180,41,0.28);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: "SF Pro Text","PingFang SC","Microsoft YaHei",-apple-system,sans-serif; font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; cursor: pointer; }
+
+nav { position: sticky; top: 0; z-index: 200; background: rgba(10,12,16,.92); backdrop-filter: blur(16px); border-bottom: .5px solid var(--border); }
+.nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.logo { font-size: 13px; font-weight: 700; color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-item { position: relative; }
+.nav-item > .nav-label { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; cursor: pointer; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-item:hover > .nav-label { color: var(--text); background: rgba(255,255,255,.05); }
+.arr { font-size: 8px; color: var(--text-dim); transition: transform .2s; display: inline-block; }
+.nav-item:hover .arr { transform: rotate(180deg); color: var(--accent); }
+.dropdown { position: absolute; top: calc(100% + 6px); left: 0; min-width: 148px; background: var(--bg-dropdown); border: .5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 6px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .18s, transform .18s; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.nav-item:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.dropdown a { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); padding: 7px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.dropdown a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+.dropdown-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); flex-shrink: 0; }
+.dropdown a:hover .dropdown-dot { background: var(--accent); }
+.nav-single { font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-single:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.nav-cta { font-size: 11px; color: #0a0c10; background: var(--accent); padding: 6px 16px; border-radius: 6px; font-weight: 700; margin-left: 8px; }
+
+.anchor-nav { position: sticky; top: 52px; z-index: 100; background: rgba(10,12,16,.95); backdrop-filter: blur(12px); padding: 0 28px; display: flex; gap: 6px; align-items: center; border-bottom: .5px solid var(--border); overflow-x: auto; scrollbar-width: none; }
+.anchor-nav::-webkit-scrollbar { display: none; }
+.anchor-btn { font-size: 12px; color: var(--text-muted); padding: 12px 14px; white-space: nowrap; border-bottom: 1.5px solid transparent; transition: color .15s, border-color .15s; cursor: pointer; }
+.anchor-btn:hover { color: var(--text); }
+.anchor-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.page-header { max-width: 1080px; margin: 0 auto; padding: 44px 28px 36px; border-bottom: .5px solid var(--border); }
+.breadcrumb { font-size: 11px; color: var(--text-dim); margin-bottom: 14px; }
+.breadcrumb span { color: var(--text-muted); }
+
+.content { max-width: 1080px; margin: 0 auto; padding: 0 28px 80px; }
+.comm-section { padding-top: 52px; }
+.section-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.section-heading h2 { font-size: 18px; font-weight: 700; }
+.section-count { font-size: 10px; color: var(--text-dim); background: rgba(255,255,255,.05); padding: 2px 8px; border-radius: 20px; }
+.section-sub { font-size: 12px; color: var(--text-dim); margin-bottom: 24px; }
+.section-divider { height: .5px; background: var(--border); margin: 52px 0 0; }
+
+/* BADGES */
+.badge-row { display: flex; gap: 6px; margin-bottom: 12px; min-height: 20px; flex-wrap: wrap; }
+.badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; letter-spacing: .03em; }
+.badge-rec  { background: var(--accent-dim); color: var(--accent); border: .5px solid var(--accent-border); }
+.badge-hot  { background: rgba(239,68,68,.12); color: #f87171; border: .5px solid rgba(239,68,68,.25); }
+.badge-free { background: rgba(16,185,129,.1); color: #34d399; border: .5px solid rgba(16,185,129,.2); }
+.badge-new  { background: rgba(99,102,241,.12); color: #a5b4fc; border: .5px solid rgba(99,102,241,.25); }
+.badge-cn   { background: rgba(248,113,113,.08); color: #fca5a5; border: .5px solid rgba(248,113,113,.18); }
+.badge-uk   { background: rgba(96,165,250,.1); color: #93c5fd; border: .5px solid rgba(96,165,250,.2); }
+.badge-hk   { background: rgba(167,139,250,.1); color: #c4b5fd; border: .5px solid rgba(167,139,250,.2); }
+.badge-de   { background: rgba(253,224,71,.1); color: #fde047; border: .5px solid rgba(253,224,71,.2); }
+
+/* CARDS */
+.cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cards-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.cards-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+.comm-card { background: var(--bg-card); border: .5px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; transition: border-color .18s, background .18s; }
+.comm-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+.comm-card.featured { border-color: var(--accent-border); background: linear-gradient(135deg, #111318 0%, #161208 100%); }
+
+.card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.card-logo { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,.06); border: .5px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--text-muted); letter-spacing: -.02em; flex-shrink: 0; }
+.card-name { font-size: 14px; font-weight: 700; color: #e8edf5; }
+.card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.75; flex: 1; margin-bottom: 12px; }
+
+/* INFO BOXES */
+.discount-box { background: rgba(240,180,41,.07); border: .5px solid rgba(240,180,41,.22); border-radius: 7px; padding: 7px 12px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.discount-label { font-size: 10px; color: #fcd34d; white-space: nowrap; }
+.discount-val { font-size: 12px; font-weight: 700; color: #ef4444; font-family: monospace; letter-spacing: .06em; }
+.discount-note { font-size: 10px; color: var(--accent); }
+
+.invite-box { background: rgba(255,255,255,.04); border: .5px solid rgba(255,255,255,.1); border-radius: 7px; padding: 7px 12px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.invite-label { font-size: 10px; color: var(--text-dim); white-space: nowrap; }
+.invite-code { font-size: 12px; font-weight: 700; color: #ef4444; font-family: monospace; letter-spacing: .06em; }
+.invite-code.gold { color: var(--accent); }
+
+/* STARS */
+.stars { display: flex; align-items: center; gap: 3px; margin-bottom: 12px; }
+.star-score { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+
+/* BUTTONS */
+.card-btns { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; }
+.btn-primary { background: var(--accent); color: #0a0c10; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; transition: opacity .15s; }
+.btn-primary:hover { opacity: .88; }
+.btn-buy { background: #a78bfa; color: #0a0c10; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; transition: opacity .15s; }
+.btn-buy:hover { opacity: .88; }
+.btn-ghost { border: .5px solid rgba(255,255,255,.13); color: var(--text-muted); font-size: 11px; padding: 6px 12px; border-radius: 6px; transition: color .15s, border-color .15s; }
+.btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.25); }
+
+/* 国内流量卡特殊网格 */
+.cn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cn-card { background: var(--bg-card); border: .5px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; transition: border-color .18s, background .18s; }
+.cn-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+.cn-card.highlight { border-color: var(--accent-border); background: linear-gradient(135deg,#111318,#161208); grid-column: span 2; flex-direction: row; align-items: center; justify-content: space-between; }
+.cn-carrier { font-size: 22px; font-weight: 800; color: #e8edf5; }
+.cn-name { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.cn-price { font-size: 11px; color: var(--accent); font-weight: 700; }
+
+/* 写卡器提示框 */
+.tip-box { background: rgba(167,139,250,.07); border: .5px solid rgba(167,139,250,.22); border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; display: flex; gap: 12px; align-items: flex-start; }
+.tip-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.tip-text { font-size: 12px; color: #c4b5fd; line-height: 1.8; }
+.tip-text strong { font-weight: 700; color: #a78bfa; }
+
+footer { border-top: .5px solid var(--border); padding: 28px; text-align: center; }
+footer p { font-size: 11px; color: var(--text-dim); line-height: 2; }
+footer .sep { margin: 0 10px; opacity: .3; }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .nav-inner { padding: 0 16px; }
+
+  .page-header { padding: 28px 16px 24px; }
+  .content, .broker-section, .crypto-section, .comm-section, .map-section, .about-section { padding-left: 16px; padding-right: 16px; }
+
+  /* grids */
+  .cards-grid, .cards-grid.cols-3, .cards-grid.cols-2 { grid-template-columns: 1fr 1fr !important; }
+  .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr 1fr !important; }
+  .cn-card.highlight { grid-column: span 2; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .promos-grid, .contact-grid { grid-template-columns: 1fr !important; }
+  .contact-card.full-width { grid-column: span 1; }
+
+  /* hero */
+  .hero h1, h1 { font-size: 30px !important; }
+  .hero-btns { flex-direction: column; align-items: center; }
+
+  /* anchor nav */
+  .anchor-nav { gap: 0; padding: 0 12px; }
+  .anchor-btn { padding: 10px 10px; font-size: 11px; }
+
+  /* diagrams scroll */
+  .diagram-wrap { padding: 16px 12px; }
+
+  /* footer */
+  footer { flex-direction: column; align-items: flex-start; padding: 20px 16px; gap: 12px; }
+
+  /* broker dual-span cards */
+  [style*="grid-column: span 2"] { grid-column: span 1 !important; }
+
+  /* section */
+  .section { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+@media (max-width: 480px) {
+  .cards-grid, .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr !important; }
+  .cn-card.highlight { grid-column: span 1; }
+  .region-toggle { flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) { .nav-cta { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="nifulei-preview.html" class="logo">泥伏雷闯关记</a>
+    <div class="nav-links">
+      <div class="nav-item"><div class="nav-label">国外银行卡 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a><a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a><a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a><a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a></div></div>
+      <div class="nav-item"><div class="nav-label">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a></div></div>
+      <div class="nav-item"><div class="nav-label">加密 Web3 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-crypto.html#exchange"><span class="dropdown-dot"></span>交易所</a><a href="nifulei-crypto.html#card"><span class="dropdown-dot"></span>加密银行卡</a><a href="nifulei-crypto.html#cold"><span class="dropdown-dot"></span>冷钱包</a><a href="nifulei-crypto.html#hot"><span class="dropdown-dot"></span>热钱包</a></div></div>
+      <div class="nav-item"><div class="nav-label">跨境通讯 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-esim.html#esim-num"><span class="dropdown-dot"></span>eSIM 号码</a><a href="nifulei-esim.html#esim-data"><span class="dropdown-dot"></span>eSIM 流量平台</a><a href="#cn-data"><span class="dropdown-dot"></span>国内大流量卡</a><a href="nifulei-esim.html#esim-writer"><span class="dropdown-dot"></span>eSIM 写卡器</a></div></div>
+      <div class="nav-item"><div class="nav-label">其他资源 <span class="arr">▾</span></div><div class="dropdown"><a href="#"><span class="dropdown-dot"></span>休闲娱乐</a><a href="#"><span class="dropdown-dot"></span>出海工具</a></div></div>
+      <a href="#" class="nav-single">金融路线图</a>
+      <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
+      <div class="nav-item"><div class="nav-label">关于泥伏雷 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-about.html#origin"><span class="dropdown-dot"></span>泥伏雷缘起</a><a href="nifulei-about.html#contact"><span class="dropdown-dot"></span>联系方式</a></div></div>
+      <a href="https://x.com/" target="_blank" class="nav-cta">关注 𝕏</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ANCHOR NAV -->
+<div class="anchor-nav">
+  <a href="#esim-num"    class="anchor-btn active">📱 eSIM 号码</a>
+  <a href="#esim-data"   class="anchor-btn">🌐 eSIM 流量平台</a>
+  <a href="#cn-data"     class="anchor-btn">📶 国内大流量卡</a>
+  <a href="#esim-writer" class="anchor-btn">🖊 eSIM 写卡器</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="breadcrumb">首页 › <span>跨境通讯</span></div>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+    <span style="font-size:24px;">📡</span>
+    <h1 style="font-size:26px;font-weight:700;letter-spacing:-.01em;">跨境通讯</h1>
+  </div>
+  <p style="font-size:13px;color:var(--text-muted);line-height:1.8;white-space:nowrap;">eSIM 号码、流量平台、国内大流量卡、写卡器，出海通讯一站搞定。</p>
+</div>
+
+<div class="content">
+
+<!-- ══ eSIM 号码 ══ -->
+<div class="comm-section" id="esim-num">
+  <div class="section-heading">
+    <h2>📱 eSIM 号码</h2>
+    <span class="section-count">4 个资源</span>
+  </div>
+  <p class="section-sub">境外实体号码，用于注册海外账号、接收验证码，出海必备</p>
+  <div class="cards-grid">
+
+    <!-- giffgaff -->
+    <div class="comm-card featured">
+      <div class="badge-row"><span class="badge badge-rec">推荐</span><span class="badge badge-uk">🇬🇧 英国</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">gg</div>
+        <div class="card-name">giffgaff</div>
+      </div>
+      <div class="card-desc">英国 O2 旗下虚拟运营商，保号成本极低（每年仅 0.6 英镑），适合长期持有英国号码，注册各类海外平台</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+      <div class="card-btns"><a href="http://www.giffgaff.com/orders/affiliate/mjboo546_1731680040526" class="btn-primary">立即购买 →</a><a href="https://youtu.be/1w-7DvEWJhI" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 德国沃达丰 -->
+    <div class="comm-card">
+      <div class="badge-row"><span class="badge badge-de">🇩🇪 德国</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#f87171;">Voda</div>
+        <div class="card-name">德国沃达丰</div>
+      </div>
+      <div class="card-desc">德国主流运营商 Vodafone，德国实体号码，适合注册欧洲区账号及欧盟相关平台验证</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.vodafone.de/freikarten/callya-classic-form/?icmp=prepaid-ohne-vertrag_tile_classic#personal-details-1" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=HJ-pNpviFAw" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 香港 3HK -->
+    <div class="comm-card">
+      <div class="badge-row"><span class="badge badge-hk">🇭🇰 香港</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#a78bfa;">3HK</div>
+        <div class="card-name">香港 3HK</div>
+      </div>
+      <div class="card-desc">香港三大运营商之一，香港本地号码，内地漫游信号稳定，适合持有香港号码备用</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.three.com.hk/" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=Vj0QFFsgEOs" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 香港 Clubsim -->
+    <div class="comm-card">
+      <div class="badge-row"><span class="badge badge-hk">🇭🇰 香港</span><span class="badge badge-free">免月租</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">Club</div>
+        <div class="card-name">香港 Clubsim</div>
+      </div>
+      <div class="card-desc">香港虚拟运营商，eSIM 开卡方便，免月租保号，适合轻量使用香港号码的用户</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">KF1GNG</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.clubsim.com.hk/" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=xklFHCMsP6w" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ eSIM 流量平台 ══ -->
+<div class="comm-section" id="esim-data">
+  <div class="section-heading">
+    <h2>🌐 eSIM 流量平台</h2>
+    <span class="section-count">3 个资源</span>
+  </div>
+  <p class="section-sub">出境上网首选，按需购买流量包，免换卡即可连接海外网络</p>
+  <div class="cards-grid cols-3">
+
+    <!-- Redteago -->
+    <div class="comm-card featured">
+      <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(239,68,68,.12);color:#f87171;border-color:rgba(239,68,68,.25);">RT</div>
+        <div class="card-name">Redteago</div>
+      </div>
+      <div class="card-desc">覆盖 190+ 国家和地区，流量包选择丰富，激活便捷，出境旅行首选流量平台</div>
+      <div class="discount-box">
+        <span class="discount-label">专属折扣码</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="discount-val">RTGF94EFR</span>
+          <span class="discount-note">永久 9 折</span>
+        </div>
+      </div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+      <div class="card-btns"><a href="https://esim.redteago.com?c=pfkq0ygi" class="btn-primary">立即购买 →</a><a href="https://youtu.be/nrUqqealZlg" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Eskimo -->
+    <div class="comm-card">
+      <div class="badge-row"><span class="badge badge-free">送流量</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#60a5fa;">ESK</div>
+        <div class="card-name">Eskimo</div>
+      </div>
+      <div class="card-desc">eSIM 流量平台，支持多国流量包，价格实惠，使用邀请码注册可免费获得 1GB 流量</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI</span></div>
+      <div style="font-size:10px;color:#34d399;margin:-6px 0 10px;padding:0 2px;">🎁 注册免费领取 1GB 流量</div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://eskimo.travel/TALAKANG/NIFULEI" class="btn-primary">立即购买 →</a><a href="https://youtu.be/j2zZcCSOs5c" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- KiteSim -->
+    <div class="comm-card">
+      <div class="badge-row"><span class="badge badge-new">新兴</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">Kite</div>
+        <div class="card-name">KiteSim</div>
+      </div>
+      <div class="card-desc">新兴 eSIM 流量平台，界面简洁，支持多国流量按日计费，灵活适合短期出行</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">JRXKM8</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="https://h5.kitesim.co/#/pages/login/register?invite=JRXKM8&language=zh" class="btn-primary">立即购买 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ 国内大流量卡 ══ -->
+<div class="comm-section" id="cn-data">
+  <div class="section-heading">
+    <h2>📶 国内大流量卡</h2>
+    <span class="section-count">5 个资源</span>
+  </div>
+  <p class="section-sub">精选国内运营商大流量套餐，低月租长期可用，国内日常上网首选</p>
+  <div class="cn-grid">
+
+    <!-- 精选 19 元 highlight -->
+    <div class="cn-card highlight">
+      <div>
+        <div style="font-size:10px;color:var(--accent);letter-spacing:.08em;margin-bottom:6px;">⭐ 精选推荐</div>
+        <div class="cn-carrier" style="font-size:18px;">精选 19 元月租</div>
+        <div class="cn-name" style="margin-top:4px;">大流量 · 长期套餐 · 全国通用</div>
+      </div>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/default_card?agent_id=231&tab_name=19_month" target="_blank" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">立即购买 →</a>
+    </div>
+
+    <!-- 联通 -->
+    <div class="cn-card">
+      <div class="card-logo" style="color:#60a5fa;width:36px;height:36px;font-size:12px;">联通</div>
+      <div>
+        <div class="cn-carrier">中国联通</div>
+        <div class="cn-name">大流量套餐</div>
+      </div>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
+    </div>
+
+    <!-- 移动 -->
+    <div class="cn-card">
+      <div class="card-logo" style="color:#34d399;width:36px;height:36px;font-size:12px;">移动</div>
+      <div>
+        <div class="cn-carrier">中国移动</div>
+        <div class="cn-name">大流量套餐</div>
+      </div>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
+    </div>
+
+    <!-- 电信 -->
+    <div class="cn-card">
+      <div class="card-logo" style="color:#f87171;width:36px;height:36px;font-size:12px;">电信</div>
+      <div>
+        <div class="cn-carrier">中国电信</div>
+        <div class="cn-name">大流量套餐</div>
+      </div>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
+    </div>
+
+    <!-- 广电 -->
+    <div class="cn-card">
+      <div class="card-logo" style="color:#a78bfa;width:36px;height:36px;font-size:12px;">广电</div>
+      <div>
+        <div class="cn-carrier">中国广电</div>
+        <div class="cn-name">大流量套餐</div>
+      </div>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ eSIM 写卡器 ══ -->
+<div class="comm-section" id="esim-writer">
+  <div class="section-heading">
+    <h2>🖊 eSIM 写卡器</h2>
+    <span class="section-count">2 个资源</span>
+  </div>
+  <p class="section-sub">将 eSIM 写入实体卡，适合旧设备或需要实体卡的场景</p>
+
+  <div class="tip-box">
+    <div class="tip-icon">💡</div>
+    <div class="tip-text">
+      两款写卡器均可使用折扣码 <strong>NIFULEI</strong> 享受购买优惠，折扣码即泥伏雷拼音大写，购买时在优惠码栏填入即可。
+    </div>
+  </div>
+
+  <div class="cards-grid cols-2">
+
+    <!-- Xesim -->
+    <div class="comm-card featured">
+      <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">X</div>
+        <div class="card-name">Xesim 写卡器</div>
+      </div>
+      <div class="card-desc">主流 eSIM 写卡器，支持主流运营商 eSIM Profile 写入，兼容性强，操作简单，附详细中文教程</div>
+      <div class="discount-box">
+        <span class="discount-label">折扣码</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="discount-val">NIFULEI</span>
+          <span class="discount-note">结算时填写，享 9 折</span>
+        </div>
+      </div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
+      <div class="card-btns"><a href="https://xeSim.cc/?DIST=QkVOHQ==" class="btn-buy">立即购买 →</a><a href="https://youtu.be/3mskopAAc7A" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 9esim -->
+    <div class="comm-card">
+      <div class="badge-row"><span class="badge badge-new">新兴</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#60a5fa;">9e</div>
+        <div class="card-name">9esim 写卡器</div>
+      </div>
+      <div class="card-desc">另一款主流写卡器选择，价格竞争力强，支持多种 eSIM 格式写入，适合需要备用方案的用户</div>
+      <div class="discount-box">
+        <span class="discount-label">折扣码</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+          <span class="discount-val">NIFULEI</span>
+          <span class="discount-note">结算时填写，享 9 折</span>
+        </div>
+      </div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.9eSim.com/?coupon=nifulei" class="btn-buy">立即购买 →</a><a href="https://youtu.be/CMJkBko9FD0" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+<!-- /content -->
+
+<footer>
+  <div class="footer-copy">
+    © 2026 泥伏雷闯关记
+    <span class="sep">·</span>
+    内容仅供参考，不构成投资建议
+    <span class="sep">·</span>
+    投资有风险，入市需谨慎
+  </div>
+  <div class="footer-socials">
+    <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      𝕏 关注
+    </a>
+    <a href="https://t.me/talakang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      TG
+    </a>
+    <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+  </div>
+</footer>
+
+<script>
+const btns = document.querySelectorAll('.anchor-btn');
+btns.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    const navH = document.querySelector('nav').offsetHeight;
+    const anchorH = document.querySelector('.anchor-nav').offsetHeight;
+    const offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+    btns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+const sections = document.querySelectorAll('.comm-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      btns.forEach(b => b.classList.remove('active'));
+      const a = document.querySelector(`.anchor-btn[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
+sections.forEach(s => observer.observe(s));
+
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  if (m.style.display === 'none') {
+    m.style.display = 'block';
+    btn.textContent = '✕';
+  } else {
+    m.style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+// Show mobile btn on small screens
+function checkScreen() {
+  const btn = document.getElementById('menuBtn');
+  const links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  if (window.innerWidth <= 768) {
+    btn.style.display = 'flex';
+    links.style.display = 'none';
+  } else {
+    btn.style.display = 'none';
+    links.style.display = 'flex';
+    document.getElementById('mobileMenu').style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+window.addEventListener('resize', checkScreen);
+checkScreen();
+</script>
+</body>
+</html>

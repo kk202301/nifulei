@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>国外银行卡大全｜香港银行卡、美国银行卡开户指南与代办服务汇总 - 泥伏雷闯关记</title>
+<meta name="description" content="汇总全球主流国外银行卡，包括香港银行卡、美国银行卡及热门离岸账户，涵盖开户条件、申请流程及代办服务整理，适合跨境收款、资产配置与海外金融使用人群参考。">
+
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="国外银行卡,香港银行卡开户,美国银行卡,离岸账户,海外银行账户">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0c10; --bg-card: #111318; --bg-card-hover: #161920;
+  --bg-dropdown: #13161e;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(240,180,41,0.35);
+  --text: #dde3ee; --text-muted: #5a6478; --text-dim: #363d4e;
+  --accent: #f0b429; --accent-dim: rgba(240,180,41,0.12); --accent-border: rgba(240,180,41,0.28);
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "SF Pro Text","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+  font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; cursor: pointer; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(10,12,16,.92); backdrop-filter: blur(16px);
+  border-bottom: .5px solid var(--border);
+}
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between; height: 52px;
+}
+.logo { font-size: 13px; font-weight: 700; color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-item { position: relative; }
+.nav-item > .nav-label {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 12px; color: var(--text-muted);
+  padding: 6px 10px; border-radius: 6px; cursor: pointer;
+  transition: color .15s, background .15s; white-space: nowrap;
+}
+.nav-item:hover > .nav-label { color: var(--text); background: rgba(255,255,255,.05); }
+.arr { font-size: 8px; color: var(--text-dim); transition: transform .2s, color .2s; display: inline-block; }
+.nav-item:hover .arr { transform: rotate(180deg); color: var(--accent); }
+.dropdown {
+  position: absolute; top: calc(100% + 6px); left: 0; min-width: 148px;
+  background: var(--bg-dropdown); border: .5px solid rgba(255,255,255,.1);
+  border-radius: 10px; padding: 6px;
+  opacity: 0; pointer-events: none; transform: translateY(-6px);
+  transition: opacity .18s, transform .18s;
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+}
+.nav-item:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.dropdown a {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--text-muted);
+  padding: 7px 10px; border-radius: 6px;
+  transition: color .15s, background .15s; white-space: nowrap;
+}
+.dropdown a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+.dropdown-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); flex-shrink: 0; }
+.dropdown a:hover .dropdown-dot { background: var(--accent); }
+.nav-single { font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-single:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.nav-cta { font-size: 11px; color: #0a0c10; background: var(--accent); padding: 6px 16px; border-radius: 6px; font-weight: 700; margin-left: 8px; }
+.nav-cta:hover { opacity: .88; }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  max-width: 1080px; margin: 0 auto;
+  padding: 44px 28px 36px;
+  border-bottom: .5px solid var(--border);
+}
+.breadcrumb { font-size: 11px; color: var(--text-dim); margin-bottom: 14px; }
+.breadcrumb span { color: var(--text-muted); }
+.page-title { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.page-title h1 { font-size: 26px; font-weight: 700; letter-spacing: -.01em; }
+.page-count { font-size: 11px; color: var(--text-dim); }
+
+/* ── ANCHOR NAV ── */
+.anchor-nav {
+  position: sticky; top: 52px; z-index: 100;
+  background: rgba(10,12,16,.95); backdrop-filter: blur(12px);
+  padding: 0 28px;
+  display: flex; gap: 6px; align-items: center;
+  border-bottom: .5px solid var(--border);
+  overflow-x: auto; scrollbar-width: none;
+}
+.anchor-nav::-webkit-scrollbar { display: none; }
+.anchor-btn {
+  font-size: 12px; color: var(--text-muted);
+  padding: 12px 14px; white-space: nowrap;
+  border-bottom: 1.5px solid transparent;
+  transition: color .15s, border-color .15s;
+  cursor: pointer;
+}
+.anchor-btn:hover { color: var(--text); }
+.anchor-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ── SECTION ── */
+.content { max-width: 1080px; margin: 0 auto; padding: 0 28px 80px; }
+
+.bank-section { padding-top: 52px; }
+.section-heading {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 6px;
+}
+.section-heading h2 { font-size: 18px; font-weight: 700; }
+.section-sub { font-size: 12px; color: var(--text-dim); margin-bottom: 24px; }
+.section-count {
+  font-size: 10px; color: var(--text-dim);
+  background: rgba(255,255,255,.05);
+  padding: 2px 8px; border-radius: 20px;
+}
+
+/* ── WARNING BOX ── */
+.warn-box {
+  background: rgba(245,158,11,.07);
+  border: .5px solid rgba(245,158,11,.25);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.warn-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.warn-text { font-size: 12px; color: #fbbf24; line-height: 1.8; }
+.warn-text strong { font-weight: 600; }
+
+/* ── CARDS GRID ── */
+.cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cards-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ── BANK CARD ── */
+.bank-card {
+  background: var(--bg-card);
+  border: .5px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex; flex-direction: column; gap: 0;
+  transition: border-color .18s, background .18s;
+  position: relative;
+}
+.bank-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+
+/* featured */
+.bank-card.featured {
+  border-color: var(--accent-border);
+  background: linear-gradient(135deg, #111318 0%, #161208 100%);
+}
+
+.badge-row { display: flex; gap: 6px; margin-bottom: 14px; min-height: 20px; }
+.badge {
+  font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px;
+  letter-spacing: .03em;
+}
+.badge-rec  { background: var(--accent-dim); color: var(--accent); border: .5px solid var(--accent-border); }
+.badge-hot  { background: rgba(239,68,68,.12); color: #f87171; border: .5px solid rgba(239,68,68,.25); }
+.badge-free { background: rgba(16,185,129,.1); color: #34d399; border: .5px solid rgba(16,185,129,.2); }
+.badge-new  { background: rgba(99,102,241,.12); color: #a5b4fc; border: .5px solid rgba(99,102,241,.25); }
+.badge-must { background: rgba(239,68,68,.12); color: #f87171; border: .5px solid rgba(239,68,68,.3); }
+.badge-must { background: rgba(239,68,68,.12); color: #f87171; border: .5px solid rgba(239,68,68,.3); }
+
+.card-logo {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(255,255,255,.06);
+  border: .5px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: var(--text-muted);
+  letter-spacing: -.02em; margin-bottom: 12px; flex-shrink: 0;
+}
+.card-name { font-size: 14px; font-weight: 700; color: #e8edf5; margin-bottom: 0; }
+.card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.75; flex: 1; margin-bottom: 16px; }
+
+/* stars */
+.stars { display: flex; align-items: center; gap: 3px; margin-bottom: 16px; }
+.star { width: 10px; height: 10px; }
+.star-full { color: var(--accent); }
+.star-half { color: var(--accent); opacity: .5; }
+.star-empty { color: var(--text-dim); }
+.star-score { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+
+/* buttons */
+.card-btns { display: flex; gap: 7px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent); color: #0a0c10;
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 6px;
+  transition: opacity .15s;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-ghost {
+  border: .5px solid rgba(255,255,255,.13); color: var(--text-muted);
+  font-size: 11px; padding: 6px 12px; border-radius: 6px;
+  transition: color .15s, border-color .15s;
+}
+.btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.25); }
+
+/* divider */
+.section-divider { height: .5px; background: var(--border); margin: 52px 0 0; }
+
+footer { border-top: .5px solid var(--border); padding: 28px; text-align: center; }
+footer p { font-size: 11px; color: var(--text-dim); line-height: 2; }
+footer .sep { margin: 0 10px; opacity: .3; }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .nav-inner { padding: 0 16px; }
+
+  .page-header { padding: 28px 16px 24px; }
+  .content, .broker-section, .crypto-section, .comm-section, .map-section, .about-section { padding-left: 16px; padding-right: 16px; }
+
+  /* grids */
+  .cards-grid, .cards-grid.cols-3, .cards-grid.cols-2 { grid-template-columns: 1fr 1fr !important; }
+  .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr 1fr !important; }
+  .cn-card.highlight { grid-column: span 2; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .promos-grid, .contact-grid { grid-template-columns: 1fr !important; }
+  .contact-card.full-width { grid-column: span 1; }
+
+  /* hero */
+  .hero h1, h1 { font-size: 30px !important; }
+  .hero-btns { flex-direction: column; align-items: center; }
+
+  /* anchor nav */
+  .anchor-nav { gap: 0; padding: 0 12px; }
+  .anchor-btn { padding: 10px 10px; font-size: 11px; }
+
+  /* diagrams scroll */
+  .diagram-wrap { padding: 16px 12px; }
+
+  /* footer */
+  footer { flex-direction: column; align-items: flex-start; padding: 20px 16px; gap: 12px; }
+
+  /* broker dual-span cards */
+  [style*="grid-column: span 2"] { grid-column: span 1 !important; }
+
+  /* section */
+  .section { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+@media (max-width: 480px) {
+  .cards-grid, .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr !important; }
+  .cn-card.highlight { grid-column: span 1; }
+  .region-toggle { flex-wrap: wrap; }
+}
+.invite-box {
+  background: rgba(255,255,255,.04); border: .5px solid rgba(255,255,255,.1);
+  border-radius: 7px; padding: 7px 12px; margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.invite-label { font-size: 10px; color: var(--text-dim); }
+.invite-code  { font-size: 12px; font-weight: 700; color: #ef4444; font-family: monospace; letter-spacing: .06em; }
+
+@media (max-width: 768px) { .nav-cta { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="nifulei-preview.html" class="logo">泥伏雷闯关记</a>
+    <div class="nav-links">
+      <div class="nav-item">
+        <div class="nav-label">国外银行卡 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a>
+          <a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a>
+          <a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a>
+          <a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label">港美股券商 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a>
+          <a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label">加密 Web3 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-crypto.html#exchange"><span class="dropdown-dot"></span>交易所</a>
+          <a href="nifulei-crypto.html#card"><span class="dropdown-dot"></span>加密银行卡</a>
+          <a href="nifulei-crypto.html#cold"><span class="dropdown-dot"></span>冷钱包</a>
+          <a href="nifulei-crypto.html#hot"><span class="dropdown-dot"></span>热钱包</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label">跨境通讯 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-esim.html#esim-num"><span class="dropdown-dot"></span>eSIM 号码</a>
+          <a href="nifulei-esim.html#esim-data"><span class="dropdown-dot"></span>eSIM 流量平台</a>
+          <a href="nifulei-esim.html#esim-writer"><span class="dropdown-dot"></span>eSIM 写卡器</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label">其他资源 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="#"><span class="dropdown-dot"></span>休闲娱乐</a>
+          <a href="#"><span class="dropdown-dot"></span>出海工具</a>
+        </div>
+      </div>
+      <a href="#" class="nav-single">金融路线图</a>
+      <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
+      <div class="nav-item">
+        <div class="nav-label">关于泥伏雷 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-about.html#origin"><span class="dropdown-dot"></span>泥伏雷缘起</a>
+          <a href="nifulei-about.html#contact"><span class="dropdown-dot"></span>联系方式</a>
+        </div>
+      </div>
+      <a href="https://x.com/" target="_blank" class="nav-cta">关注 𝕏</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="breadcrumb">首页 › <span>国外银行卡</span></div>
+  <div class="page-title">
+    <span style="font-size:24px;">🏦</span>
+    <h1>国外银行卡</h1>
+  </div>
+  <p style="font-size:13px;color:var(--text-muted);max-width:560px;line-height:1.8;">
+    收录国外、美国、香港主流银行卡及国内代办渠道，附开户教程和返佣链接。
+    普通人也能拥有全球账户。
+  </p>
+</div>
+
+<!-- ── ANCHOR NAV ── -->
+<div class="anchor-nav">
+  <a href="#intl" class="anchor-btn active">🌍 国外银行卡</a>
+  <a href="#hk"   class="anchor-btn">🇭🇰 香港地区银行卡</a>
+  <a href="#us"   class="anchor-btn">🇺🇸 美国银行卡</a>
+  <a href="#cn"   class="anchor-btn">🏢 国内代办</a>
+</div>
+
+<div class="content">
+
+  <!-- ══ 国外银行卡 ══ -->
+  <div class="bank-section" id="intl">
+    <div class="section-heading">
+      <h2>🌍 国外银行卡</h2>
+      <span class="section-count">6 个资源</span>
+    </div>
+    <p class="section-sub">面向全球用户的多币种账户，适合跨境收付款、出海换汇、数字游民首选</p>
+    <div class="cards-grid">
+
+      <!-- Wise -->
+      <div class="bank-card featured">
+        <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="background:rgba(0,176,141,.12);color:#00b08d;border-color:rgba(0,176,141,.2);">W</div>
+          <div class="card-name">Wise</div>
+        </div>
+        <div class="card-desc">全球最知名多币种账户，支持 40+ 种货币，换汇费率业内最低，免费获取英/美/欧元等本地账号</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
+          <span class="star-score">5.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://wise.com/register?referralCode=haiyang27" class="btn-primary">点击开通 →</a>
+          <a href="https://www.youtube.com/watch?v=NbL0JXtbpek" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+      <!-- iFAST -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-hot">热门</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#60a5fa;">iF</div>
+          <div class="card-name">iFAST Global Bank</div>
+        </div>
+        <div class="card-desc">新加坡持牌银行，支持多币种，可线上开户，适合资产配置和海外转账</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.5</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://www.ifastgb.com/tellafriend/yanjunk5073" class="btn-primary">点击开通 →</a>
+          <a href="https://www.youtube.com/watch?v=5xz94ZqIGEo" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+      <!-- MyFin -->
+      <div class="bank-card">
+        <div class="badge-row"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#a78bfa;">My</div>
+          <div class="card-name">MyFin</div>
+        </div>
+        <div class="card-desc">面向华人用户的跨境金融平台，支持人民币充值换汇，操作界面中文友好</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">YA00W68M</span></div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://py.pl/X0rNf" class="btn-primary">APP 开通 →</a>
+          <a href="https://mp.weixin.qq.com/s/Yhn5BmE2LlZoYnSuB825hA" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+      <!-- 英国 PayPal -->
+      <div class="bank-card">
+        <div class="badge-row"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#60a5fa;">PP</div>
+          <div class="card-name">英国 PayPal</div>
+        </div>
+        <div class="card-desc">英国区 PayPal 账户，可绑定 Wise 英镑账号，适合 eBay 跨境电商收款和海淘付款</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">P0555381</span></div>
+          <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://secure.fundsupermart.com/fsmone/signup/personal/P0555381" class="btn-primary">点击开通 →</a>
+          <a href="https://www.youtube.com/watch?v=4CxlZkwbXiY" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+      <!-- FSMone SG -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-new">新加坡</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#34d399;">FS</div>
+          <div class="card-name">FSMone SG</div>
+        </div>
+        <div class="card-desc">新加坡 iFAST 旗下投资平台，支持开设证券账户及多币种现金账户，门槛低</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">P0555381</span></div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="#" class="btn-primary">点击开通 →</a>
+          <a href="#" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+
+      <!-- 德国 N26 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-new">🇩🇪 德国</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#60a5fa;">N26</div>
+          <div class="card-name">N26</div>
+        </div>
+        <div class="card-desc">德国数字银行，支持欧元 SEPA 收付款，接受 Kraken 法币出金，可与 Wise 互转，并可入金盈透证券</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">yanmingk73062c</span></div>
+          <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="https://n26.com/r/haiyang85196c" class="btn-primary">点击开通 →</a>
+          <a href="https://www.youtube.com/watch?v=7bu7Zt-_QFU" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ══ 香港地区银行卡 ══ -->
+  <div class="bank-section" id="hk">
+    <div class="section-heading">
+      <h2>🇭🇰 香港地区银行卡</h2>
+      <span class="section-count">6 个资源</span>
+    </div>
+    <p class="section-sub">香港银行卡是连接内地与国际市场的关键跳板，可持有港币、美元、人民币多币种</p>
+    <div class="cards-grid">
+
+      <!-- FSMone HK -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#34d399;">FS</div>
+          <div class="card-name">FSMone HK</div>
+        </div>
+        <div class="card-desc">香港 iFAST 旗下平台，可开立港元账户，支持基金、债券投资，审核流程简单</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">M14680872078</span></div>
+          <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
+          <span class="star-score">4.5</span>
+        </div>
+        <div class="card-btns">
+            <a href="#" class="btn-primary">APP 开通 →</a>
+            <a href="https://youtu.be/00R9ViJ41Fs" class="btn-ghost">查看教程</a>
+          </div>
+      </div>
+
+      <!-- 中银香港 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-must">必开</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#f87171;">中银</div>
+          <div class="card-name">中银香港</div>
+        </div>
+        <div class="card-desc">中资背景香港银行，内地用户接受度高，支持 BoC Pay，可在内地完成部分开户手续</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">M14680872078</span></div>
+          <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+            <a href="#" class="btn-primary">APP 开通 →</a>
+            <a href="#" class="btn-ghost">查看教程</a>
+          </div>
+      </div>
+
+      <!-- 汇丰香港 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-must">必开</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#f87171;">汇丰</div>
+          <div class="card-name">汇丰银行 HK</div>
+        </div>
+        <div class="card-desc">全球性银行，香港分行提供 One Account 综合账户，国际转账便利，信用卡权益丰富</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NJ7KE6</span></div>
+          <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
+          <span class="star-score">4.5</span>
+        </div>
+        <div class="card-btns">
+            <a href="https://mobile.za.group/act/MGMShare/MGMShare_2025_Jan/?language=zh&inviteCode=NJ7KE6&name=Tal*g" class="btn-primary">APP 开通 →</a>
+            <a href="https://mp.weixin.qq.com/s/onmnq7lp1aZ-bo4mcX9Q-g" class="btn-ghost">查看教程</a>
+          </div>
+      </div>
+
+      <!-- 众安银行 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-new">虚拟银行</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#60a5fa;">ZA</div>
+          <div class="card-name">众安银行</div>
+        </div>
+        <div class="card-desc">香港首批虚拟银行之一，纯线上开户，无最低存款要求，适合轻量使用和试水香港账户</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">CASH2MMD</span></div>
+          <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+            <a href="https://www.fusionbank.com/h5/coupon/index.html?inviteCode=CASH2MMD" class="btn-primary">APP 开通 →</a>
+            <a href="https://mp.weixin.qq.com/s/GQLtPKkhnuu4dZf6c8rkWg" class="btn-ghost">查看教程</a>
+          </div>
+      </div>
+
+      <!-- 富融银行 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-new">虚拟银行</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#a78bfa;">富融</div>
+          <div class="card-name">富融银行</div>
+        </div>
+        <div class="card-desc">腾讯旗下香港虚拟银行，存款利息较高，微信生态打通，内地用户开户体验友好</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAKK</span></div>
+          <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+            <a href="#" class="btn-primary">APP 开通 →</a>
+            <a href="https://mp.weixin.qq.com/s/QLrCZ9eHxEq5Db_0_JTGOQ" class="btn-ghost">查看教程</a>
+          </div>
+      </div>
+
+      <!-- 汇立银行 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-new">虚拟银行</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#34d399;">汇立</div>
+          <div class="card-name">汇立银行</div>
+        </div>
+        <div class="card-desc">香港虚拟银行，支持多币种账户，Mastercard 实体卡，出行购物均可使用</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAKK</span></div>
+          <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-half">★</span><span class="star star-empty">★</span>
+          <span class="star-score">3.5</span>
+        </div>
+        <div class="card-btns">
+            <a href="#" class="btn-primary">APP 开通 →</a>
+            <a href="#" class="btn-ghost">查看教程</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ══ 美国银行卡 ══ -->
+  <div class="bank-section" id="us">
+    <div class="section-heading">
+      <h2>🇺🇸 美国银行卡</h2>
+      <span class="section-count">3 个资源</span>
+    </div>
+    <p class="section-sub">美国本土银行账户，适合有美国地址/SSN 或留学生，用于接收美元、信用建立</p>
+    <div class="cards-grid cols-3">
+
+      <!-- Capital One -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-free">无月费</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#f87171;">C1</div>
+          <div class="card-name">Capital One</div>
+        </div>
+        <div class="card-desc">美国知名银行，360 Checking 账户无月费无最低存款，线上开户便捷，信用卡产品丰富</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
+          <span class="star-score">4.5</span>
+        </div>
+        <div class="card-btns">
+          <a href="#" class="btn-primary">点击开通 →</a>
+          <a href="#" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+      <!-- Chase -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#60a5fa;">Chase</div>
+          <div class="card-name">Chase Bank</div>
+        </div>
+        <div class="card-desc">摩根大通旗下，美国最大零售银行之一，ATM 覆盖广，Sapphire 信用卡积分价值极高</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
+          <span class="star-score">5.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="#" class="btn-primary">点击开通 →</a>
+          <a href="#" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+      <!-- Citibank -->
+      <div class="bank-card">
+        <div class="badge-row"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#60a5fa;">Citi</div>
+          <div class="card-name">Citibank US</div>
+        </div>
+        <div class="card-desc">花旗银行美国区，国际转账免手续费，适合有跨境需求的用户，全球分支联动便利</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+          <a href="#" class="btn-primary">点击开通 →</a>
+          <a href="#" class="btn-ghost">查看教程</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ══ 国内代办 ══ -->
+  <div class="bank-section" id="cn">
+    <div class="section-heading">
+      <h2>🏢 国内代办</h2>
+      <span class="section-count">4 个资源</span>
+    </div>
+    <p class="section-sub">在国内通过预约或代办渠道申请香港外资银行账户</p>
+
+    <div class="warn-box">
+      <div class="warn-icon">⚠️</div>
+      <div class="warn-text">
+        <strong>重要提示：</strong>国内代办香港银行账户通常需满足存款门槛要求。
+        一般要求存入 <strong>50万～100万人民币等值资产</strong>，并维持至少 <strong>3个月</strong>。
+        开卡周期约 <strong>1～2周</strong>，具体以银行审核为准。请提前备好资金及证件材料。
+      </div>
+    </div>
+
+    <div class="cards-grid">
+
+      <!-- 渣打 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#34d399;">SC</div>
+          <div class="card-name">渣打银行</div>
+        </div>
+        <div class="card-desc">Standard Chartered，香港知名外资银行，国内多城市有代办服务，综合账户功能完善</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
+          <span class="star-score">4.5</span>
+        </div>
+        <div class="card-btns">
+            <a href="https://t.me/talakang" target="_blank" class="btn-primary">联系泥伏雷 →</a>
+          </div>
+      </div>
+
+      <!-- 汇丰 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-hot">热门</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#f87171;">汇丰</div>
+          <div class="card-name">汇丰银行 HSBC</div>
+        </div>
+        <div class="card-desc">全球最知名银行之一，国内部分城市支持预约代办，One Account 权益丰富</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
+          <span class="star-score">4.5</span>
+        </div>
+        <div class="card-btns">
+            <a href="https://t.me/talakang" target="_blank" class="btn-primary">联系泥伏雷 →</a>
+          </div>
+      </div>
+
+      <!-- 恒生 -->
+      <div class="bank-card">
+        <div class="badge-row"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#fbbf24;">恒生</div>
+          <div class="card-name">恒生银行 Hang Seng</div>
+        </div>
+        <div class="card-desc">汇丰旗下香港本地银行，港人使用率极高，国内代办门槛相对较低，操作流程成熟</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+            <a href="https://t.me/talakang" target="_blank" class="btn-primary">联系泥伏雷 →</a>
+          </div>
+      </div>
+
+      <!-- 星展 -->
+      <div class="bank-card">
+        <div class="badge-row"><span class="badge badge-new">新加坡系</span></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div class="card-logo" style="color:#60a5fa;">DBS</div>
+          <div class="card-name">星展银行 DBS</div>
+        </div>
+        <div class="card-desc">新加坡最大银行，香港分行服务完善，国内代办渠道稳定，适合有东南亚业务需求的用户</div>
+        <div class="stars">
+          <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
+          <span class="star-score">4.0</span>
+        </div>
+        <div class="card-btns">
+            <a href="https://t.me/talakang" target="_blank" class="btn-primary">联系泥伏雷 →</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<footer>
+  <div class="footer-copy">
+    © 2026 泥伏雷闯关记
+    <span class="sep">·</span>
+    内容仅供参考，不构成投资建议
+    <span class="sep">·</span>
+    投资有风险，入市需谨慎
+  </div>
+  <div class="footer-socials">
+    <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      𝕏 关注
+    </a>
+    <a href="https://t.me/talakang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      TG
+    </a>
+    <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('.bank-section');
+const btns = document.querySelectorAll('.anchor-btn');
+
+// Click: smooth scroll + active state
+btns.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    const navH = document.querySelector('nav').offsetHeight;
+    const anchorH = document.querySelector('.anchor-nav').offsetHeight;
+    const offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+    btns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Scroll: highlight active
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      btns.forEach(b => b.classList.remove('active'));
+      const active = document.querySelector(`.anchor-btn[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
+sections.forEach(s => observer.observe(s));
+</script>
+
+<script>
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  if (m.style.display === 'none') {
+    m.style.display = 'block';
+    btn.textContent = '✕';
+  } else {
+    m.style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+// Show mobile btn on small screens
+function checkScreen() {
+  const btn = document.getElementById('menuBtn');
+  const links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  if (window.innerWidth <= 768) {
+    btn.style.display = 'flex';
+    links.style.display = 'none';
+  } else {
+    btn.style.display = 'none';
+    links.style.display = 'flex';
+    document.getElementById('mobileMenu').style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+window.addEventListener('resize', checkScreen);
+checkScreen();</script>
+</body>
+</html>

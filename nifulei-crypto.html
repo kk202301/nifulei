@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密Web3平台大全｜交易所、加密银行卡、冷热钱包全解析 - 泥伏雷闯关记</title>
+<meta name="description" content="整合主流加密交易所、加密银行卡、冷钱包与热钱包产品，覆盖注册流程、安全设置、资金流转与使用场景，帮助用户快速进入Web3与数字资产体系。">
+
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="加密交易所,Web3,冷钱包,热钱包,加密银行卡,数字资产">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0c10; --bg-card: #111318; --bg-card-hover: #161920;
+  --bg-dropdown: #13161e;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(240,180,41,0.35);
+  --text: #dde3ee; --text-muted: #5a6478; --text-dim: #363d4e;
+  --accent: #f0b429; --accent-dim: rgba(240,180,41,0.12); --accent-border: rgba(240,180,41,0.28);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: "SF Pro Text","PingFang SC","Microsoft YaHei",-apple-system,sans-serif; font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; cursor: pointer; }
+
+nav { position: sticky; top: 0; z-index: 200; background: rgba(10,12,16,.92); backdrop-filter: blur(16px); border-bottom: .5px solid var(--border); }
+.nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.logo { font-size: 13px; font-weight: 700; color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-item { position: relative; }
+.nav-item > .nav-label { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; cursor: pointer; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-item:hover > .nav-label { color: var(--text); background: rgba(255,255,255,.05); }
+.arr { font-size: 8px; color: var(--text-dim); transition: transform .2s; display: inline-block; }
+.nav-item:hover .arr { transform: rotate(180deg); color: var(--accent); }
+.dropdown { position: absolute; top: calc(100% + 6px); left: 0; min-width: 148px; background: var(--bg-dropdown); border: .5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 6px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .18s, transform .18s; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.nav-item:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.dropdown a { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); padding: 7px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.dropdown a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+.dropdown-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); flex-shrink: 0; }
+.dropdown a:hover .dropdown-dot { background: var(--accent); }
+.nav-single { font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-single:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.nav-cta { font-size: 11px; color: #0a0c10; background: var(--accent); padding: 6px 16px; border-radius: 6px; font-weight: 700; margin-left: 8px; }
+
+.anchor-nav { position: sticky; top: 52px; z-index: 100; background: rgba(10,12,16,.95); backdrop-filter: blur(12px); padding: 0 28px; display: flex; gap: 6px; align-items: center; border-bottom: .5px solid var(--border); overflow-x: auto; scrollbar-width: none; }
+.anchor-nav::-webkit-scrollbar { display: none; }
+.anchor-btn { font-size: 12px; color: var(--text-muted); padding: 12px 14px; white-space: nowrap; border-bottom: 1.5px solid transparent; transition: color .15s, border-color .15s; cursor: pointer; }
+.anchor-btn:hover { color: var(--text); }
+.anchor-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.page-header { max-width: 1080px; margin: 0 auto; padding: 44px 28px 36px; border-bottom: .5px solid var(--border); }
+.breadcrumb { font-size: 11px; color: var(--text-dim); margin-bottom: 14px; }
+.breadcrumb span { color: var(--text-muted); }
+
+.content { max-width: 1080px; margin: 0 auto; padding: 0 28px 80px; }
+.crypto-section { padding-top: 52px; }
+.section-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.section-heading h2 { font-size: 18px; font-weight: 700; }
+.section-count { font-size: 10px; color: var(--text-dim); background: rgba(255,255,255,.05); padding: 2px 8px; border-radius: 20px; }
+.section-sub { font-size: 12px; color: var(--text-dim); margin-bottom: 24px; }
+.section-divider { height: .5px; background: var(--border); margin: 52px 0 0; }
+
+/* BADGES */
+.badge-row { display: flex; gap: 6px; margin-bottom: 12px; min-height: 20px; flex-wrap: wrap; }
+.badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; letter-spacing: .03em; }
+.badge-rec  { background: var(--accent-dim); color: var(--accent); border: .5px solid var(--accent-border); }
+.badge-hot  { background: rgba(239,68,68,.12); color: #f87171; border: .5px solid rgba(239,68,68,.25); }
+.badge-must { background: rgba(239,68,68,.12); color: #f87171; border: .5px solid rgba(239,68,68,.3); }
+.badge-free { background: rgba(16,185,129,.1); color: #34d399; border: .5px solid rgba(16,185,129,.2); }
+.badge-new  { background: rgba(99,102,241,.12); color: #a5b4fc; border: .5px solid rgba(99,102,241,.25); }
+.badge-cold { background: rgba(96,165,250,.1); color: #93c5fd; border: .5px solid rgba(96,165,250,.2); }
+
+/* CARDS */
+.cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cards-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.cards-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+.crypto-card { background: var(--bg-card); border: .5px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; transition: border-color .18s, background .18s; }
+.crypto-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+.crypto-card.featured { border-color: var(--accent-border); background: linear-gradient(135deg, #111318 0%, #161208 100%); }
+
+.card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.card-logo { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,.06); border: .5px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--text-muted); letter-spacing: -.02em; flex-shrink: 0; }
+.card-name { font-size: 14px; font-weight: 700; color: #e8edf5; }
+.card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.75; flex: 1; margin-bottom: 12px; }
+
+/* INFO BOXES */
+.rebate-box { background: rgba(16,185,129,.07); border: .5px solid rgba(16,185,129,.2); border-radius: 7px; padding: 7px 12px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+.rebate-label { font-size: 10px; color: #6ee7b7; }
+.rebate-val { font-size: 12px; font-weight: 700; color: #34d399; }
+
+.invite-box { background: rgba(255,255,255,.04); border: .5px solid rgba(255,255,255,.1); border-radius: 7px; padding: 7px 12px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+.invite-label { font-size: 10px; color: var(--text-dim); }
+.invite-code { font-size: 12px; font-weight: 700; color: #ef4444; font-family: monospace; letter-spacing: .06em; }
+.invite-code.link { color: var(--accent); }
+
+.discount-box { background: rgba(167,139,250,.07); border: .5px solid rgba(167,139,250,.2); border-radius: 7px; padding: 7px 12px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+.discount-label { font-size: 10px; color: #c4b5fd; }
+.discount-val { font-size: 12px; font-weight: 700; color: #a78bfa; font-family: monospace; }
+
+/* STARS */
+.stars { display: flex; align-items: center; gap: 3px; margin-bottom: 12px; }
+.star-score { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+
+/* BUTTONS */
+.card-btns { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; }
+.btn-primary { background: var(--accent); color: #0a0c10; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; transition: opacity .15s; }
+.btn-primary:hover { opacity: .88; }
+.btn-buy { background: #a78bfa; color: #0a0c10; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 6px; transition: opacity .15s; }
+.btn-buy:hover { opacity: .88; }
+.btn-ghost { border: .5px solid rgba(255,255,255,.13); color: var(--text-muted); font-size: 11px; padding: 6px 12px; border-radius: 6px; transition: color .15s, border-color .15s; }
+.btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.25); }
+
+footer { border-top: .5px solid var(--border); padding: 28px; text-align: center; }
+footer p { font-size: 11px; color: var(--text-dim); line-height: 2; }
+footer .sep { margin: 0 10px; opacity: .3; }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .nav-inner { padding: 0 16px; }
+
+  .page-header { padding: 28px 16px 24px; }
+  .content, .broker-section, .crypto-section, .comm-section, .map-section, .about-section { padding-left: 16px; padding-right: 16px; }
+
+  /* grids */
+  .cards-grid, .cards-grid.cols-3, .cards-grid.cols-2 { grid-template-columns: 1fr 1fr !important; }
+  .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr 1fr !important; }
+  .cn-card.highlight { grid-column: span 2; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .promos-grid, .contact-grid { grid-template-columns: 1fr !important; }
+  .contact-card.full-width { grid-column: span 1; }
+
+  /* hero */
+  .hero h1, h1 { font-size: 30px !important; }
+  .hero-btns { flex-direction: column; align-items: center; }
+
+  /* anchor nav */
+  .anchor-nav { gap: 0; padding: 0 12px; }
+  .anchor-btn { padding: 10px 10px; font-size: 11px; }
+
+  /* diagrams scroll */
+  .diagram-wrap { padding: 16px 12px; }
+
+  /* footer */
+  footer { flex-direction: column; align-items: flex-start; padding: 20px 16px; gap: 12px; }
+
+  /* broker dual-span cards */
+  [style*="grid-column: span 2"] { grid-column: span 1 !important; }
+
+  /* section */
+  .section { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+@media (max-width: 480px) {
+  .cards-grid, .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr !important; }
+  .cn-card.highlight { grid-column: span 1; }
+  .region-toggle { flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) { .nav-cta { display: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="nifulei-preview.html" class="logo">泥伏雷闯关记</a>
+    <div class="nav-links">
+      <div class="nav-item"><div class="nav-label">国外银行卡 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a><a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a><a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a><a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a></div></div>
+      <div class="nav-item"><div class="nav-label">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a></div></div>
+      <div class="nav-item"><div class="nav-label">加密 Web3 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-crypto.html#exchange"><span class="dropdown-dot"></span>交易所</a><a href="nifulei-crypto.html#card"><span class="dropdown-dot"></span>加密银行卡</a><a href="nifulei-crypto.html#cold"><span class="dropdown-dot"></span>冷钱包</a><a href="nifulei-crypto.html#hot"><span class="dropdown-dot"></span>热钱包</a></div></div>
+      <div class="nav-item"><div class="nav-label">跨境通讯 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-esim.html#esim-num"><span class="dropdown-dot"></span>eSIM 号码</a><a href="nifulei-esim.html#esim-data"><span class="dropdown-dot"></span>eSIM 流量平台</a><a href="nifulei-esim.html#esim-writer"><span class="dropdown-dot"></span>eSIM 写卡器</a></div></div>
+      <div class="nav-item"><div class="nav-label">其他资源 <span class="arr">▾</span></div><div class="dropdown"><a href="#"><span class="dropdown-dot"></span>休闲娱乐</a><a href="#"><span class="dropdown-dot"></span>出海工具</a></div></div>
+      <a href="#" class="nav-single">金融路线图</a>
+      <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
+      <div class="nav-item"><div class="nav-label">关于泥伏雷 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-about.html#origin"><span class="dropdown-dot"></span>泥伏雷缘起</a><a href="nifulei-about.html#contact"><span class="dropdown-dot"></span>联系方式</a></div></div>
+      <a href="https://x.com/" target="_blank" class="nav-cta">关注 𝕏</a>
+    </div>
+  </div>
+</nav>
+
+<div class="anchor-nav">
+  <a href="#exchange" class="anchor-btn active">🏦 交易所</a>
+  <a href="#card"     class="anchor-btn">💳 加密银行卡</a>
+  <a href="#cold"     class="anchor-btn">🧊 冷钱包</a>
+  <a href="#hot"      class="anchor-btn">🔥 热钱包</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb">首页 › <span>加密 Web3</span></div>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+    <span style="font-size:24px;">₿</span>
+    <h1 style="font-size:26px;font-weight:700;letter-spacing:-.01em;">加密 Web3</h1>
+  </div>
+  <p style="font-size:13px;color:var(--text-muted);line-height:1.8;white-space:nowrap;">收录主流交易所、加密银行卡、冷热钱包，附邀请码、返佣和教程。入门 Crypto 一站搞定。</p>
+</div>
+
+<div class="content">
+
+<!-- ══ 交易所 ══ -->
+<div class="crypto-section" id="exchange">
+  <div class="section-heading">
+    <h2>🏦 交易所</h2>
+    <span class="section-count">10 个资源</span>
+  </div>
+  <p class="section-sub">新人必开欧易、币安、Bybit、Bitget，四家都开可最大化新人礼和返佣</p>
+  <div class="cards-grid">
+
+    <!-- OKX -->
+    <div class="crypto-card featured">
+      <div class="badge-row"><span class="badge badge-must">新人必开</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(255,255,255,.08);color:#e2e8f0;border-color:rgba(255,255,255,.15);">OKX</div>
+        <div class="card-name">欧易 OKX</div>
+      </div>
+      <div class="card-desc">全球知名合约+现货交易所，产品线丰富，中文支持最好，新手首选</div>
+      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">SOL999</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+      <div class="card-btns"><a href="https://www.promooboost.com/join/SOL999" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=fBlVgOUhMso" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Binance -->
+    <div class="crypto-card featured">
+      <div class="badge-row"><span class="badge badge-must">新人必开</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">BNB</div>
+        <div class="card-name">币安 Binance</div>
+      </div>
+      <div class="card-desc">全球最大加密货币交易所，流动性最强，现货/合约/理财一站搞定</div>
+      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALA888</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+      <div class="card-btns"><a href="https://www.binance.com/zh-CN/join?ref=TALA888" class="btn-primary">立即开通 →</a><a href="https://youtu.be/SUlWCBSIETQ" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Bybit -->
+    <div class="crypto-card featured">
+      <div class="badge-row"><span class="badge badge-must">新人必开</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(255,193,7,.1);color:#fbbf24;border-color:rgba(255,193,7,.2);">BB</div>
+        <div class="card-name">Bybit</div>
+      </div>
+      <div class="card-desc">全球知名衍生品交易所，合约体验优秀，虚拟 U 卡功能实用，新人礼丰厚</div>
+      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI20</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+      <div class="card-btns"><a href="https://partner.bybit.com/b/NIFULEI20" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=gdS4yXA-orI" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Bitget -->
+    <div class="crypto-card featured">
+      <div class="badge-row"><span class="badge badge-must">新人必开</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(96,165,250,.1);color:#60a5fa;border-color:rgba(96,165,250,.2);">BG</div>
+        <div class="card-name">Bitget</div>
+      </div>
+      <div class="card-desc">全球领先合约交易所，跟单功能强大，新人礼与返佣业内一流</div>
+      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">nifulei20</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
+          <div class="card-btns"><a href="https://partner.hdmune.cn/bg/nifulei20" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=d50Iw04RXPg" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Gate.io -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-new">山寨齐全</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">Gate</div>
+        <div class="card-name">Gate.io</div>
+      </div>
+      <div class="card-desc">山寨币种最全的交易所，适合寻找低市值潜力币，现货深度良好</div>
+      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAUSDT</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.gateport.company/share/TALAUSDT" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Biyapay -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-free">出金友好</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#a78bfa;">Biya</div>
+        <div class="card-name">Biyapay</div>
+      </div>
+      <div class="card-desc">专注出入金的加密平台，支持多种法币通道，跨境换汇场景实用</div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://biyapay.com/re/7360298" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=XJ9v1lAw5Jo" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Bitmart -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-new">新兴</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#60a5fa;">BM</div>
+        <div class="card-name">Bitmart</div>
+      </div>
+      <div class="card-desc">中小型交易所，上线新币速度快，适合寻找早期项目机会</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">cVhcAM</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+          <div class="card-btns"><a href="https://www.bm-link.com/zh-CN/invite/cVhcAM" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 火币 HTX -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-hot">老牌</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#fb923c;">HTX</div>
+        <div class="card-name">火币 HTX</div>
+      </div>
+      <div class="card-desc">国内老牌交易所，现已更名 HTX，华人用户基础大，产品线完整</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">8m2pd223</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="https://www.htx.com/invite/zh-cn/1f?invite_code=8m2pd223" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Nexo -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-free">理财利息</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#a78bfa;">Nexo</div>
+        <div class="card-name">Nexo</div>
+      </div>
+      <div class="card-desc">加密借贷和理财平台，支持持币生息，适合长期持有者最大化收益</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">fvxheo0ezw</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+          <div class="card-btns"><a href="https://nexo.com/ref/fvxheo0ezw?src=ios-link" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Backpack -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-new">新兴</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">BP</div>
+        <div class="card-name">Backpack</div>
+      </div>
+      <div class="card-desc">Solana 生态新兴交易所，链上与中心化结合，SOL 系资产交易体验优秀</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">a5fim073</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+          <div class="card-btns"><a href="https://backpack.exchange/refer/a5fim073" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ 加密银行卡 ══ -->
+<div class="crypto-section" id="card">
+  <div class="section-heading">
+    <h2>💳 加密银行卡</h2>
+    <span class="section-count">8 个资源</span>
+  </div>
+  <p class="section-sub">加密资产直接消费，打通 Crypto 与现实世界的最后一公里</p>
+  <div class="cards-grid">
+
+    <!-- SafePal Card -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">SPL</div>
+        <div class="card-name">SafePal Card</div>
+      </div>
+      <div class="card-desc">币安投资的加密 Visa 卡，支持多链资产消费，免手续费，全球可用</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">766177</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
+          <div class="card-btns"><a href="#" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=1Kh__95rGX8" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Bybit Card -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#fbbf24;">BB</div>
+        <div class="card-name">Bybit Card</div>
+      </div>
+      <div class="card-desc">Bybit 官方 Visa 卡，与 Bybit 账户无缝联动，消费即返现，出行购物均可</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">ROZOXA3</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
+          <div class="card-btns"><a href="https://www.bybit.com/en/cards/?ref=ROZOXA3&source=applet_invite" class="btn-primary">立即开通 →</a><a href="https://youtu.be/kCU1bxWSirI" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Bitget Card -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-new">新上线</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#60a5fa;">BG</div>
+        <div class="card-name">Bitget Card</div>
+      </div>
+      <div class="card-desc">Bitget 官方加密卡，支持多币种消费结算，与 Bitget 账户资产互通</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">Xv3ND9</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://newshare.bwb.global/zh/invite_earn_coin?inviteCode=Xv3ND9&utmSource=referral2.0_copyLink" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=d50Iw04RXPg" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Pokepay -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-hot">热门</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#f87171;">Poke</div>
+        <div class="card-name">Pokepay</div>
+      </div>
+      <div class="card-desc">面向华人的加密支付卡，支持 USDT 充值消费，开卡门槛低，到账快</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">194841</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+          <div class="card-btns"><a href="https://app.pokepay.cc/pages/passport/register?r=194841" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=CUfqusNgyVU" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Biyapay Card -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-free">出金友好</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#a78bfa;">Biya</div>
+        <div class="card-name">Biyapay Card</div>
+      </div>
+      <div class="card-desc">Biyapay 旗下加密卡，专注跨境出金场景，换汇费率低，支持多法币</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">7360298</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://biyapay.com/re/7360298" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=XJ9v1lAw5Jo" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Wirex Card -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-new">欧洲系</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#60a5fa;">WRX</div>
+        <div class="card-name">Wirex Card</div>
+      </div>
+      <div class="card-desc">英国持牌加密 Visa 卡，支持 150+ 种货币，欧洲用户体验成熟</div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+          <div class="card-btns"><a href="https://wirexapp.com/r/fbebbd3178674da7827a1f31ddae3ce6" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=2HdUoyJUkTI" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- UR Card -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-new">新兴</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">UR</div>
+        <div class="card-name">UR Card</div>
+      </div>
+      <div class="card-desc">新兴加密预付卡，开卡便捷，支持 USDT 直接消费，适合轻量日常使用</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">jj8jbn</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+          <div class="card-btns"><a href="https://get.ur.app/login?code=jj8jbn" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Dtcpay Card -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-new">新加坡系</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#a78bfa;">DTC</div>
+        <div class="card-name">Dtcpay Card</div>
+      </div>
+      <div class="card-desc">新加坡合规加密支付卡，MAS 监管背景，适合有新加坡账户的用户</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">7dmtzk</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
+      <div class="card-btns"><a href="https://personal.dtcpay.com/?referralCode=7dmtzk" class="btn-primary">立即开通 →</a><a href="https://youtu.be/c-Kxj_H7h4Q" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ 冷钱包 ══ -->
+<div class="crypto-section" id="cold">
+  <div class="section-heading">
+    <h2>🧊 冷钱包</h2>
+    <span class="section-count">4 个资源</span>
+  </div>
+  <p class="section-sub">离线存储加密资产，安全第一，大额持仓强烈建议使用冷钱包</p>
+  <div class="cards-grid">
+
+    <!-- OneKey -->
+    <div class="crypto-card featured">
+      <div class="badge-row"><span class="badge badge-rec">推荐</span><span class="badge badge-cold">国产</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">OK</div>
+        <div class="card-name">OneKey</div>
+      </div>
+      <div class="card-desc">国产开源硬件钱包，支持多链多币，App 体验优秀，中文友好，价格亲民</div>
+      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">NIFULEI</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+      <div class="card-btns"><a href="https://onekey.so/r/NIFULEI" class="btn-buy">立即购买 →</a><a href="https://youtu.be/dI1OIJURrys" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Ledger -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-cold">老牌</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#e2e8f0;">Ledger</div>
+        <div class="card-name">Ledger</div>
+      </div>
+      <div class="card-desc">全球最知名硬件钱包品牌，Nano X/S Plus 系列成熟稳定，支持 5500+ 币种</div>
+      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">NIFULEI</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
+      <div class="card-btns"><a href="https://shop.ledger.com/?r=978a08f57a21" class="btn-buy">立即购买 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- SafePal -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-cold">性价比</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#34d399;">SPL</div>
+        <div class="card-name">SafePal</div>
+      </div>
+      <div class="card-desc">币安投资的硬件钱包，价格便宜，支持主流链，适合预算有限的入门用户</div>
+      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">766177</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://www.safepal.com/store/s1?ref=yjnmywv" class="btn-buy">立即购买 →</a><a href="https://youtu.be/1Kh__95rGX8" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- Tangem -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-cold">卡片式</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#60a5fa;">TGM</div>
+        <div class="card-name">Tangem</div>
+      </div>
+      <div class="card-desc">NFC 卡片式冷钱包，无需电池，外形轻薄如信用卡，随身携带极为方便</div>
+      <div class="discount-box"><span class="discount-label">折扣码</span><div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;"><span class="discount-val">NIFULEI</span></div></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+          <div class="card-btns"><a href="#" class="btn-buy">立即购买 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ 热钱包 ══ -->
+<div class="crypto-section" id="hot">
+  <div class="section-heading">
+    <h2>🔥 热钱包</h2>
+    <span class="section-count">4 个资源</span>
+  </div>
+  <p class="section-sub">日常操作链上资产必备，建议与冷钱包搭配使用，小额资金用热钱包</p>
+  <div class="cards-grid">
+
+    <!-- Bitget Wallet -->
+    <div class="crypto-card featured">
+      <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="background:rgba(96,165,250,.1);color:#60a5fa;border-color:rgba(96,165,250,.2);">BW</div>
+        <div class="card-name">Bitget Wallet</div>
+      </div>
+      <div class="card-desc">多链热钱包，内置 DEX 聚合器和 NFT 市场，链上操作体验流畅，支持 100+ 条链</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">Xv3ND9</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
+          <div class="card-btns"><a href="https://newshare.bwb.global/zh/invite_earn_coin?inviteCode=Xv3ND9&utmSource=referral2.0_copyLink" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=d50Iw04RXPg" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- OKX Wallet -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#e2e8f0;">OKX</div>
+        <div class="card-name">OKX Wallet</div>
+      </div>
+      <div class="card-desc">欧易官方多链钱包，支持 80+ 条链，内置 DEX 和跨链桥，与 OKX 交易所联动便利</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">OKX9798</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
+      <div class="card-btns"><a href="https://web3.okx.com/join/OKX9798" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- MetaMask -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-hot">行业标准</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#fb923c;">MM</div>
+        <div class="card-name">MetaMask</div>
+      </div>
+      <div class="card-desc">以太坊生态标配钱包，浏览器插件和移动端均支持，DApp 兼容性最广</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">3K0V8V</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
+      <div class="card-btns"><a href="#" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- OneKey (热钱包) -->
+    <div class="crypto-card">
+      <div class="badge-row"><span class="badge badge-cold">国产</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:var(--accent);">OK</div>
+        <div class="card-name">OneKey 热钱包</div>
+      </div>
+      <div class="card-desc">OneKey 旗下软件钱包，与 OneKey 硬件钱包完美搭配，冷热结合管理资产</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns"><a href="https://app.onekey.so/r/NIFULEI/app/perps" class="btn-primary">立即开通 →</a><a href="https://youtu.be/dI1OIJURrys" class="btn-ghost">查看教程</a></div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<footer>
+  <div class="footer-copy">
+    © 2026 泥伏雷闯关记
+    <span class="sep">·</span>
+    内容仅供参考，不构成投资建议
+    <span class="sep">·</span>
+    投资有风险，入市需谨慎
+  </div>
+  <div class="footer-socials">
+    <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      𝕏 关注
+    </a>
+    <a href="https://t.me/talakang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      TG
+    </a>
+    <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+  </div>
+</footer>
+
+<script>
+const btns = document.querySelectorAll('.anchor-btn');
+btns.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    const navH = document.querySelector('nav').offsetHeight;
+    const anchorH = document.querySelector('.anchor-nav').offsetHeight;
+    const offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+    btns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+const sections = document.querySelectorAll('.crypto-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      btns.forEach(b => b.classList.remove('active'));
+      const a = document.querySelector(`.anchor-btn[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
+sections.forEach(s => observer.observe(s));
+
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  if (m.style.display === 'none') {
+    m.style.display = 'block';
+    btn.textContent = '✕';
+  } else {
+    m.style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+// Show mobile btn on small screens
+function checkScreen() {
+  const btn = document.getElementById('menuBtn');
+  const links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  if (window.innerWidth <= 768) {
+    btn.style.display = 'flex';
+    links.style.display = 'none';
+  } else {
+    btn.style.display = 'none';
+    links.style.display = 'flex';
+    document.getElementById('mobileMenu').style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+window.addEventListener('resize', checkScreen);
+checkScreen();
+</script>
+</body>
+</html>

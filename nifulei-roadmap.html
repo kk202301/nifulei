@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>出海金融路线图｜交易所、券商与加密卡资金流转全解析 - 泥伏雷闯关记</title>
+<meta name="description" content="系统梳理交易所、港美股券商及加密银行卡之间的资金流转路径，构建完整跨境资金体系，帮助用户实现低成本入金、出金与资产配置。">
+
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="资金流转,出入金路径,加密出金,跨境资金,金融体系">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0c10; --bg-card: #111318; --bg-card-hover: #161920;
+  --bg-dropdown: #13161e;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(240,180,41,0.35);
+  --text: #dde3ee; --text-muted: #5a6478; --text-dim: #363d4e;
+  --accent: #f0b429; --accent-dim: rgba(240,180,41,0.12); --accent-border: rgba(240,180,41,0.28);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: "SF Pro Text","PingFang SC","Microsoft YaHei",-apple-system,sans-serif; font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; cursor: pointer; }
+
+nav { position: sticky; top: 0; z-index: 200; background: rgba(10,12,16,.92); backdrop-filter: blur(16px); border-bottom: .5px solid var(--border); }
+.nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.logo { font-size: 13px; font-weight: 700; color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-item { position: relative; }
+.nav-item > .nav-label { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; cursor: pointer; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-item:hover > .nav-label { color: var(--text); background: rgba(255,255,255,.05); }
+.arr { font-size: 8px; color: var(--text-dim); transition: transform .2s; display: inline-block; }
+.nav-item:hover .arr { transform: rotate(180deg); color: var(--accent); }
+.dropdown { position: absolute; top: calc(100% + 6px); left: 0; min-width: 148px; background: var(--bg-dropdown); border: .5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 6px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .18s, transform .18s; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.nav-item:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.dropdown a { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); padding: 7px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.dropdown a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+.dropdown-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); flex-shrink: 0; }
+.dropdown a:hover .dropdown-dot { background: var(--accent); }
+.nav-single { font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
+.nav-single:hover { color: var(--text); background: rgba(255,255,255,.05); }
+.nav-cta { font-size: 11px; color: #0a0c10; background: var(--accent); padding: 6px 16px; border-radius: 6px; font-weight: 700; margin-left: 8px; }
+
+.anchor-nav { position: sticky; top: 52px; z-index: 100; background: rgba(10,12,16,.95); backdrop-filter: blur(12px); padding: 0 28px; display: flex; gap: 6px; align-items: center; border-bottom: .5px solid var(--border); overflow-x: auto; scrollbar-width: none; }
+.anchor-nav::-webkit-scrollbar { display: none; }
+.anchor-btn { font-size: 12px; color: var(--text-muted); padding: 12px 14px; white-space: nowrap; border-bottom: 1.5px solid transparent; transition: color .15s, border-color .15s; cursor: pointer; }
+.anchor-btn:hover { color: var(--text); }
+.anchor-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.page-header { max-width: 1080px; margin: 0 auto; padding: 44px 28px 36px; border-bottom: .5px solid var(--border); }
+.breadcrumb { font-size: 11px; color: var(--text-dim); margin-bottom: 14px; }
+
+.content { max-width: 1080px; margin: 0 auto; padding: 0 28px 80px; }
+.map-section { padding-top: 52px; }
+.section-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.section-heading h2 { font-size: 18px; font-weight: 700; }
+.section-sub { font-size: 12px; color: var(--text-dim); margin-bottom: 28px; }
+.section-divider { height: .5px; background: var(--border); margin: 52px 0 0; }
+
+/* ── DIAGRAM CANVAS ── */
+.diagram-wrap { background: #0d1017; border: .5px solid var(--border); border-radius: 14px; padding: 32px 24px; overflow-x: auto; position: relative; }
+
+/* ── LEGEND ── */
+.legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+.legend-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--text-muted); }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+/* ── FLOW GRID (diagram 1) ── */
+.flow-grid { display: grid; grid-template-columns: 200px 60px 180px 60px 160px; grid-template-rows: auto 28px auto 28px auto; align-items: center; gap: 0; min-width: 700px; }
+.flow-grid-2 { display: grid; grid-template-columns: 160px 60px 200px 60px 160px 60px 160px; grid-template-rows: auto 20px auto; align-items: center; gap: 0; min-width: 880px; }
+
+/* ── NODE ── */
+.node {
+  border-radius: 10px; padding: 12px 14px; cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform .18s, border-color .18s, box-shadow .18s;
+  position: relative; text-align: center;
+}
+.node[data-no-click] { cursor: default; }
+.node[data-no-click]:hover { box-shadow: none; }
+.node:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.5); }
+.node-title { font-size: 13px; font-weight: 700; line-height: 1.4; }
+.node-sub { font-size: 10px; margin-top: 4px; opacity: .75; line-height: 1.4; }
+.node-badge { display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-top: 5px; letter-spacing: .04em; }
+
+/* node colors */
+.node-blue   { background: #1a2744; border-color: #2d4a88; }
+.node-blue:hover { border-color: #60a5fa; }
+.node-blue .node-title { color: #93c5fd; }
+.node-blue .node-sub { color: #64748b; }
+
+.node-green  { background: #0f2a1e; border-color: #1a5c38; }
+.node-green:hover { border-color: #34d399; }
+.node-green .node-title { color: #6ee7b7; }
+.node-green .node-sub { color: #4b8c6e; }
+
+.node-amber  { background: #1e1608; border-color: #5c3d0a; }
+.node-amber:hover { border-color: var(--accent); }
+.node-amber .node-title { color: var(--accent); }
+.node-amber .node-sub { color: #8a6320; }
+
+.node-brown  { background: #2a1a0a; border-color: #5c3018; }
+.node-brown:hover { border-color: #f97316; }
+.node-brown .node-title { color: #fb923c; }
+.node-brown .node-sub { color: #7c4a2a; }
+
+.node-red    { background: #2a0f0f; border-color: #7c1d1d; }
+.node-red:hover { border-color: #f87171; }
+.node-red .node-title { color: #fca5a5; }
+.node-red .node-sub { color: #7c3a3a; }
+
+.node-gray   { background: #1a1e26; border-color: #2d3340; }
+.node-gray:hover { border-color: #94a3b8; }
+.node-gray .node-title { color: #cbd5e1; }
+.node-gray .node-sub { color: #4b5563; }
+
+.node-purple { background: #1e1630; border-color: #4c3580; }
+.node-purple:hover { border-color: #a78bfa; }
+.node-purple .node-title { color: #c4b5fd; }
+.node-purple .node-sub { color: #6b5a9e; }
+
+/* ── ARROWS ── */
+.arrow { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 3px; }
+.arrow-line { font-size: 18px; color: var(--accent); line-height: 1; }
+.arrow-label { font-size: 9px; color: var(--text-dim); text-align: center; line-height: 1.3; max-width: 56px; }
+.arrow-h { flex-direction: row; gap: 4px; }
+.arrow-h .arrow-line { font-size: 16px; }
+.arrow-warn { color: #ef4444; }
+.arrow-warn-label { color: #f87171; }
+
+/* ── SECTION LABELS ── */
+.section-label-side { writing-mode: vertical-rl; text-orientation: mixed; font-size: 22px; font-weight: 900; letter-spacing: .1em; padding: 12px 8px; border-radius: 8px; }
+.label-in  { color: var(--accent); background: rgba(240,180,41,.08); border: .5px solid var(--accent-border); }
+.label-out { color: #60a5fa; background: rgba(96,165,250,.08); border: .5px solid rgba(96,165,250,.2); }
+
+/* ── DIAGRAM 1 LAYOUT ── */
+.d1-wrap { display: grid; grid-template-columns: 44px 1fr; gap: 16px; min-width: 720px; }
+.d1-rows { display: flex; flex-direction: column; gap: 0; }
+.d1-in  { display: grid; grid-template-columns: 200px 56px 170px 56px 150px; align-items: center; padding: 20px 0; border-bottom: .5px dashed rgba(255,255,255,.08); }
+.d1-mid { display: grid; grid-template-columns: 200px 56px 170px 56px 150px; align-items: center; padding: 8px 0; }
+.d1-out { display: grid; grid-template-columns: 200px 56px 170px 56px 150px; align-items: center; padding: 20px 0; border-top: .5px dashed rgba(255,255,255,.08); }
+
+/* ── DIAGRAM 2 LAYOUT ── */
+.d2-wrap { display: flex; flex-direction: column; gap: 20px; min-width: 880px; }
+.d2-row  { display: flex; align-items: center; gap: 0; }
+.d2-col  { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.d2-node-group { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+
+/* ── TOOLTIP MODAL ── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.72); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; }
+.modal-overlay.show { display: flex; }
+.modal { background: #13161e; border: .5px solid rgba(255,255,255,.15); border-radius: 14px; padding: 28px; max-width: 420px; width: 100%; position: relative; }
+.modal-close { position: absolute; top: 16px; right: 18px; font-size: 18px; color: var(--text-dim); cursor: pointer; line-height: 1; }
+.modal-close:hover { color: var(--text); }
+.modal-tag { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; letter-spacing: .04em; display: inline-block; margin-bottom: 12px; }
+.modal-title { font-size: 17px; font-weight: 700; color: #e8edf5; margin-bottom: 10px; }
+.modal-desc { font-size: 12px; color: var(--text-muted); line-height: 1.9; margin-bottom: 18px; }
+.modal-btns { display: flex; gap: 8px; }
+.modal-btn-primary { background: var(--accent); color: #0a0c10; font-size: 12px; font-weight: 700; padding: 8px 18px; border-radius: 7px; cursor: pointer; }
+.modal-btn-ghost { border: .5px solid rgba(255,255,255,.15); color: var(--text-muted); font-size: 12px; padding: 8px 14px; border-radius: 7px; cursor: pointer; }
+.modal-btn-ghost:hover { color: var(--text); }
+
+footer { border-top: .5px solid var(--border); padding: 28px; text-align: center; }
+footer p { font-size: 11px; color: var(--text-dim); line-height: 2; }
+footer .sep { margin: 0 10px; opacity: .3; }
+
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .nav-inner { padding: 0 16px; }
+
+  .page-header { padding: 28px 16px 24px; }
+  .content, .broker-section, .crypto-section, .comm-section, .map-section, .about-section { padding-left: 16px; padding-right: 16px; }
+
+  /* grids */
+  .cards-grid, .cards-grid.cols-3, .cards-grid.cols-2 { grid-template-columns: 1fr 1fr !important; }
+  .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr 1fr !important; }
+  .cn-card.highlight { grid-column: span 2; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .promos-grid, .contact-grid { grid-template-columns: 1fr !important; }
+  .contact-card.full-width { grid-column: span 1; }
+
+  /* hero */
+  .hero h1, h1 { font-size: 30px !important; }
+  .hero-btns { flex-direction: column; align-items: center; }
+
+  /* anchor nav */
+  .anchor-nav { gap: 0; padding: 0 12px; }
+  .anchor-btn { padding: 10px 10px; font-size: 11px; }
+
+  /* diagrams scroll */
+  .diagram-wrap { padding: 16px 12px; }
+
+  /* footer */
+  footer { flex-direction: column; align-items: flex-start; padding: 20px 16px; gap: 12px; }
+
+  /* broker dual-span cards */
+  [style*="grid-column: span 2"] { grid-column: span 1 !important; }
+
+  /* section */
+  .section { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+@media (max-width: 480px) {
+  .cards-grid, .cards-grid.cols-3 { grid-template-columns: 1fr !important; }
+  .cn-grid { grid-template-columns: 1fr !important; }
+  .cn-card.highlight { grid-column: span 1; }
+  .region-toggle { flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) { .nav-cta { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="nifulei-preview.html" class="logo">泥伏雷闯关记</a>
+    <div class="nav-links">
+      <div class="nav-item"><div class="nav-label">国外银行卡 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a><a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a><a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a><a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a></div></div>
+      <div class="nav-item"><div class="nav-label">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a></div></div>
+      <div class="nav-item"><div class="nav-label">加密 Web3 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-crypto.html#exchange"><span class="dropdown-dot"></span>交易所</a><a href="nifulei-crypto.html#card"><span class="dropdown-dot"></span>加密银行卡</a><a href="nifulei-crypto.html#cold"><span class="dropdown-dot"></span>冷钱包</a><a href="nifulei-crypto.html#hot"><span class="dropdown-dot"></span>热钱包</a></div></div>
+      <div class="nav-item"><div class="nav-label">跨境通讯 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-esim.html#esim-num"><span class="dropdown-dot"></span>eSIM 号码</a><a href="nifulei-esim.html#esim-data"><span class="dropdown-dot"></span>eSIM 流量平台</a><a href="nifulei-esim.html#esim-writer"><span class="dropdown-dot"></span>eSIM 写卡器</a></div></div>
+      <a href="nifulei-roadmap.html" class="nav-single" style="color:var(--accent);">金融路线图</a>
+      <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
+      <div class="nav-item"><div class="nav-label">关于泥伏雷 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-about.html#origin"><span class="dropdown-dot"></span>泥伏雷缘起</a><a href="nifulei-about.html#contact"><span class="dropdown-dot"></span>联系方式</a></div></div>
+      <a href="https://x.com/" target="_blank" class="nav-cta">关注 𝕏</a>
+    </div>
+  </div>
+</nav>
+
+<div class="anchor-nav">
+  <a href="#map1" class="anchor-btn active">🗺 无港卡资金路线图</a>
+  <a href="#map2" class="anchor-btn">🔄 交易所—券商—银行—加密卡流转图</a>
+</div>
+
+<div class="page-header">
+  <div class="breadcrumb">首页 › <span>金融路线图</span></div>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+    <span style="font-size:24px;">🗺</span>
+    <h1 style="font-size:26px;font-weight:700;letter-spacing:-.01em;">金融路线图</h1>
+  </div>
+  <p style="font-size:13px;color:var(--text-muted);line-height:1.8;">点击任意节点可查看该平台的详细介绍和开户教程。</p>
+</div>
+
+<div class="content">
+
+<!-- ══ 路线图 1：无港卡用户资金路线 ══ -->
+<div class="map-section" id="map1">
+  <div class="section-heading"><h2>🗺 无港卡用户资金路线图</h2></div>
+  <p class="section-sub">以长桥证券为例：内地银行跨境电汇入金港美股券商完整路径（入金 + 出金）</p>
+
+  <div class="diagram-wrap">
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#2d4a88;"></div>国内 / 券商账户</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1a5c38;"></div>Wise / 境外银行</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5c3d0a;"></div>长桥账户</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7c1d1d;"></div>不推荐路径</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent);border-radius:50%;width:10px;height:10px;"></div>→ 资金流向</div>
+    </div>
+
+    <div class="d1-wrap">
+      <!-- 入金 label -->
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div class="section-label-side label-in" style="flex:1;display:flex;align-items:center;justify-content:center;">入金</div>
+        <div style="height:60px;"></div>
+        <div class="section-label-side label-out" style="flex:1;display:flex;align-items:center;justify-content:center;">出金</div>
+      </div>
+
+      <div class="d1-rows">
+        <!-- 入金行 -->
+        <div class="d1-in">
+          <div class="node node-blue" data-no-click="true">
+            <div class="node-title">国内主流银行卡</div>
+            <div class="node-sub">兴业 / 浦发 / 建设</div>
+            <div class="node-sub" style="margin-top:4px;">购汇：人民币 → 英镑</div>
+          </div>
+          <div class="arrow">
+            <div class="arrow-line">→</div>
+            <div class="arrow-label">跨境汇款<br>损耗约 100¥</div>
+          </div>
+          <div class="node node-blue" onclick="showModal('ifast')">
+            <div class="node-title">iFAST Global Bank</div>
+            <div class="node-sub">新加坡持牌银行<br>接收英镑无损</div>
+          </div>
+          <div class="arrow">
+            <div class="arrow-line">→</div>
+            <div class="arrow-label">英镑无损<br>几乎秒到</div>
+          </div>
+          <div class="node node-green" onclick="showModal('wise')">
+            <div class="node-title">Wise</div>
+            <div class="node-sub">换汇：英镑 → 新币<br>汇率最优</div>
+          </div>
+        </div>
+
+        <!-- 中间互转行 -->
+        <div class="d1-mid">
+          <div class="node node-amber" onclick="showModal('lb-hk')">
+            <div class="node-title">长桥香港</div>
+          </div>
+          <div class="arrow">
+            <div class="arrow-line">⇄</div>
+            <div class="arrow-label">券商互转<br>无损 T+1</div>
+          </div>
+          <div class="node node-amber" onclick="showModal('lb-sg')">
+            <div class="node-title">长桥新加坡</div>
+          </div>
+          <div class="arrow" style="flex-direction:column;">
+            <div style="display:flex;align-items:center;gap:4px;">
+              <span style="font-size:14px;color:#ef4444;">✕</span>
+              <div class="arrow-label arrow-warn-label">成本高<br>不推荐</div>
+            </div>
+            <div class="arrow-line arrow-warn" style="transform:rotate(90deg);">→</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div class="arrow-label" style="color:#34d399;">券商入金<br>新币无损</div>
+            <div class="arrow-line" style="color:#34d399;">←</div>
+          </div>
+        </div>
+
+        <!-- 出金行 -->
+        <div class="d1-out">
+          <div class="node node-blue" data-no-click="true">
+            <div class="node-title">微信 / 支付宝</div>
+            <div class="node-sub">及其他国内银行卡</div>
+            <div class="node-sub">资金回国 ✓</div>
+          </div>
+          <div class="arrow">
+            <div class="arrow-line">←</div>
+            <div class="arrow-label">资金回国</div>
+          </div>
+          <div class="node node-blue" onclick="showModal('hk-bank')">
+            <div class="node-title">香港银行</div>
+            <div class="node-sub">中转节点</div>
+          </div>
+          <div class="arrow">
+            <div class="arrow-line">←</div>
+            <div class="arrow-label">券商出金<br>新币无损</div>
+          </div>
+          <div class="node node-green" onclick="showModal('wise')">
+            <div class="node-title">Wise</div>
+            <div class="node-sub">出金中转<br>换汇低损</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /d1-wrap -->
+
+    <p style="font-size:11px;color:var(--text-dim);margin-top:20px;text-align:center;">
+      💡 点击任意节点查看详情和开户教程 · 红色路径成本高，不推荐使用
+    </p>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ══ 路线图 2：交易所—券商—银行—加密卡 ══ -->
+<div class="map-section" id="map2">
+  <div class="section-heading"><h2>🔄 交易所 — 合规券商 — 银行 — 加密卡 资金流转图</h2></div>
+  <p class="section-sub">点击节点查看各平台教程 · 箭头方向代表资金实际流向</p>
+
+  <div class="diagram-wrap">
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#1e1608;border:1px solid #5c3d0a;"></div>交易所</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1e1630;border:1px solid #4c3580;"></div>钱包</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0f2a1e;border:1px solid #1a5c38;"></div>银行 / Wise</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2a1a0a;border:1px solid #5c3018;"></div>合规券商</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1e0a2a;border:1px solid #5c1880;"></div>加密银行卡</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1a2744;border:1px solid #2d4a88;"></div>稳定币 / 法币平台</div>
+    </div>
+
+    <div style="overflow-x:auto;">
+    <div style="min-width:1020px;display:flex;flex-direction:column;gap:0;">
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  ROW A: 主链路  交易所 → 钱包/直出 → 终点           -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div style="display:grid;grid-template-columns:150px 40px 155px 40px 185px 40px 155px 40px 215px;align-items:start;gap:0;">
+
+      <!-- ① 交易所 -->
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="font-size:10px;color:var(--text-dim);text-align:center;margin-bottom:5px;letter-spacing:.08em;">① 交易所</div>
+        <div class="node node-amber" style="padding:7px 10px;" onclick="showModal('okx')"><div class="node-title" style="font-size:11px;">欧易 OKX</div></div>
+        <div class="node node-amber" style="padding:7px 10px;" onclick="showModal('binance')">
+          <div class="node-title" style="font-size:11px;">币安 Binance</div>
+          <div class="node-sub" style="font-size:9px;color:#34d399;">→ 众安银行</div>
+        </div>
+        <div class="node node-amber" style="padding:7px 10px;" onclick="showModal('bybit-ex')"><div class="node-title" style="font-size:11px;">Bybit</div></div>
+        <div class="node node-amber" style="padding:7px 10px;" onclick="showModal('bitget-ex')"><div class="node-title" style="font-size:11px;">Bitget</div></div>
+        <div class="node node-amber" style="padding:7px 10px;" onclick="showModal('gate')"><div class="node-title" style="font-size:11px;">Gate.io</div></div>
+        <div class="node node-amber" style="padding:7px 10px;" onclick="showModal('htx')"><div class="node-title" style="font-size:11px;">火币 HTX</div></div>
+        <div class="node node-gray"  style="padding:7px 10px;" onclick="showModal('kraken')">
+          <div class="node-title" style="font-size:11px;">Kraken</div>
+          <div class="node-sub" style="font-size:9px;color:#34d399;">→ 众安银行</div>
+        </div>
+        <div class="node node-gray"  style="padding:7px 10px;" onclick="showModal('coinbase')"><div class="node-title" style="font-size:11px;">Coinbase</div></div>
+      </div>
+
+      <!-- 箭头1 -->
+      <div style="padding-top:70px;text-align:center;">
+        <div class="arrow"><div class="arrow-line">⇄</div><div class="arrow-label">USDT<br>USDC</div></div>
+      </div>
+
+      <!-- ② 钱包 + 出入金 -->
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="font-size:10px;color:var(--text-dim);text-align:center;margin-bottom:5px;letter-spacing:.08em;">② 钱包 / 出入金</div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:2px;">热钱包</div>
+        <div class="node node-purple" style="padding:7px 10px;" onclick="showModal('safepal-wallet')">
+          <div class="node-title" style="font-size:11px;">SafePal Wallet</div>
+          <div class="node-sub" style="font-size:9px;color:#93c5fd;">→ IBKR / 嘉信</div>
+        </div>
+        <div class="node node-purple" style="padding:7px 10px;" onclick="showModal('bitget-wallet')">
+          <div class="node-title" style="font-size:11px;">Bitget Wallet</div>
+          <div class="node-sub" style="font-size:9px;color:#93c5fd;">→ IBKR / 嘉信</div>
+        </div>
+        <div class="node node-purple" style="padding:7px 10px;" onclick="showModal('okx-wallet')"><div class="node-title" style="font-size:11px;">OKX Wallet</div></div>
+        <div class="node node-purple" style="padding:7px 10px;" onclick="showModal('metamask')"><div class="node-title" style="font-size:11px;">MetaMask</div></div>
+        <div style="height:4px;border-top:.5px dashed rgba(255,255,255,.07);margin:4px 0;"></div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:2px;">法币 / 稳定币平台</div>
+        <div class="node node-blue" style="padding:7px 10px;" onclick="showModal('biyapay')"><div class="node-title" style="font-size:11px;">BiyaPay</div><div class="node-sub">USDT⇄法币</div></div>
+        <div class="node node-blue" style="padding:7px 10px;" onclick="showModal('straitsx')">
+          <div class="node-title" style="font-size:11px;">StraitsX</div>
+          <div class="node-sub" style="font-size:9px;color:#34d399;">⇄ 新加坡银行卡</div>
+        </div>
+        <div class="node node-blue" style="padding:7px 10px;" onclick="showModal('bit-exchange')"><div class="node-title" style="font-size:11px;">BIT 交易所</div><div class="node-sub">法币兑换</div></div>
+        <div class="node node-blue" style="padding:7px 10px;" onclick="showModal('kraken')"><div class="node-title" style="font-size:11px;">Kraken</div><div class="node-sub">法币兑换</div></div>
+      </div>
+
+      <!-- 箭头2 -->
+      <div style="padding-top:70px;text-align:center;">
+        <div class="arrow"><div class="arrow-line">→</div><div class="arrow-label">法币<br>出入</div></div>
+      </div>
+
+      <!-- ③ 法币通道（分路径说明） -->
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="font-size:10px;color:var(--text-dim);text-align:center;margin-bottom:5px;letter-spacing:.08em;">③ 法币通道</div>
+
+        <div class="node node-blue" style="padding:10px 12px;" onclick="showModal('fiat-channels')">
+          <div style="font-size:10px;font-weight:700;color:#93c5fd;margin-bottom:6px;">多货币法币通道</div>
+          <div style="font-size:10px;color:#5a7fa8;line-height:2;">
+            🇺🇸 美元 ACH → 华美银行<br>
+            🇪🇺 欧元 SEPA → N26/Fiat24<br>
+            🇬🇧 英镑 FPS → iFAST/Paypal<br>
+            🇨🇭 瑞郎 SIC → Fiat24
+          </div>
+        </div>
+
+        <div style="height:4px;"></div>
+        <div style="font-size:9px;color:#f87171;margin-bottom:2px;">⚠ 仅限合规英国监管交易所</div>
+        <div class="node node-green" style="padding:8px 10px;border-color:rgba(96,165,250,.3);" onclick="showModal('ifast')">
+          <div class="node-title" style="font-size:11px;">iFAST Global Bank</div>
+          <div class="node-sub" style="font-size:9px;color:#f87171;">仅接受英国合规交易所</div>
+          <div class="node-sub">英镑 FPS 秒到</div>
+        </div>
+
+        <div style="height:4px;border-top:.5px dashed rgba(255,255,255,.07);margin:4px 0;"></div>
+        <div style="font-size:9px;color:#34d399;margin-bottom:2px;">币安 / Kraken 直接打入</div>
+        <div class="node node-green" style="padding:8px 10px;" onclick="showModal('zaone')">
+          <div class="node-title" style="font-size:11px;">众安银行 ZA</div>
+          <div class="node-sub" style="font-size:9px;color:#34d399;">接受币安 / Kraken 入金</div>
+        </div>
+
+        <div style="height:4px;border-top:.5px dashed rgba(255,255,255,.07);margin:4px 0;"></div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:2px;">卓锐：接受虚拟币直接转入</div>
+        <div class="node node-brown" style="padding:8px 10px;" onclick="showModal('zhuorui')">
+          <div class="node-title" style="font-size:11px;">卓锐证券</div>
+          <div class="node-sub" style="font-size:9px;color:#fb923c;">USDT 直接存入港股账户</div>
+        </div>
+      </div>
+
+      <!-- 箭头3 -->
+      <div style="padding-top:70px;text-align:center;">
+        <div class="arrow"><div class="arrow-line">→</div><div class="arrow-label">入账<br>换汇</div></div>
+      </div>
+
+      <!-- ④ Wise + 银行中转 -->
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="font-size:10px;color:var(--text-dim);text-align:center;margin-bottom:5px;letter-spacing:.08em;">④ Wise / 银行中转</div>
+
+        <div style="font-size:9px;color:#f87171;margin-bottom:2px;">⚠ Wise 不接受交易所直转</div>
+        <div class="node node-green" style="padding:9px 10px;" onclick="showModal('wise')">
+          <div class="node-title" style="font-size:12px;">Wise</div>
+          <div class="node-sub">多币种换汇核心<br>40+ 货币互转</div>
+          <div class="node-sub" style="font-size:9px;color:#f87171;">来源须为合规银行</div>
+        </div>
+        <div style="height:4px;"></div>
+        <div class="node node-green" style="padding:8px 10px;" onclick="showModal('hk-sg-bank')">
+          <div class="node-title" style="font-size:11px;">香港银行卡</div>
+          <div class="node-sub">中银 / 汇丰 / 众安</div>
+        </div>
+        <div class="node node-green" style="padding:8px 10px;" onclick="showModal('sg-bank')">
+          <div class="node-title" style="font-size:11px;">新加坡银行卡</div>
+          <div class="node-sub">DBS / OCBC<br>
+            <span style="font-size:9px;color:#34d399;">⇄ StraitsX 法币互转</span>
+          </div>
+        </div>
+        <div style="height:4px;border-top:.5px dashed rgba(255,255,255,.07);margin:4px 0;"></div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:2px;">出金回国</div>
+        <div class="node node-blue" data-no-click="true" style="padding:7px 10px;">
+          <div class="node-title" style="font-size:11px;">微信 / 支付宝</div>
+          <div class="node-sub">国内收款终点</div>
+        </div>
+      </div>
+
+      <!-- 箭头4 -->
+      <div style="padding-top:70px;text-align:center;">
+        <div class="arrow"><div class="arrow-line">→</div><div class="arrow-label">入金<br>券商</div></div>
+      </div>
+
+      <!-- ⑤ 终点 -->
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="font-size:10px;color:var(--text-dim);text-align:center;margin-bottom:5px;letter-spacing:.08em;">⑤ 券商终点</div>
+
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:2px;">🇺🇸 美股券商</div>
+        <div class="node node-blue" style="padding:7px 10px;" onclick="showModal('ibkr')">
+          <div class="node-title" style="font-size:11px;">盈透 IBKR</div>
+          <div class="node-sub" style="font-size:9px;color:#93c5fd;">← SafePal/Bitget Wallet</div>
+        </div>
+        <div class="node node-blue" style="padding:7px 10px;" onclick="showModal('schwab')">
+          <div class="node-title" style="font-size:11px;">嘉信 Schwab</div>
+          <div class="node-sub" style="font-size:9px;color:#93c5fd;">← SafePal/Bitget Wallet</div>
+        </div>
+        <div class="node node-blue" style="padding:7px 10px;" onclick="showModal('webull')"><div class="node-title" style="font-size:11px;">必贝 Webull</div></div>
+
+        <div style="height:4px;border-top:.5px dashed rgba(255,255,255,.07);margin:4px 0;"></div>
+        <div style="font-size:9px;color:var(--text-dim);margin-bottom:2px;">🇭🇰 港股券商</div>
+        <div class="node node-brown" style="padding:7px 10px;" onclick="showModal('lb-sg')"><div class="node-title" style="font-size:11px;">长桥新加坡</div></div>
+        <div class="node node-brown" style="padding:7px 10px;" onclick="showModal('mm-sg')"><div class="node-title" style="font-size:11px;">盈立新加坡</div></div>
+        <div class="node node-gray"  style="padding:7px 10px;" onclick="showModal('panda')"><div class="node-title" style="font-size:11px;">熊猫证券</div></div>
+      </div>
+
+    </div><!-- /main grid -->
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!--  ROW B: 交易所直出 → 加密银行卡 → 消费              -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div style="margin-top:20px;padding-top:20px;border-top:.5px dashed rgba(255,255,255,.08);">
+      <div style="font-size:11px;color:var(--accent);font-weight:700;margin-bottom:14px;">
+        💳 交易所直出 → 加密银行卡（USDT 直接消费，无需经过法币通道）
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div style="font-size:11px;color:var(--text-muted);white-space:nowrap;">交易所充值 →</div>
+        <div class="node node-purple" style="padding:7px 12px;" onclick="showModal('safepal-card')"><div class="node-title" style="font-size:11px;">SafePal Card</div></div>
+        <div class="node node-purple" style="padding:7px 12px;" onclick="showModal('bybit-card')"><div class="node-title" style="font-size:11px;">Bybit Card</div></div>
+        <div class="node node-purple" style="padding:7px 12px;" onclick="showModal('bitget-card')"><div class="node-title" style="font-size:11px;">Bitget Card</div></div>
+        <div class="node node-purple" style="padding:7px 12px;" onclick="showModal('pokepay')"><div class="node-title" style="font-size:11px;">Pokepay</div></div>
+        <div class="node node-purple" style="padding:7px 12px;" onclick="showModal('ur-card')"><div class="node-title" style="font-size:11px;">UR Card</div></div>
+        <div class="node node-purple" style="padding:7px 12px;" onclick="showModal('wirex')"><div class="node-title" style="font-size:11px;">Wirex Card</div></div>
+        <div class="node node-gray"   style="padding:7px 12px;" onclick="showModal('biyapay-card')"><div class="node-title" style="font-size:11px;">Biyapay Card</div></div>
+        <div class="node node-gray"   style="padding:7px 12px;" onclick="showModal('dtcpay')"><div class="node-title" style="font-size:11px;">Dtcpay Card</div></div>
+        <div style="font-size:11px;color:var(--text-muted);white-space:nowrap;">→ 全球消费 🌍</div>
+      </div>
+    </div>
+
+    <!-- 阅读提示 -->
+    <div style="margin-top:16px;">
+      <div style="padding:14px 18px;background:rgba(240,180,41,.06);border:.5px solid rgba(240,180,41,.2);border-radius:8px;display:flex;align-items:flex-start;gap:12px;">
+        <span style="font-size:14px;flex-shrink:0;margin-top:1px;">📌</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:5px;">阅读提示</div>
+          <div style="font-size:12px;color:var(--text-muted);line-height:1.9;">限于网页技术实现问题，仅为展示，实际请咨询泥伏雷。</div>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /min-width -->
+    </div><!-- /overflow -->
+
+    <p style="font-size:11px;color:var(--text-dim);margin-top:16px;text-align:center;">
+      💡 点击任意节点查看详情和教程 · ⇄ 双向 · → 单向
+    </p>
+  </div>
+</div>
+</div><!-- /content -->
+
+<footer>
+  <div class="footer-copy">
+    © 2026 泥伏雷闯关记
+    <span class="sep">·</span>
+    内容仅供参考，不构成投资建议
+    <span class="sep">·</span>
+    投资有风险，入市需谨慎
+  </div>
+  <div class="footer-socials">
+    <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      𝕏 关注
+    </a>
+    <a href="https://t.me/talakang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      TG
+    </a>
+    <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="footer-social-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-close" onclick="closeModalDirect()">✕</div>
+    <div class="modal-tag" id="modal-tag"></div>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-desc" id="modal-desc"></div>
+    <div class="modal-btns">
+      <a href="#" id="modal-btn-open" class="modal-btn-primary" target="_blank">前往页面 →</a>
+      <div class="modal-btn-ghost" onclick="closeModalDirect()">关闭</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const nodes = {
+  'bank-cn':      { tag:'国内银行', color:'#2d4a88', title:'国内主流银行卡', desc:'兴业银行、浦发银行、建设银行等，支持外汇购汇，可通过 SWIFT 跨境汇款至境外账户。购汇上限每人每年 5 万美元等值外币。适合用来把人民币换成英镑，再汇到 iFAST 中转。' },
+  'ifast':        { tag:'境外银行', color:'#2d4a88', title:'iFAST Global Bank', desc:'新加坡持牌银行，支持英镑 FPS 快速收款（几乎秒到），可接收国内跨境电汇的英镑无损入账，是目前内地用户入金长桥新加坡最优路径的中转节点。', btn:'立即开通' , link: 'nifulei-bank.html#intl' },
+  'wise':         { tag:'多币种账户', color:'#1a5c38', title:'Wise', desc:'全球最优多币种账户，支持 40+ 种货币相互兑换，汇率接近市场中间价，换汇费极低。可作为英镑 → 新币的换汇工具，也可接收新加坡券商出金。是出入金链路中的核心中转节点。', btn:'立即开通' , link: 'nifulei-bank.html#intl' },
+  'lb-hk':        { tag:'港股券商', color:'#5c3d0a', title:'长桥证券（香港）', desc:'长桥香港版，持香港证监会牌照，支持港股/美股/A股交易。可与长桥新加坡互转（T+1 无损）。界面美观，社区活跃，适合港股为主的投资者。', btn:'立即开通' , link: 'nifulei-broker.html#hk' },
+  'lb-sg':        { tag:'港股券商', color:'#5c3d0a', title:'长桥证券（新加坡）', desc:'长桥新加坡版，持 MAS 牌照，接受 Wise 新币直接入金（无损），是内地用户绕过香港银行入金港美股的最优路径。可与长桥香港互转。', btn:'立即开通' , link: 'nifulei-broker.html#hk' },
+  'hk-bank':      { tag:'香港银行', color:'#2d4a88', title:'香港银行账户', desc:'作为出金中转节点，从长桥/盈立新加坡出金到 Wise，再转入香港银行，最终通过香港银行转回国内微信/支付宝。推荐中银香港、汇丰香港作为中转。' , link: 'nifulei-bank.html#hk' },
+  'wechat-alipay':{ tag:'国内收款', color:'#2d4a88', title:'微信 / 支付宝 / 国内银行卡', desc:'资金回国终点。通过香港银行 → 内地银行跨境转账，或通过 Wise 直接换汇至人民币账户，实现海外资金回国。' },
+  'okx':          { tag:'交易所', color:'#5c3d0a', title:'欧易 OKX', desc:'全球知名合约+现货交易所，USDT/USDC 出入金便捷，支持多种法币通道。是资金流转链路中最常用的 Crypto 出发点之一。', btn:'立即开通' , link: 'nifulei-crypto.html#exchange' },
+  'binance':      { tag:'交易所', color:'#5c3d0a', title:'币安 Binance', desc:'全球最大加密交易所，流动性最强，支持 P2P 出入金、ACH 银行转账、信用卡入金等多种通道，是资金流转的核心枢纽。', btn:'立即开通' , link: 'nifulei-crypto.html#exchange' },
+  'htx':          { tag:'交易所', color:'#5c3d0a', title:'火币 HTX', desc:'老牌华人交易所，现更名 HTX，支持 USDT 出入金，有稳定的 C2C 法币通道，适合习惯使用火币的老用户。', btn:'立即开通' , link: 'nifulei-crypto.html#exchange' },
+  'bitget-ex':    { tag:'交易所', color:'#5c3d0a', title:'Bitget 交易所', desc:'全球领先合约交易所，跟单功能强大，支持多种法币出入金通道，与 Bitget Wallet 和 Bitget Card 联动使用体验最佳。', btn:'立即开通' , link: 'nifulei-crypto.html#exchange' },
+  'gate':         { tag:'交易所', color:'#5c3d0a', title:'Gate.io', desc:'山寨币种最全交易所，支持 USDT 出入金，适合寻找低市值潜力币，也可作为资金中转枢纽。', btn:'立即开通' , link: 'nifulei-crypto.html#exchange' },
+  'bybit-ex':     { tag:'交易所', color:'#5c3d0a', title:'Bybit 交易所', desc:'全球知名衍生品交易所，Bybit Card 与账户无缝联动，支持多种法币通道，虚拟 U 卡功能实用。', btn:'立即开通' , link: 'nifulei-crypto.html#exchange' },
+  'coinbase':     { tag:'交易所', color:'#363d4e', title:'Coinbase / Kraken', desc:'美国合规交易所，支持 ACH 银行转账直接入金，可与美国券商（IBKR/嘉信）联动，适合有美国银行账户的用户。', btn:'了解更多' },
+  'safepal-wallet':{ tag:'热钱包', color:'#4c3580', title:'SafePal Wallet', desc:'币安投资的多链热钱包，支持 DeFi 操作和 DEX 交换，与 SafePal Card 联动，资产从链上直接消费。', btn:'立即下载' , link: 'nifulei-crypto.html#hot' },
+  'bitget-wallet':{ tag:'热钱包', color:'#4c3580', title:'Bitget Wallet', desc:'多链热钱包，内置 DEX 聚合器和 NFT 市场，支持 100+ 条链，是链上资产管理和出入金的重要中转工具。', btn:'立即下载' , link: 'nifulei-crypto.html#hot' },
+  'okx-wallet':   { tag:'热钱包', color:'#4c3580', title:'OKX Wallet', desc:'欧易官方多链钱包，支持 80+ 条链，内置 DEX 和跨链桥，与 OKX 交易所账户联动，资产管理一体化。', btn:'立即下载' , link: 'nifulei-crypto.html#hot' },
+  'metamask':     { tag:'热钱包', color:'#4c3580', title:'MetaMask', desc:'以太坊生态标配钱包，浏览器插件+移动端，DApp 兼容性最广，是参与 ETH 生态 DeFi 的必备工具。', btn:'立即下载' , link: 'nifulei-crypto.html#hot' },
+  'biyapay':      { tag:'出入金', color:'#2d4a88', title:'BiyaPay', desc:'专注出入金的加密平台，支持 USDT ↔ 多种法币兑换，跨境出金场景实用，适合需要快速换汇的用户。', btn:'立即开通' , link: 'nifulei-crypto.html#exchange' },
+  'straitsx':     { tag:'稳定币', color:'#2d4a88', title:'StraitsX (Xfers)', desc:'新加坡 XSGD 稳定币发行方，支持新加坡元稳定币与法币互换，是进入新加坡银行体系的重要通道。', btn:'了解更多' },
+  'fiat-channels':{ tag:'法币通道', color:'#2d4a88', title:'多法币通道', desc:'· 美元 ACH ↔ 华美银行\n· 欧元 SEPA ↔ N26 / Myfin / Fiat24\n· 英镑 FPS ↔ iFAST / Paypal\n· 瑞郎 SIC ↔ Fiat24 / 杜高斯贝\n\n通过以上通道可将 Crypto 兑换成各国法币入账对应银行。' },
+  'krak-exchange':{ tag:'法币兑换', color:'#363d4e', title:'BIT / Kraken', desc:'合规交易所，支持法币兑换，可作为加密资产换汇中转，Kraken 同时支持 ACH / SEPA 多种法币通道。', btn:'了解更多' },
+  'ibkr':         { tag:'美股券商', color:'#2d4a88', title:'盈透证券 IBKR', desc:'全球最专业在线券商，支持 150+ 市场，费率极低，支持多种法币入金（ACH/电汇），适合有美国银行账户的进阶投资者。', btn:'立即开通' , link: 'nifulei-broker.html#us' },
+  'schwab':       { tag:'美股券商', color:'#2d4a88', title:'嘉信证券 Charles Schwab', desc:'美国最大零售券商，美股零佣金，支持 ACH 直接入金，账户无最低要求，适合长期定投 ETF 的投资者。', btn:'立即开通' , link: 'nifulei-broker.html#us' },
+  'hk-sg-bank':   { tag:'香港银行', color:'#1a5c38', title:'香港银行卡', desc:'出金终点之一。通过 Wise 或券商出金至香港银行（中银/汇丰/众安等），可进一步转回内地或用于日常消费。' , link: 'nifulei-bank.html#hk' },
+  'sg-bank':      { tag:'新加坡银行', color:'#1a5c38', title:'新加坡银行卡', desc:'出金终点之一。通过长桥新加坡/盈立新加坡出金至新加坡银行（DBS/OCBC 等），适合有新加坡居留身份的用户。' , link: 'nifulei-bank.html#hk' },
+  'mm-sg':        { tag:'港股券商', color:'#5c3018', title:'盈立证券（新加坡）', desc:'富途旗下国际券商，新加坡版接受 Wise 新币直接入金，数据工具强大，新人礼丰厚，推荐与长桥新加坡搭配开户。', btn:'立即开通' , link: 'nifulei-broker.html#hk' },
+  'panda':        { tag:'港股券商', color:'#363d4e', title:'熊猫证券', desc:'绑定 iFAST 账户，可通过 iFAST 接收资金，适合已有 iFAST 账户的用户作为补充券商选择。', btn:'立即开通' , link: 'nifulei-broker.html#hk' },
+  'zhuorui':      { tag:'港股券商', color:'#363d4e', title:'卓锐证券', desc:'支持虚拟资产账户（USDT 入金），持有海外证明可直接使用 Crypto 资产交易港股，是特殊入金通道的代表。', btn:'立即开通' , link: 'nifulei-broker.html#hk' },
+  'safepal-card': { tag:'加密卡', color:'#4c3580', title:'SafePal Card', desc:'币安投资的加密 Visa 卡，支持多链资产直接消费，免手续费，全球通用，邀请码：766177', btn:'立即开通' , link: 'nifulei-crypto.html#card' },
+  'bitget-card':  { tag:'加密卡', color:'#4c3580', title:'Bitget Card', desc:'Bitget 官方加密卡，与 Bitget 账户资产互通，支持多币种结算，邀请码：Xv3ND9', btn:'立即开通' , link: 'nifulei-crypto.html#card' },
+  'bybit-card':   { tag:'加密卡', color:'#4c3580', title:'Bybit Card', desc:'Bybit 官方 Visa 卡，与 Bybit 账户无缝联动，消费即返现，邀请码：ROZOXA3', btn:'立即开通' , link: 'nifulei-crypto.html#card' },
+  'pokepay':      { tag:'加密卡', color:'#4c3580', title:'Pokepay', desc:'面向华人的加密支付卡，支持 USDT 充值消费，开卡门槛低，到账快，邀请码：194841', btn:'立即开通' , link: 'nifulei-crypto.html#card' },
+  'dtcpay':       { tag:'加密卡', color:'#4c3580', title:'Dtcpay Card', desc:'新加坡合规加密支付卡，MAS 监管背景，适合有新加坡账户的用户，专属链接注册。', btn:'立即开通' , link: 'nifulei-crypto.html#card' },
+  'webull':       { tag:'美股券商', color:'#2d4a88', title:'必贝证券 Webull', desc:'美股零佣金券商，数据工具完善，新人礼丰厚，界面专业，邀请码：stc8b8stkb。支持 ACH 入金，适合有一定基础的投资者。', btn:'立即开通' , link: 'nifulei-broker.html#us' },
+  'bit-exchange': { tag:'法币兑换', color:'#2d4a88', title:'BIT 交易所', desc:'合规数字资产交易平台，支持法币与数字货币兑换，可作为 USDT 换汇中转节点，适合需要法币出金的用户。', btn:'了解更多' },
+  'kraken':       { tag:'法币兑换', color:'#2d4a88', title:'Kraken', desc:'美国合规老牌交易所，支持 ACH、电汇、SEPA 等多种法币通道，可将加密资产直接换成美元/欧元入账银行，适合有美国/欧洲银行账户的用户。', btn:'了解更多' },
+  'ur-card':      { tag:'加密卡', color:'#4c3580', title:'UR Card', desc:'新兴加密预付卡，开卡便捷，支持 USDT 直接消费，适合轻量日常使用。邀请码：jj8jbn', btn:'立即开通' , link: 'nifulei-crypto.html#card' },
+  'wirex':        { tag:'加密卡', color:'#4c3580', title:'Wirex Card', desc:'英国持牌加密 Visa 卡，支持 150+ 种货币，欧洲用户体验成熟，专属链接注册。', btn:'立即开通' , link: 'nifulei-crypto.html#card' },
+  'biyapay-card': { tag:'加密卡', color:'#4c3580', title:'Biyapay Card', desc:'Biyapay 旗下加密卡，专注跨境出金场景，换汇费率低，支持多法币，专属链接注册。', btn:'立即开通' , link: 'nifulei-crypto.html#card' },
+  'zaone':        { tag:'香港虚拟银行', color:'#1a5c38', title:'众安银行 ZA Bank', desc:'香港首批虚拟银行之一，特别支持来自币安（Binance）和 Kraken 的加密资产入金，是 Crypto 用户直连香港银行体系的少数合规通道之一。纯线上开户，无最低存款要求。', btn:'立即开通' , link: 'nifulei-bank.html#hk' },
+};
+
+function showModal(id) {
+  const n = nodes[id];
+  if (!n) return;
+  const tag = document.getElementById('modal-tag');
+  tag.textContent = n.tag;
+  tag.style.background = (n.color || '#363d4e') + '33';
+  tag.style.color = '#e2e8f0';
+  tag.style.border = '.5px solid ' + (n.color || '#363d4e') + '88';
+  document.getElementById('modal-title').textContent = n.title;
+  document.getElementById('modal-desc').textContent = n.desc;
+  const btn = document.getElementById('modal-btn-open');
+  if (n.link) {
+    btn.href = n.link;
+    btn.textContent = '前往页面 →';
+    btn.style.display = 'inline-block';
+    btn.removeAttribute('onclick');
+  } else {
+    btn.style.display = 'none';
+  }
+  document.getElementById('modal').classList.add('show');
+}
+function closeModal(e) { if (e.target.id === 'modal') closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal').classList.remove('show'); }
+
+// Anchor scroll
+const btns = document.querySelectorAll('.anchor-btn');
+btns.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    const navH = document.querySelector('nav').offsetHeight;
+    const anchorH = document.querySelector('.anchor-nav').offsetHeight;
+    const offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+    btns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+const sections = document.querySelectorAll('.map-section');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      btns.forEach(b => b.classList.remove('active'));
+      const a = document.querySelector(`.anchor-btn[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
+sections.forEach(s => observer.observe(s));
+
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  if (m.style.display === 'none') {
+    m.style.display = 'block';
+    btn.textContent = '✕';
+  } else {
+    m.style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+// Show mobile btn on small screens
+function checkScreen() {
+  const btn = document.getElementById('menuBtn');
+  const links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  if (window.innerWidth <= 768) {
+    btn.style.display = 'flex';
+    links.style.display = 'none';
+  } else {
+    btn.style.display = 'none';
+    links.style.display = 'flex';
+    document.getElementById('mobileMenu').style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+window.addEventListener('resize', checkScreen);
+checkScreen();
+</script>
+</body>
+</html>
