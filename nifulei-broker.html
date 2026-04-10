@@ -257,6 +257,21 @@ footer .sep { margin: 0 10px; opacity: .3; }
 }
 .copy-btn:hover{border-color:rgba(240,180,41,.4);color:var(--accent);background:rgba(240,180,41,.08);}
 .copy-btn.copied{border-color:rgba(34,197,94,.4);color:#4ade80;background:rgba(34,197,94,.08);}
+
+.code-tooltip { position:relative; display:inline-block; }
+.code-tooltip .tooltip-text {
+  visibility:hidden; opacity:0;
+  background:#1a2235; color:#34d399;
+  font-size:10px; white-space:nowrap;
+  border:.5px solid rgba(52,211,153,.3);
+  border-radius:5px; padding:3px 8px;
+  position:absolute; bottom:calc(100% + 5px); left:50%;
+  transform:translateX(-50%);
+  transition:opacity .2s; z-index:10;
+  pointer-events:none;
+}
+.code-tooltip:hover .tooltip-text,
+.code-tooltip:focus-within .tooltip-text { visibility:visible; opacity:1; }
 </style>
 </head>
 <body>
@@ -366,7 +381,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
     <!-- 长桥证券（带区域切换） -->
     <div class="broker-card featured" style="grid-column: span 2;">
       <div class="badge-row">
-        <span class="badge badge-rec">推荐</span>
+        <span class="badge badge-rec">推荐</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span>
         <span class="badge badge-hot">双版本</span>
       </div>
       <div class="card-head">
@@ -462,7 +477,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- 华盛通 -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#60a5fa;">华盛</div>
         <div class="card-name">华盛通证券</div>
@@ -475,7 +490,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- 尊嘉 -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-free">零佣金</span></div>
+      <div class="badge-row"><span class="badge badge-free">零佣金</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#a78bfa;">尊嘉</div>
         <div class="card-name">尊嘉证券</div>
@@ -488,20 +503,20 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- 富途 -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-hot">热门</span></div>
+      <div class="badge-row"><span class="badge badge-hot">热门</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#f0b429;">富途</div>
         <div class="card-name">富途证券</div>
       </div>
       <div class="card-desc">港股老牌券商，数据完善，社区活跃，适合有一定经验的投资者</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">AZEW8</span><button class="copy-btn" onclick="copyCode(this,'AZEW8')">复制</button></div>
+      <div class="invite-box"><span class="invite-label">兑换码</span><span class="code-tooltip"><span class="invite-code" style="color:#ef4444;">AZEW8</span><span class="tooltip-text">🎁 可兑换 200 HKD</span></span><button class="copy-btn" onclick="copyCode(this,'AZEW8')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.5</span></div>
-      <div class="card-btns"><a href="#" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=KcajqboiXW8" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.futunn.com/" class="btn-primary">APP 开通 →</a><a href="https://www.youtube.com/watch?v=KcajqboiXW8" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 老虎 -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#fb923c;">老虎</div>
         <div class="card-name">老虎证券</div>
@@ -514,7 +529,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- 盈宝 -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#34d399;">盈宝</div>
         <div class="card-name">盈宝证券</div>
@@ -526,7 +541,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- 卓锐 -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#60a5fa;">卓锐</div>
         <div class="card-name">卓锐证券</div>
@@ -560,12 +575,12 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">主攻港股，费率较低，提供基础港股交易功能，适合轻量使用</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">R39DD</span><button class="copy-btn" onclick="copyCode(this,'R39DD')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="#" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.victorysec.com.hk/zh-hk/help/software/victory-app" class="btn-primary">APP 开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 熊猫 -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-new">新兴</span></div>
+      <div class="badge-row"><span class="badge badge-new">新兴</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#a78bfa;">熊猫</div>
         <div class="card-name">熊猫证券</div>
@@ -586,12 +601,12 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">立桥银行旗下券商，港股交易专注，可与立桥银行账户联动管理资金</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">117124</span><button class="copy-btn" onclick="copyCode(this,'117124')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="#" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.wlsec.com/download.jhtml?tab=download" class="btn-primary">APP 开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 复星 -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-hk">港股</span></div>
+      <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#fb923c;">复星</div>
         <div class="card-name">复星证券</div>
@@ -604,7 +619,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- FSMone -->
     <div class="broker-card">
-      <div class="badge-row"><span class="badge badge-sg">新加坡系</span></div>
+      <div class="badge-row"><span class="badge badge-hk">🇭🇰 香港</span><span style="font-size:9px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">港股「零」佣金</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#34d399;">FSM</div>
         <div class="card-name">FSMone 证券</div>
@@ -632,7 +647,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- 盈透 -->
     <div class="broker-card featured">
-      <div class="badge-row"><span class="badge badge-rec">专业首选</span></div>
+      <div class="badge-row"><span class="badge badge-rec">专业首选</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span><span style="font-size:9px;color:#a78bfa;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">无 CRS</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">IB</div>
         <div class="card-name">盈透证券 IBKR</div>
@@ -644,7 +659,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- 嘉信 -->
     <div class="broker-card featured">
-      <div class="badge-row"><span class="badge badge-rec">新人首选</span><span class="badge badge-free">零佣金</span></div>
+      <div class="badge-row"><span class="badge badge-rec">新人首选</span><span class="badge badge-free">零佣金</span><span style="font-size:9px;color:#a78bfa;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">无 CRS</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(96,165,250,.1);color:#93c5fd;border-color:rgba(96,165,250,.2);">CS</div>
         <div class="card-name">嘉信证券 Charles Schwab</div>
@@ -657,7 +672,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
     <!-- 必贝 -->
     <div class="broker-card featured">
-      <div class="badge-row"><span class="badge badge-rec">新人首选</span></div>
+      <div class="badge-row"><span class="badge badge-rec">新人首选</span><span style="font-size:9px;color:var(--accent);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:2px 7px;border-radius:4px;white-space:nowrap;">$400+$50 新人奖励</span><span style="font-size:9px;color:#a78bfa;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">无 CRS</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(16,185,129,.1);color:#34d399;border-color:rgba(16,185,129,.2);">BB</div>
         <div class="card-name">必贝证券 BBAE</div>
