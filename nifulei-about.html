@@ -37,7 +37,7 @@ nav { position: sticky; top: 0; z-index: 200; background: rgba(10,12,16,.92); ba
 .arr { font-size: 8px; color: var(--text-dim); transition: transform .2s; display: inline-block; }
 .nav-item:hover .arr { transform: rotate(180deg); color: var(--accent); }
 .dropdown { position: absolute; top: calc(100% + 6px); left: 0; min-width: 148px; background: var(--bg-dropdown); border: .5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 6px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .18s, transform .18s; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
-.nav-item:hover .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-item:hover 
 .dropdown a { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); padding: 7px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
 .dropdown a:hover { color: var(--text); background: rgba(255,255,255,.06); }
 .dropdown-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); flex-shrink: 0; }
@@ -200,7 +200,7 @@ footer {
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="nifulei-preview.html" class="logo">泥伏雷闯关记</a>
+    <a href="index.html" class="logo">泥伏雷闯关记</a>
     <div class="nav-links">
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-bank.html'" style="cursor:pointer;">国外银行卡 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a><a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a><a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a><a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a></div></div>
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-broker.html'" style="cursor:pointer;">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a></div></div>
@@ -362,19 +362,19 @@ footer {
         <div class="contact-info">
           <div class="contact-platform">商务 BD 邮箱</div>
           <div class="contact-handle" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <span id="bd-email" style="font-family:monospace;color:#e2e8f0;font-size:12px;">tala.kang01@gmail.com</span>
+            <span id="bd-email" style="font-family:monospace;color:#e2e8f0;font-size:12px;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6a2b7bab7f8bdb7b8b1e6e796b1bbb7bfbaf8b5b9bb">[email&#160;protected]</a></span>
             <button onclick="copyEmail()" id="copy-btn"
               style="font-size:10px;padding:2px 8px;border-radius:4px;border:.5px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);color:#34d399;cursor:pointer;transition:all .15s;">
               复制
             </button>
-            <a href="mailto:tala.kang01@gmail.com" style="font-size:10px;padding:2px 8px;border-radius:4px;border:.5px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);color:#34d399;text-decoration:none;">
+            <a href="/cdn-cgi/l/email-protection#14607578753a7f757a732425547379757d783a777b79" style="font-size:10px;padding:2px 8px;border-radius:4px;border:.5px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);color:#34d399;text-decoration:none;">
               发送邮件
             </a>
           </div>
           <div class="contact-desc">品牌合作 · 商务洽谈 · 内容合作</div>
         </div>
       </div>
-      <script>
+      <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
       function copyEmail() {
         navigator.clipboard.writeText('tala.kang01@gmail.com').then(function() {
           const btn = document.getElementById('copy-btn');
@@ -427,12 +427,4 @@ btns.forEach(btn => {
     const offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
     window.scrollTo({ top: offset, behavior: 'smooth' });
     btns.forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
-const sections = document.querySelectorAll('.about-section');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      btns.forEach(b => b.classList.remove('active'));
-      const 
+    thi
