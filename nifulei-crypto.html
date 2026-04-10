@@ -168,6 +168,18 @@ footer .sep { margin: 0 10px; opacity: .3; }
 }
 
 @media (max-width: 768px) { .nav-cta { display: none; } }
+
+/* ── Copy code button ── */
+.copy-btn {
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:9px;font-weight:700;padding:1px 6px;
+  border-radius:3px;border:.5px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.05);color:#8a96aa;
+  cursor:pointer;transition:all .15s;vertical-align:middle;
+  margin-left:4px;
+}
+.copy-btn:hover{border-color:rgba(240,180,41,.4);color:var(--accent);background:rgba(240,180,41,.08);}
+.copy-btn.copied{border-color:rgba(34,197,94,.4);color:#4ade80;background:rgba(34,197,94,.08);}
 </style>
 </head>
 <body>
@@ -234,7 +246,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       </div>
       <div class="card-desc">全球知名合约+现货交易所，产品线丰富，中文支持最好，新手首选</div>
       <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">SOL999</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">SOL999</span><button class="copy-btn" onclick="copyCode(this,'SOL999')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
       <div class="card-btns"><a href="https://www.promooboost.com/join/SOL999" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=fBlVgOUhMso" class="btn-ghost">查看教程</a></div>
     </div>
@@ -248,7 +260,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       </div>
       <div class="card-desc">全球最大加密货币交易所，流动性最强，现货/合约/理财一站搞定</div>
       <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALA888</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALA888</span><button class="copy-btn" onclick="copyCode(this,'TALA888')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
       <div class="card-btns"><a href="https://www.binance.com/zh-CN/join?ref=TALA888" class="btn-primary">立即开通 →</a><a href="https://youtu.be/SUlWCBSIETQ" class="btn-ghost">查看教程</a></div>
     </div>
@@ -262,7 +274,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       </div>
       <div class="card-desc">全球知名衍生品交易所，合约体验优秀，虚拟 U 卡功能实用，新人礼丰厚</div>
       <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI20</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI20</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI20')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
       <div class="card-btns"><a href="https://partner.bybit.com/b/NIFULEI20" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=gdS4yXA-orI" class="btn-ghost">查看教程</a></div>
     </div>
@@ -276,7 +288,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       </div>
       <div class="card-desc">全球领先合约交易所，跟单功能强大，新人礼与返佣业内一流</div>
       <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">nifulei20</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">nifulei20</span><button class="copy-btn" onclick="copyCode(this,'nifulei20')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
           <div class="card-btns"><a href="https://partner.hdmune.cn/bg/nifulei20" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=d50Iw04RXPg" class="btn-ghost">查看教程</a></div>
     </div>
@@ -290,7 +302,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       </div>
       <div class="card-desc">山寨币种最全的交易所，适合寻找低市值潜力币，现货深度良好</div>
       <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAUSDT</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAUSDT</span><button class="copy-btn" onclick="copyCode(this,'TALAUSDT')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
       <div class="card-btns"><a href="https://www.gateport.company/share/TALAUSDT" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -315,7 +327,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Bitmart</div>
       </div>
       <div class="card-desc">中小型交易所，上线新币速度快，适合寻找早期项目机会</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">cVhcAM</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">cVhcAM</span><button class="copy-btn" onclick="copyCode(this,'cVhcAM')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
           <div class="card-btns"><a href="https://www.bm-link.com/zh-CN/invite/cVhcAM" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -328,7 +340,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">火币 HTX</div>
       </div>
       <div class="card-desc">国内老牌交易所，现已更名 HTX，华人用户基础大，产品线完整</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">8m2pd223</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">8m2pd223</span><button class="copy-btn" onclick="copyCode(this,'8m2pd223')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
       <div class="card-btns"><a href="https://www.htx.com/invite/zh-cn/1f?invite_code=8m2pd223" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -341,7 +353,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Nexo</div>
       </div>
       <div class="card-desc">加密借贷和理财平台，支持持币生息，适合长期持有者最大化收益</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">fvxheo0ezw</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">fvxheo0ezw</span><button class="copy-btn" onclick="copyCode(this,'fvxheo0ezw')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
           <div class="card-btns"><a href="https://nexo.com/ref/fvxheo0ezw?src=ios-link" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -354,7 +366,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Backpack</div>
       </div>
       <div class="card-desc">Solana 生态新兴交易所，链上与中心化结合，SOL 系资产交易体验优秀</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">a5fim073</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">a5fim073</span><button class="copy-btn" onclick="copyCode(this,'a5fim073')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
           <div class="card-btns"><a href="https://backpack.exchange/refer/a5fim073" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -381,7 +393,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">SafePal Card</div>
       </div>
       <div class="card-desc">币安投资的加密 Visa 卡，支持多链资产消费，免手续费，全球可用</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">766177</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">766177</span><button class="copy-btn" onclick="copyCode(this,'766177')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
           <div class="card-btns"><a href="#" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=1Kh__95rGX8" class="btn-ghost">查看教程</a></div>
     </div>
@@ -394,7 +406,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Bybit Card</div>
       </div>
       <div class="card-desc">Bybit 官方 Visa 卡，与 Bybit 账户无缝联动，消费即返现，出行购物均可</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">ROZOXA3</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">ROZOXA3</span><button class="copy-btn" onclick="copyCode(this,'ROZOXA3')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
           <div class="card-btns"><a href="https://www.bybit.com/en/cards/?ref=ROZOXA3&source=applet_invite" class="btn-primary">立即开通 →</a><a href="https://youtu.be/kCU1bxWSirI" class="btn-ghost">查看教程</a></div>
     </div>
@@ -407,7 +419,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Bitget Card</div>
       </div>
       <div class="card-desc">Bitget 官方加密卡，支持多币种消费结算，与 Bitget 账户资产互通</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">Xv3ND9</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">Xv3ND9</span><button class="copy-btn" onclick="copyCode(this,'Xv3ND9')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
       <div class="card-btns"><a href="https://newshare.bwb.global/zh/invite_earn_coin?inviteCode=Xv3ND9&utmSource=referral2.0_copyLink" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=d50Iw04RXPg" class="btn-ghost">查看教程</a></div>
     </div>
@@ -420,7 +432,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Pokepay</div>
       </div>
       <div class="card-desc">面向华人的加密支付卡，支持 USDT 充值消费，开卡门槛低，到账快</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">194841</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">194841</span><button class="copy-btn" onclick="copyCode(this,'194841')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
           <div class="card-btns"><a href="https://app.pokepay.cc/pages/passport/register?r=194841" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=CUfqusNgyVU" class="btn-ghost">查看教程</a></div>
     </div>
@@ -433,7 +445,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Biyapay Card</div>
       </div>
       <div class="card-desc">Biyapay 旗下加密卡，专注跨境出金场景，换汇费率低，支持多法币</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">7360298</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">7360298</span><button class="copy-btn" onclick="copyCode(this,'7360298')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
       <div class="card-btns"><a href="https://biyapay.com/re/7360298" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=XJ9v1lAw5Jo" class="btn-ghost">查看教程</a></div>
     </div>
@@ -458,7 +470,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">UR Card</div>
       </div>
       <div class="card-desc">新兴加密预付卡，开卡便捷，支持 USDT 直接消费，适合轻量日常使用</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">jj8jbn</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">jj8jbn</span><button class="copy-btn" onclick="copyCode(this,'jj8jbn')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
           <div class="card-btns"><a href="https://get.ur.app/login?code=jj8jbn" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -471,7 +483,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Dtcpay Card</div>
       </div>
       <div class="card-desc">新加坡合规加密支付卡，MAS 监管背景，适合有新加坡账户的用户</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">7dmtzk</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">7dmtzk</span><button class="copy-btn" onclick="copyCode(this,'7dmtzk')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
       <div class="card-btns"><a href="https://personal.dtcpay.com/?referralCode=7dmtzk" class="btn-primary">立即开通 →</a><a href="https://youtu.be/c-Kxj_H7h4Q" class="btn-ghost">查看教程</a></div>
     </div>
@@ -498,7 +510,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">OneKey</div>
       </div>
       <div class="card-desc">国产开源硬件钱包，支持多链多币，App 体验优秀，中文友好，价格亲民</div>
-      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">NIFULEI</span></div>
+      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">NIFULEI</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
       <div class="card-btns"><a href="https://onekey.so/r/NIFULEI" class="btn-buy">立即购买 →</a><a href="https://youtu.be/dI1OIJURrys" class="btn-ghost">查看教程</a></div>
     </div>
@@ -511,7 +523,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Ledger</div>
       </div>
       <div class="card-desc">全球最知名硬件钱包品牌，Nano X/S Plus 系列成熟稳定，支持 5500+ 币种</div>
-      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">NIFULEI</span></div>
+      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">NIFULEI</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
       <div class="card-btns"><a href="https://shop.ledger.com/?r=978a08f57a21" class="btn-buy">立即购买 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -524,7 +536,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">SafePal</div>
       </div>
       <div class="card-desc">币安投资的硬件钱包，价格便宜，支持主流链，适合预算有限的入门用户</div>
-      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">766177</span></div>
+      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">766177</span><button class="copy-btn" onclick="copyCode(this,'766177')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
       <div class="card-btns"><a href="https://www.safepal.com/store/s1?ref=yjnmywv" class="btn-buy">立即购买 →</a><a href="https://youtu.be/1Kh__95rGX8" class="btn-ghost">查看教程</a></div>
     </div>
@@ -537,9 +549,15 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Tangem</div>
       </div>
       <div class="card-desc">NFC 卡片式冷钱包，无需电池，外形轻薄如信用卡，随身携带极为方便</div>
-      <div class="discount-box"><span class="discount-label">折扣码</span><div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;"><span class="discount-val">NIFULEI</span></div></div>
+      <div class="discount-box">
+        <span class="discount-label">折扣码</span>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span class="discount-val">NIFULEI</span>
+          <button class="copy-btn" onclick="copyCode(this,'NIFULEI')">复制</button>
+        </div>
+      </div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-          <div class="card-btns"><a href="#" class="btn-buy">立即购买 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="#" class="btn-buy">立即购买 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
 
   </div>
@@ -564,7 +582,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">Bitget Wallet</div>
       </div>
       <div class="card-desc">多链热钱包，内置 DEX 聚合器和 NFT 市场，链上操作体验流畅，支持 100+ 条链</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">Xv3ND9</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">Xv3ND9</span><button class="copy-btn" onclick="copyCode(this,'Xv3ND9')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
           <div class="card-btns"><a href="https://newshare.bwb.global/zh/invite_earn_coin?inviteCode=Xv3ND9&utmSource=referral2.0_copyLink" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=d50Iw04RXPg" class="btn-ghost">查看教程</a></div>
     </div>
@@ -577,7 +595,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">OKX Wallet</div>
       </div>
       <div class="card-desc">欧易官方多链钱包，支持 80+ 条链，内置 DEX 和跨链桥，与 OKX 交易所联动便利</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">OKX9798</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">OKX9798</span><button class="copy-btn" onclick="copyCode(this,'OKX9798')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
       <div class="card-btns"><a href="https://web3.okx.com/join/OKX9798" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -590,7 +608,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">MetaMask</div>
       </div>
       <div class="card-desc">以太坊生态标配钱包，浏览器插件和移动端均支持，DApp 兼容性最广</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">3K0V8V</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">3K0V8V</span><button class="copy-btn" onclick="copyCode(this,'3K0V8V')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
       <div class="card-btns"><a href="#" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
@@ -603,7 +621,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">OneKey 热钱包</div>
       </div>
       <div class="card-desc">OneKey 旗下软件钱包，与 OneKey 硬件钱包完美搭配，冷热结合管理资产</div>
-      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI</span></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
       <div class="card-btns"><a href="https://app.onekey.so/r/NIFULEI/app/perps" class="btn-primary">立即开通 →</a><a href="https://youtu.be/dI1OIJURrys" class="btn-ghost">查看教程</a></div>
     </div>
@@ -693,5 +711,23 @@ function checkScreen() {
 window.addEventListener('resize', checkScreen);
 checkScreen();
 </script>
+<script>
+function copyCode(btn, code) {
+  if (!code || code === '无') return;
+  var copy = function(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){});
+    } else {
+      var el = document.createElement('textarea');
+      el.value = text; document.body.appendChild(el);
+      el.select(); document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+  };
+  copy(code);
+  btn.classList.add('copied');
+  btn.innerHTML = '✓ 已复制';
+  setTimeout(function(){ btn.classList.remove('copied'); btn.innerHTML = '复制'; }, 2000);
+}</script>
 </body>
 </html>

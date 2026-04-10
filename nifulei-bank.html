@@ -268,6 +268,18 @@ footer .sep { margin: 0 10px; opacity: .3; }
 .invite-code  { font-size: 12px; font-weight: 700; color: #ef4444; font-family: monospace; letter-spacing: .06em; }
 
 @media (max-width: 768px) { .nav-cta { display: none; } }
+
+/* ── Copy code button ── */
+.copy-btn {
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:9px;font-weight:700;padding:1px 6px;
+  border-radius:3px;border:.5px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.05);color:#8a96aa;
+  cursor:pointer;transition:all .15s;vertical-align:middle;
+  margin-left:4px;
+}
+.copy-btn:hover{border-color:rgba(240,180,41,.4);color:var(--accent);background:rgba(240,180,41,.08);}
+.copy-btn.copied{border-color:rgba(34,197,94,.4);color:#4ade80;background:rgba(34,197,94,.08);}
 </style>
 </head>
 <body>
@@ -410,7 +422,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">MyFin</div>
         </div>
         <div class="card-desc">面向华人用户的跨境金融平台，支持人民币充值换汇，操作界面中文友好</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">YA00W68M</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">YA00W68M</span><button class="copy-btn" onclick="copyCode(this,'YA00W68M')">复制</button></div>
         <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
           <span class="star-score">4.0</span>
@@ -429,7 +441,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">英国 PayPal</div>
         </div>
         <div class="card-desc">英国区 PayPal 账户，可绑定 Wise 英镑账号，适合 eBay 跨境电商收款和海淘付款</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">P0555381</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">P0555381</span><button class="copy-btn" onclick="copyCode(this,'P0555381')">复制</button></div>
           <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
           <span class="star-score">4.0</span>
@@ -448,7 +460,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">FSMone SG</div>
         </div>
         <div class="card-desc">新加坡 iFAST 旗下投资平台，支持开设证券账户及多币种现金账户，门槛低</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">P0555381</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">P0555381</span><button class="copy-btn" onclick="copyCode(this,'P0555381')">复制</button></div>
         <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
           <span class="star-score">4.0</span>
@@ -468,7 +480,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">N26</div>
         </div>
         <div class="card-desc">德国数字银行，支持欧元 SEPA 收付款，接受 Kraken 法币出金，可与 Wise 互转，并可入金盈透证券</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">yanmingk73062c</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">yanmingk73062c</span><button class="copy-btn" onclick="copyCode(this,'yanmingk73062c')">复制</button></div>
           <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
           <span class="star-score">4.0</span>
@@ -501,7 +513,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">FSMone HK</div>
         </div>
         <div class="card-desc">香港 iFAST 旗下平台，可开立港元账户，支持基金、债券投资，审核流程简单</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">M14680872078</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">M14680872078</span><button class="copy-btn" onclick="copyCode(this,'M14680872078')">复制</button></div>
           <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
           <span class="star-score">4.5</span>
@@ -520,7 +532,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">中银香港</div>
         </div>
         <div class="card-desc">中资背景香港银行，内地用户接受度高，支持 BoC Pay，可在内地完成部分开户手续</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">M14680872078</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">M14680872078</span><button class="copy-btn" onclick="copyCode(this,'M14680872078')">复制</button></div>
           <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
           <span class="star-score">4.0</span>
@@ -539,7 +551,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">汇丰银行 HK</div>
         </div>
         <div class="card-desc">全球性银行，香港分行提供 One Account 综合账户，国际转账便利，信用卡权益丰富</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NJ7KE6</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NJ7KE6</span><button class="copy-btn" onclick="copyCode(this,'NJ7KE6')">复制</button></div>
           <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span>
           <span class="star-score">4.5</span>
@@ -558,7 +570,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">众安银行</div>
         </div>
         <div class="card-desc">香港首批虚拟银行之一，纯线上开户，无最低存款要求，适合轻量使用和试水香港账户</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">CASH2MMD</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">CASH2MMD</span><button class="copy-btn" onclick="copyCode(this,'CASH2MMD')">复制</button></div>
           <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
           <span class="star-score">4.0</span>
@@ -577,7 +589,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">富融银行</div>
         </div>
         <div class="card-desc">腾讯旗下香港虚拟银行，存款利息较高，微信生态打通，内地用户开户体验友好</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAKK</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">CASH2MMD</span><button class="copy-btn" onclick="copyCode(this,'CASH2MMD')">复制</button></div>
           <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-empty">★</span>
           <span class="star-score">4.0</span>
@@ -596,7 +608,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <div class="card-name">汇立银行</div>
         </div>
         <div class="card-desc">香港虚拟银行，支持多币种账户，Mastercard 实体卡，出行购物均可使用</div>
-        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAKK</span></div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAKK</span><button class="copy-btn" onclick="copyCode(this,'TALAKK')">复制</button></div>
           <div class="stars">
           <span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-full">★</span><span class="star star-half">★</span><span class="star star-empty">★</span>
           <span class="star-score">3.5</span>
@@ -857,5 +869,23 @@ function checkScreen() {
 }
 window.addEventListener('resize', checkScreen);
 checkScreen();</script>
+<script>
+function copyCode(btn, code) {
+  if (!code || code === '无') return;
+  var copy = function(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){});
+    } else {
+      var el = document.createElement('textarea');
+      el.value = text; document.body.appendChild(el);
+      el.select(); document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+  };
+  copy(code);
+  btn.classList.add('copied');
+  btn.innerHTML = '✓ 已复制';
+  setTimeout(function(){ btn.classList.remove('copied'); btn.innerHTML = '复制'; }, 2000);
+}</script>
 </body>
 </html>
