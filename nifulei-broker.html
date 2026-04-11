@@ -122,7 +122,7 @@ nav {
 .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .cards-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 
-.broker-card {
+.broker-card { position: relative;
   background: var(--bg-card); border: .5px solid var(--border);
   border-radius: 12px; padding: 20px; display: flex; flex-direction: column;
   transition: border-color .18s, background .18s; position: relative;
@@ -293,6 +293,18 @@ footer .sep { margin: 0 10px; opacity: .3; }
   border-top-color:#1a2235;
 }
 @keyframes fadeInTip{from{opacity:0;transform:translateX(-50%) translateY(-3px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+.info-tag:hover { opacity: .75; }
+
+.hot-badge {
+  position:absolute;top:-8px;right:-8px;
+  background:linear-gradient(135deg,#ef4444,#dc2626);
+  color:#fff;font-size:9px;font-weight:700;
+  padding:2px 7px;border-radius:10px;
+  box-shadow:0 2px 8px rgba(239,68,68,.5);
+  letter-spacing:.03em;white-space:nowrap;
+  z-index:1;
+}
 </style>
 </head>
 <body>
@@ -391,8 +403,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
     <div class="info-icon">💡</div>
     <div class="info-text">
       <strong>新人开户优先推荐：</strong>
-      投资港股推荐 <span class="info-tag">盈立证券</span> <span class="info-tag">FSMone</span>，
-      投资美股推荐 <span class="info-tag">必贝证券</span> <span class="info-tag">嘉信证券</span>
+      投资港股推荐 <a href="#mm-hk" class="info-tag" style="cursor:pointer;text-decoration:none;" onclick="event.preventDefault();document.getElementById('mm-hk').scrollIntoView({behavior:'smooth',block:'center'})">盈立证券</a> <a href="#card-fsmone" class="info-tag" style="cursor:pointer;text-decoration:none;" onclick="event.preventDefault();document.getElementById('card-fsmone').scrollIntoView({behavior:'smooth',block:'center'})">FSMone</a>，
+      投资美股推荐 <a href="#card-bbae" class="info-tag" style="cursor:pointer;text-decoration:none;" onclick="event.preventDefault();document.getElementById('card-bbae').scrollIntoView({behavior:'smooth',block:'center'})">必贝证券</a> <a href="#card-schwab" class="info-tag" style="cursor:pointer;text-decoration:none;" onclick="event.preventDefault();document.getElementById('card-schwab').scrollIntoView({behavior:'smooth',block:'center'})">嘉信证券</a>
       — 开户流程简单、新人礼丰厚、费率竞争力强，都开效果最佳。
     </div>
   </div>
@@ -425,8 +437,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span>
         </div>
         <div class="card-btns">
-          <a href="https://app.longbridgehk.com/ac/oa?account_channel=lb&channel=HB100036&invite-code=32V2M2" class="btn-primary">点击开通 →</a>
-          <a href="https://youtu.be/M3X1cOtfUCo" class="btn-ghost">查看教程</a>
+          <a href="https://app.longbridgehk.com/ac/oa?account_channel=lb&channel=HB100036&invite-code=32V2M2" target="_blank" class="btn-primary">点击开通 →</a>
+          <a href="https://youtu.be/M3X1cOtfUCo" target="_blank" class="btn-ghost">查看教程</a>
         </div>
       </div>
 
@@ -439,8 +451,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span>
         </div>
         <div class="card-btns">
-          <a href="https://activity.lbmkt.ing/pages/longbridge/7415/index.html?app_id=longbridge&org_id=1&account_channel=lb&lang=zh-CN&channel=HB100036&invite-code=AVZT6A" class="btn-primary">点击开通 →</a>
-          <a href="https://youtu.be/M3X1cOtfUCo" class="btn-ghost">查看教程</a>
+          <a href="https://activity.lbmkt.ing/pages/longbridge/7415/index.html?app_id=longbridge&org_id=1&account_channel=lb&lang=zh-CN&channel=HB100036&invite-code=AVZT6A" target="_blank" class="btn-primary">点击开通 →</a>
+          <a href="https://youtu.be/M3X1cOtfUCo" target="_blank" class="btn-ghost">查看教程</a>
         </div>
       </div>
     </div>
@@ -462,7 +474,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="region-btn" onclick="switchRegion('mm','sg',this)">🇸🇬 新加坡版</div>
       </div>
 
-      <div id="mm-hk" class="region-panel active" style="grid-template-columns:1fr;">
+      <div id="mm-hk" class="region-panel active" style="grid-template-columns:1fr;"><span class="hot-badge">⭐ 推荐</span>
         <div class="invite-box">
           <span class="invite-label">邀请码（香港）</span>
           <span class="invite-code" style="color:#ef4444;">U02662</span>
@@ -471,8 +483,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span>
         </div>
         <div class="card-btns">
-          <a href="https://m.usmart66.com/webapp/open-account/apply.html?ICode=U02662#/register" class="btn-primary">点击开通 →</a>
-          <a href="https://youtu.be/qbYGst9gQy4" class="btn-ghost">查看教程</a>
+          <a href="https://m.usmart66.com/webapp/open-account/apply.html?ICode=U02662#/register" target="_blank" class="btn-primary">点击开通 →</a>
+          <a href="https://youtu.be/qbYGst9gQy4" target="_blank" class="btn-ghost">查看教程</a>
         </div>
       </div>
 
@@ -485,8 +497,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span>
         </div>
         <div class="card-btns">
-          <a href="https://m.usmartsg.com/promo/overseas/sg-register.html?langType=1&HCode=n76gea&HBox=1#/marketing-register" class="btn-primary">点击开通 →</a>
-          <a href="https://youtu.be/qbYGst9gQy4" class="btn-ghost">查看教程</a>
+          <a href="https://m.usmartsg.com/promo/overseas/sg-register.html?langType=1&HCode=n76gea&HBox=1#/marketing-register" target="_blank" class="btn-primary">点击开通 →</a>
+          <a href="https://youtu.be/qbYGst9gQy4" target="_blank" class="btn-ghost">查看教程</a>
         </div>
       </div>
     </div>
@@ -506,7 +518,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">腾讯系券商，界面简洁，支持港股/美股，新人礼稳定，适合初学者</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">CBZQ</span><button class="copy-btn" onclick="copyCode(this,'CBZQ')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://www.hstbroker.com/kh/apply/online?_scnl=CBZQ" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://www.hstbroker.com/kh/apply/online?_scnl=CBZQ" target="_blank" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
     <!-- 尊嘉 -->
@@ -519,7 +531,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">主打零佣金，港股/美股/A股均支持，费率极低，适合高频交易者</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">Q77XCR</span><button class="copy-btn" onclick="copyCode(this,'Q77XCR')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://opt.investassistant.com/miningopt/inviteSeventeen/index?channelopen=GFYQYJ318&shareNew=473095" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=FISI9Ri-c20" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://opt.investassistant.com/miningopt/inviteSeventeen/index?channelopen=GFYQYJ318&shareNew=473095" target="_blank" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=FISI9Ri-c20" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 富途 -->
@@ -532,7 +544,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">港股老牌券商，数据完善，社区活跃，适合有一定经验的投资者</div>
       <div class="invite-box"><span class="invite-label">兑换码</span><span class="code-tooltip"><span class="invite-code" style="color:#ef4444;">AZEW8</span><span class="tooltip-text">🎁 可兑换 200 HKD</span></span><button class="copy-btn" onclick="copyCode(this,'AZEW8')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.5</span></div>
-      <div class="card-btns"><a href="https://www.futunn.com/" class="btn-primary">APP 开通 →</a><a href="https://www.youtube.com/watch?v=KcajqboiXW8" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.futunn.com/" target="_blank" class="btn-primary">APP 开通 →</a><a href="https://www.youtube.com/watch?v=KcajqboiXW8" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 老虎 -->
@@ -545,7 +557,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">支持港股/美股，新人礼丰厚，国内用户接受度高，界面友好</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">TALATIGER</span><button class="copy-btn" onclick="copyCode(this,'TALATIGER')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://www.tigersecurities.com/signup?source=inner&invite=TALATIGER" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=ikHtCxbwCAY" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.tigersecurities.com/signup?source=inner&invite=TALATIGER" target="_blank" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=ikHtCxbwCAY" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 盈宝 -->
@@ -556,8 +568,9 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">盈宝证券</div>
       </div>
       <div class="card-desc">香港持牌券商，主攻港股，费率低，适合轻量入门</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="https://winbulls.com/s/index.html?activityId=211&activityUserId=81381843&lang=zh_CN" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://winbulls.com/s/index.html?activityId=211&activityUserId=81381843&lang=zh_CN" target="_blank" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
     <!-- 卓锐 -->
@@ -570,7 +583,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">香港本地券商，主攻港股，适合港居人士及有香港银行卡用户</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">ZR5953</span><button class="copy-btn" onclick="copyCode(this,'ZR5953')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="https://channel.zr.hk/zhuorui_web_h5/login?inviteCode=ZR5953" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://channel.zr.hk/zhuorui_web_h5/login?inviteCode=ZR5953" target="_blank" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
     <!-- 致富 -->
@@ -583,7 +596,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">香港老牌券商，主攻港股及 IPO 认购，适合有认购需求的用户</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">EA6728</span><button class="copy-btn" onclick="copyCode(this,'EA6728')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="https://www.chiefgroup.com.hk/hk/open?rl=ECR&PromoCode=EA6728" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=oE2ayYnbErQ" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.chiefgroup.com.hk/hk/open?rl=ECR&PromoCode=EA6728" target="_blank" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=oE2ayYnbErQ" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 胜利通 -->
@@ -596,7 +609,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">主攻港股，费率较低，提供基础港股交易功能，适合轻量使用</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">R39DD</span><button class="copy-btn" onclick="copyCode(this,'R39DD')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="https://www.victorysec.com.hk/zh-hk/help/software/victory-app" class="btn-primary">APP 开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://www.victorysec.com.hk/zh-hk/help/software/victory-app" target="_blank" class="btn-primary">APP 开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
     <!-- 熊猫 -->
@@ -609,7 +622,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">新兴港股券商，主打新人礼及低佣金，适合尝鲜开户薅羊毛</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">SPUMYJTR</span><button class="copy-btn" onclick="copyCode(this,'SPUMYJTR')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="https://panda.activity.wbrks.com/pages/panda/8939/index.html?app_id=panda&org_id=1&account_channel=hk_panda&invite-code=SPUMYJTR&utm_source=panda_app_share" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://panda.activity.wbrks.com/pages/panda/8939/index.html?app_id=panda&org_id=1&account_channel=hk_panda&invite-code=SPUMYJTR&utm_source=panda_app_share" target="_blank" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
     <!-- 立桥 -->
@@ -622,7 +635,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">立桥银行旗下券商，港股交易专注，可与立桥银行账户联动管理资金</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">117124</span><button class="copy-btn" onclick="copyCode(this,'117124')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="https://www.wlsec.com/download.jhtml?tab=download" class="btn-primary">APP 开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://www.wlsec.com/download.jhtml?tab=download" target="_blank" class="btn-primary">APP 开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
     <!-- 复星 -->
@@ -635,11 +648,11 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">复星国际旗下香港券商，提供港股/美股交易，品牌背书稳健</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">R7AUJK</span><button class="copy-btn" onclick="copyCode(this,'R7AUJK')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="https://h5.fotechwealth.com/pages/startAccount.html?channel=030010&aeCode=B2&invitationCode=R7AUJK&langType=zhCn" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://h5.fotechwealth.com/pages/startAccount.html?channel=030010&aeCode=B2&invitationCode=R7AUJK&langType=zhCn" target="_blank" class="btn-primary">点击开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
     <!-- FSMone -->
-    <div class="broker-card">
+    <div class="broker-card" id="card-fsmone"><span class="hot-badge">⭐ 推荐</span>
       <div class="badge-row"><span class="badge badge-hk">🇭🇰 香港</span><span style="font-size:9px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">港股「零」佣金</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#34d399;">FSM</div>
@@ -648,15 +661,29 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">iFAST 旗下港股及基金交易平台，费率低廉，可同时管理证券与基金账户，适合多元配置</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://www.fsmone.com.hk/account-opening" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=AebrLV6BV2I" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.fsmone.com.hk/account-opening" target="_blank" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=AebrLV6BV2I" target="_blank" class="btn-ghost">查看教程</a></div>
+    </div>
+
+    <!-- 富途moomoo -->
+    <div class="broker-card">
+      <div class="badge-row"><span class="badge badge-sg">🇸🇬 新加坡监管</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
+      <div class="card-head">
+        <div class="card-logo" style="color:#f0b429;">MM</div>
+        <div class="card-name">富途 moomoo 证券</div>
+      </div>
+      <div class="card-desc">富途旗下国际版证券平台，支持港股美股交易，界面专业，适合海外地址用户开户</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
+      <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+      <div class="card-btns">
+        <a href="https://j.moomoo.com/0zwDSI" target="_blank" class="btn-primary">点击开通 →</a>
+        <a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a>
+      </div>
     </div>
 
   </div>
 </div>
 
-<div class="section-divider"></div>
-
-<!-- ══ 美股券商 ══ -->
+      <!-- ══ 美股券商 ══ -->
 <div class="broker-section" id="us">
   <div class="section-heading">
     <h2>🇺🇸 美股券商</h2>
@@ -674,12 +701,13 @@ footer .sep { margin: 0 10px; opacity: .3; }
         <div class="card-name">盈透证券 IBKR</div>
       </div>
       <div class="card-desc">Interactive Brokers，全球最专业在线券商，支持 150+ 市场，费率极低，适合进阶投资者</div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
-      <div class="card-btns"><a href="https://ibkr.com/referral/yanming865" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=GsFA-eaYJQQ" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://ibkr.com/referral/yanming865" target="_blank" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=GsFA-eaYJQQ" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 嘉信 -->
-    <div class="broker-card featured">
+    <div class="broker-card featured" id="card-schwab"><span class="hot-badge">⭐ 推荐</span>
       <div class="badge-row"><span class="badge badge-rec">新人首选</span><span class="badge badge-free">零佣金</span><span style="font-size:9px;color:#a78bfa;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">无 CRS</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(96,165,250,.1);color:#93c5fd;border-color:rgba(96,165,250,.2);">CS</div>
@@ -688,11 +716,11 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">美国最大零售券商之一，美股零佣金，账户无最低要求，适合长期定投 ETF</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">REFERF8MARZGG</span><button class="copy-btn" onclick="copyCode(this,'REFERF8MARZGG')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
-      <div class="card-btns"><a href="https://www.schwab.com/client-referral?refrid=REFERF8MARZGG" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=BTAJQ7foi_g" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.schwab.com/client-referral?refrid=REFERF8MARZGG" target="_blank" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=BTAJQ7foi_g" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 必贝 -->
-    <div class="broker-card featured">
+    <div class="broker-card featured" id="card-bbae"><span class="hot-badge">⭐ 推荐</span>
       <div class="badge-row"><span class="badge badge-rec">新人首选</span><span style="font-size:9px;color:var(--accent);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:2px 7px;border-radius:4px;white-space:nowrap;">$400+$50 新人奖励</span><span style="font-size:9px;color:#a78bfa;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">无 CRS</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(16,185,129,.1);color:#34d399;border-color:rgba(16,185,129,.2);">BB</div>
@@ -701,7 +729,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">美股零佣金券商，数据工具完善，新人礼丰厚，界面专业，适合有一定基础的用户</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:#ef4444;">stcb8stkb</span><button class="copy-btn" onclick="copyCode(this,'stcb8stkb')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
-      <div class="card-btns"><a href="https://landing.bbaecache.com/m/h5/new-user-reward-v4?lang=zh-CN&f=invite&referral=stcb8stkb" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=JlOel4GkiPQ" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://landing.bbaecache.com/m/h5/new-user-reward-v4?lang=zh-CN&f=invite&referral=stcb8stkb" target="_blank" class="btn-primary">点击开通 →</a><a href="https://www.youtube.com/watch?v=JlOel4GkiPQ" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
   </div>
@@ -830,3 +858,5 @@ function showUpdating(btn) {
 </script>
 </body>
 </html>
+
+
