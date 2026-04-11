@@ -107,11 +107,7 @@ nav { position: sticky; top: 0; z-index: 200; background: rgba(10,12,16,.92); ba
 
 /* STAGE HEADER */
 .stage-header { margin-bottom: 28px; }
-.stage-num-big {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px; border-radius: 12px;
-  font-size: 20px; margin-bottom: 14px;
-}
+/* stage-num-big removed */
 .stage-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .stage-h1 { font-size: 22px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 6px; }
 .stage-subtitle { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
@@ -1056,10 +1052,9 @@ function renderPanels() {
     const nextBtn = i < STAGES.length-1 ? `<div class="stage-nav-btn next" onclick="switchStage(${i+1})">${STAGES[i+1].name} →</div>` : `<div class="stage-nav-btn next" onclick="alert('🎉 恭喜！你已完成所有 8 个出海关卡！')">🎉 全部完成！</div>`;
     return `<div class="stage-panel ${i === currentStage ? 'active' : ''}" id="panel-${i}">
       <div class="stage-header">
-        <div class="stage-num-big" style="background:var(--accent-dim);border:.5px solid var(--accent-border);">${s.emoji}</div>
         <div class="stage-title-row">
           <div>
-            <div class="stage-h1">第 ${s.id} 关：${s.name}</div>
+            <div class="stage-h1">第 ${s.id} 关：${s.name} <span style="font-size:22px;vertical-align:middle;margin-left:6px;">${s.emoji}</span></div>
             <div class="stage-subtitle">${s.subtitle}</div>
           </div>
           <div class="complete-btn ${done ? 'done' : ''}" id="completeBtn-${i}" onclick="toggleComplete(${i}, ${s.id})"
