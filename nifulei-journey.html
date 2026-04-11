@@ -508,6 +508,21 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
 }
 
 .jtcopy-btn:hover { border-color:rgba(240,180,41,.4)!important;color:var(--accent)!important;background:rgba(240,180,41,.08)!important; }
+
+@media (max-width: 768px) {
+  .guide-body { flex-direction: column !important; }
+  .guide-tabs {
+    width: 100% !important; flex-direction: row !important;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    border-right: none !important; border-bottom: .5px solid var(--border);
+    padding: 8px 10px; gap: 6px; flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .guide-tabs::-webkit-scrollbar { display: none; }
+  .guide-tab { white-space: nowrap; flex-shrink: 0; width: auto !important; }
+  .guide-tab-wrap { flex-shrink: 0; }
+  .guide-panels-area { min-width: 0; }
+}
 </style>
 </head>
 <body>
@@ -860,8 +875,6 @@ const STAGES = [
     solutions: [
       { icon: '⚡', name: '欧易 OKX', desc: '全球知名合约+现货，中文支持最好，邀请码：<span class="code-tag">SOL999</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;SOL999&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://www.promooboost.com/join/SOL999', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=fBlVgOUhMso' },
       { icon: '🟡', name: '币安 Binance', desc: '全球最大交易所，流动性最强，邀请码：<span class="code-tag">TALA888</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;TALA888&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://www.binance.com/zh-CN/join?ref=TALA888', openLabel: '立即开通', link: 'https://youtu.be/SUlWCBSIETQ' },
-      { icon: '🔵', name: 'Bybit', desc: '衍生品强大，虚拟 U 卡实用，邀请码：<span class="code-tag">NIFULEI20</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;NIFULEI20&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: false, openUrl: 'https://partner.bybit.com/b/NIFULEI20', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=gdS4yXA-orI' },
-      { icon: '🟢', name: 'Bitget', desc: '跟单功能强，邀请码：<span class="code-tag">nifulei20</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;nifulei20&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: false, openUrl: 'https://partner.hdmune.cn/bg/nifulei20', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=d50Iw04RXPg' },
     ],
     guide: {
       title: '币圈新人入圈指南',
@@ -1248,11 +1261,11 @@ function renderPanels() {
       <div class="solutions-title">✅ 解决方案</div>
       <div class="solutions-grid">${solsHtml}</div>
 
+      ${guideHtml}
       ${checklistHtml}
       <div style="font-size:11px;color:var(--text-dim);letter-spacing:.06em;margin-bottom:12px;">📋 操作步骤</div>
       <div class="steps">${stepsHtml}</div>
 
-      ${guideHtml}
       <div class="stage-nav">${prevBtn}${nextBtn}</div>
     </div>`;
   }).join('');
