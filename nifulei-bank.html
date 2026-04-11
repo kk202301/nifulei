@@ -218,7 +218,15 @@ footer .sep { margin: 0 10px; opacity: .3; }
 /* ── MOBILE RESPONSIVE ── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .mobile-menu-btn { display: flex; }
+  .mobile-menu-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(255,255,255,.06); border: .5px solid rgba(255,255,255,.12);
+  font-size: 20px; cursor: pointer; color: var(--text-muted);
+  -webkit-tap-highlight-color: transparent;
+  transition: background .15s, border-color .15s;
+}
+.mobile-menu-btn:active { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.25); }
   .nav-inner { padding: 0 16px; }
 
   .page-header { padding: 28px 16px 24px; }
