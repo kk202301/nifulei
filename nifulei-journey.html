@@ -2,7 +2,7 @@
 <html lang="zh-Hans">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HY7L65MQF7"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HY7L65MQF7">
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -27,6 +27,7 @@
   --accent: #f0b429; --accent-dim: rgba(240,180,41,0.12); --accent-border: rgba(240,180,41,0.28);
   --sidebar-w: 220px;
 }
+html, body { overflow-x: hidden; }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: "SF Pro Text","PingFang SC","Microsoft YaHei",-apple-system,sans-serif; font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; cursor: pointer; }
@@ -505,6 +506,8 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
   letter-spacing:.02em;white-space:nowrap;z-index:2;
   line-height:1.4;text-align:center;
 }
+
+.jtcopy-btn:hover { border-color:rgba(240,180,41,.4)!important;color:var(--accent)!important;background:rgba(240,180,41,.08)!important; }
 </style>
 </head>
 <body>
@@ -759,12 +762,12 @@ const STAGES = [
       { title: '配置并测试', desc: '完成设备配置，测试目标平台是否可正常访问' },
     ],
     solutions: [
-      { icon: '🖊', name: 'Xesim 写卡器', desc: '将海外 eSIM 写入实体卡，硬件级科学上网，稳定可靠，折扣码 NIFULEI', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://xeSim.cc/?DIST=QkVOHQ==', openLabel: 'APP 开通', link: 'https://youtu.be/3mskopAAc7A' },
-      { icon: '🖊', name: '9esim 写卡器', desc: '备选写卡器方案，价格更亲民，同样支持折扣码 NIFULEI', tag: '备选', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://www.9eSim.com/?coupon=nifulei', openLabel: 'APP 开通', link: 'https://youtu.be/CMJkBko9FD0' },
-      { icon: '🌍', name: 'Redteago eSIM', desc: '190+ 国家流量卡，临时出境上网首选，折扣码 RTGF94EFR 永久 9 折', tag: '流量卡', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://esim.redteago.com?c=pfkq0ygi', openLabel: '立即购买', link: 'https://youtu.be/nrUqqealZlg' },
-      { icon: '🌐', name: 'Eskimo', desc: 'eSIM 流量平台，支持多国流量包，注册使用邀请码 NIFULEI 可免费领取 1GB 流量', tag: '送流量', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://eskimo.travel/TALAKANG/NIFULEI', openLabel: '立即购买', link: 'https://youtu.be/j2zZcCSOs5c' },
+      { icon: '🖊', name: 'Xesim 写卡器', desc: '将海外 eSIM 写入实体卡，硬件级科学上网，稳定可靠，折扣码 <span class="code-tag">NIFULEI</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;NIFULEI&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://xeSim.cc/?DIST=QkVOHQ==', openLabel: 'APP 开通', link: 'https://youtu.be/3mskopAAc7A' },
+      { icon: '🖊', name: '9esim 写卡器', desc: '备选写卡器方案，价格更亲民，同样支持折扣码 <span class="code-tag">NIFULEI</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;NIFULEI&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '备选', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://www.9eSim.com/?coupon=nifulei', openLabel: 'APP 开通', link: 'https://youtu.be/CMJkBko9FD0' },
+      { icon: '🌍', name: 'Redteago eSIM', desc: '190+ 国家流量卡，临时出境上网首选，折扣码 <span class="code-tag">RTGF94EFR</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;RTGF94EFR&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button> 永久 9 折', tag: '流量卡', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://esim.redteago.com?c=pfkq0ygi', openLabel: '立即购买', link: 'https://youtu.be/nrUqqealZlg' },
+      { icon: '🌐', name: 'Eskimo', desc: 'eSIM 流量平台，支持多国流量包，注册使用邀请码 <span class="code-tag">NIFULEI</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;NIFULEI&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button> 可免费领取 1GB 流量', tag: '送流量', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://eskimo.travel/TALAKANG/NIFULEI', openLabel: '立即购买', link: 'https://youtu.be/j2zZcCSOs5c' },
       { icon: '🇭🇰', name: '香港 3HK', desc: '香港三大运营商之一，香港本地号码，内地漫游信号稳定，适合持有香港号码备用', tag: '香港号码', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://www.three.com.hk/', openLabel: 'APP 开通', link: 'https://www.youtube.com/watch?v=Vj0QFFsgEOs' },
-      { icon: '🌏', name: 'KiteSim', desc: '新兴 eSIM 流量平台，界面简洁，按日计费，灵活适合短期出行，邀请码：<span class="code-tag">JRXKM8</span>', tag: '流量卡', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://h5.kitesim.co/#/pages/login/register?invite=JRXKM8&language=zh', openLabel: '立即购买', link: 'https://h5.kitesim.co/#/pages/login/register?invite=JRXKM8&language=zh' },
+      { icon: '🌏', name: 'KiteSim', desc: '新兴 eSIM 流量平台，界面简洁，按日计费，灵活适合短期出行，邀请码：<span class="code-tag">JRXKM8</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;JRXKM8&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '流量卡', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://h5.kitesim.co/#/pages/login/register?invite=JRXKM8&language=zh', openLabel: '立即购买', link: 'https://h5.kitesim.co/#/pages/login/register?invite=JRXKM8&language=zh' },
     ]
   },
   {
@@ -813,12 +816,12 @@ const STAGES = [
     ],
     solutions: [
       { icon: '💚', name: 'Wise', desc: '全球最优多币种账户，支持 40+ 币种，换汇费率极低，专属链接开通', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://wise.com/register?referralCode=haiyang27', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=NbL0JXtbpek' },
-      { icon: '🏦', name: '众安银行 ZA', desc: '香港虚拟银行，纯线上开户，支持币安/Kraken 直接入金，邀请码：<span class="code-tag">NJ7KE6</span>', tag: '推荐', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://mobile.za.group/act/MGMShare/MGMShare_2025_Jan/?language=zh&inviteCode=NJ7KE6&name=Tal*g', openLabel: 'APP 开通', link: 'https://mp.weixin.qq.com/s/onmnq7lp1aZ-bo4mcX9Q-g' },
+      { icon: '🏦', name: '众安银行 ZA', desc: '香港虚拟银行，纯线上开户，支持币安/Kraken 直接入金，邀请码：<span class="code-tag">NJ7KE6</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;NJ7KE6&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '推荐', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://mobile.za.group/act/MGMShare/MGMShare_2025_Jan/?language=zh&inviteCode=NJ7KE6&name=Tal*g', openLabel: 'APP 开通', link: 'https://mp.weixin.qq.com/s/onmnq7lp1aZ-bo4mcX9Q-g' },
       
-      { icon: '🏦', name: '中银香港', desc: '中国银行香港分行，支持多币种存款，内地用户可国内代办开户，邀请码：<span class="code-tag">M14680872078</span>', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: false, openUrl: 'https://www.bochk.com/dam/more/accountopening/sc.html#download', openLabel: 'APP 开通', link: 'https://mp.weixin.qq.com/s/84Gl1G376rqlMdHvN838Aw' },
+      { icon: '🏦', name: '中银香港', desc: '中国银行香港分行，支持多币种存款，内地用户可国内代办开户，邀请码：<span class="code-tag">M14680872078</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;M14680872078&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: false, openUrl: 'https://www.bochk.com/dam/more/accountopening/sc.html#download', openLabel: 'APP 开通', link: 'https://mp.weixin.qq.com/s/84Gl1G376rqlMdHvN838Aw' },
       { icon: '🏦', name: '汇丰银行 HK', desc: '汇丰香港，全球知名银行，支持多币种账户，可国内代办开通香港账户', tag: '高端', tagColor: '#f87171', tagBg: 'rgba(239,68,68,.1)', featured: false, openUrl: 'https://www.hsbc.com.hk/zh-cn/ways-to-bank/mobile-apps/banking/', openLabel: 'APP 开通', link: 'https://mp.weixin.qq.com/s/eTC6BT9-xeXBbnP3coLIrQ' },
       { icon: '🏦', name: 'iFAST Global Bank', desc: '新加坡持牌银行，支持英镑 FPS 快速到账，是入金长桥的最优中转节点', tag: '新加坡', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://www.ifastgb.com/tellafriend/yanjunk5073', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=5xz94ZqIGEo' },
-      { icon: '🏦', name: '汇立银行', desc: 'WeLab Bank，香港虚拟银行，APP 纯线上开户，邀请码：<span class="code-tag">TALAKK</span>', tag: '虚拟银行', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://www.welab.bank/zh-CN/feature/download/', openLabel: 'APP 开通', link: 'https://mp.weixin.qq.com/s/QLrCZ9eHxEq5Db_0_JTGOQ' },
+      { icon: '🏦', name: '汇立银行', desc: 'WeLab Bank，香港虚拟银行，APP 纯线上开户，邀请码：<span class="code-tag">TALAKK</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;TALAKK&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '虚拟银行', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://www.welab.bank/zh-CN/feature/download/', openLabel: 'APP 开通', link: 'https://mp.weixin.qq.com/s/QLrCZ9eHxEq5Db_0_JTGOQ' },
     ]
   },
   {
@@ -834,12 +837,12 @@ const STAGES = [
       { title: '完成入金', desc: '按金融路线图完成资金从国内 → Wise → 券商的完整入金流程' },
     ],
     solutions: [
-      { icon: '📊', name: '盈立证券 uSmart', desc: '港股/美股/A股，新人礼丰厚，HK 邀请码：<span class="code-tag">U02662</span>，SG 邀请码：<span class="code-tag">nya58p</span>', tag: '新人首选', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://m.usmart66.com/webapp/open-account/apply.html?ICode=U02662#/register', openLabel: '立即开通', link: 'https://youtu.be/qbYGst9gQy4' },
+      { icon: '📊', name: '盈立证券 uSmart', desc: '港股/美股/A股，新人礼丰厚，HK 邀请码：<span class="code-tag">U02662</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;U02662&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，SG 邀请码：<span class="code-tag">nya58p</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;nya58p&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '新人首选', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://m.usmart66.com/webapp/open-account/apply.html?ICode=U02662#/register', openLabel: '立即开通', link: 'https://youtu.be/qbYGst9gQy4' },
       
-      { icon: '📊', name: '嘉信证券 Schwab', desc: '美股零佣金，长期定投 ETF 首选，邀请码：<span class="code-tag">REFERF8MARZGG</span>', tag: '美股首选', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://www.schwab.com/client-referral?refrid=REFERF8MARZGG', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=BTAJQ7foi_g' },
-      { icon: '📊', name: '必贝证券 BBAE', desc: '美股零佣金，新人礼丰厚，数据工具专业，邀请码：<span class="code-tag">stc8b8stkb</span>', tag: '美股推荐', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://landing.bbaecache.com/m/h5/new-user-reward-v4?lang=zh-CN&f=invite&referral=stcb8stkb', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=JlOel4GkiPQ' },
+      { icon: '📊', name: '嘉信证券 Schwab', desc: '美股零佣金，长期定投 ETF 首选，邀请码：<span class="code-tag">REFERF8MARZGG</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;REFERF8MARZGG&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '美股首选', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://www.schwab.com/client-referral?refrid=REFERF8MARZGG', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=BTAJQ7foi_g' },
+      { icon: '📊', name: '必贝证券 BBAE', desc: '美股零佣金，新人礼丰厚，数据工具专业，邀请码：<span class="code-tag">stc8b8stkb</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;stc8b8stkb&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '美股推荐', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://landing.bbaecache.com/m/h5/new-user-reward-v4?lang=zh-CN&f=invite&referral=stcb8stkb', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=JlOel4GkiPQ' },
       { icon: '📊', name: '盈透证券 IBKR', desc: '专业级美股券商，零佣金，支持全球市场，无邀请码直接注册', tag: '专业首选', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://ibkr.com/referral/yanming865', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=GsFA-eaYJQQ' },
-      { icon: '📊', name: 'FSMOne 证券', desc: 'iFAST 旗下香港券商，港股「零」佣金，邀请码：<span class="code-tag">NIFULEI</span>', tag: '港股零佣金', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://www.fsmone.com.hk/account-opening', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=AebrLV6BV2I' },
+      { icon: '📊', name: 'FSMOne 证券', desc: 'iFAST 旗下香港券商，港股「零」佣金，邀请码：<span class="code-tag">NIFULEI</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;NIFULEI&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '港股零佣金', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://www.fsmone.com.hk/account-opening', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=AebrLV6BV2I' },
     ]
   },
   {
@@ -855,10 +858,10 @@ const STAGES = [
       { title: '配置安全设置', desc: '开启 2FA 双重验证，绑定 Google Authenticator' },
     ],
     solutions: [
-      { icon: '⚡', name: '欧易 OKX', desc: '全球知名合约+现货，中文支持最好，邀请码：<span class="code-tag">SOL999</span>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://www.promooboost.com/join/SOL999', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=fBlVgOUhMso' },
-      { icon: '🟡', name: '币安 Binance', desc: '全球最大交易所，流动性最强，邀请码：<span class="code-tag">TALA888</span>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://www.binance.com/zh-CN/join?ref=TALA888', openLabel: '立即开通', link: 'https://youtu.be/SUlWCBSIETQ' },
-      { icon: '🔵', name: 'Bybit', desc: '衍生品强大，虚拟 U 卡实用，邀请码：<span class="code-tag">NIFULEI20</span>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: false, openUrl: 'https://partner.bybit.com/b/NIFULEI20', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=gdS4yXA-orI' },
-      { icon: '🟢', name: 'Bitget', desc: '跟单功能强，邀请码：<span class="code-tag">nifulei20</span>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: false, openUrl: 'https://partner.hdmune.cn/bg/nifulei20', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=d50Iw04RXPg' },
+      { icon: '⚡', name: '欧易 OKX', desc: '全球知名合约+现货，中文支持最好，邀请码：<span class="code-tag">SOL999</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;SOL999&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://www.promooboost.com/join/SOL999', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=fBlVgOUhMso' },
+      { icon: '🟡', name: '币安 Binance', desc: '全球最大交易所，流动性最强，邀请码：<span class="code-tag">TALA888</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;TALA888&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://www.binance.com/zh-CN/join?ref=TALA888', openLabel: '立即开通', link: 'https://youtu.be/SUlWCBSIETQ' },
+      { icon: '🔵', name: 'Bybit', desc: '衍生品强大，虚拟 U 卡实用，邀请码：<span class="code-tag">NIFULEI20</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;NIFULEI20&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: false, openUrl: 'https://partner.bybit.com/b/NIFULEI20', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=gdS4yXA-orI' },
+      { icon: '🟢', name: 'Bitget', desc: '跟单功能强，邀请码：<span class="code-tag">nifulei20</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;nifulei20&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，返佣 20%', tag: '必开', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: false, openUrl: 'https://partner.hdmune.cn/bg/nifulei20', openLabel: '立即开通', link: 'https://www.youtube.com/watch?v=d50Iw04RXPg' },
     ],
     guide: {
       title: '币圈新人入圈指南',
@@ -929,10 +932,10 @@ const STAGES = [
       { title: '日常使用', desc: '在支持 Visa/Mastercard 的任意商户刷卡消费，USDT 自动换汇结算' },
     ],
     solutions: [
-      { icon: '💳', name: 'SafePal Card', desc: '币安投资的 Visa 加密卡，免手续费，全球通用，邀请码：<span class="code-tag">766177</span>', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://www.safepal.com/zh-cn/appinfo', openLabel: 'APP 开通', link: 'https://www.youtube.com/watch?v=1Kh__95rGX8' },
-      { icon: '💳', name: 'Bybit Card', desc: 'Bybit 官方 Visa 卡，与账户无缝联动，消费返现，邀请码：<span class="code-tag">ROZOXA3</span>', tag: '推荐', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: true, openUrl: 'https://www.bybit.com/cards/?ref=ROZOXA3&source=applet_invite', openLabel: '立即开通', link: 'https://youtu.be/kCU1bxWSirI' },
-      { icon: '💳', name: 'Pokepay', desc: '华人友好，USDT 充值快，开卡门槛低，邀请码：<span class="code-tag">194841</span>', tag: '简单开卡', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://app.pokepay.cc/pages/passport/register?r=194841', openLabel: '立即开通', link: 'nifulei-crypto.html#card' },
-      { icon: '💳', name: 'Bitget Card', desc: 'Bitget 官方加密卡，与 Bitget 账户互通，邀请码：<span class="code-tag">Xv3ND9</span>', tag: '新上线', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://newshare.bwb.global/zh/invite_earn_coin?inviteCode=Xv3ND9', openLabel: '立即开通', link: 'nifulei-crypto.html#card' },
+      { icon: '💳', name: 'SafePal Card', desc: '币安投资的 Visa 加密卡，免手续费，全球通用，邀请码：<span class="code-tag">766177</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;766177&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://www.safepal.com/zh-cn/appinfo', openLabel: 'APP 开通', link: 'https://www.youtube.com/watch?v=1Kh__95rGX8' },
+      { icon: '💳', name: 'Bybit Card', desc: 'Bybit 官方 Visa 卡，与账户无缝联动，消费返现，邀请码：<span class="code-tag">ROZOXA3</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;ROZOXA3&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '推荐', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: true, openUrl: 'https://www.bybit.com/cards/?ref=ROZOXA3&source=applet_invite', openLabel: '立即开通', link: 'https://youtu.be/kCU1bxWSirI' },
+      { icon: '💳', name: 'Pokepay', desc: '华人友好，USDT 充值快，开卡门槛低，邀请码：<span class="code-tag">194841</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;194841&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '简单开卡', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://app.pokepay.cc/pages/passport/register?r=194841', openLabel: '立即开通', link: 'nifulei-crypto.html#card' },
+      { icon: '💳', name: 'Bitget Card', desc: 'Bitget 官方加密卡，与 Bitget 账户互通，邀请码：<span class="code-tag">Xv3ND9</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;Xv3ND9&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '新上线', tagColor: '#a78bfa', tagBg: 'rgba(167,139,250,.1)', featured: false, openUrl: 'https://newshare.bwb.global/zh/invite_earn_coin?inviteCode=Xv3ND9', openLabel: '立即开通', link: 'nifulei-crypto.html#card' },
     ]
   },
   {
@@ -948,9 +951,9 @@ const STAGES = [
       { title: '将资产转入冷钱包', desc: '从交易所提币到冷钱包地址，完成离线保存' },
     ],
     solutions: [
-      { icon: '🔑', name: 'OneKey', desc: '华人团队打造，中文支持最好，价格亲民，折扣码：<span class="code-tag">NIFULEI</span>', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://onekey.so/r/NIFULEI', openLabel: '立即购买', link: 'https://youtu.be/dI1OIJURrys' },
+      { icon: '🔑', name: 'OneKey', desc: '华人团队打造，中文支持最好，价格亲民，折扣码：<span class="code-tag">NIFULEI</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;NIFULEI&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://onekey.so/r/NIFULEI', openLabel: '立即购买', link: 'https://youtu.be/dI1OIJURrys' },
       { icon: '🔐', name: 'Ledger', desc: '全球最知名冷钱包品牌，安全性极高，支持 5500+ 种加密资产', tag: '国际主流', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://shop.ledger.com/?r=978a08f57a21', openLabel: '立即购买', link: 'nifulei-crypto.html#cold' },
-      { icon: '🛡', name: 'SafePal', desc: '币安投资，价格最低，邀请码：<span class="code-tag">766177</span>，注册绑定邀请码可免费领 X1 冷钱包', tag: '入门首选', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, badge: '🎁 绑定邀请码<br>免费领 X1 冷钱包', openUrl: 'https://www.safepal.com/store/s1?ref=yjnmywv', openLabel: '立即购买', link: 'https://youtu.be/1Kh__95rGX8' },
+      { icon: '🛡', name: 'SafePal', desc: '币安投资，价格最低，邀请码：<span class="code-tag">766177</span><button class="jtcopy-btn" onclick="jtCopy(this,&#39;766177&#39;)" style="display:inline-flex;align-items:center;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;border:.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#8a96aa;cursor:pointer;transition:all .15s;vertical-align:middle;margin-left:4px;">复制</button>，注册绑定邀请码可免费领 X1 冷钱包', tag: '入门首选', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, badge: '🎁 绑定邀请码<br>免费领 X1 冷钱包', openUrl: 'https://www.safepal.com/store/s1?ref=yjnmywv', openLabel: '立即购买', link: 'https://youtu.be/1Kh__95rGX8' },
     ]
   },
 ];
@@ -1601,5 +1604,31 @@ function onStageFullyCompleted(stageId) {
   </button>
 </div>
 
+<script>
+function jtCopy(btn, code) {
+  var copy = function(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t);
+    } else {
+      var el = document.createElement('textarea');
+      el.value = t; document.body.appendChild(el);
+      el.select(); document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+  };
+  copy(code);
+  var orig = btn.textContent;
+  btn.textContent = '✓ 已复制';
+  btn.style.borderColor = 'rgba(34,197,94,.4)';
+  btn.style.color = '#4ade80';
+  btn.style.background = 'rgba(34,197,94,.08)';
+  setTimeout(function(){
+    btn.textContent = orig;
+    btn.style.borderColor = '';
+    btn.style.color = '';
+    btn.style.background = '';
+  }, 2000);
+}
+</script>
 </body>
 </html>
