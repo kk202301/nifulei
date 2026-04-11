@@ -84,7 +84,7 @@ nav { position: sticky; top: 0; z-index: 200; background: rgba(10,12,16,.92); ba
 .cards-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .cards-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 
-.comm-card { background: var(--bg-card); border: .5px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; transition: border-color .18s, background .18s; }
+.comm-card { position: relative; background: var(--bg-card); border: .5px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; transition: border-color .18s, background .18s; }
 .comm-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
 .comm-card.featured { border-color: var(--accent-border); background: linear-gradient(135deg, #111318 0%, #161208 100%); }
 
@@ -194,6 +194,15 @@ footer .sep { margin: 0 10px; opacity: .3; }
 }
 .copy-btn:hover{border-color:rgba(240,180,41,.4);color:var(--accent);background:rgba(240,180,41,.08);}
 .copy-btn.copied{border-color:rgba(34,197,94,.4);color:#4ade80;background:rgba(34,197,94,.08);}
+.hot-badge {
+  position:absolute;top:-8px;right:-8px;
+  background:#fff;
+  color:#ef4444;font-size:9px;font-weight:800;
+  padding:2px 8px;border-radius:10px;
+  border:1.5px solid #ef4444;
+  box-shadow:0 2px 8px rgba(239,68,68,.35);
+  letter-spacing:.03em;white-space:nowrap;z-index:1;
+}
 </style>
 </head>
 <body>
@@ -255,7 +264,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
   <div class="cards-grid">
 
     <!-- giffgaff -->
-    <div class="comm-card featured">
+    <div class="comm-card featured"><span class="hot-badge">🎁 福利</span>
       <div class="badge-row"><span class="badge badge-rec">推荐</span><span class="badge badge-uk">🇬🇧 英国</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">gg</div>
@@ -264,7 +273,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">英国 O2 旗下虚拟运营商，保号成本极低（每年仅 0.6 英镑），适合长期持有英国号码，注册各类海外平台</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
-      <div class="card-btns"><a href="http://www.giffgaff.com/orders/affiliate/mjboo546_1731680040526" class="btn-primary">免费领取 →</a><a href="https://youtu.be/1w-7DvEWJhI" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="http://www.giffgaff.com/orders/affiliate/mjboo546_1731680040526" target="_blank" class="btn-primary">免费领取 →</a><a href="https://youtu.be/1w-7DvEWJhI" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 德国沃达丰 -->
@@ -277,7 +286,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">德国主流运营商 Vodafone，德国实体号码，适合注册欧洲区账号及欧盟相关平台验证</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://www.vodafone.de/freikarten/callya-classic-form/?icmp=prepaid-ohne-vertrag_tile_classic#personal-details-1" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=HJ-pNpviFAw" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.vodafone.de/freikarten/callya-classic-form/?icmp=prepaid-ohne-vertrag_tile_classic#personal-details-1" target="_blank" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=HJ-pNpviFAw" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 香港 3HK -->
@@ -290,7 +299,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">香港三大运营商之一，香港本地号码，内地漫游信号稳定，适合持有香港号码备用</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://www.three.com.hk/" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=Vj0QFFsgEOs" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.three.com.hk/" target="_blank" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=Vj0QFFsgEOs" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 香港 Clubsim -->
@@ -303,7 +312,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">香港虚拟运营商，eSIM 开卡方便，免月租保号，适合轻量使用香港号码的用户</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">KF1GNG</span><button class="copy-btn" onclick="copyCode(this,'KF1GNG')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://www.clubsim.com.hk/" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=xklFHCMsP6w" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.clubsim.com.hk/" target="_blank" class="btn-primary">立即购买 →</a><a href="https://www.youtube.com/watch?v=xklFHCMsP6w" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
   </div>
@@ -321,7 +330,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
   <div class="cards-grid cols-3">
 
     <!-- Redteago -->
-    <div class="comm-card featured">
+    <div class="comm-card featured"><span class="hot-badge">永久 9 折</span>
       <div class="badge-row"><span class="badge badge-rec">推荐</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">永久 9 折</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(239,68,68,.12);color:#f87171;border-color:rgba(239,68,68,.25);">RT</div>
@@ -336,11 +345,11 @@ footer .sep { margin: 0 10px; opacity: .3; }
         </div>
       </div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
-      <div class="card-btns"><a href="https://esim.redteago.com?c=pfkq0ygi" class="btn-primary">立即购买 →</a><a href="https://youtu.be/nrUqqealZlg" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://esim.redteago.com?c=pfkq0ygi" target="_blank" class="btn-primary">立即购买 →</a><a href="https://youtu.be/nrUqqealZlg" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- Eskimo -->
-    <div class="comm-card">
+    <div class="comm-card"><span class="hot-badge">🎁 福利</span>
       <div class="badge-row"><span class="badge badge-free">送流量</span><span style="font-size:9px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">🎁 注册送 1GB</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#60a5fa;">ESK</div>
@@ -350,7 +359,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI')">复制</button></div>
       
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://eskimo.travel/TALAKANG/NIFULEI" class="btn-primary">立即购买 →</a><a href="https://youtu.be/j2zZcCSOs5c" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://eskimo.travel/TALAKANG/NIFULEI" target="_blank" class="btn-primary">立即购买 →</a><a href="https://youtu.be/j2zZcCSOs5c" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- KiteSim -->
@@ -363,7 +372,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-desc">新兴 eSIM 流量平台，界面简洁，支持多国流量按日计费，灵活适合短期出行</div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">JRXKM8</span><button class="copy-btn" onclick="copyCode(this,'JRXKM8')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">3.5</span></div>
-      <div class="card-btns"><a href="https://h5.kitesim.co/#/pages/login/register?invite=JRXKM8&language=zh" class="btn-primary">立即购买 →</a><a href="#" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://h5.kitesim.co/#/pages/login/register?invite=JRXKM8&language=zh" target="_blank" class="btn-primary">立即购买 →</a><a href="#" class="btn-ghost">查看教程</a></div>
     </div>
 
   </div>
@@ -385,7 +394,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div>
         <div style="font-size:10px;color:var(--accent);letter-spacing:.08em;margin-bottom:6px;">⭐ 精选推荐</div>
         <div class="cn-carrier" style="font-size:18px;">精选 19 元月租</div>
-        <div class="cn-name" style="margin-top:4px;">大流量 · 长期套餐 · 全国通用</div>
+        <div class="cn-name" style="margin-top:4px;">150G～400G · 低月租长持 · 全国通用</div>
       </div>
       <a href="https://h5.haokavip.com/#/pages/sales_index/default_card?agent_id=231&tab_name=19_month" target="_blank" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">立即购买 →</a>
     </div>
@@ -395,9 +404,9 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-logo" style="color:#60a5fa;width:36px;height:36px;font-size:12px;">联通</div>
       <div>
         <div class="cn-carrier">中国联通</div>
-        <div class="cn-name">大流量套餐</div>
+        <div class="cn-name">联通大流量 · 200G+ · 信号覆盖广 · 适合长期持有</div>
       </div>
-      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" target="_blank" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
     </div>
 
     <!-- 移动 -->
@@ -405,9 +414,9 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-logo" style="color:#34d399;width:36px;height:36px;font-size:12px;">移动</div>
       <div>
         <div class="cn-carrier">中国移动</div>
-        <div class="cn-name">大流量套餐</div>
+        <div class="cn-name">移动大流量 · 150G+ · 网速稳定 · 全国信号最强</div>
       </div>
-      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" target="_blank" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
     </div>
 
     <!-- 电信 -->
@@ -415,9 +424,9 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-logo" style="color:#f87171;width:36px;height:36px;font-size:12px;">电信</div>
       <div>
         <div class="cn-carrier">中国电信</div>
-        <div class="cn-name">大流量套餐</div>
+        <div class="cn-name">电信大流量 · 200G+ · 宽带同号 · 农村信号最佳</div>
       </div>
-      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" target="_blank" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
     </div>
 
     <!-- 广电 -->
@@ -425,9 +434,9 @@ footer .sep { margin: 0 10px; opacity: .3; }
       <div class="card-logo" style="color:#a78bfa;width:36px;height:36px;font-size:12px;">广电</div>
       <div>
         <div class="cn-carrier">中国广电</div>
-        <div class="cn-name">大流量套餐</div>
+        <div class="cn-name">广电大流量 · 400G+ · 月租最低 · 性价比之王</div>
       </div>
-      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
+      <a href="https://h5.haokavip.com/#/pages/sales_index/index?agent_id=231" target="_blank" class="btn-primary" style="margin-top:auto;">立即购买 →</a>
     </div>
 
   </div>
@@ -468,7 +477,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         </div>
       </div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
-      <div class="card-btns"><a href="https://xeSim.cc/?DIST=QkVOHQ==" class="btn-buy">立即购买 →</a><a href="https://youtu.be/3mskopAAc7A" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://xeSim.cc/?DIST=QkVOHQ==" target="_blank" class="btn-buy">立即购买 →</a><a href="https://youtu.be/3mskopAAc7A" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- 9esim -->
@@ -487,7 +496,7 @@ footer .sep { margin: 0 10px; opacity: .3; }
         </div>
       </div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="https://www.9eSim.com/?coupon=nifulei" class="btn-buy">立即购买 →</a><a href="https://youtu.be/CMJkBko9FD0" class="btn-ghost">查看教程</a></div>
+      <div class="card-btns"><a href="https://www.9eSim.com/?coupon=nifulei" target="_blank" class="btn-buy">立即购买 →</a><a href="https://youtu.be/CMJkBko9FD0" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
 
   </div>
