@@ -389,9 +389,73 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
 
 .btn-open { border: .5px solid rgba(255,255,255,.2); color: var(--text-muted); font-size: 11px; padding: 6px 12px; border-radius: 6px; display:inline-block; text-decoration:none; cursor:pointer; transition:all .15s; }
 .btn-open:hover { color: var(--text); border-color: rgba(255,255,255,.4); background:rgba(255,255,255,.04); }
+
+/* ── Stage completion prompt ── */
+#stage-prompt {
+  position:fixed;bottom:28px;right:28px;z-index:9998;
+  background:#0f1319;border:.5px solid rgba(240,180,41,.4);
+  border-radius:14px;padding:18px 20px 14px;
+  max-width:300px;box-shadow:0 16px 48px rgba(0,0,0,.6);
+  opacity:0;transform:translateY(16px);pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease;
+}
+#stage-prompt.show { opacity:1;transform:translateY(0);pointer-events:auto; }
+.prompt-title { font-size:13px;font-weight:700;color:#e8edf5;margin-bottom:5px; }
+.prompt-body  { font-size:11px;color:#8a96aa;line-height:1.8;margin-bottom:12px; }
+.prompt-actions { display:flex;align-items:center;justify-content:space-between;gap:10px; }
+.prompt-bar { position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.06);border-radius:0 0 14px 14px;overflow:hidden; }
+.prompt-bar-fill { height:100%;background:var(--accent);width:100%;border-radius:inherit;transition:width 4s linear; }
+.prompt-btn-go { background:var(--accent);color:#0a0c10;font-size:11px;font-weight:700;padding:6px 16px;border-radius:7px;border:none;cursor:pointer; }
+.prompt-btn-close { font-size:11px;color:var(--text-dim);background:none;border:none;cursor:pointer;padding:4px; }
+.prompt-btn-close:hover { color:var(--text); }
+
+/* ── Congrats overlay ── */
+#congrats-overlay {
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.8);backdrop-filter:blur(10px);
+  display:none;align-items:center;justify-content:center;padding:24px;
+}
+#congrats-overlay.show { display:flex;animation:jtFadeIn .4s ease; }
+#congrats-box {
+  background:linear-gradient(135deg,#0f1319,#0a0f18);
+  border:.5px solid rgba(240,180,41,.4);border-radius:20px;
+  padding:40px 32px 28px;max-width:480px;width:100%;
+  box-shadow:0 40px 100px rgba(0,0,0,.8);
+  animation:jtSlideUp .4s ease;position:relative;text-align:center;
+}
 </style>
 </head>
 <body>
+
+<!-- Stage completion prompt -->
+<div id="stage-prompt">
+  <button class="prompt-btn-close" onclick="closePrompt()" style="position:absolute;top:10px;right:12px;">✕</button>
+  <div class="prompt-title" id="prompt-title"></div>
+  <div class="prompt-body"  id="prompt-body"></div>
+  <div class="prompt-actions">
+    <div style="font-size:10px;color:var(--text-dim);"><span id="prompt-cd" style="color:var(--accent);font-weight:700;">4</span> 秒后关闭</div>
+    <button class="prompt-btn-go" id="prompt-btn" onclick="handlePromptAction()"></button>
+  </div>
+  <div class="prompt-bar"><div class="prompt-bar-fill" id="prompt-bar-fill"></div></div>
+</div>
+
+<!-- Congrats overlay -->
+<div id="congrats-overlay">
+  <div id="congrats-box">
+    <button onclick="closeCongratsOverlay()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:#5a6478;font-size:18px;cursor:pointer;">✕</button>
+    <div style="font-size:48px;margin-bottom:16px;">🏆</div>
+    <div style="font-size:20px;font-weight:700;color:#e8edf5;margin-bottom:10px;letter-spacing:-.01em;">恭喜！你已成为合格出海老司机</div>
+    <div style="font-size:12px;color:#8a96aa;line-height:2;margin-bottom:24px;">
+      8 关全部通关，从网络环境到加密冷钱包，<br>你已掌握出海所需的全套工具与知识。<br>
+      <span style="color:#34d399;margin-top:6px;display:block;">✦ 资本永不眠，普通人亦可全球通 ✦</span>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://x.com/nicole_yang88" target="_blank" style="background:var(--accent);color:#0a0c10;font-size:12px;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;">关注泥伏雷 𝕏</a>
+      <button onclick="closeCongratsOverlay()" style="border:.5px solid var(--border);color:var(--text-muted);font-size:12px;padding:10px 22px;border-radius:8px;background:none;cursor:pointer;">关闭</button>
+    </div>
+    <div style="margin-top:16px;font-size:10px;color:var(--text-dim);">🎉 已完成全部 8 个出海关卡</div>
+  </div>
+</div>
 
 <!-- ── 闯关提示弹框 ── -->
 <div id="journey-tip-overlay" style="
@@ -882,6 +946,11 @@ function toggleCheckItem(stageId, itemIdx, totalItems) {
   }
   renderSidebar();
   updateOverallProgressUI();
+
+  // Trigger next-stage prompt if just completed
+  if (prog2.done === prog2.total) {
+    onStageFullyCompleted(stageId);
+  }
 }
 
 function updateStageProgressUI(stageId, totalItems) {
@@ -1107,36 +1176,71 @@ function switchStage(idx) {
 
 // ── TOGGLE COMPLETE ──
 function toggleComplete(panelIdx, stageId) {
-  // Calculate total items for this stage
   const s = STAGES.find(st => st.id === stageId);
   if (!s) return;
   const totalItems = s.steps.length + s.solutions.length;
   const prog = getStageProgress(stageId, totalItems);
+  const completed = getCompleted();
+  const isCurrentlyDone = completed.includes(stageId);
 
-  // Block manual completion if not all items done
-  if (prog.done < prog.total) {
-    // Shake the button to indicate it's locked
-    const btn = document.getElementById(`completeBtn-${panelIdx}`);
-    if (btn) {
-      btn.style.borderColor = '#ef4444';
-      btn.style.color = '#f87171';
-      const tip = document.getElementById(`complete-tip-${panelIdx}`);
-      if (tip) { tip.style.display = 'block'; setTimeout(() => { tip.style.display = 'none'; }, 2500); }
-      setTimeout(() => { btn.style.borderColor = ''; btn.style.color = ''; }, 600);
+  if (!isCurrentlyDone) {
+    // ── Trying to MARK as complete ──
+    if (prog.done < prog.total) {
+      // Locked: not all items checked
+      const btn = document.getElementById(`completeBtn-${panelIdx}`);
+      if (btn) {
+        btn.style.borderColor = '#ef4444';
+        btn.style.color = '#f87171';
+        const tip = document.getElementById(`complete-tip-${panelIdx}`);
+        if (tip) { tip.style.display = 'block'; setTimeout(() => { tip.style.display = 'none'; }, 2500); }
+        setTimeout(() => { btn.style.borderColor = ''; btn.style.color = ''; }, 600);
+      }
+      return;
     }
-    return;
+    // All items done → mark complete
+    completed.push(stageId);
+    saveCompleted(completed);
+    const btn = document.getElementById(`completeBtn-${panelIdx}`);
+    if (btn) { btn.className = 'complete-btn done'; }
+    document.getElementById(`completeBtnIcon-${panelIdx}`).textContent = '✓';
+    document.getElementById(`completeBtnText-${panelIdx}`).textContent = '已完成';
+
+  } else {
+    // ── Trying to UN-mark complete ──
+    // Remove from completed list
+    completed.splice(completed.indexOf(stageId), 1);
+    saveCompleted(completed);
+
+    // Also clear all checklist items for this stage
+    const checks = getChecks();
+    for (let i = 0; i < totalItems; i++) {
+      delete checks[getCheckKey(stageId, i)];
+      // Update UI for each check item
+      const el = document.getElementById(`ci-${stageId}-${i}`);
+      if (el) {
+        el.classList.remove('done');
+        el.querySelector('.check-box').textContent = '';
+      }
+    }
+    saveChecks(checks);
+
+    // Reset stage progress bar to 0
+    const fill  = document.getElementById(`sp-fill-${stageId}`);
+    const pct   = document.getElementById(`sp-pct-${stageId}`);
+    const label = document.getElementById(`sp-label-${stageId}`);
+    if (fill)  fill.style.width = '0%';
+    if (pct)   pct.textContent  = '0%';
+    if (label) label.textContent = `0 / ${totalItems} 项已完成`;
+
+    // Reset button to locked state
+    const btn  = document.getElementById(`completeBtn-${panelIdx}`);
+    const icon = document.getElementById(`completeBtnIcon-${panelIdx}`);
+    const text = document.getElementById(`completeBtnText-${panelIdx}`);
+    if (btn)  { btn.className = 'complete-btn'; btn.style.opacity = '0.5'; btn.style.cursor = 'not-allowed'; }
+    if (icon) icon.textContent = '🔒';
+    if (text) text.textContent = '完成全部学习后解锁';
   }
 
-  // All items done - allow toggle
-  const completed = getCompleted();
-  const idx = completed.indexOf(stageId);
-  if (idx === -1) completed.push(stageId);
-  else completed.splice(idx, 1);
-  saveCompleted(completed);
-  const done = completed.includes(stageId);
-  document.getElementById(`completeBtn-${panelIdx}`).className = `complete-btn ${done ? 'done' : ''}`;
-  document.getElementById(`completeBtnIcon-${panelIdx}`).textContent = done ? '✓' : '○';
-  document.getElementById(`completeBtnText-${panelIdx}`).textContent = done ? '已完成' : '标记完成';
   renderSidebar();
   updateOverallProgressUI();
 }
@@ -1205,6 +1309,94 @@ function toggleFaq(id) {
   el.classList.toggle('open');
 }
 
+</script>
+<script>
+// ── Stage completion prompt system ──
+var _promptTimer = null;
+var _promptAction = null;
+
+function showStagePrompt(title, body, btnLabel, action) {
+  clearTimeout(_promptTimer);
+  _promptAction = action;
+  document.getElementById('prompt-title').textContent = title;
+  document.getElementById('prompt-body').textContent  = body;
+  document.getElementById('prompt-btn').textContent   = btnLabel;
+  var fill = document.getElementById('prompt-bar-fill');
+  var cd   = document.getElementById('prompt-cd');
+  fill.style.transition = 'none';
+  fill.style.width = '100%';
+  cd.textContent = '4';
+  var el = document.getElementById('stage-prompt');
+  el.classList.add('show');
+  setTimeout(function(){ fill.style.transition = 'width 4s linear'; fill.style.width = '0%'; }, 50);
+  var secs = 4;
+  _promptTimer = setInterval(function(){
+    secs--;
+    if (cd) cd.textContent = secs;
+    if (secs <= 0) { clearInterval(_promptTimer); closePrompt(); }
+  }, 1000);
+}
+
+function closePrompt() {
+  clearInterval(_promptTimer);
+  document.getElementById('stage-prompt').classList.remove('show');
+}
+
+function handlePromptAction() {
+  closePrompt();
+  if (typeof _promptAction === 'function') _promptAction();
+}
+
+function showCongratsOverlay() {
+  document.getElementById('congrats-overlay').classList.add('show');
+}
+
+function closeCongratsOverlay() {
+  document.getElementById('congrats-overlay').classList.remove('show');
+}
+
+function onStageFullyCompleted(stageId) {
+  var stageIdx = STAGES.findIndex(function(s){ return s.id === stageId; });
+  var totalStages = STAGES.length;
+  var completed = getCompleted();
+
+  // Check if all stages done
+  var allDone = STAGES.every(function(s){ return completed.includes(s.id); });
+  if (allDone) {
+    setTimeout(showCongratsOverlay, 600);
+    return;
+  }
+
+  // Find next incomplete stage
+  var nextIdx = -1;
+  // First try stages after current
+  for (var i = stageIdx + 1; i < totalStages; i++) {
+    if (!completed.includes(STAGES[i].id)) { nextIdx = i; break; }
+  }
+  // If none found after, wrap around from beginning
+  if (nextIdx === -1) {
+    for (var j = 0; j < stageIdx; j++) {
+      if (!completed.includes(STAGES[j].id)) { nextIdx = j; break; }
+    }
+  }
+
+  if (nextIdx === -1) return; // shouldn't happen
+
+  var nextStage = STAGES[nextIdx];
+  var isWrapAround = nextIdx < stageIdx;
+  var title = isWrapAround
+    ? '🔍 还有未完成的关卡！'
+    : '✅ 第 ' + stageId + ' 关完成！';
+  var body  = isWrapAround
+    ? '第 ' + nextStage.id + ' 关「' + nextStage.name + ' 」还未完成，继续闯关！'
+    : '接下来挑战第 ' + nextStage.id + ' 关：' + nextStage.name;
+
+  setTimeout(function(){
+    showStagePrompt(title, body, '前往第 ' + nextStage.id + ' 关 →', function(){
+      switchStage(nextIdx);
+    });
+  }, 400);
+}
 </script>
 </body>
 </html>
