@@ -183,11 +183,22 @@ footer .sep { margin: 0 10px; opacity: .3; }
 
 .hot-badge {
   position:absolute;top:-8px;right:-8px;
-  background:linear-gradient(135deg,#ef4444,#dc2626);
-  color:#fff;font-size:9px;font-weight:700;
-  padding:2px 7px;border-radius:10px;
-  box-shadow:0 2px 8px rgba(239,68,68,.5);
+  background:#fff;
+  color:#ef4444;font-size:9px;font-weight:800;
+  padding:2px 8px;border-radius:10px;
+  border:1.5px solid #ef4444;
+  box-shadow:0 2px 8px rgba(239,68,68,.35);
   letter-spacing:.03em;white-space:nowrap;z-index:1;
+}
+
+.gift-badge {
+  position:absolute;top:-10px;right:-10px;
+  background:linear-gradient(135deg,#f0b429,#f59e0b);
+  color:#0a0c10;font-size:8.5px;font-weight:800;
+  padding:3px 8px;border-radius:10px;
+  box-shadow:0 3px 10px rgba(240,180,41,.5);
+  letter-spacing:.02em;white-space:nowrap;z-index:2;
+  line-height:1.4;text-align:center;
 }
 </style>
 </head>
@@ -540,14 +551,15 @@ footer .sep { margin: 0 10px; opacity: .3; }
     </div>
 
     <!-- SafePal -->
-    <div class="crypto-card">
+    <div class="crypto-card" style="position:relative;">
+      <span class="gift-badge">🎁 绑定邀请码<br>免费领 X1 冷钱包</span>
       <div class="badge-row"><span class="badge badge-cold">性价比</span></div>
       <div class="card-head">
         <div class="card-logo" style="color:#34d399;">SPL</div>
         <div class="card-name">SafePal</div>
       </div>
       <div class="card-desc">币安投资的硬件钱包，价格便宜，支持主流链，适合预算有限的入门用户</div>
-      <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">766177</span><button class="copy-btn" onclick="copyCode(this,'766177')">复制</button></div>
+      <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">766177</span><button class="copy-btn" onclick="copyCode(this,'766177')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
       <div class="card-btns"><a href="https://www.safepal.com/store/s1?ref=yjnmywv" target="_blank" class="btn-buy">立即购买 →</a><a href="https://youtu.be/1Kh__95rGX8" target="_blank" class="btn-ghost">查看教程</a></div>
     </div>
