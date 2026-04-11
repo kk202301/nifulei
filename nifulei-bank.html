@@ -292,6 +292,31 @@ footer .sep { margin: 0 10px; opacity: .3; }
   animation:fadeInTip .25s ease;
 }
 @keyframes fadeInTip { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:translateY(0)} }
+
+.btn-tip-wrap { position: relative; display: inline-block; }
+.btn-tip-pop {
+  display: none;
+  position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%);
+  background: #1a2235; color: #fcd34d;
+  font-size: 11px; font-weight: 600; white-space: nowrap;
+  padding: 6px 12px; border-radius: 8px;
+  border: .5px solid rgba(252,211,77,.3);
+  box-shadow: 0 4px 16px rgba(0,0,0,.5);
+  pointer-events: none; z-index: 100;
+  animation: btnTipIn .2s ease;
+}
+.btn-tip-pop::after {
+  content: '';
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1a2235;
+}
+@keyframes btnTipIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
 </style>
 </head>
 <body>
@@ -660,8 +685,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <span class="star-score">4.5</span>
         </div>
         <div class="card-btns">
-          <a href="#" class="btn-primary" onclick="showUpdateTip();return false;">点击开通 →</a>
-          <a href="#" class="btn-ghost" onclick="showUpdateTip();return false;">查看教程</a>
+          <span class="btn-tip-wrap"><a href="#" class="btn-primary" onclick="showBtnTip(this.parentElement);return false;">点击开通 →</a><span class="btn-tip-pop">💰 资本永不眠，加急更新中，敬请期待！</span></span>
+          <span class="btn-tip-wrap"><a href="#" class="btn-ghost" onclick="showBtnTip(this.parentElement);return false;">查看教程</a><span class="btn-tip-pop">💰 资本永不眠，加急更新中，敬请期待！</span></span>
         </div>
       </div>
 
@@ -678,8 +703,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <span class="star-score">5.0</span>
         </div>
         <div class="card-btns">
-          <a href="#" class="btn-primary" onclick="showUpdateTip();return false;">点击开通 →</a>
-          <a href="#" class="btn-ghost" onclick="showUpdateTip();return false;">查看教程</a>
+          <span class="btn-tip-wrap"><a href="#" class="btn-primary" onclick="showBtnTip(this.parentElement);return false;">点击开通 →</a><span class="btn-tip-pop">💰 资本永不眠，加急更新中，敬请期待！</span></span>
+          <span class="btn-tip-wrap"><a href="#" class="btn-ghost" onclick="showBtnTip(this.parentElement);return false;">查看教程</a><span class="btn-tip-pop">💰 资本永不眠，加急更新中，敬请期待！</span></span>
         </div>
       </div>
 
@@ -696,8 +721,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
           <span class="star-score">4.0</span>
         </div>
         <div class="card-btns">
-          <a href="#" class="btn-primary" onclick="showUpdateTip();return false;">点击开通 →</a>
-          <a href="#" class="btn-ghost" onclick="showUpdateTip();return false;">查看教程</a>
+          <span class="btn-tip-wrap"><a href="#" class="btn-primary" onclick="showBtnTip(this.parentElement);return false;">点击开通 →</a><span class="btn-tip-pop">💰 资本永不眠，加急更新中，敬请期待！</span></span>
+          <span class="btn-tip-wrap"><a href="#" class="btn-ghost" onclick="showBtnTip(this.parentElement);return false;">查看教程</a><span class="btn-tip-pop">💰 资本永不眠，加急更新中，敬请期待！</span></span>
         </div>
       </div>
 
@@ -909,6 +934,15 @@ function showUpdateTip() {
   clearTimeout(tip._timer);
   tip.style.display = 'block';
   tip._timer = setTimeout(function(){ tip.style.display = 'none'; }, 2500);
+}
+</script>
+<script>
+function showBtnTip(btn) {
+  var pop = btn.querySelector('.btn-tip-pop');
+  if (!pop) return;
+  clearTimeout(btn._tipTimer);
+  pop.style.display = 'block';
+  btn._tipTimer = setTimeout(function() { pop.style.display = 'none'; }, 2500);
 }
 </script>
 </body>
