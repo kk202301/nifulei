@@ -423,9 +423,99 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
   box-shadow:0 40px 100px rgba(0,0,0,.8);
   animation:jtSlideUp .4s ease;position:relative;text-align:center;
 }
+
+
+  50%      { box-shadow: 0 0 0 4px rgba(240,180,41,.25); border-color: var(--accent); }
+}
+
+ to{opacity:1} }
+
+
+
+/* ── Checklist visual guide ── */
+/* All unchecked boxes glow subtly to invite clicking */
+.check-box:not(.checked-done) {
+  border-color: rgba(240,180,41,.45);
+  animation: checkIdle 2.5s ease-in-out infinite;
+}
+@keyframes checkIdle {
+  0%,100% { box-shadow: none; border-color: rgba(240,180,41,.3); }
+  50%      { box-shadow: 0 0 0 3px rgba(240,180,41,.15); border-color: rgba(240,180,41,.7); }
+}
+/* Once checked: stop animation, show solid green */
+.check-item.done .check-box {
+  animation: none;
+  background: #22c55e; border-color: #22c55e; color: #0a0c10;
+}
+/* First unchecked box gets stronger pulse to draw attention */
+.check-item:not(.done):first-child .check-box {
+  animation: checkPulseStrong 1.8s ease-in-out infinite;
+}
+@keyframes checkPulseStrong {
+  0%,100% { box-shadow: none; border-color: rgba(240,180,41,.4); }
+  50%      { box-shadow: 0 0 0 5px rgba(240,180,41,.2); border-color: var(--accent); }
+}
+
+/* one-time guide tooltip */
+#checklist-guide {
+  position:fixed;bottom:28px;right:28px;z-index:9997;
+  background:#0f1319;border:.5px solid rgba(240,180,41,.5);
+  border-radius:12px;padding:14px 16px 10px;max-width:240px;
+  box-shadow:0 8px 32px rgba(0,0,0,.6);
+  opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .3s,transform .3s;
+}
+#checklist-guide.show { opacity:1;transform:translateY(0);pointer-events:auto; }
+#checklist-guide::after {
+  content:'';position:absolute;bottom:-7px;right:20px;
+  border:7px solid transparent;border-top-color:#0f1319;
+  border-bottom:none;
+}
+.guide-arrow { font-size:18px;margin-bottom:4px; }
+.guide-text  { font-size:11px;color:#c8d4e0;line-height:1.8; }
+.guide-close { font-size:10px;color:var(--accent);cursor:pointer;margin-top:8px;display:block;text-align:right; }
+
+@media (max-width: 768px) {
+  #stage-prompt { bottom: 72px; right: 12px; left: 12px; max-width: none; }
+  #checklist-guide { bottom: 72px; right: 12px; left: 12px; max-width: none; }
+  #checklist-guide::after { display: none; }
+}
+
+@media (max-width: 768px) {
+  .stage-panel { padding-bottom: 80px; }
+  #pageIntro { padding-bottom: 80px; }
+}
+
+@media (max-width: 768px) {
+  #msn-prev:hover, #msn-next:hover { border-color:rgba(255,255,255,.3); color:var(--text); }
+  #msn-prev:active, #msn-next:active { background:rgba(255,255,255,.1); }
+  .mobile-sidebar-toggle { display:flex; }
+}
+@media (min-width: 769px) {
+  #mobile-stage-nav { display:none !important; }
+  .mobile-sidebar-toggle { display:none !important; }
+}
+
+.gift-badge {
+  position:absolute;top:-10px;right:-10px;
+  background:linear-gradient(135deg,#f0b429,#f59e0b);
+  color:#0a0c10;font-size:8.5px;font-weight:800;
+  padding:3px 8px;border-radius:10px;
+  box-shadow:0 3px 10px rgba(240,180,41,.5);
+  letter-spacing:.02em;white-space:nowrap;z-index:2;
+  line-height:1.4;text-align:center;
+}
 </style>
 </head>
 <body>
+
+<!-- checklist one-time guide -->
+<div id="checklist-guide">
+  <div class="guide-arrow">☑️</div>
+  <div class="guide-text"><strong style="color:var(--accent);">逐项勾选学习进度</strong><br>完成所有子项后，关卡标记完成按钮才会解锁 🔓</div>
+  <span class="guide-close" onclick="dismissGuide()">我知道了 ✓</span>
+</div>
+
 
 <!-- Stage completion prompt -->
 <div id="stage-prompt">
@@ -456,6 +546,37 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
     <div style="margin-top:16px;font-size:10px;color:var(--text-dim);">🎉 已完成全部 8 个出海关卡</div>
   </div>
 </div>
+
+<script>
+// Global function - must be defined before onclick fires
+function closeJourneyTip() {
+  if (window._jtTimer) clearInterval(window._jtTimer);
+  var el = document.getElementById('journey-tip-overlay');
+  if (!el) return;
+  el.style.opacity = '0';
+  el.style.transition = 'opacity .25s ease';
+  setTimeout(function(){ el.style.display = 'none'; }, 250);
+  sessionStorage.setItem('journey_tip_shown', '1');
+}
+
+// Init countdown on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+  if (sessionStorage.getItem('journey_tip_shown')) {
+    var el = document.getElementById('journey-tip-overlay');
+    if (el) el.style.display = 'none';
+    return;
+  }
+  var secs = 4;
+  var bar = document.getElementById('jt-bar');
+  var cd  = document.getElementById('jt-countdown');
+  setTimeout(function(){ if (bar) bar.style.width = '0%'; }, 50);
+  window._jtTimer = setInterval(function(){
+    secs--;
+    if (cd) cd.textContent = secs;
+    if (secs <= 0) { clearInterval(window._jtTimer); closeJourneyTip(); }
+  }, 1000);
+});
+</script>
 
 <!-- ── 闯关提示弹框 ── -->
 <div id="journey-tip-overlay" style="
@@ -524,31 +645,7 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
 @keyframes jtSlideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 </style>
 
-<script>
-(function(){
-  if (sessionStorage.getItem('journey_tip_shown')) {
-    document.getElementById('journey-tip-overlay').style.display = 'none';
-    return;
-  }
-  var secs = 4;
-  var bar = document.getElementById('jt-bar');
-  var cd  = document.getElementById('jt-countdown');
-  setTimeout(function(){ bar.style.width = '0%'; }, 50);
-  var timer = setInterval(function(){
-    secs--;
-    if (cd) cd.textContent = secs;
-    if (secs <= 0) { clearInterval(timer); closeJourneyTip(); }
-  }, 1000);
-  window.closeJourneyTip = function(){
-    clearInterval(timer);
-    var el = document.getElementById('journey-tip-overlay');
-    el.style.opacity = '0';
-    el.style.transition = 'opacity .25s ease';
-    setTimeout(function(){ el.style.display = 'none'; }, 250);
-    sessionStorage.setItem('journey_tip_shown', '1');
-  };
-})();
-</script>
+
 
 
 <nav>
@@ -853,7 +950,7 @@ const STAGES = [
     solutions: [
       { icon: '🔑', name: 'OneKey', desc: '华人团队打造，中文支持最好，价格亲民，折扣码：<span class="code-tag">NIFULEI</span>', tag: '推荐', tagColor: '#f0b429', tagBg: 'rgba(240,180,41,.12)', featured: true, openUrl: 'https://onekey.so/r/NIFULEI', openLabel: '立即购买', link: 'https://youtu.be/dI1OIJURrys' },
       { icon: '🔐', name: 'Ledger', desc: '全球最知名冷钱包品牌，安全性极高，支持 5500+ 种加密资产', tag: '国际主流', tagColor: '#60a5fa', tagBg: 'rgba(96,165,250,.1)', featured: false, openUrl: 'https://shop.ledger.com/?r=978a08f57a21', openLabel: '立即购买', link: 'nifulei-crypto.html#cold' },
-      { icon: '🛡', name: 'SafePal', desc: '币安投资，价格最低，折扣码：<span class="code-tag">766177</span>，适合入门用户', tag: '入门首选', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, openUrl: 'https://www.safepal.com/store/s1?ref=yjnmywv', openLabel: '立即购买', link: 'https://youtu.be/1Kh__95rGX8' },
+      { icon: '🛡', name: 'SafePal', desc: '币安投资，价格最低，邀请码：<span class="code-tag">766177</span>，注册绑定邀请码可免费领 X1 冷钱包', tag: '入门首选', tagColor: '#34d399', tagBg: 'rgba(16,185,129,.1)', featured: false, badge: '🎁 绑定邀请码<br>免费领 X1 冷钱包', openUrl: 'https://www.safepal.com/store/s1?ref=yjnmywv', openLabel: '立即购买', link: 'https://youtu.be/1Kh__95rGX8' },
     ]
   },
 ];
@@ -1031,6 +1128,9 @@ function renderPanels() {
           <span class="stage-progress-label" id="sp-label-${s.id}">${prog.done} / ${totalItems} 项已完成</span>
           <span class="stage-progress-pct" id="sp-pct-${s.id}">${prog.pct}%</span>
         </div>
+        <div style="font-size:10px;color:#8a96aa;margin:-4px 0 8px;line-height:1.6;">
+          逐项勾选即可完成当前关卡，全部勾选后解锁「标记完成」按钮 🔓
+        </div>
         <div class="stage-progress-bar">
           <div class="stage-progress-fill" id="sp-fill-${s.id}" style="width:${prog.pct}%"></div>
         </div>
@@ -1060,7 +1160,7 @@ function renderPanels() {
       </div>`
     ).join('');
     const solsHtml = s.solutions.map(sol =>
-      `<div class="sol-card ${sol.featured ? 'featured' : ''}" >
+      `<div class="sol-card ${sol.featured ? 'featured' : ''}" style="position:relative;">${sol.badge ? `<span class="gift-badge">${sol.badge}</span>` : ''}
         <div class="sol-icon">${sol.icon}</div>
         <span class="sol-tag" style="color:${sol.tagColor};background:${sol.tagBg};">${sol.tag}</span>
         <div class="sol-name">${sol.name}</div>
@@ -1159,6 +1259,68 @@ function renderPanels() {
   document.getElementById('mobileStageName').textContent = `第 ${s.id} 关：${s.name}`;
 }
 
+// ── CHECKLIST GUIDE ──
+var _guideTimer = null;
+
+function showChecklistGuide() {
+  if (sessionStorage.getItem('checklist_guide_seen')) return;
+  var el = document.getElementById('checklist-guide');
+  if (!el) return;
+  clearTimeout(_guideTimer);
+  el.classList.add('show');
+  // Pulse first unchecked check-box
+  var boxes = document.querySelectorAll('.check-box:not(.\\done)');
+  if (boxes.length > 0) {
+    boxes[0].classList.add('pulse');
+    setTimeout(function(){ boxes[0].classList.remove('pulse'); }, 5000);
+  }
+  _guideTimer = setTimeout(dismissGuide, 6000);
+}
+
+function dismissGuide() {
+  clearTimeout(_guideTimer);
+  var el = document.getElementById('checklist-guide');
+  if (el) { el.classList.remove('show'); }
+  sessionStorage.setItem('checklist_guide_seen', '1');
+}
+
+// ── MOBILE NAV ──
+function updateMobileNav(idx) {
+  var nav = document.getElementById('mobile-stage-nav');
+  var label = document.getElementById('msn-label');
+  var prev = document.getElementById('msn-prev');
+  var next = document.getElementById('msn-next');
+  if (!nav) return;
+  if (window.innerWidth <= 768) nav.style.display = 'flex';
+  if (label) label.textContent = '第 ' + STAGES[idx].id + ' 关 · ' + STAGES[idx].name;
+  if (prev) prev.style.opacity = idx === 0 ? '0.3' : '1';
+  if (next) next.style.opacity = idx === STAGES.length-1 ? '0.3' : '1';
+}
+function mobilePrevStage() {
+  var panels = document.querySelectorAll('.stage-panel.active');
+  if (!panels.length) return;
+  var cur = parseInt(panels[0].id.replace('panel-',''));
+  if (cur > 0) { switchStage(cur - 1); updateMobileNav(cur - 1); }
+}
+function mobileNextStage() {
+  var panels = document.querySelectorAll('.stage-panel.active');
+  if (!panels.length) return;
+  var cur = parseInt(panels[0].id.replace('panel-',''));
+  if (cur < STAGES.length - 1) { switchStage(cur + 1); updateMobileNav(cur + 1); }
+}
+window.addEventListener('resize', function() {
+  var nav = document.getElementById('mobile-stage-nav');
+  if (nav) nav.style.display = window.innerWidth <= 768 ? 'flex' : 'none';
+});
+// Init after page loads
+document.addEventListener('DOMContentLoaded', function() {
+  updateMobileNav(0);
+  // Show mobile nav on mobile screen
+  var nav = document.getElementById('mobile-stage-nav');
+  if (nav && window.innerWidth <= 768) nav.style.display = 'flex';
+});
+
+
 // ── SWITCH STAGE ──
 function switchStage(idx) {
   currentStage = idx;
@@ -1172,6 +1334,12 @@ function switchStage(idx) {
   document.getElementById('mobileStageName').textContent = `第 ${s.id} 关：${s.name}`;
   closeSidebar();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateMobileNav(idx);
+  // Ensure mobile nav visible on mobile
+  var msnav = document.getElementById('mobile-stage-nav');
+  if (msnav && window.innerWidth <= 768) msnav.style.display = 'flex';
+  // Show checklist guide on first switch
+  setTimeout(showChecklistGuide, 800);
 }
 
 // ── TOGGLE COMPLETE ──
@@ -1398,5 +1566,40 @@ function onStageFullyCompleted(stageId) {
   }, 400);
 }
 </script>
+
+
+<!-- Mobile stage switcher -->
+<div id="mobile-stage-nav" style="
+  position:fixed;bottom:0;left:0;right:0;z-index:990;
+  background:rgba(10,12,16,.97);backdrop-filter:blur(12px);
+  border-top:.5px solid rgba(240,180,41,.25);
+  padding:8px 12px 14px;
+  display:none;align-items:center;justify-content:space-between;gap:8px;">
+
+  <button id="msn-prev" onclick="mobilePrevStage()" style="
+    flex:0 0 72px;padding:9px 0;border-radius:10px;
+    border:.5px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);color:var(--text-muted);
+    font-size:11px;cursor:pointer;font-weight:600;">
+    ← 上一关
+  </button>
+
+  <button onclick="openSidebar()" style="
+    flex:1;padding:9px 0;border-radius:10px;
+    background:rgba(240,180,41,.12);border:.5px solid rgba(240,180,41,.3);
+    color:var(--accent);font-size:11px;font-weight:700;cursor:pointer;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px;">
+    <span id="msn-label">第 1 关</span> ▾
+  </button>
+
+  <button id="msn-next" onclick="mobileNextStage()" style="
+    flex:0 0 72px;padding:9px 0;border-radius:10px;
+    border:.5px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);color:var(--text-muted);
+    font-size:11px;cursor:pointer;font-weight:600;">
+    下一关 →
+  </button>
+</div>
+
 </body>
 </html>
