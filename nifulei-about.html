@@ -201,6 +201,534 @@ footer {
 }
 
 @media (max-width: 768px) { .nav-cta { display: none; } }
+
+/* ── Light mode ── */
+[data-theme="light"] {
+  --bg:           #f4f5f7;
+  --bg-card:      #ffffff;
+  --bg-card-hover:#f0f2f5;
+  --bg-dropdown:  #ffffff;
+  --border:       rgba(0,0,0,0.09);
+  --border-hover: rgba(200,140,10,0.45);
+  --text:         #1a1d24;
+  --text-muted:   #52586a;
+  --text-dim:     #9aa0af;
+  --accent:       #d4920a;
+  --accent-dim:   rgba(212,146,10,0.10);
+  --accent-border:rgba(212,146,10,0.30);
+}
+[data-theme="light"] body { background: var(--bg); color: var(--text); }
+[data-theme="light"] nav  { background: rgba(244,245,247,.96); border-bottom-color: rgba(0,0,0,.08); }
+[data-theme="light"] .dropdown { background: #fff; border-color: rgba(0,0,0,.09); }
+[data-theme="light"] .nav-donate { background: rgba(212,146,10,.08); border-color: rgba(212,146,10,.35); }
+[data-theme="light"] footer { background: #e8eaee; border-top-color: rgba(0,0,0,.08); }
+[data-theme="light"] .footer-copy,
+[data-theme="light"] .footer-social-btn { color: #52586a; }
+[data-theme="light"] .mobile-menu-btn { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.12); color: #52586a; }
+[data-theme="light"] #mobileMenu { background: rgba(244,245,247,.99); }
+
+/* Theme toggle button */
+.theme-toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 9px;
+  background: rgba(255,255,255,.06); border: .5px solid rgba(255,255,255,.12);
+  cursor: pointer; font-size: 16px; margin-left: 4px;
+  transition: background .15s; -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { background: rgba(255,255,255,.12); }
+[data-theme="light"] .theme-toggle { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.12); }
+[data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,.10); }
+@media (max-width: 768px) {
+  .theme-toggle { width: 44px; height: 44px; font-size: 18px; }
+}
+
+/* Light mode card & content overrides */
+[data-theme="light"] .broker-card,
+[data-theme="light"] .crypto-card,
+[data-theme="light"] .esim-card,
+[data-theme="light"] .sol-card,
+[data-theme="light"] .stage-panel,
+[data-theme="light"] .sidebar,
+[data-theme="light"] .card { background: #fff; border-color: rgba(0,0,0,.08); }
+[data-theme="light"] .sol-card.featured { border-color: rgba(212,146,10,.4); }
+[data-theme="light"] .card-desc,
+[data-theme="light"] .card-name,
+[data-theme="light"] .sol-desc,
+[data-theme="light"] .sol-name { color: var(--text); }
+[data-theme="light"] .badge { opacity: .85; }
+[data-theme="light"] .btn-ghost {
+  border-color: rgba(0,0,0,.15); color: var(--text-muted);
+}
+[data-theme="light"] .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+[data-theme="light"] .invite-box,
+[data-theme="light"] .discount-box {
+  background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.08);
+}
+[data-theme="light"] .invite-code,
+[data-theme="light"] .discount-val { color: #b87400; background: rgba(212,146,10,.1); }
+[data-theme="light"] .copy-btn { color: #b87400; border-color: rgba(212,146,10,.3); background: rgba(212,146,10,.07); }
+[data-theme="light"] .section-heading h2,
+[data-theme="light"] .section-sub { color: var(--text); }
+[data-theme="light"] .step { border-left-color: rgba(0,0,0,.1); }
+[data-theme="light"] .step-title { color: var(--text); }
+[data-theme="light"] .step-desc { color: var(--text-muted); }
+[data-theme="light"] .star-score { color: var(--text-muted); }
+[data-theme="light"] .check-item { background: rgba(0,0,0,.02); border-color: rgba(0,0,0,.07); }
+[data-theme="light"] .check-item.done { background: rgba(52,211,153,.08); }
+[data-theme="light"] .check-label { color: var(--text); }
+[data-theme="light"] .stage-progress { background: rgba(0,0,0,.02); border-color: rgba(0,0,0,.07); }
+[data-theme="light"] .sidebar { background: #f0f2f5; border-right-color: rgba(0,0,0,.08); }
+[data-theme="light"] .stage-btn { border-color: rgba(0,0,0,.07); }
+[data-theme="light"] .stage-btn:hover { background: rgba(0,0,0,.04); }
+[data-theme="light"] .stage-btn.active { background: rgba(212,146,10,.1); border-color: rgba(212,146,10,.3); }
+[data-theme="light"] .mobile-sidebar-toggle { background: #fff; border-color: rgba(0,0,0,.08); }
+[data-theme="light"] #mobile-stage-nav { background: rgba(244,245,247,.97); border-top-color: rgba(0,0,0,.08); }
+[data-theme="light"] #msn-prev, [data-theme="light"] #msn-next { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.1); color: var(--text-muted); }
+[data-theme="light"] .guide-bubble { background: #fff; border-color: rgba(212,146,10,.5); }
+[data-theme="light"] .guide-bubble-title { color: #1a1d24; }
+[data-theme="light"] .guide-bubble-desc { color: #52586a; }
+[data-theme="light"] .risk-toast-bg,
+[data-theme="light"] #risk-toast { background: #fff; border-color: rgba(239,68,68,.3); }
+[data-theme="light"] .problem-box { background: rgba(0,0,0,.03); border-color: rgba(0,0,0,.07); }
+[data-theme="light"] .tip-box { background: rgba(212,146,10,.06); border-color: rgba(212,146,10,.2); }
+[data-theme="light"] .faq-card { background: #f8f9fb; border-color: rgba(0,0,0,.07); }
+[data-theme="light"] .guide-tabs { background: rgba(0,0,0,.02); }
+[data-theme="light"] .guide-body { background: rgba(0,0,0,.02); border-color: rgba(0,0,0,.07); }
+[data-theme="light"] .donate-card { background: #fff; border-color: rgba(0,0,0,.08); }
+[data-theme="light"] .donate-addr { color: #52586a; }
+
+/* ── Light mode comprehensive text fix ── */
+[data-theme="light"] body,
+[data-theme="light"] .main,
+[data-theme="light"] .page-wrap,
+[data-theme="light"] .content { background: #f4f5f7; }
+
+/* Override inline near-white text colors to dark in light mode */
+[data-theme="light"] p,
+[data-theme="light"] div,
+[data-theme="light"] span:not(.badge):not(.hot-badge):not(.gift-badge):not(.code-tag):not(.invite-code):not(.nav-donate),
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] li,
+[data-theme="light"] a:not(.btn-primary):not(.nav-cta):not(.footer-social-btn):not(.nav-donate) {
+  color: inherit;
+}
+
+/* Specific section text overrides */
+[data-theme="light"] .hero-title,
+[data-theme="light"] .section-title,
+[data-theme="light"] .card-title,
+[data-theme="light"] .stage-h1,
+[data-theme="light"] .stage-subtitle,
+[data-theme="light"] .sol-name,
+[data-theme="light"] .sol-desc,
+[data-theme="light"] .card-name,
+[data-theme="light"] .card-desc,
+[data-theme="light"] .check-label,
+[data-theme="light"] .step-title,
+[data-theme="light"] .step-desc,
+[data-theme="light"] .problem-text,
+[data-theme="light"] .tip-text,
+[data-theme="light"] .sidebar-title,
+[data-theme="light"] .stage-name,
+[data-theme="light"] .overall-progress-label,
+[data-theme="light"] .section-sub { color: var(--text) !important; }
+
+/* Dark card backgrounds in light mode */
+[data-theme="light"] .broker-card,
+[data-theme="light"] .crypto-card,
+[data-theme="light"] .esim-card,
+[data-theme="light"] .sol-card,
+[data-theme="light"] .donate-card,
+[data-theme="light"] .faq-card,
+[data-theme="light"] .contact-card,
+[data-theme="light"] .about-card { background: #ffffff !important; color: #1a1d24 !important; }
+
+/* Journey stage panel */
+[data-theme="light"] .stage-panel { background: transparent; }
+[data-theme="light"] .problem-box { background: rgba(0,0,0,.03) !important; }
+[data-theme="light"] .tip-box { background: rgba(212,146,10,.06) !important; }
+
+/* nav links */
+[data-theme="light"] .nav-label,
+[data-theme="light"] .nav-single,
+[data-theme="light"] .nav-links a { color: #1a1d24 !important; }
+[data-theme="light"] .nav-label:hover,
+[data-theme="light"] .nav-single:hover { color: var(--accent) !important; }
+[data-theme="light"] .arr { color: #9aa0af !important; }
+
+/* Sidebar */
+[data-theme="light"] .sidebar-progress-text,
+[data-theme="light"] .sidebar-progress-bar,
+[data-theme="light"] .stage-btn .stage-name { color: #1a1d24 !important; }
+[data-theme="light"] .stage-btn.completed .stage-num { color: #34d399 !important; }
+[data-theme="light"] .stage-num { color: #52586a !important; }
+
+/* Progress area */
+[data-theme="light"] .stage-progress-label,
+[data-theme="light"] .stage-progress-pct { color: #52586a !important; }
+[data-theme="light"] .stage-progress-bar { background: rgba(0,0,0,.08) !important; }
+[data-theme="light"] .stage-progress-fill { background: var(--accent) !important; }
+
+/* Checklist items */
+[data-theme="light"] .check-item { background: rgba(0,0,0,.02) !important; border-color: rgba(0,0,0,.07) !important; }
+[data-theme="light"] .check-item.done { background: rgba(52,211,153,.08) !important; }
+[data-theme="light"] .check-item .check-label { color: #1a1d24 !important; }
+
+/* Steps */
+[data-theme="light"] .step { border-color: rgba(0,0,0,.08) !important; }
+[data-theme="light"] .step-num { background: rgba(0,0,0,.05) !important; color: #52586a !important; border-color: rgba(0,0,0,.1) !important; }
+
+/* Sol card buttons in light */
+[data-theme="light"] .btn-open { background: var(--accent-dim) !important; color: var(--accent) !important; border-color: var(--accent-border) !important; }
+[data-theme="light"] .btn-go { background: var(--accent) !important; color: #0a0c10 !important; }
+
+/* Complete button */
+[data-theme="light"] .complete-btn { border-color: rgba(0,0,0,.15) !important; color: #52586a !important; }
+[data-theme="light"] .complete-btn.done { background: rgba(52,211,153,.1) !important; border-color: rgba(52,211,153,.3) !important; color: #059669 !important; }
+
+/* Stage nav buttons */
+[data-theme="light"] .stage-nav-btn { border-color: rgba(0,0,0,.12) !important; color: #52586a !important; background: #fff !important; }
+[data-theme="light"] .stage-nav-btn:hover,
+[data-theme="light"] .stage-nav-btn.next { background: var(--accent-dim) !important; color: var(--accent) !important; border-color: var(--accent-border) !important; }
+
+/* Guide tabs */
+[data-theme="light"] .guide-tab { color: #52586a !important; }
+[data-theme="light"] .guide-tab-info-title { color: var(--accent) !important; }
+[data-theme="light"] .guide-tab-info-desc { color: #52586a !important; }
+[data-theme="light"] .guide-tab-detail { color: var(--accent) !important; }
+[data-theme="light"] .faq-q { color: #1a1d24 !important; }
+[data-theme="light"] .faq-a { color: #52586a !important; }
+[data-theme="light"] .guide-title { color: #1a1d24 !important; }
+[data-theme="light"] .guide-sub { color: #52586a !important; }
+
+/* home cards / explore */
+[data-theme="light"] .home-card { background: #fff !important; border-color: rgba(0,0,0,.08) !important; }
+[data-theme="light"] .home-card-title { color: #1a1d24 !important; }
+[data-theme="light"] .home-card-desc { color: #52586a !important; }
+
+/* Featured perks / videos */
+[data-theme="light"] .perk-card,
+[data-theme="light"] .video-card { background: #fff !important; border-color: rgba(0,0,0,.08) !important; }
+[data-theme="light"] .perk-title,
+[data-theme="light"] .video-title { color: #1a1d24 !important; }
+[data-theme="light"] .perk-desc,
+[data-theme="light"] .video-desc { color: #52586a !important; }
+
+/* about page */
+[data-theme="light"] .contact-platform { color: #1a1d24 !important; }
+[data-theme="light"] .contact-handle { color: var(--accent) !important; }
+[data-theme="light"] .contact-desc { color: #52586a !important; }
+
+/* Override btn-primary text in light */
+[data-theme="light"] .btn-primary { background: var(--accent) !important; color: #0a0c10 !important; }
+
+/* Stars */
+[data-theme="light"] .star-score { color: #52586a !important; }
+
+/* Section dividers */
+[data-theme="light"] .section-divider { background: rgba(0,0,0,.08) !important; }
+
+/* info-banner */
+[data-theme="light"] .info-banner { background: rgba(212,146,10,.06) !important; border-color: rgba(212,146,10,.2) !important; color: #52586a !important; }
+
+
+/* ── Light mode inline color fixes ── */
+
+/* Hero gradient text → dark in light mode */
+[data-theme="light"] h1[style*="-webkit-text-fill-color"] {
+  background: linear-gradient(135deg, #1a1d24 30%, #4a5568) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Any element using gradient text clip */
+[data-theme="light"] [style*="-webkit-text-fill-color: transparent"],
+[data-theme="light"] [style*="-webkit-text-fill-color:transparent"] {
+  background: linear-gradient(135deg, #1a1d24 30%, #52586a) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+/* Near-white inline text colors on light bg */
+[data-theme="light"] [style*="color:#e8edf5"],
+[data-theme="light"] [style*="color: #e8edf5"],
+[data-theme="light"] [style*="color:#c8d4e0"],
+[data-theme="light"] [style*="color:#e2e8f0"],
+[data-theme="light"] [style*="color:#f1f5f9"],
+[data-theme="light"] [style*="color:#dde3ee"],
+[data-theme="light"] [style*="color:#fafafa"],
+[data-theme="light"] [style*="color:#ffffff"] {
+  color: #1a1d24 !important;
+}
+
+/* Mid-grey inline colors → darker in light mode */
+[data-theme="light"] [style*="color:#8a96aa"],
+[data-theme="light"] [style*="color: #8a96aa"],
+[data-theme="light"] [style*="color:#94a3b8"],
+[data-theme="light"] [style*="color:#a0a8b8"],
+[data-theme="light"] [style*="color:#9aaabb"] {
+  color: #52586a !important;
+}
+
+/* Dim text inline colors */
+[data-theme="light"] [style*="color:#5a6478"],
+[data-theme="light"] [style*="color:#363d4e"],
+[data-theme="light"] [style*="color:#4a5568"] {
+  color: #7a8494 !important;
+}
+
+/* rgba(255,255,255,...) inline text → dark */
+[data-theme="light"] [style*="color:rgba(255,255,255"],
+[data-theme="light"] [style*="color: rgba(255,255,255"] {
+  color: #1a1d24 !important;
+}
+
+/* Dark section backgrounds (roadmap page etc) */
+[data-theme="light"] [style*="background:#0f1319"],
+[data-theme="light"] [style*="background: #0f1319"],
+[data-theme="light"] [style*="background:#0a0c10"],
+[data-theme="light"] [style*="background:#111318"],
+[data-theme="light"] [style*="background:#1a2235"] {
+  background: #ffffff !important;
+}
+
+/* Dark inline backgrounds with rgba white borders */
+[data-theme="light"] [style*="border:.5px solid rgba(255,255,255"] {
+  border-color: rgba(0,0,0,.1) !important;
+}
+[data-theme="light"] [style*="border:0.5px solid rgba(255,255,255"] {
+  border-color: rgba(0,0,0,.1) !important;
+}
+
+/* Preview page hero section background */
+[data-theme="light"] .hero-section,
+[data-theme="light"] [style*="radial-gradient"] {
+  background: none !important;
+}
+
+/* Category tags / badges with near-white text */
+[data-theme="light"] .tag,
+[data-theme="light"] .home-tag { 
+  background: rgba(0,0,0,.06) !important;
+  color: #1a1d24 !important;
+  border-color: rgba(0,0,0,.12) !important;
+}
+
+/* Scroll ticker text */
+[data-theme="light"] .ticker-item { color: #52586a !important; }
+[data-theme="light"] .ticker-dot { color: var(--accent) !important; }
+
+/* Section labels (EXPLORE, OVERSEAS JOURNEY etc) */
+[data-theme="light"] [style*="color:var(--text-dim)"],
+[data-theme="light"] [style*="color: var(--text-dim)"] {
+  color: #9aa0af !important;
+}
+
+/* Strong elements with hardcoded white-ish */
+[data-theme="light"] strong[style*="color:#c8d4e0"],
+[data-theme="light"] strong[style*="color:#e2e8f0"],
+[data-theme="light"] strong[style*="color:#e8edf5"] {
+  color: #1a1d24 !important;
+}
+
+
+/* light-fix-nifulei-about.html */
+[data-theme="light"] .contact-card { background: #fff !important; border-color: rgba(0,0,0,.08) !important; }
+[data-theme="light"] .donate-card  { background: #fff !important; border-color: rgba(0,0,0,.08) !important; }
+[data-theme="light"] .contact-platform { color: #1a1d24 !important; }
+[data-theme="light"] .contact-desc     { color: #52586a !important; }
+[data-theme="light"] .donate-label     { color: #52586a !important; }
+[data-theme="light"] .donate-network   { color: #9aa0af !important; }
+[data-theme="light"] .donate-addr      { color: #52586a !important; }
+[data-theme="light"] .donate-addr-row  { background: rgba(0,0,0,.03) !important; }
+
+/* ── Light mode tab nav + check-box + overlay fixes ── */
+
+/* Anchor nav bar (tabs) background */
+[data-theme="light"] .anchor-nav {
+  background: rgba(244,245,247,.97) !important;
+  border-bottom: .5px solid rgba(0,0,0,.08) !important;
+}
+[data-theme="light"] .anchor-btn {
+  color: #52586a !important;
+}
+[data-theme="light"] .anchor-btn.active {
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent) !important;
+}
+[data-theme="light"] .anchor-btn:hover {
+  color: #1a1d24 !important;
+  background: rgba(0,0,0,.04) !important;
+}
+
+/* Nav item hover background (dark mode uses white-alpha, wrong in light) */
+[data-theme="light"] .nav-item:hover > .nav-label {
+  background: rgba(0,0,0,.05) !important;
+}
+[data-theme="light"] .dropdown a:hover {
+  background: rgba(0,0,0,.05) !important;
+  color: #1a1d24 !important;
+}
+
+/* Journey tip overlay inner box */
+[data-theme="light"] #journey-tip-overlay > div {
+  background: #ffffff !important;
+  border-color: rgba(212,146,10,.4) !important;
+}
+[data-theme="light"] #journey-tip-overlay > div * {
+  color: #1a1d24 !important;
+}
+[data-theme="light"] #journey-tip-overlay > div strong {
+  color: #1a1d24 !important;
+}
+[data-theme="light"] #jt-bar {
+  background: rgba(0,0,0,.06) !important;
+}
+[data-theme="light"] #jt-bar > div {
+  background: var(--accent) !important;
+}
+
+/* Check-box: glowing border in light mode */
+[data-theme="light"] .check-box {
+  border-color: rgba(212,146,10,.5) !important;
+  background: rgba(212,146,10,.05) !important;
+  box-shadow: 0 0 0 2px rgba(212,146,10,.1) !important;
+}
+[data-theme="light"] .check-item:hover .check-box {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(212,146,10,.15) !important;
+}
+[data-theme="light"] .check-item.done .check-box {
+  background: #34d399 !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 0 2px rgba(52,211,153,.2) !important;
+  color: #fff !important;
+}
+[data-theme="light"] .check-item { 
+  background: rgba(0,0,0,.02) !important;
+  border-color: rgba(0,0,0,.06) !important;
+}
+[data-theme="light"] .check-item:hover {
+  background: rgba(212,146,10,.04) !important;
+  border-color: rgba(212,146,10,.2) !important;
+}
+[data-theme="light"] .check-item.done {
+  background: rgba(52,211,153,.07) !important;
+  border-color: rgba(52,211,153,.2) !important;
+}
+
+/* Stage prompt popup */
+[data-theme="light"] #stage-prompt {
+  background: #ffffff !important;
+  border-color: rgba(212,146,10,.35) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,.15) !important;
+}
+[data-theme="light"] #stage-prompt .prompt-title { color: #1a1d24 !important; }
+[data-theme="light"] #stage-prompt .prompt-body  { color: #52586a !important; }
+
+/* Congrats overlay */
+[data-theme="light"] #congrats-overlay > div {
+  background: #fff !important;
+  border-color: rgba(52,211,153,.3) !important;
+}
+[data-theme="light"] #congrats-overlay > div * { color: #1a1d24 !important; }
+
+/* Risk toast in light mode */
+[data-theme="light"] #risk-toast {
+  background: #fff !important;
+  border-color: rgba(239,68,68,.3) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.15) !important;
+}
+[data-theme="light"] .risk-toast-bar { background: rgba(0,0,0,.06) !important; }
+[data-theme="light"] #risk-cd { color: #ef4444 !important; }
+
+
+/* ── Mobile compatibility fixes ── */
+
+/* iOS Safari: prevent text size auto-adjustment */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* iOS Safari: fix sticky nav */
+nav { position: -webkit-sticky; position: sticky; }
+.anchor-nav { position: -webkit-sticky; position: sticky; }
+
+/* iOS Safari: fix button tap highlight */
+button, a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* iOS: fix input zoom on focus (font-size must be ≥16px) */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Fix overflow-x on mobile */
+body { overflow-x: hidden; }
+
+/* iOS momentum scrolling for overflow containers */
+.anchor-nav, .content, .guide-tab-wrap {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+
+/* Safe area insets for notched phones */
+nav {
+  padding-left: max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
+}
+.anchor-nav {
+  padding-left: max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
+}
+
+/* Mobile menu safe area */
+#mobileMenu {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+/* Fix tap targets - minimum 44px for mobile */
+.mobile-menu-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.anchor-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Fix: prevent layout shift on anchor-btn active */
+.anchor-btn { border-bottom: 1.5px solid transparent; box-sizing: border-box; }
+
+/* Fix bottom nav on Journey page for safe area */
+#mobile-stage-nav {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+/* Webkit scrollbar hide on mobile */
+.anchor-nav::-webkit-scrollbar { display: none; }
+.guide-tab-wrap::-webkit-scrollbar { display: none; }
+
+/* Fix: image rendering on retina displays */
+img { image-rendering: -webkit-optimize-contrast; }
+
+/* Prevent font-smoothing issues on Firefox mobile */
+* { -moz-osx-font-smoothing: grayscale; }
+
 </style>
 </head>
 <body>
@@ -218,18 +746,21 @@ footer {
       <a href="nifulei-roadmap.html" class="nav-single">金融路线图</a>
       <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-about.html'" style="cursor:pointer;" style="color:var(--accent);">关于泥伏雷 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-about.html#origin"><span class="dropdown-dot"></span>泥伏雷缘起</a><a href="nifulei-about.html#contact"><span class="dropdown-dot"></span>联系方式</a></div></div>
-      <a href="nifulei-about.html#donate" target="_blank" class="nav-donate">☕ 打赏</a>
+      <a href="nifulei-about.html#donate" class="nav-donate">☕ 打赏</a>
       <a href="https://x.com/nicole_yang88" target="_blank" class="nav-cta">关注 𝕏</a>
     </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="切换明暗模式">☀️</button>
     <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
   </div>
-  <div id="mobileMenu" style="display:none;background:rgba(10,12,16,.98);border-top:.5px solid var(--border);padding:12px 16px;">
+  <div id="mobileMenu" style="display:none;border-top:.5px solid var(--border);padding:12px 16px;background:var(--bg-dropdown);">
+    <div style="padding:10px 0;border-bottom:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;"><span style="font-size:13px;color:var(--text-muted);">🌓 明暗模式</span><button class="theme-toggle" onclick="toggleTheme()" style="width:36px;height:36px;">☀️</button></div>
     <a href="nifulei-bank.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">🏦 国外银行卡</a>
     <a href="nifulei-broker.html"  style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📈 港美股券商</a>
     <a href="nifulei-crypto.html"  style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">₿ 加密 Web3</a>
     <a href="nifulei-esim.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📡 跨境通讯</a>
     <a href="nifulei-roadmap.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">🗺 金融路线图</a>
     <a href="nifulei-journey.html" style="display:block;padding:10px 0;font-size:13px;color:var(--accent);border-bottom:.5px solid var(--border);">🚀 出海路线图</a>
+    <a href="#donate" style="display:block;padding:10px 0;font-size:13px;color:var(--accent);border-bottom:.5px solid var(--border);">☕ 打赏支持泥伏雷</a>
     <a href="nifulei-about.html"   style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);">👤 关于泥伏雷</a>
   </div>
 </nav>
@@ -314,7 +845,7 @@ footer {
 
       <!-- X / Twitter -->
       <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="contact-card">
-        <div class="contact-icon" style="background:#0f1117;border-color:rgba(255,255,255,.12);">
+        <div class="contact-icon" style="background:var(--bg-card);border-color:var(--border);">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#e2e8f0"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </div>
         <div class="contact-info">
@@ -327,7 +858,7 @@ footer {
 
       <!-- 个人 TG -->
       <a href="https://t.me/talakang" target="_blank" rel="noopener" class="contact-card">
-        <div class="contact-icon" style="background:#0a1a2e;border-color:rgba(38,165,228,.2);">
+        <div class="contact-icon" style="background:var(--bg-card);border-color:rgba(38,165,228,.25);">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         </div>
         <div class="contact-info">
@@ -340,7 +871,7 @@ footer {
 
       <!-- YouTube -->
       <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="contact-card">
-        <div class="contact-icon" style="background:#1a0a0a;border-color:rgba(255,0,0,.2);">
+        <div class="contact-icon" style="background:var(--bg-card);border-color:rgba(255,0,0,.2);">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </div>
         <div class="contact-info">
@@ -353,7 +884,7 @@ footer {
 
       <!-- TG 群 -->
       <a href="https://t.me/talakang01" target="_blank" rel="noopener" class="contact-card">
-        <div class="contact-icon" style="background:#0a1a2e;border-color:rgba(38,165,228,.2);">
+        <div class="contact-icon" style="background:var(--bg-card);border-color:rgba(38,165,228,.25);">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         </div>
         <div class="contact-info">
@@ -366,7 +897,7 @@ footer {
 
       <!-- 邮箱 全宽 -->
       <div class="contact-card full-width" style="cursor:default;">
-        <div class="contact-icon" style="background:#0f1a0a;border-color:rgba(52,211,153,.15);">
+        <div class="contact-icon" style="background:var(--bg-card);border-color:rgba(52,211,153,.2);">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
         </div>
         <div class="contact-info">
@@ -486,7 +1017,7 @@ footer {
   </div>
 
   <!-- 警示提醒 -->
-  <div style="background:rgba(240,180,41,.06);border:.5px solid rgba(240,180,41,.25);border-radius:10px;padding:14px 16px;font-size:12px;color:#a0a8b8;line-height:1.9;">
+  <div style="background:var(--accent-dim);border:.5px solid var(--accent-border);border-radius:10px;padding:14px 16px;font-size:12px;color:var(--text-muted);line-height:1.9;">
     <strong style="color:var(--accent);">⚠️ 转账前请务必：</strong><br>
     ① 仔细核对地址与网络，选错链资产将<strong style="color:#fca5a5;">无法找回</strong><br>
     ② 建议先小额测试到账，确认后再转大额<br>
@@ -595,4 +1126,71 @@ btns.forEach(btn => {
     const offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
     window.scrollTo({ top: offset, behavior: 'smooth' });
     btns.forEach(b => b.classList.remove('active'));
-    thi
+    this.classList.add('active');
+  });
+});
+</script>
+<script>
+(function() {
+  var saved = localStorage.getItem('nifulei_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  var icon = saved === 'light' ? '🌙' : '☀️';
+  document.querySelectorAll('.theme-toggle').forEach(function(b){ b.textContent = icon; });
+})();
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('nifulei_theme', next);
+  var icon = next === 'light' ? '🌙' : '☀️';
+  document.querySelectorAll('.theme-toggle').forEach(function(b){ b.textContent = icon; });
+}
+
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  if (!m) return;
+  if (m.style.display === 'none' || m.style.display === '') {
+    m.style.display = 'block';
+    if (btn) btn.textContent = '✕';
+  } else {
+    m.style.display = 'none';
+    if (btn) btn.textContent = '☰';
+  }
+}
+function checkScreen() {
+  const m = document.getElementById('mobileMenu');
+  const btn = document.getElementById('menuBtn');
+  if (!m || !btn) return;
+  if (window.innerWidth > 768) {
+    m.style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+window.addEventListener('resize', checkScreen);
+</script>
+<script>
+/* Hash scroll fix for cross-page anchor navigation */
+(function() {
+  function scrollToHash() {
+    var hash = window.location.hash;
+    if (!hash) return;
+    var el = document.querySelector(hash);
+    if (!el) return;
+    setTimeout(function() {
+      var navH = (document.querySelector('nav') || {offsetHeight:52}).offsetHeight || 52;
+      var anH  = (document.querySelector('.anchor-nav') || {offsetHeight:0}).offsetHeight || 0;
+      var top  = el.getBoundingClientRect().top + window.scrollY - navH - anH - 8;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }, 120);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scrollToHash);
+  } else {
+    scrollToHash();
+  }
+  window.addEventListener('load', scrollToHash);
+})();
+</script>
+</body>
+</html>
