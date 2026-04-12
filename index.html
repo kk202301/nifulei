@@ -256,7 +256,7 @@ footer .sep { margin:0 10px; opacity:.3; }
     <!-- 按钮区 -->
     <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
       <div style="font-size:11px;color:var(--text-dim);">
-        <span id="countdown-text">已阅读，</span><span id="countdown" style="color:var(--accent);font-weight:700;">5</span><span id="countdown-suffix"> 秒后自动关闭</span>
+        <span id="countdown-text">已阅读，</span><span id="countdown" style="color:var(--accent);font-weight:700;">10</span><span id="countdown-suffix"> 秒后自动关闭</span>
       </div>
       <button onclick="closeDisclaimer()" id="close-btn" style="
         background:var(--accent);color:#0a0c10;
@@ -270,7 +270,7 @@ footer .sep { margin:0 10px; opacity:.3; }
 
     <!-- 进度条 -->
     <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.06);border-radius:0 0 16px 16px;overflow:hidden;">
-      <div id="progress-bar" style="height:100%;background:var(--accent);width:100%;transition:width 5s linear;border-radius:0 0 16px 16px;"></div>
+      <div id="progress-bar" style="height:100%;background:var(--accent);width:100%;transition:width 10s linear;border-radius:0 0 16px 16px;"></div>
     </div>
   </div>
 </div>
@@ -291,7 +291,7 @@ footer .sep { margin:0 10px; opacity:.3; }
     return;
   }
 
-  var seconds = 5;
+  var seconds = 10;
   var countEl = document.getElementById('countdown');
   var bar = document.getElementById('progress-bar');
 
