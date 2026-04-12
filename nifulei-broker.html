@@ -168,11 +168,13 @@ nav {
 /* buttons */
 .card-btns { display: flex; gap: 7px; flex-wrap: wrap; }
 .btn-primary {
+  position: relative;
   background: var(--accent); color: #0a0c10; font-size: 11px; font-weight: 700;
   padding: 6px 14px; border-radius: 6px; transition: opacity .15s;
 }
 .btn-primary:hover { opacity: .88; }
 .btn-ghost {
+  position: relative;
   border: .5px solid rgba(255,255,255,.13); color: var(--text-muted);
   font-size: 11px; padding: 6px 12px; border-radius: 6px;
   transition: color .15s, border-color .15s;
@@ -312,6 +314,34 @@ footer .sep { margin: 0 10px; opacity: .3; }
   box-shadow:0 2px 8px rgba(239,68,68,.5);
   letter-spacing:.03em;white-space:nowrap;
   z-index:1;
+}
+/* ── Risk warning toast ── */
+#risk-toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9990;
+  max-width: 300px;
+  box-sizing: border-box;
+  background: #0f1319;
+  border: .5px solid rgba(248,113,113,.35);
+  border-radius: 14px; padding: 18px 18px 14px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.65);
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+#risk-toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.risk-toast-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: rgba(255,255,255,.06); border-radius: 0 0 14px 14px; overflow: hidden;
+}
+.risk-toast-fill {
+  height: 100%; background: #f87171; width: 100%; border-radius: inherit;
+  transition: width 5s linear;
+}
+@media (max-width: 540px) {
+  #risk-toast {
+    left: 12px; right: 12px; bottom: 16px;
+    max-width: none; width: auto;
+  }
 }
 </style>
 </head>
@@ -743,6 +773,131 @@ footer .sep { margin: 0 10px; opacity: .3; }
   </div>
 </div>
 
+<div class="section-divider"></div>
+
+<!-- ══ 链上美股平台 ══ -->
+<div class="broker-section" id="chain-stock">
+  <div class="section-heading">
+    <h2>🔗 链上美股交易平台</h2>
+    <span class="section-count">9 个资源</span>
+  </div>
+  <div class="section-sub">无需券商账户，直接在交易所内用 USDT 购买 Apple、Tesla 等美股代币，24 小时交易，门槛极低。</div>
+  <div class="info-banner" style="background:rgba(240,180,41,.06);border:.5px solid rgba(240,180,41,.2);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:12px;color:#a0a8b8;line-height:1.8;">
+    <strong style="color:var(--accent);">⚠️ 风险提示：</strong>链上美股代币为合成资产，与真实股票存在价差风险，不享有股东权利，交易前请充分了解相关规则。
+  </div>
+  <div class="cards-grid">
+
+      <!-- Biyapay-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-rec">链上美股</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#f0b429;">BYP</div>
+          <div class="card-name">Biyapay</div>
+        </div>
+        <div class="card-desc">支持 USDT 直接购买 Tesla、Apple 等美股代币，无需券商账户，即充即买</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
+        <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+        <div class="card-btns"><a href="https://biyapay.com/re/7360298" target="_blank" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=XJ9v1lAw5Jo" target="_blank" class="btn-ghost">查看教程</a></div>
+      </div>
+      <!-- OKX-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-rec">主流首选</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#f0b429;">OKX</div>
+          <div class="card-name">欧易 OKX</div>
+        </div>
+        <div class="card-desc">支持链上合成美股代币，USDT 直接交易 Apple、Tesla 等，流动性强</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">SOL999</span><button class="copy-btn" onclick="copyCode(this,'SOL999')">复制</button></div>
+        <div class="stars"><span style="color:var(--accent);">★★★★★</span><span style="color:var(--text-dim);"></span><span class="star-score">5.0</span></div>
+        <div class="card-btns"><a href="https://www.promooboost.com/join/SOL999" target="_blank" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=fBlVgOUhMso" target="_blank" class="btn-ghost">查看教程</a></div>
+      </div>
+      <!-- Binance-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-rec">主流首选</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#f0b429;">BNB</div>
+          <div class="card-name">币安 Binance</div>
+        </div>
+        <div class="card-desc">全球最大交易所，BSTOCK 系列链上美股代币，流动性最强，邀请码即可享返佣</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALA888</span><button class="copy-btn" onclick="copyCode(this,'TALA888')">复制</button></div>
+        <div class="stars"><span style="color:var(--accent);">★★★★★</span><span style="color:var(--text-dim);"></span><span class="star-score">5.0</span></div>
+        <div class="card-btns"><a href="https://www.binance.com/zh-CN/join?ref=TALA888" target="_blank" class="btn-primary">立即开通 →</a><a href="https://youtu.be/SUlWCBSIETQ" target="_blank" class="btn-ghost">查看教程</a></div>
+      </div>
+      <!-- Bybit-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-new">热门平台</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#f87171;">BBT</div>
+          <div class="card-name">Bybit</div>
+        </div>
+        <div class="card-desc">支持部分链上美股衍生品，界面友好，新人礼丰厚</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI20</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI20')">复制</button></div>
+        <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+        <div class="card-btns"><a href="https://partner.bybit.com/b/NIFULEI20" target="_blank" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=gdS4yXA-orI" target="_blank" class="btn-ghost">查看教程</a></div>
+      </div>
+      <!-- Bitget-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-new">跟单功能</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#34d399;">BTG</div>
+          <div class="card-name">Bitget</div>
+        </div>
+        <div class="card-desc">支持链上美股代币，跟单功能业内领先，界面简洁</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">nifulei20</span><button class="copy-btn" onclick="copyCode(this,'nifulei20')">复制</button></div>
+        <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+        <div class="card-btns"><a href="https://partner.hdmune.cn/bg/nifulei20" target="_blank" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=d50Iw04RXPg" target="_blank" class="btn-ghost">查看教程</a></div>
+      </div>
+      <!-- Bitmart-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-sg">门槛低</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#60a5fa;">BMT</div>
+          <div class="card-name">Bitmart</div>
+        </div>
+        <div class="card-desc">支持多种链上证券代币，开户门槛低，适合入门用户体验链上美股</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">cVhcAM</span><button class="copy-btn" onclick="copyCode(this,'cVhcAM')">复制</button></div>
+        <div class="stars"><span style="color:var(--accent);">★★★</span><span style="color:var(--text-dim);">★★</span><span class="star-score">3.0</span></div>
+        <div class="card-btns"><a href="https://www.bm-link.com/zh-CN/invite/cVhcAM" target="_blank" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      </div>
+      <!-- BIT-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-cold">专业级</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#a78bfa;">BIT</div>
+          <div class="card-name">BIT Exchange</div>
+        </div>
+        <div class="card-desc">专业级衍生品交易所，支持链上股票代币，适合有一定经验的用户</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
+        <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+        <div class="card-btns"><a href="#" class="btn-primary" onclick="showUpdating(this);return false;">立即开通 →<span class="updating-tip">⏳ 紧急更新中</span></a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      </div>
+      <!-- Kraken-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-sg">美国合规</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#60a5fa;">KRK</div>
+          <div class="card-name">Kraken</div>
+        </div>
+        <div class="card-desc">美国合规交易所，提供部分股票代币交易，适合有海外地址的用户</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
+        <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+        <div class="card-btns"><a href="#" class="btn-primary" onclick="showUpdating(this);return false;">立即开通 →<span class="updating-tip">⏳ 紧急更新中</span></a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      </div>
+      <!-- Coinbase-chain -->
+      <div class="broker-card">
+        <div class="badge-row"><span class="badge badge-sg">美国上市</span></div>
+        <div class="card-head">
+          <div class="card-logo" style="color:#3b82f6;">CBE</div>
+          <div class="card-name">Coinbase</div>
+        </div>
+        <div class="card-desc">美国纳斯达克上市交易所，合规性最高，支持基础链上资产交易</div>
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span></div>
+        <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
+        <div class="card-btns"><a href="#" class="btn-primary" onclick="showUpdating(this);return false;">立即开通 →<span class="updating-tip">⏳ 紧急更新中</span></a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      </div>
+  </div>
+</div>
+
 </div><!-- /content -->
 
 <footer>
@@ -862,6 +1017,51 @@ function showUpdating(btn) {
   clearTimeout(btn._utimer);
   tip.style.display = 'block';
   btn._utimer = setTimeout(function(){ tip.style.display = 'none'; }, 2500);
+}
+</script>
+
+<!-- ── 风险警示 ── -->
+<div id="risk-toast">
+  <button onclick="closeRiskToast()" style="position:absolute;top:10px;right:12px;background:none;border:none;color:#5a6478;font-size:16px;cursor:pointer;line-height:1;">✕</button>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+    <span style="font-size:16px;">⚠️</span>
+    <span style="font-size:12px;font-weight:700;color:#f87171;letter-spacing:.02em;">风险警示</span>
+  </div>
+  <div style="font-size:11px;color:#8a96aa;line-height:1.9;">
+    金融工具有价格波动风险，<strong style="color:#c8d4e0;">请远离高杠杆与合约</strong>，量力而行，切勿超出自身承受范围。<br>
+    <span style="color:#34d399;font-size:10px;">✦ 稳健理财，细水长流，方得岁月安好 ✦</span>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
+    <span style="font-size:10px;color:var(--text-dim);"><span id="risk-cd" style="color:#f87171;font-weight:700;">5</span> 秒后关闭</span>
+    <button onclick="closeRiskToast()" style="font-size:11px;font-weight:700;padding:5px 16px;border-radius:7px;border:none;background:#f87171;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;">我知道了</button>
+  </div>
+  <div class="risk-toast-bar"><div class="risk-toast-fill" id="risk-fill"></div></div>
+</div>
+
+<script>
+// Risk toast — fires every visit
+(function(){
+  var toast = document.getElementById('risk-toast');
+  var fill  = document.getElementById('risk-fill');
+  var cd    = document.getElementById('risk-cd');
+  if (!toast) return;
+  setTimeout(function(){
+    toast.classList.add('show');
+    setTimeout(function(){ if(fill) fill.style.width = '0%'; }, 50);
+    var secs = 5;
+    window._riskTimer = setInterval(function(){
+      secs--;
+      if (cd) cd.textContent = secs;
+      if (secs <= 0) { clearInterval(window._riskTimer); closeRiskToast(); }
+    }, 1000);
+  }, 1500);
+})();
+function closeRiskToast() {
+  clearInterval(window._riskTimer);
+  var t = document.getElementById('risk-toast');
+  if (!t) return;
+  t.style.opacity = '0'; t.style.transform = 'translateY(16px)';
+  setTimeout(function(){ t.style.display = 'none'; }, 300);
 }
 </script>
 </body>

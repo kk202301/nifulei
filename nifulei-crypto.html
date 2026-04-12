@@ -208,6 +208,60 @@ footer .sep { margin: 0 10px; opacity: .3; }
   letter-spacing:.02em;white-space:nowrap;z-index:2;
   line-height:1.4;text-align:center;
 }
+
+#risk-toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9990;
+  max-width: 300px; width: calc(100% - 48px);
+  background: linear-gradient(135deg, #0f1319, #0d1220);
+  border: .5px solid rgba(248,113,113,.35);
+  border-radius: 14px; padding: 18px 18px 14px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.65);
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+#risk-toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.risk-toast-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: rgba(255,255,255,.06); border-radius: 0 0 14px 14px; overflow: hidden;
+}
+.risk-toast-fill {
+  height: 100%; background: #f87171;
+  width: 100%; border-radius: inherit;
+  transition: width 5s linear;
+}
+@media (max-width: 480px) {
+  #risk-toast { bottom: 16px; right: 12px; left: 12px; max-width: none; }
+}
+
+/* ── Risk warning toast ── */
+#risk-toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9990;
+  max-width: 300px;
+  box-sizing: border-box;
+  background: #0f1319;
+  border: .5px solid rgba(248,113,113,.35);
+  border-radius: 14px; padding: 18px 18px 14px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.65);
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+#risk-toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.risk-toast-bar {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: rgba(255,255,255,.06); border-radius: 0 0 14px 14px; overflow: hidden;
+}
+.risk-toast-fill {
+  height: 100%; background: #f87171; width: 100%; border-radius: inherit;
+  transition: width 5s linear;
+}
+@media (max-width: 540px) {
+  #risk-toast {
+    left: 12px; right: 12px; bottom: 16px;
+    max-width: none; width: auto;
+  }
+}
 </style>
 </head>
 <body>
@@ -217,7 +271,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
     <a href="index.html" class="logo">泥伏雷闯关记</a>
     <div class="nav-links">
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-bank.html'" style="cursor:pointer;">国外银行卡 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a><a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a><a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a><a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a></div></div>
-      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-broker.html'" style="cursor:pointer;">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a></div></div>
+      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-broker.html'" style="cursor:pointer;">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a>
+          <a href="nifulei-broker.html#chain-stock"><span class="dropdown-dot"></span>链上美股</a></div></div>
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-crypto.html'" style="cursor:pointer;">加密 Web3 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-crypto.html#exchange"><span class="dropdown-dot"></span>交易所</a><a href="nifulei-crypto.html#card"><span class="dropdown-dot"></span>加密银行卡</a><a href="nifulei-crypto.html#cold"><span class="dropdown-dot"></span>冷钱包</a><a href="nifulei-crypto.html#hot"><span class="dropdown-dot"></span>热钱包</a></div></div>
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-esim.html'" style="cursor:pointer;">跨境通讯 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-esim.html#esim-num"><span class="dropdown-dot"></span>eSIM 号码</a><a href="nifulei-esim.html#esim-data"><span class="dropdown-dot"></span>eSIM 流量平台</a><a href="nifulei-esim.html#esim-writer"><span class="dropdown-dot"></span>eSIM 写卡器</a></div></div>
       <a href="nifulei-roadmap.html" class="nav-single">金融路线图</a>
@@ -760,5 +815,52 @@ function copyCode(btn, code) {
   btn.innerHTML = '✓ 已复制';
   setTimeout(function(){ btn.classList.remove('copied'); btn.innerHTML = '复制'; }, 2000);
 }</script>
+
+
+
+<!-- ── 风险警示 ── -->
+<div id="risk-toast">
+  <button onclick="closeRiskToast()" style="position:absolute;top:10px;right:12px;background:none;border:none;color:#5a6478;font-size:16px;cursor:pointer;line-height:1;">✕</button>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+    <span style="font-size:16px;">⚠️</span>
+    <span style="font-size:12px;font-weight:700;color:#f87171;letter-spacing:.02em;">风险警示</span>
+  </div>
+  <div style="font-size:11px;color:#8a96aa;line-height:1.9;">
+    金融工具有价格波动风险，<strong style="color:#c8d4e0;">请远离高杠杆与合约</strong>，量力而行，切勿超出自身承受范围。<br>
+    <span style="color:#34d399;font-size:10px;">✦ 稳健理财，细水长流，方得岁月安好 ✦</span>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
+    <span style="font-size:10px;color:var(--text-dim);"><span id="risk-cd" style="color:#f87171;font-weight:700;">5</span> 秒后关闭</span>
+    <button onclick="closeRiskToast()" style="font-size:11px;font-weight:700;padding:5px 16px;border-radius:7px;border:none;background:#f87171;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;">我知道了</button>
+  </div>
+  <div class="risk-toast-bar"><div class="risk-toast-fill" id="risk-fill"></div></div>
+</div>
+
+<script>
+// Risk toast — fires every visit
+(function(){
+  var toast = document.getElementById('risk-toast');
+  var fill  = document.getElementById('risk-fill');
+  var cd    = document.getElementById('risk-cd');
+  if (!toast) return;
+  setTimeout(function(){
+    toast.classList.add('show');
+    setTimeout(function(){ if(fill) fill.style.width = '0%'; }, 50);
+    var secs = 5;
+    window._riskTimer = setInterval(function(){
+      secs--;
+      if (cd) cd.textContent = secs;
+      if (secs <= 0) { clearInterval(window._riskTimer); closeRiskToast(); }
+    }, 1000);
+  }, 1500);
+})();
+function closeRiskToast() {
+  clearInterval(window._riskTimer);
+  var t = document.getElementById('risk-toast');
+  if (!t) return;
+  t.style.opacity = '0'; t.style.transform = 'translateY(16px)';
+  setTimeout(function(){ t.style.display = 'none'; }, 300);
+}
+</script>
 </body>
 </html>
