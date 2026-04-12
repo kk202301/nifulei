@@ -211,12 +211,14 @@ footer {
     <a href="index.html" class="logo">泥伏雷闯关记</a>
     <div class="nav-links">
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-bank.html'" style="cursor:pointer;">国外银行卡 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-bank.html#intl"><span class="dropdown-dot"></span>国外银行卡</a><a href="nifulei-bank.html#us"><span class="dropdown-dot"></span>美国银行卡</a><a href="nifulei-bank.html#hk"><span class="dropdown-dot"></span>香港地区银行卡</a><a href="nifulei-bank.html#cn"><span class="dropdown-dot"></span>国内代办</a></div></div>
-      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-broker.html'" style="cursor:pointer;">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a></div></div>
+      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-broker.html'" style="cursor:pointer;">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk"><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us"><span class="dropdown-dot"></span>美股券商</a>
+          <a href="nifulei-broker.html#chain-stock"><span class="dropdown-dot"></span>链上美股</a></div></div>
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-crypto.html'" style="cursor:pointer;">加密 Web3 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-crypto.html#exchange"><span class="dropdown-dot"></span>交易所</a><a href="nifulei-crypto.html#card"><span class="dropdown-dot"></span>加密银行卡</a><a href="nifulei-crypto.html#cold"><span class="dropdown-dot"></span>冷钱包</a><a href="nifulei-crypto.html#hot"><span class="dropdown-dot"></span>热钱包</a></div></div>
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-esim.html'" style="cursor:pointer;">跨境通讯 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-esim.html#esim-num"><span class="dropdown-dot"></span>eSIM 号码</a><a href="nifulei-esim.html#esim-data"><span class="dropdown-dot"></span>eSIM 流量平台</a><a href="nifulei-esim.html#esim-writer"><span class="dropdown-dot"></span>eSIM 写卡器</a></div></div>
       <a href="nifulei-roadmap.html" class="nav-single">金融路线图</a>
       <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
       <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-about.html'" style="cursor:pointer;" style="color:var(--accent);">关于泥伏雷 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-about.html#origin"><span class="dropdown-dot"></span>泥伏雷缘起</a><a href="nifulei-about.html#contact"><span class="dropdown-dot"></span>联系方式</a></div></div>
+      <a href="nifulei-about.html#donate" target="_blank" class="nav-donate">☕ 打赏</a>
       <a href="https://x.com/nicole_yang88" target="_blank" class="nav-cta">关注 𝕏</a>
     </div>
     <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
@@ -421,6 +423,138 @@ footer {
 
     </div>
   </div>
+
+<!-- ── 打赏支持 ── -->
+<div id="donate" style="scroll-margin-top:60px;"></div>
+<div style="max-width:700px;margin:0 auto;padding:48px 24px 20px;">
+
+  <div style="font-size:10px;color:var(--text-dim);letter-spacing:.12em;font-weight:600;margin-bottom:6px;">SUPPORT</div>
+  <h2 style="font-size:20px;font-weight:700;color:#e8edf5;margin-bottom:6px;letter-spacing:-.01em;">☕ 打赏支持泥伏雷</h2>
+  <p style="font-size:13px;color:#8a96aa;line-height:1.8;margin-bottom:28px;">
+    如果这里的内容对你有帮助，欢迎请我喝杯咖啡 ☕<br>
+    支持 USDT（各链）、BTC、ETH 等主流资产，小额支持即可，感激不尽 🙏
+  </p>
+
+  <!-- 钱包卡片区 -->
+  <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px;">
+
+    <!-- Bitcoin -->
+    <div class="donate-card">
+      <div class="donate-chain">
+        <span class="donate-icon" style="background:rgba(247,147,26,.12);color:#f7931a;">₿</span>
+        <div>
+          <div class="donate-label">Bitcoin</div>
+          <div class="donate-network">BTC 主网</div>
+        </div>
+      </div>
+      <div class="donate-addr-row">
+        <code class="donate-addr" id="addr-btc">121qeepi2EmrdDBaHGE8FLR6AfL4zboWcx</code>
+        <button class="donate-copy" onclick="donCopy(this,'121qeepi2EmrdDBaHGE8FLR6AfL4zboWcx')">复制</button>
+      </div>
+    </div>
+
+    <!-- EVM -->
+    <div class="donate-card">
+      <div class="donate-chain">
+        <span class="donate-icon" style="background:rgba(98,126,234,.12);color:#627eea;">Ξ</span>
+        <div>
+          <div class="donate-label">ETH / BNB Chain / Arbitrum One</div>
+          <div class="donate-network">同一 EVM 地址 · 支持 ETH、BNB、USDT、USDC 等</div>
+        </div>
+      </div>
+      <div class="donate-addr-row">
+        <code class="donate-addr" id="addr-evm">0xC111313c3E51d5074692D486F43e897F6F43A7b1</code>
+        <button class="donate-copy" onclick="donCopy(this,'0xC111313c3E51d5074692D486F43e897F6F43A7b1')">复制</button>
+      </div>
+    </div>
+
+    <!-- Tron -->
+    <div class="donate-card">
+      <div class="donate-chain">
+        <span class="donate-icon" style="background:rgba(239,68,68,.1);color:#f87171;">◈</span>
+        <div>
+          <div class="donate-label">Tron</div>
+          <div class="donate-network">TRC20 · USDT / TRX</div>
+        </div>
+      </div>
+      <div class="donate-addr-row">
+        <code class="donate-addr" id="addr-trx">TJi4WemyzZ3Ljsct8WPQrLdk51854511LU</code>
+        <button class="donate-copy" onclick="donCopy(this,'TJi4WemyzZ3Ljsct8WPQrLdk51854511LU')">复制</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 警示提醒 -->
+  <div style="background:rgba(240,180,41,.06);border:.5px solid rgba(240,180,41,.25);border-radius:10px;padding:14px 16px;font-size:12px;color:#a0a8b8;line-height:1.9;">
+    <strong style="color:var(--accent);">⚠️ 转账前请务必：</strong><br>
+    ① 仔细核对地址与网络，选错链资产将<strong style="color:#fca5a5;">无法找回</strong><br>
+    ② 建议先小额测试到账，确认后再转大额<br>
+    ③ EVM 地址支持 ETH 主网、BNB Chain、Arbitrum，请按需选择正确网络
+  </div>
+
+</div>
+
+<style>
+.donate-card {
+  background: var(--bg-card, #0f1319);
+  border: .5px solid rgba(255,255,255,.08);
+  border-radius: 12px; padding: 16px 18px;
+  transition: border-color .18s;
+}
+.donate-card:hover { border-color: rgba(240,180,41,.25); }
+.donate-chain { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.donate-icon {
+  width: 36px; height: 36px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700; flex-shrink: 0;
+}
+.donate-label { font-size: 13px; font-weight: 700; color: #e2e8f0; }
+.donate-network { font-size: 10px; color: #5a6478; margin-top: 2px; }
+.donate-addr-row {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: rgba(255,255,255,.03); border-radius: 8px; padding: 10px 12px;
+}
+.donate-addr {
+  flex: 1; font-family: monospace; font-size: 11px;
+  color: #94a3b8; word-break: break-all; min-width: 0;
+  background: none; border: none;
+}
+.donate-copy {
+  flex-shrink: 0; font-size: 11px; font-weight: 700;
+  padding: 4px 12px; border-radius: 6px;
+  border: .5px solid rgba(240,180,41,.3);
+  background: rgba(240,180,41,.08); color: var(--accent);
+  cursor: pointer; transition: all .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.donate-copy:hover { background: rgba(240,180,41,.15); }
+</style>
+
+<script>
+function donCopy(btn, addr) {
+  var copy = function(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t);
+    } else {
+      var el = document.createElement('textarea');
+      el.value = t; document.body.appendChild(el);
+      el.select(); document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+  };
+  copy(addr);
+  var orig = btn.textContent;
+  btn.textContent = '✓ 已复制';
+  btn.style.color = '#4ade80';
+  btn.style.borderColor = 'rgba(74,222,128,.3)';
+  setTimeout(function() {
+    btn.textContent = orig;
+    btn.style.color = '';
+    btn.style.borderColor = '';
+  }, 2000);
+}
+</script>
 
 </div><!-- /content -->
 

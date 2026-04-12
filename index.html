@@ -113,6 +113,17 @@ nav {
   transition: opacity .15s;
 }
 .nav-cta:hover { opacity: .88; }
+.nav-donate {
+  font-size: 11px; color: var(--accent);
+  border: .5px solid rgba(240,180,41,.4);
+  background: rgba(240,180,41,.08);
+  padding: 5px 13px; border-radius: 6px; font-weight: 700;
+  margin-left: 4px; text-decoration: none;
+  transition: background .15s, border-color .15s;
+  white-space: nowrap;
+}
+.nav-donate:hover { background: rgba(240,180,41,.16); border-color: rgba(240,180,41,.6); }
+@media (max-width: 768px) { .nav-donate { display: none; } }
 
 /* ── TICKER ── */
 @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
@@ -381,6 +392,7 @@ footer .sep { margin:0 10px; opacity:.3; }
         </div>
       </div>
 
+      <a href="nifulei-about.html#donate" target="_blank" class="nav-donate">☕ 打赏</a>
       <a href="https://x.com/nicole_yang88" target="_blank" class="nav-cta">关注 𝕏</a>
     </div>
     <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
@@ -392,6 +404,7 @@ footer .sep { margin:0 10px; opacity:.3; }
     <a href="nifulei-esim.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📡 跨境通讯</a>
     <a href="nifulei-roadmap.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">🗺 金融路线图</a>
     <a href="nifulei-journey.html" style="display:block;padding:10px 0;font-size:13px;color:var(--accent);border-bottom:.5px solid var(--border);">🚀 出海路线图</a>
+    <a href="nifulei-about.html#donate" target="_blank" style="display:block;padding:10px 0;font-size:13px;color:var(--accent);border-bottom:.5px solid var(--border);">☕ 打赏支持泥伏雷</a>
     <a href="nifulei-about.html"   style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);">👤 关于泥伏雷</a>
   </div>
 </nav>
@@ -779,5 +792,32 @@ function previewCopyCode(btn, code) {
     </a>
   </div>
 </footer>
+<script>
+function toggleMenu() {
+  var m = document.getElementById('mobileMenu');
+  var btn = document.getElementById('menuBtn');
+  if (!m) return;
+  var open = m.style.display === 'block';
+  m.style.display = open ? 'none' : 'block';
+  if (btn) btn.textContent = open ? '☰' : '✕';
+}
+function checkScreen() {
+  var btn = document.getElementById('menuBtn');
+  var links = document.querySelector('.nav-links');
+  if (!btn || !links) return;
+  if (window.innerWidth <= 768) {
+    btn.style.display = 'flex';
+    links.style.display = 'none';
+  } else {
+    btn.style.display = 'none';
+    links.style.display = 'flex';
+    var m = document.getElementById('mobileMenu');
+    if (m) m.style.display = 'none';
+    btn.textContent = '☰';
+  }
+}
+window.addEventListener('resize', checkScreen);
+document.addEventListener('DOMContentLoaded', checkScreen);
+</script>
 </body>
 </html>
