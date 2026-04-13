@@ -1173,6 +1173,37 @@ img { image-rendering: -webkit-optimize-contrast; }
 /* Prevent font-smoothing issues on Firefox mobile */
 * { -moz-osx-font-smoothing: grayscale; }
 
+
+/* ── Journey popup mobile fix ── */
+@media (max-width: 600px) {
+  /* stage-prompt: slide up from bottom on mobile */
+  #stage-prompt {
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 16px 16px 0 0 !important;
+    padding: 18px 20px calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+    box-shadow: 0 -8px 32px rgba(0,0,0,.5) !important;
+    transform: translateY(100%) !important;
+  }
+  #stage-prompt.show {
+    transform: translateY(0) !important;
+  }
+
+  /* guide-bubble: ensure it doesn't go off-screen at bottom */
+  #guide-bubble {
+    max-width: calc(100vw - 24px) !important;
+    left: 12px !important;
+    right: 12px !important;
+  }
+  /* when guide-bubble is positioned near bottom, add safe-area padding */
+  #guide-bubble[style*="bottom"] {
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
 </style>
 </head>
 <body>
