@@ -863,6 +863,44 @@ img { image-rendering: -webkit-optimize-contrast; }
 /* Prevent font-smoothing issues on Firefox mobile */
 * { -moz-osx-font-smoothing: grayscale; }
 
+
+/* ── Tooltip light mode fixes ── */
+[data-theme="light"] .tooltip-text {
+  background: #ffffff !important;
+  border-color: rgba(52,211,153,.4) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12) !important;
+  color: #059669 !important;
+}
+[data-theme="light"] .tooltip-text::after {
+  border-top-color: #ffffff !important;
+}
+[data-theme="light"] .updating-tip {
+  background: #ffffff !important;
+  border-color: rgba(251,191,36,.4) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12) !important;
+  color: #b45309 !important;
+}
+[data-theme="light"] .updating-tip::after,
+[data-theme="light"] .updating-tip::before {
+  border-top-color: #ffffff !important;
+}
+[data-theme="light"] .us-update-tip {
+  background: #ffffff !important;
+  border-color: rgba(251,191,36,.4) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12) !important;
+  color: #b45309 !important;
+}
+[data-theme="light"] .btn-tip-pop {
+  background: #ffffff !important;
+  border-color: rgba(251,191,36,.4) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12) !important;
+  color: #b45309 !important;
+}
+[data-theme="light"] .btn-tip-pop::after,
+[data-theme="light"] .btn-tip-pop::before {
+  border-top-color: #ffffff !important;
+}
+
 </style>
 </head>
 <body>
