@@ -880,6 +880,22 @@ img { image-rendering: -webkit-optimize-contrast; }
   border-top-color: #ffffff !important;
 }
 
+
+/* ── Card logo light mode fix ── */
+[data-theme="light"] .card-logo {
+  /* Base: ensure border is visible in light mode */
+  border-width: 1px !important;
+}
+/* Logos with near-white text (invisible in light) */
+[data-theme="light"] .card-logo[style*="color:#e2e8f0"] {
+  color: #475569 !important;
+  background: rgba(71,85,105,.08) !important;
+  border-color: rgba(71,85,105,.2) !important;
+}
+[data-theme="light"] .card-logo[style*="color:var(--text-muted)"] {
+  color: #475569 !important;
+}
+
 </style>
 </head>
 <body>
@@ -946,7 +962,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card featured"><span class="hot-badge">🔥 泥伏雷自用</span>
       <div class="badge-row"><span class="badge badge-must">新人必开</span></div>
       <div class="card-head">
-        <div class="card-logo" style="background:rgba(255,255,255,.08);color:#e2e8f0;border-color:rgba(255,255,255,.15);">OKX</div>
+        <div class="card-logo" style="background:rgba(148,163,184,.12);color:#e2e8f0;border-color:rgba(148,163,184,.2);">OKX</div>
         <div class="card-name">欧易 OKX</div>
       </div>
       <div class="card-desc">全球知名合约+现货交易所，产品线丰富，中文支持最好，新手首选</div>
@@ -1002,7 +1018,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-new">山寨齐全</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">Gate</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">Gate</div>
         <div class="card-name">Gate.io</div>
       </div>
       <div class="card-desc">山寨币种最全的交易所，适合寻找低市值潜力币，现货深度良好</div>
@@ -1016,7 +1032,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-free">出金友好</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#a78bfa;">Biya</div>
+        <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">Biya</div>
         <div class="card-name">Biyapay</div>
       </div>
       <div class="card-desc">专注出入金的加密平台，支持多种法币通道，跨境换汇场景实用</div>
@@ -1029,7 +1045,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-new">新兴</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#60a5fa;">BM</div>
+        <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">BM</div>
         <div class="card-name">Bitmart</div>
       </div>
       <div class="card-desc">中小型交易所，上线新币速度快，适合寻找早期项目机会</div>
@@ -1042,7 +1058,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-hot">老牌</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#fb923c;">HTX</div>
+        <div class="card-logo" style="background:rgba(251,146,60,.12);color:#fb923c;border-color:rgba(251,146,60,.3);">HTX</div>
         <div class="card-name">火币 HTX</div>
       </div>
       <div class="card-desc">国内老牌交易所，现已更名 HTX，华人用户基础大，产品线完整</div>
@@ -1055,7 +1071,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-free">理财利息</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#a78bfa;">Nexo</div>
+        <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">Nexo</div>
         <div class="card-name">Nexo</div>
       </div>
       <div class="card-desc">加密借贷和理财平台，支持持币生息，适合长期持有者最大化收益</div>
@@ -1068,7 +1084,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-new">新兴</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">BP</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">BP</div>
         <div class="card-name">Backpack</div>
       </div>
       <div class="card-desc">Solana 生态新兴交易所，链上与中心化结合，SOL 系资产交易体验优秀</div>
@@ -1095,7 +1111,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card"><span class="hot-badge">🔥 泥伏雷自用</span>
       <div class="badge-row"><span class="badge badge-rec">币安投资</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">SPL</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">SPL</div>
         <div class="card-name">SafePal Card</div>
       </div>
       <div class="card-desc">币安投资的加密 Visa 卡，支持多链资产消费，免手续费，全球可用</div>
@@ -1108,7 +1124,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card"><span class="hot-badge">🔥 泥伏雷自用</span>
       <div class="badge-row"><span class="badge badge-rec">消费返现</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#fbbf24;">BB</div>
+        <div class="card-logo" style="background:rgba(251,191,36,.12);color:#fbbf24;border-color:rgba(251,191,36,.3);">BB</div>
         <div class="card-name">Bybit Card</div>
       </div>
       <div class="card-desc">Bybit 官方 Visa 卡，与 Bybit 账户无缝联动，消费即返现，出行购物均可</div>
@@ -1121,7 +1137,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card"><span class="hot-badge">🔥 泥伏雷自用</span>
       <div class="badge-row"><span class="badge badge-new">新上线</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#60a5fa;">BG</div>
+        <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">BG</div>
         <div class="card-name">Bitget Card</div>
       </div>
       <div class="card-desc">Bitget 官方加密卡，支持多币种消费结算，与 Bitget 账户资产互通</div>
@@ -1134,7 +1150,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card"><span class="hot-badge">🔥 泥伏雷自用</span>
       <div class="badge-row"><span class="badge badge-hot">热门</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#f87171;">Poke</div>
+        <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">Poke</div>
         <div class="card-name">Pokepay</div>
       </div>
       <div class="card-desc">面向华人的加密支付卡，支持 USDT 充值消费，开卡门槛低，到账快</div>
@@ -1147,7 +1163,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-free">出金友好</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#a78bfa;">Biya</div>
+        <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">Biya</div>
         <div class="card-name">Biyapay Card</div>
       </div>
       <div class="card-desc">Biyapay 旗下加密卡，专注跨境出金场景，换汇费率低，支持多法币</div>
@@ -1160,7 +1176,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-new">欧洲系</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#60a5fa;">WRX</div>
+        <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">WRX</div>
         <div class="card-name">Wirex Card</div>
       </div>
       <div class="card-desc">英国持牌加密 Visa 卡，支持 150+ 种货币，欧洲用户体验成熟</div>
@@ -1173,7 +1189,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-new">新兴</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">UR</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">UR</div>
         <div class="card-name">UR Card</div>
       </div>
       <div class="card-desc">新兴加密预付卡，开卡便捷，支持 USDT 直接消费，适合轻量日常使用</div>
@@ -1186,7 +1202,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-new">新加坡系</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#a78bfa;">DTC</div>
+        <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">DTC</div>
         <div class="card-name">Dtcpay Card</div>
       </div>
       <div class="card-desc">新加坡合规加密支付卡，MAS 监管背景，适合有新加坡账户的用户</div>
@@ -1226,7 +1242,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card"><span class="hot-badge">🔥 泥伏雷自用</span>
       <div class="badge-row"><span class="badge badge-cold">老牌</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#e2e8f0;">Ledger</div>
+        <div class="card-logo" style="background:rgba(226,232,240,.12);color:#e2e8f0;border-color:rgba(226,232,240,.25);">Ledger</div>
         <div class="card-name">Ledger</div>
       </div>
       <div class="card-desc">全球最知名硬件钱包品牌，Nano X/S Plus 系列成熟稳定，支持 5500+ 币种</div>
@@ -1240,7 +1256,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <span class="gift-badge">🎁 绑定邀请码<br>免费领 X1 冷钱包</span>
       <div class="badge-row"><span class="badge badge-cold">性价比</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">SPL</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">SPL</div>
         <div class="card-name">SafePal</div>
       </div>
       <div class="card-desc">币安投资的硬件钱包，价格便宜，支持主流链，适合预算有限的入门用户</div>
@@ -1253,7 +1269,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-cold">卡片式</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#60a5fa;">TGM</div>
+        <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">TGM</div>
         <div class="card-name">Tangem</div>
       </div>
       <div class="card-desc">NFC 卡片式冷钱包，无需电池，外形轻薄如信用卡，随身携带极为方便</div>
@@ -1299,7 +1315,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card"><span class="hot-badge">🔥 泥伏雷自用</span>
       <div class="badge-row"><span class="badge badge-rec">Web3 首选</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#e2e8f0;">OKX</div>
+        <div class="card-logo" style="background:rgba(226,232,240,.12);color:#e2e8f0;border-color:rgba(226,232,240,.25);">OKX</div>
         <div class="card-name">OKX Wallet</div>
       </div>
       <div class="card-desc">欧易官方多链钱包，支持 80+ 条链，内置 DEX 和跨链桥，与 OKX 交易所联动便利</div>
@@ -1312,7 +1328,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card">
       <div class="badge-row"><span class="badge badge-hot">行业标准</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#fb923c;">MM</div>
+        <div class="card-logo" style="background:rgba(251,146,60,.12);color:#fb923c;border-color:rgba(251,146,60,.3);">MM</div>
         <div class="card-name">MetaMask</div>
       </div>
       <div class="card-desc">以太坊生态标配钱包，浏览器插件和移动端均支持，DApp 兼容性最广</div>
@@ -1325,7 +1341,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="crypto-card"><span class="hot-badge">🔥 泥伏雷自用</span>
       <div class="badge-row"><span class="badge badge-cold">国产</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:var(--accent);">OK</div>
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:rgba(240,180,41,.28);">OK</div>
         <div class="card-name">OneKey 热钱包</div>
       </div>
       <div class="card-desc">OneKey 旗下软件钱包，与 OneKey 硬件钱包完美搭配，冷热结合管理资产</div>

@@ -956,6 +956,18 @@ img { image-rendering: -webkit-optimize-contrast; }
   border-top-color: #ffffff !important;
 }
 
+
+
+/* ── Card logo light mode fix ── */
+[data-theme="light"] .card-logo {
+  border-width: 1px !important;
+}
+[data-theme="light"] .card-logo[style*="color:#e2e8f0"],
+[data-theme="light"] .card-logo[style*="color:#c8d4e0"] {
+  color: #475569 !important;
+  background: rgba(71,85,105,.08) !important;
+  border-color: rgba(71,85,105,.2) !important;
+}
 </style>
 </head>
 <body>
@@ -1168,7 +1180,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#60a5fa;">华盛</div>
+        <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">华盛</div>
         <div class="card-name">华盛通证券</div>
       </div>
       <div class="card-desc">腾讯系券商，界面简洁，支持港股/美股，新人礼稳定，适合初学者</div>
@@ -1181,7 +1193,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-free">零佣金</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#a78bfa;">尊嘉</div>
+        <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">尊嘉</div>
         <div class="card-name">尊嘉证券</div>
       </div>
       <div class="card-desc">主打零佣金，港股/美股/A股均支持，费率极低，适合高频交易者</div>
@@ -1194,7 +1206,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hot">热门</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#f0b429;">富途</div>
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:#f0b429;border-color:rgba(240,180,41,.28);">富途</div>
         <div class="card-name">富途证券</div>
       </div>
       <div class="card-desc">港股老牌券商，数据完善，社区活跃，适合有一定经验的投资者</div>
@@ -1207,7 +1219,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#fb923c;">老虎</div>
+        <div class="card-logo" style="background:rgba(251,146,60,.12);color:#fb923c;border-color:rgba(251,146,60,.3);">老虎</div>
         <div class="card-name">老虎证券</div>
       </div>
       <div class="card-desc">支持港股/美股，新人礼丰厚，国内用户接受度高，界面友好</div>
@@ -1220,7 +1232,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">盈宝</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">盈宝</div>
         <div class="card-name">盈宝证券</div>
       </div>
       <div class="card-desc">香港持牌券商，主攻港股，费率低，适合轻量入门</div>
@@ -1233,7 +1245,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#60a5fa;">卓锐</div>
+        <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">卓锐</div>
         <div class="card-name">卓锐证券</div>
       </div>
       <div class="card-desc">香港本地券商，主攻港股，适合港居人士及有香港银行卡用户</div>
@@ -1246,7 +1258,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hk">港股</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#fbbf24;">致富</div>
+        <div class="card-logo" style="background:rgba(251,191,36,.12);color:#fbbf24;border-color:rgba(251,191,36,.3);">致富</div>
         <div class="card-name">致富证券</div>
       </div>
       <div class="card-desc">香港老牌券商，主攻港股及 IPO 认购，适合有认购需求的用户</div>
@@ -1259,7 +1271,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hk">港股</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#f87171;">胜利</div>
+        <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">胜利</div>
         <div class="card-name">胜利通</div>
       </div>
       <div class="card-desc">主攻港股，费率较低，提供基础港股交易功能，适合轻量使用</div>
@@ -1272,7 +1284,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-new">新兴</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#a78bfa;">熊猫</div>
+        <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">熊猫</div>
         <div class="card-name">熊猫证券</div>
       </div>
       <div class="card-desc">新兴港股券商，主打新人礼及低佣金，适合尝鲜开户薅羊毛</div>
@@ -1285,7 +1297,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hk">港股</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">立桥</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">立桥</div>
         <div class="card-name">立桥证券</div>
       </div>
       <div class="card-desc">立桥银行旗下券商，港股交易专注，可与立桥银行账户联动管理资金</div>
@@ -1298,7 +1310,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-hk">港股</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#fb923c;">复星</div>
+        <div class="card-logo" style="background:rgba(251,146,60,.12);color:#fb923c;border-color:rgba(251,146,60,.3);">复星</div>
         <div class="card-name">复星证券</div>
       </div>
       <div class="card-desc">复星国际旗下香港券商，提供港股/美股交易，品牌背书稳健</div>
@@ -1311,7 +1323,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card" id="card-fsmone"><span class="hot-badge">⭐ 推荐</span>
       <div class="badge-row"><span class="badge badge-hk">🇭🇰 香港</span><span style="font-size:9px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">港股「零」佣金</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">FSM</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">FSM</div>
         <div class="card-name">FSMone 证券</div>
       </div>
       <div class="card-desc">iFAST 旗下港股及基金交易平台，费率低廉，可同时管理证券与基金账户，适合多元配置</div>
@@ -1324,7 +1336,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="broker-card">
       <div class="badge-row"><span class="badge badge-sg">🇸🇬 新加坡监管</span><span style="font-size:9px;color:#f87171;background:rgba(239,68,68,.1);border:.5px solid rgba(239,68,68,.2);padding:2px 7px;border-radius:4px;white-space:nowrap;margin-left:4px;">仅面向海外地址用户开通</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#f0b429;">MM</div>
+        <div class="card-logo" style="background:rgba(240,180,41,.12);color:#f0b429;border-color:rgba(240,180,41,.28);">MM</div>
         <div class="card-name">富途 moomoo 证券</div>
       </div>
       <div class="card-desc">富途旗下国际版证券平台，支持港股美股交易，界面专业，适合海外地址用户开户</div>
@@ -1409,7 +1421,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-rec">链上美股</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#f0b429;">BYP</div>
+          <div class="card-logo" style="background:rgba(240,180,41,.12);color:#f0b429;border-color:rgba(240,180,41,.28);">BYP</div>
           <div class="card-name">Biyapay</div>
         </div>
         <div class="card-desc">支持 USDT 直接购买 Tesla、Apple 等美股代币，无需券商账户，即充即买</div>
@@ -1421,7 +1433,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-rec">主流首选</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#f0b429;">OKX</div>
+          <div class="card-logo" style="background:rgba(240,180,41,.12);color:#f0b429;border-color:rgba(240,180,41,.28);">OKX</div>
           <div class="card-name">欧易 OKX</div>
         </div>
         <div class="card-desc">支持链上合成美股代币，USDT 直接交易 Apple、Tesla 等，流动性强</div>
@@ -1433,7 +1445,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-rec">主流首选</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#f0b429;">BNB</div>
+          <div class="card-logo" style="background:rgba(240,180,41,.12);color:#f0b429;border-color:rgba(240,180,41,.28);">BNB</div>
           <div class="card-name">币安 Binance</div>
         </div>
         <div class="card-desc">全球最大交易所，BSTOCK 系列链上美股代币，流动性最强，邀请码即可享返佣</div>
@@ -1445,7 +1457,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-new">热门平台</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#f87171;">BBT</div>
+          <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">BBT</div>
           <div class="card-name">Bybit</div>
         </div>
         <div class="card-desc">支持部分链上美股衍生品，界面友好，新人礼丰厚</div>
@@ -1457,7 +1469,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-new">跟单功能</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#34d399;">BTG</div>
+          <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">BTG</div>
           <div class="card-name">Bitget</div>
         </div>
         <div class="card-desc">支持链上美股代币，跟单功能业内领先，界面简洁</div>
@@ -1469,7 +1481,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-sg">门槛低</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#60a5fa;">BMT</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">BMT</div>
           <div class="card-name">Bitmart</div>
         </div>
         <div class="card-desc">支持多种链上证券代币，开户门槛低，适合入门用户体验链上美股</div>
@@ -1481,7 +1493,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-cold">专业级</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#a78bfa;">BIT</div>
+          <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">BIT</div>
           <div class="card-name">BIT Exchange</div>
         </div>
         <div class="card-desc">专业级衍生品交易所，支持链上股票代币，适合有一定经验的用户</div>
@@ -1493,7 +1505,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-sg">美国合规</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#60a5fa;">KRK</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">KRK</div>
           <div class="card-name">Kraken</div>
         </div>
         <div class="card-desc">美国合规交易所，提供部分股票代币交易，适合有海外地址的用户</div>
@@ -1505,7 +1517,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="broker-card">
         <div class="badge-row"><span class="badge badge-sg">美国上市</span></div>
         <div class="card-head">
-          <div class="card-logo" style="color:#3b82f6;">CBE</div>
+          <div class="card-logo" style="background:rgba(59,130,246,.12);color:#3b82f6;border-color:rgba(59,130,246,.3);">CBE</div>
           <div class="card-name">Coinbase</div>
         </div>
         <div class="card-desc">美国纳斯达克上市交易所，合规性最高，支持基础链上资产交易</div>

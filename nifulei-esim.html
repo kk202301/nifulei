@@ -737,6 +737,18 @@ img { image-rendering: -webkit-optimize-contrast; }
 /* Prevent font-smoothing issues on Firefox mobile */
 * { -moz-osx-font-smoothing: grayscale; }
 
+
+
+/* ── Card logo light mode fix ── */
+[data-theme="light"] .card-logo {
+  border-width: 1px !important;
+}
+[data-theme="light"] .card-logo[style*="color:#e2e8f0"],
+[data-theme="light"] .card-logo[style*="color:#c8d4e0"] {
+  color: #475569 !important;
+  background: rgba(71,85,105,.08) !important;
+  border-color: rgba(71,85,105,.2) !important;
+}
 </style>
 </head>
 <body>
@@ -819,7 +831,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="comm-card">
       <div class="badge-row"><span class="badge badge-de">🇩🇪 德国</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#f87171;">Voda</div>
+        <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">Voda</div>
         <div class="card-name">德国沃达丰</div>
       </div>
       <div class="card-desc">德国主流运营商 Vodafone，德国实体号码，适合注册欧洲区账号及欧盟相关平台验证</div>
@@ -832,7 +844,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="comm-card">
       <div class="badge-row"><span class="badge badge-hk">🇭🇰 香港</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#a78bfa;">3HK</div>
+        <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">3HK</div>
         <div class="card-name">香港 3HK</div>
       </div>
       <div class="card-desc">香港三大运营商之一，香港本地号码，内地漫游信号稳定，适合持有香港号码备用</div>
@@ -845,7 +857,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="comm-card">
       <div class="badge-row"><span class="badge badge-hk">🇭🇰 香港</span><span class="badge badge-free">免月租</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">Club</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">Club</div>
         <div class="card-name">香港 Clubsim</div>
       </div>
       <div class="card-desc">香港虚拟运营商，eSIM 开卡方便，免月租保号，适合轻量使用香港号码的用户</div>
@@ -891,7 +903,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="comm-card"><span class="hot-badge">🎁 福利</span>
       <div class="badge-row"><span class="badge badge-free">送流量</span><span style="font-size:9px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 7px;border-radius:4px;white-space:nowrap;">🎁 注册送 1GB</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#60a5fa;">ESK</div>
+        <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">ESK</div>
         <div class="card-name">Eskimo</div>
       </div>
       <div class="card-desc">eSIM 流量平台，支持多国流量包，价格实惠，使用邀请码注册可免费获得 1GB 流量</div>
@@ -905,7 +917,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="comm-card">
       <div class="badge-row"><span class="badge badge-new">新兴</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#34d399;">Kite</div>
+        <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">Kite</div>
         <div class="card-name">KiteSim</div>
       </div>
       <div class="card-desc">新兴 eSIM 流量平台，界面简洁，支持多国流量按日计费，灵活适合短期出行</div>
@@ -940,7 +952,7 @@ img { image-rendering: -webkit-optimize-contrast; }
 
     <!-- 联通 -->
     <div class="cn-card">
-      <div class="card-logo" style="color:#60a5fa;width:36px;height:36px;font-size:12px;">联通</div>
+      <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">联通</div>
       <div>
         <div class="cn-carrier">中国联通</div>
         <div class="cn-name">联通大流量 · 200G+ · 信号覆盖广 · 适合长期持有</div>
@@ -950,7 +962,7 @@ img { image-rendering: -webkit-optimize-contrast; }
 
     <!-- 移动 -->
     <div class="cn-card">
-      <div class="card-logo" style="color:#34d399;width:36px;height:36px;font-size:12px;">移动</div>
+      <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">移动</div>
       <div>
         <div class="cn-carrier">中国移动</div>
         <div class="cn-name">移动大流量 · 150G+ · 网速稳定 · 全国信号最强</div>
@@ -960,7 +972,7 @@ img { image-rendering: -webkit-optimize-contrast; }
 
     <!-- 电信 -->
     <div class="cn-card">
-      <div class="card-logo" style="color:#f87171;width:36px;height:36px;font-size:12px;">电信</div>
+      <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">电信</div>
       <div>
         <div class="cn-carrier">中国电信</div>
         <div class="cn-name">电信大流量 · 200G+ · 宽带同号 · 农村信号最佳</div>
@@ -970,7 +982,7 @@ img { image-rendering: -webkit-optimize-contrast; }
 
     <!-- 广电 -->
     <div class="cn-card">
-      <div class="card-logo" style="color:#a78bfa;width:36px;height:36px;font-size:12px;">广电</div>
+      <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">广电</div>
       <div>
         <div class="cn-carrier">中国广电</div>
         <div class="cn-name">广电大流量 · 400G+ · 月租最低 · 性价比之王</div>
@@ -1023,7 +1035,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <div class="comm-card">
       <div class="badge-row"><span class="badge badge-new">新兴</span><span style="font-size:9px;color:var(--accent);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:2px 7px;border-radius:4px;white-space:nowrap;">结算填码享 9 折</span></div>
       <div class="card-head">
-        <div class="card-logo" style="color:#60a5fa;">9e</div>
+        <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">9e</div>
         <div class="card-name">9esim 写卡器</div>
       </div>
       <div class="card-desc">另一款主流写卡器选择，价格竞争力强，支持多种 eSIM 格式写入，适合需要备用方案的用户</div>

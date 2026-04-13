@@ -901,6 +901,18 @@ img { image-rendering: -webkit-optimize-contrast; }
   border-top-color: #ffffff !important;
 }
 
+
+
+/* ── Card logo light mode fix ── */
+[data-theme="light"] .card-logo {
+  border-width: 1px !important;
+}
+[data-theme="light"] .card-logo[style*="color:#e2e8f0"],
+[data-theme="light"] .card-logo[style*="color:#c8d4e0"] {
+  color: #475569 !important;
+  background: rgba(71,85,105,.08) !important;
+  border-color: rgba(71,85,105,.2) !important;
+}
 </style>
 </head>
 <body>
@@ -1027,7 +1039,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-hot">热门</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#60a5fa;">iF</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">iF</div>
           <div class="card-name">iFAST Global Bank</div>
         </div>
         <div class="card-desc">新加坡持牌银行，支持多币种，可线上开户，适合资产配置和海外转账</div>
@@ -1046,7 +1058,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#a78bfa;">My</div>
+          <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">My</div>
           <div class="card-name">MyFin</div>
         </div>
         <div class="card-desc">面向华人用户的跨境金融平台，支持人民币充值换汇，操作界面中文友好</div>
@@ -1065,7 +1077,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#60a5fa;">PP</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">PP</div>
           <div class="card-name">英国 PayPal</div>
         </div>
         <div class="card-desc">英国区 PayPal 账户，可绑定 Wise 英镑账号，适合 eBay 跨境电商收款和海淘付款</div>
@@ -1084,7 +1096,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-new">新加坡</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#34d399;">FS</div>
+          <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">FS</div>
           <div class="card-name">FSMone SG</div>
         </div>
         <div class="card-desc">新加坡 iFAST 旗下投资平台，支持开设证券账户及多币种现金账户，门槛低</div>
@@ -1104,7 +1116,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-new">🇩🇪 德国</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#60a5fa;">N26</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">N26</div>
           <div class="card-name">N26</div>
         </div>
         <div class="card-desc">德国数字银行，支持欧元 SEPA 收付款，接受 Kraken 法币出金，可与 Wise 互转，并可入金盈透证券</div>
@@ -1137,7 +1149,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#34d399;">FS</div>
+          <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">FS</div>
           <div class="card-name">FSMone HK</div>
         </div>
         <div class="card-desc">香港 iFAST 旗下平台，可开立港元账户，支持基金、债券投资，审核流程简单</div>
@@ -1156,7 +1168,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-must">必开</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#f87171;">中银</div>
+          <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">中银</div>
           <div class="card-name">中银香港</div>
         </div>
         <div class="card-desc">中资背景香港银行，内地用户接受度高，支持 BoC Pay，可在内地完成部分开户手续</div>
@@ -1175,7 +1187,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-must">必开</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#f87171;">汇丰</div>
+          <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">汇丰</div>
           <div class="card-name">汇丰银行 HK</div>
         </div>
         <div class="card-desc">全球性银行，香港分行提供 One Account 综合账户，国际转账便利，信用卡权益丰富</div>
@@ -1194,7 +1206,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-new">虚拟银行</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#60a5fa;">ZA</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">ZA</div>
           <div class="card-name">众安银行</div>
         </div>
         <div class="card-desc">香港首批虚拟银行之一，纯线上开户，无最低存款要求，适合轻量使用和试水香港账户</div>
@@ -1213,7 +1225,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-new">虚拟银行</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#a78bfa;">富融</div>
+          <div class="card-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.3);">富融</div>
           <div class="card-name">富融银行</div>
         </div>
         <div class="card-desc">腾讯旗下香港虚拟银行，存款利息较高，微信生态打通，内地用户开户体验友好</div>
@@ -1232,7 +1244,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-new">虚拟银行</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#34d399;">汇立</div>
+          <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">汇立</div>
           <div class="card-name">汇立银行</div>
         </div>
         <div class="card-desc">香港虚拟银行，支持多币种账户，Mastercard 实体卡，出行购物均可使用</div>
@@ -1265,7 +1277,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-free">无月费</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#f87171;">C1</div>
+          <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">C1</div>
           <div class="card-name">Capital One</div>
         </div>
         <div class="card-desc">美国知名银行，360 Checking 账户无月费无最低存款，线上开户便捷，信用卡产品丰富</div>
@@ -1283,7 +1295,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#60a5fa;">Chase</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">Chase</div>
           <div class="card-name">Chase Bank</div>
         </div>
         <div class="card-desc">摩根大通旗下，美国最大零售银行之一，ATM 覆盖广，Sapphire 信用卡积分价值极高</div>
@@ -1301,7 +1313,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#60a5fa;">Citi</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">Citi</div>
           <div class="card-name">Citibank US</div>
         </div>
         <div class="card-desc">花旗银行美国区，国际转账免手续费，适合有跨境需求的用户，全球分支联动便利</div>
@@ -1344,7 +1356,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-rec">推荐</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#34d399;">SC</div>
+          <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">SC</div>
           <div class="card-name">渣打银行</div>
         </div>
         <div class="card-desc">Standard Chartered，香港知名外资银行，国内多城市有代办服务，综合账户功能完善</div>
@@ -1361,7 +1373,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-hot">热门</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#f87171;">汇丰</div>
+          <div class="card-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.3);">汇丰</div>
           <div class="card-name">汇丰银行 HSBC</div>
         </div>
         <div class="card-desc">全球最知名银行之一，国内部分城市支持预约代办，One Account 权益丰富</div>
@@ -1378,7 +1390,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#fbbf24;">恒生</div>
+          <div class="card-logo" style="background:rgba(251,191,36,.12);color:#fbbf24;border-color:rgba(251,191,36,.3);">恒生</div>
           <div class="card-name">恒生银行 Hang Seng</div>
         </div>
         <div class="card-desc">汇丰旗下香港本地银行，港人使用率极高，国内代办门槛相对较低，操作流程成熟</div>
@@ -1395,7 +1407,7 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="bank-card">
         <div class="badge-row"><span class="badge badge-new">新加坡系</span></div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-          <div class="card-logo" style="color:#60a5fa;">DBS</div>
+          <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">DBS</div>
           <div class="card-name">星展银行 DBS</div>
         </div>
         <div class="card-desc">新加坡最大银行，香港分行服务完善，国内代办渠道稳定，适合有东南亚业务需求的用户</div>
