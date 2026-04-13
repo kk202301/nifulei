@@ -836,77 +836,88 @@ img { image-rendering: -webkit-optimize-contrast; }
 
 
 
-/* ── Risk Toast (风险警示) ── */
-#risk-toast {
+
+/* Light mode */
+[data-theme="light"] 
+[data-theme="light"] 
+
+/* Mobile: full-width bottom sheet */
+@media (max-width: 767px) {
+  
+  
+  
+}
+
+
+
+
+[data-theme="light"] 
+[data-theme="light"] .risk-toast-bar { background: rgba(0,0,0,.07) !important; }
+
+
+
+/* ── Risk Modal ── */
+#risk-modal {
+  display: none;
   position: fixed;
-  z-index: 9990;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  /* iOS vh fix */
+  height: -webkit-fill-available;
+  z-index: 2147483647;
+  background: rgba(0,0,0,.65);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   box-sizing: border-box;
-  /* Desktop: bottom-right */
-  bottom: 24px;
-  right: 24px;
-  left: auto;
-  width: 320px;
-  max-width: calc(100vw - 48px);
-  background: linear-gradient(135deg, #0f1319, #0d1220);
-  border: .5px solid rgba(248,113,113,.35);
-  border-radius: 14px;
-  padding: 18px 18px 22px;    /* extra bottom for progress bar */
-  box-shadow: 0 16px 48px rgba(0,0,0,.65);
-  overflow: hidden;            /* contain progress bar */
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .3s ease, transform .3s ease;
-  pointer-events: none;
+  /* centering */
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  margin: 0;
+  /* prevent any inherited transforms */
+  transform: none !important;
+  will-change: auto;
 }
-#risk-toast.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+#risk-modal.show {
+  display: flex !important;
 }
-.risk-toast-bar {
+#risk-modal-box {
+  background: var(--bg-card);
+  border: 1px solid rgba(248,113,113,.35);
+  border-radius: 18px;
+  padding: 24px 20px 20px;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  box-shadow: 0 24px 64px rgba(0,0,0,.7);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  /* prevent text overflow */
+  word-break: break-all;
+}
+.risk-modal-bar {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 4px;
-  background: rgba(255,255,255,.08);
-  border-radius: 0;
+  background: rgba(128,128,128,.15);
 }
-.risk-toast-fill {
+.risk-modal-fill {
   height: 100%;
   background: #f87171;
   width: 100%;
-  border-radius: inherit;
   transition: width 5s linear;
 }
-/* Light mode */
-[data-theme="light"] #risk-toast {
-  background: #ffffff !important;
+[data-theme="light"] #risk-modal-box {
+  background: #fff !important;
   border-color: rgba(239,68,68,.3) !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,.15) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.18) !important;
 }
-[data-theme="light"] .risk-toast-bar { background: rgba(0,0,0,.07) !important; }
-[data-theme="light"] #risk-cd { color: #ef4444 !important; }
-/* Mobile: full-width bottom sheet */
-@media (max-width: 767px) {
-  #risk-toast {
-    bottom: 0 !important;
-    right: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    border-radius: 18px 18px 0 0 !important;
-    padding: 8px 20px calc(20px + env(safe-area-inset-bottom, 0px)) !important;
-    transform: translateY(100%) !important;
-    box-shadow: 0 -8px 40px rgba(0,0,0,.55) !important;
-  }
-  #risk-toast.show { transform: translateY(0) !important; }
-  .risk-toast-bar { height: 4px; }
-}
-
-/* Drag handle visible on mobile only */
-@media (max-width: 767px) {
-  .toast-handle { display: block !important; }
-}
-
+[data-theme="light"] .risk-modal-bar { background: rgba(0,0,0,.07) !important; }
+[data-theme="light"] #risk-cd { color: #dc2626 !important; }
 </style>
 </head>
 <body>
@@ -991,7 +1002,7 @@ img { image-rendering: -webkit-optimize-contrast; }
     <span style="font-size:24px;">📈</span>
     <h1 style="font-size:26px;font-weight:700;letter-spacing:-.01em;">港美股券商</h1>
   </div>
-  <p style="font-size:13px;color:var(--text-muted);line-height:1.8;white-space:nowrap;">
+  <p style="font-size:13px;color:var(--text-muted);line-height:1.8;">
     收录主流港股及美股券商，附开户教程、邀请码和返佣信息。普通人也能低成本参与全球资本市场。
   </p>
 </div>
@@ -1590,29 +1601,23 @@ function showUpdating(btn) {
 </script>
 
 <!-- ── 风险警示 ── -->
-<div id="risk-toast-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9989;"></div>
-<div id="risk-toast">
-  <!-- drag handle (mobile only) -->
-  <div class="toast-handle" style="width:36px;height:4px;border-radius:2px;background:rgba(128,128,128,.35);margin:0 auto 14px;display:none;"></div>
-  <!-- close X -->
-  <button onclick="closeRiskToast()" style="position:absolute;top:12px;right:14px;background:none;border:none;color:var(--text-muted);font-size:18px;cursor:pointer;line-height:1;padding:4px;-webkit-tap-highlight-color:transparent;">✕</button>
-  <!-- title -->
-  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-    <span style="font-size:18px;">⚠️</span>
-    <span style="font-size:13px;font-weight:700;color:#f87171;letter-spacing:.02em;">风险警示</span>
+<div id="risk-modal">
+  <div id="risk-modal-box">
+    <button onclick="closeRiskToast()" style="position:absolute;top:12px;right:14px;background:none;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;line-height:1;padding:4px;-webkit-tap-highlight-color:transparent;">✕</button>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <span style="font-size:22px;">⚠️</span>
+      <span style="font-size:14px;font-weight:700;color:#f87171;letter-spacing:.03em;">风险警示</span>
+    </div>
+    <div style="font-size:13px;color:var(--text-muted);line-height:1.9;word-break:break-all;">
+      金融工具有价格波动风险，<strong style="color:var(--text);">请远离高杠杆与合约</strong>，量力而行，切勿超出自身承受范围。
+    </div>
+    <div style="margin-top:10px;font-size:12px;color:#34d399;">✦ 稳健理财，细水长流，方得岁月安好 ✦</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px;gap:12px;">
+      <span style="font-size:12px;color:var(--text-muted);white-space:nowrap;"><span id="risk-cd" style="color:#f87171;font-weight:700;">5</span> 秒后关闭</span>
+      <button onclick="closeRiskToast()" style="font-size:13px;font-weight:700;padding:9px 22px;border-radius:9px;border:none;background:#f87171;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;flex-shrink:0;">我知道了</button>
+    </div>
+    <div class="risk-modal-bar"><div class="risk-modal-fill" id="risk-fill"></div></div>
   </div>
-  <!-- body text -->
-  <div style="font-size:12px;color:var(--text-muted);line-height:1.85;word-break:break-all;">
-    金融工具有价格波动风险，<strong style="color:var(--text);">请远离高杠杆与合约</strong>，量力而行，切勿超出自身承受范围。<br>
-    <span style="color:#34d399;font-size:11px;">✦ 稳健理财，细水长流，方得岁月安好 ✦</span>
-  </div>
-  <!-- footer row -->
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;gap:10px;">
-    <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;"><span id="risk-cd" style="color:#f87171;font-weight:700;">5</span> 秒后关闭</span>
-    <button onclick="closeRiskToast()" style="font-size:12px;font-weight:700;padding:7px 18px;border-radius:8px;border:none;background:#f87171;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;flex-shrink:0;">我知道了</button>
-  </div>
-  <!-- progress bar -->
-  <div class="risk-toast-bar"><div class="risk-toast-fill" id="risk-fill"></div></div>
 </div>
 
 <script>
@@ -1635,14 +1640,7 @@ function showUpdating(btn) {
     }, 1000);
   }, 1500);
 })();
-function closeRiskToast() {
-  var ov = document.getElementById('risk-toast-overlay');
-  if (ov) ov.style.display = 'none';
-  clearInterval(window._riskTimer);
-  var t = document.getElementById('risk-toast');
-  if (!t) return;
-  t.style.opacity = '0'; t.style.transform = 'translateY(16px)';
-  setTimeout(function(){ t.style.display = 'none'; }, 300);
+, 300);
 }
 </script>
 <script>
@@ -1684,6 +1682,55 @@ function toggleTheme() {
   }
   window.addEventListener('load', scrollToHash);
 })();
+</script>
+<script>
+
+
+</script>
+<script>
+function showRiskModal() {
+  var m = document.getElementById('risk-modal');
+  if (!m) return;
+  // Move to body to escape any stacking context
+  document.body.appendChild(m);
+  // Force viewport dimensions via style
+  m.style.width  = window.innerWidth  + 'px';
+  m.style.height = window.innerHeight + 'px';
+  m.classList.add('show');
+  // Countdown
+  var cd   = document.getElementById('risk-cd');
+  var fill = document.getElementById('risk-fill');
+  var secs = 5;
+  if (fill) {
+    fill.style.transition = 'none';
+    fill.style.width = '100%';
+    setTimeout(function() {
+      fill.style.transition = 'width ' + secs + 's linear';
+      fill.style.width = '0%';
+    }, 30);
+  }
+  var timer = setInterval(function() {
+    secs--;
+    if (cd) cd.textContent = secs;
+    if (secs <= 0) { clearInterval(timer); closeRiskToast(); }
+  }, 1000);
+  // Update size on resize
+  window.addEventListener('resize', function rszFix() {
+    if (!m.classList.contains('show')) { window.removeEventListener('resize', rszFix); return; }
+    m.style.width  = window.innerWidth  + 'px';
+    m.style.height = window.innerHeight + 'px';
+  });
+}
+function closeRiskToast() {
+  var m = document.getElementById('risk-modal');
+  if (m) {
+    m.classList.remove('show');
+    m.style.width  = '';
+    m.style.height = '';
+  }
+}
+
+setTimeout(showRiskModal, 800);
 </script>
 </body>
 </html>
