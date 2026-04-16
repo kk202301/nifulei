@@ -896,6 +896,28 @@ img { image-rendering: -webkit-optimize-contrast; }
   color: #475569 !important;
 }
 
+
+/* ── Level badges for cold wallets ── */
+.level-badge {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: .04em;
+  border: .5px solid;
+  pointer-events: none;
+}
+.level-pro   { background:rgba(167,139,250,.18); color:#a78bfa; border-color:rgba(167,139,250,.4); }
+.level-adv   { background:rgba(240,180,41,.15);  color:var(--accent); border-color:rgba(240,180,41,.38); }
+.level-entry { background:rgba(96,165,250,.15);  color:#60a5fa; border-color:rgba(96,165,250,.35); }
+/* Light mode */
+[data-theme="light"] .level-pro   { background:rgba(167,139,250,.12); color:#7c3aed; border-color:rgba(167,139,250,.4); }
+[data-theme="light"] .level-adv   { background:rgba(240,180,41,.1);  color:#b45309; border-color:rgba(240,180,41,.4); }
+[data-theme="light"] .level-entry { background:rgba(96,165,250,.1);  color:#2563eb; border-color:rgba(96,165,250,.4); }
+
 </style>
 </head>
 <body>
@@ -1226,8 +1248,8 @@ img { image-rendering: -webkit-optimize-contrast; }
   <div class="cards-grid">
 
     <!-- OneKey -->
-    <div class="crypto-card featured"><span class="hot-badge">🔥 泥伏雷自用</span>
-      <div class="badge-row"><span class="badge badge-rec">华人首选</span><span class="badge badge-cold">国产</span></div>
+    <div class="crypto-card featured" style="position:relative;"><span class="hot-badge">🔥 泥伏雷自用</span>
+      <div class="badge-row"><span class="badge" style="background:rgba(240,180,41,.15);color:var(--accent);border:.5px solid rgba(240,180,41,.3);">⭐ 进阶首选</span><span class="badge badge-rec">华人首选</span><span class="badge badge-cold">国产</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">OK</div>
         <div class="card-name">OneKey</div>
@@ -1239,8 +1261,8 @@ img { image-rendering: -webkit-optimize-contrast; }
     </div>
 
     <!-- Ledger -->
-    <div class="crypto-card"><span class="hot-badge">🔥 泥伏雷自用</span>
-      <div class="badge-row"><span class="badge badge-cold">老牌</span></div>
+    <div class="crypto-card" style="position:relative;"><span class="hot-badge">🔥 泥伏雷自用</span>
+      <div class="badge-row"><span class="badge" style="background:rgba(167,139,250,.2);color:#a78bfa;border:.5px solid rgba(167,139,250,.35);">⭐ 专业级</span><span class="badge badge-cold">老牌</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(226,232,240,.12);color:#e2e8f0;border-color:rgba(226,232,240,.25);">Ledger</div>
         <div class="card-name">Ledger</div>
@@ -1248,13 +1270,13 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div class="card-desc">全球最知名硬件钱包品牌，Nano X/S Plus 系列成熟稳定，支持 5500+ 币种</div>
       <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">NIFULEI</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
-      <div class="card-btns"><a href="https://shop.ledger.com/?r=978a08f57a21" target="_blank" class="btn-buy">立即购买 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://shop.ledger.com/?r=978a08f57a21" target="_blank" class="btn-buy">立即购买 →</a><a href="https://x.com/Nicole_yang88/status/2044066081472688442?s=20" target="_blank" rel="noopener" class="btn-ghost">查看教程</a></div>
     </div>
 
     <!-- SafePal -->
     <div class="crypto-card" style="position:relative;">
       <span class="gift-badge">🎁 绑定邀请码<br>免费领 X1 冷钱包</span>
-      <div class="badge-row"><span class="badge badge-cold">性价比</span></div>
+      <div class="badge-row"><span class="badge" style="background:rgba(240,180,41,.15);color:var(--accent);border:.5px solid rgba(240,180,41,.3);">⭐ 进阶首选</span><span class="badge badge-cold">性价比</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.3);">SPL</div>
         <div class="card-name">SafePal</div>
@@ -1266,8 +1288,8 @@ img { image-rendering: -webkit-optimize-contrast; }
     </div>
 
     <!-- Tangem -->
-    <div class="crypto-card">
-      <div class="badge-row"><span class="badge badge-cold">卡片式</span></div>
+    <div class="crypto-card" style="position:relative;">
+      <div class="badge-row"><span class="badge" style="background:rgba(96,165,250,.15);color:#60a5fa;border:.5px solid rgba(96,165,250,.3);">⭐ 入门级</span><span class="badge badge-cold">卡片式</span></div>
       <div class="card-head">
         <div class="card-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.3);">TGM</div>
         <div class="card-name">Tangem</div>
@@ -1281,7 +1303,7 @@ img { image-rendering: -webkit-optimize-contrast; }
         </div>
       </div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
-      <div class="card-btns"><a href="#" class="btn-buy" onclick="showUpdating(this);return false;">立即购买 →<span class="updating-tip">⏳ 紧急更新中</span></a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
+      <div class="card-btns"><a href="https://tangem.com/invite/TALAKANG" target="_blank" rel="noopener" class="btn-buy">立即购买 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
   </div>

@@ -754,6 +754,27 @@ img { image-rendering: -webkit-optimize-contrast; }
   .cold-grid { grid-template-columns: 1fr !important; }
 }
 
+
+/* ── Level badges for cold wallets ── */
+.level-badge {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: .04em;
+  border: .5px solid;
+  pointer-events: none;
+}
+.level-pro   { background:rgba(167,139,250,.18); color:#a78bfa; border-color:rgba(167,139,250,.4); }
+.level-adv   { background:rgba(240,180,41,.15);  color:var(--accent); border-color:rgba(240,180,41,.38); }
+.level-entry { background:rgba(96,165,250,.15);  color:#60a5fa; border-color:rgba(96,165,250,.35); }
+[data-theme="light"] .level-pro   { background:rgba(167,139,250,.12); color:#7c3aed; border-color:rgba(167,139,250,.4); }
+[data-theme="light"] .level-adv   { background:rgba(240,180,41,.1);  color:#b45309; border-color:rgba(240,180,41,.4); }
+[data-theme="light"] .level-entry { background:rgba(96,165,250,.1);  color:#2563eb; border-color:rgba(96,165,250,.4); }
+
 </style>
 </head>
 <body>
@@ -1114,7 +1135,8 @@ img { image-rendering: -webkit-optimize-contrast; }
   <div class="cold-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
 
     <!-- OneKey -->
-    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;">
+    <div style="position:relative;background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;">
+      <div style="margin:-18px -18px 12px;padding:5px 14px;background:rgba(240,180,41,.15);border-bottom:.5px solid rgba(240,180,41,.3);border-radius:12px 12px 0 0;font-size:9px;font-weight:800;color:var(--accent);letter-spacing:.06em;text-align:left;">⭐ 进阶首选</div>
       <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
         <div style="width:34px;height:34px;background:rgba(240,180,41,.12);border:.5px solid rgba(240,180,41,.28);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--accent);flex-shrink:0;letter-spacing:-.04em;">OK</div>
         <div>
@@ -1134,7 +1156,8 @@ img { image-rendering: -webkit-optimize-contrast; }
     </div>
 
     <!-- Ledger -->
-    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;">
+    <div style="position:relative;background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;">
+      <div style="margin:-18px -18px 12px;padding:5px 14px;background:rgba(167,139,250,.18);border-bottom:.5px solid rgba(167,139,250,.3);border-radius:12px 12px 0 0;font-size:9px;font-weight:800;color:#a78bfa;letter-spacing:.06em;text-align:left;">⭐ 专业级</div>
       <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
         <div style="width:34px;height:34px;background:rgba(226,232,240,.12);border:.5px solid rgba(226,232,240,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#e2e8f0;flex-shrink:0;letter-spacing:-.04em;">LGR</div>
         <div>
@@ -1149,12 +1172,13 @@ img { image-rendering: -webkit-optimize-contrast; }
       <div style="font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:12px;flex:1;">全球最主流，安全芯片级保护，支持 5500+ 链与资产</div>
       <div style="display:flex;gap:7px;">
         <a href="https://shop.ledger.com/?r=978a08f57a21" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px 0;border-radius:8px;background:var(--accent);color:#0a0c10;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">立即购买 →</a>
-        <a href="#" onclick="showColdTip(this);return false;" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;position:relative;">查看教程<span style="display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a2235;color:#fcd34d;font-size:10px;font-weight:600;padding:6px 12px;border-radius:7px;border:.5px solid rgba(252,211,77,.3);white-space:nowrap;z-index:999;pointer-events:none;">⏳ 紧急更新中</span></a>
+        <a href="https://x.com/Nicole_yang88/status/2044066081472688442?s=20" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">查看教程</a>
       </div>
     </div>
 
     <!-- SafePal -->
     <div style="background:var(--bg-card);border:.5px solid rgba(52,211,153,.22);border-radius:12px;padding:18px;display:flex;flex-direction:column;position:relative;">
+      <div style="margin:-18px -18px 12px;padding:5px 14px;background:rgba(240,180,41,.15);border-bottom:.5px solid rgba(240,180,41,.3);border-radius:12px 12px 0 0;font-size:9px;font-weight:800;color:var(--accent);letter-spacing:.06em;text-align:left;">⭐ 进阶首选</div>
       <span style="position:absolute;top:-1px;right:12px;background:rgba(52,211,153,.15);border:.5px solid rgba(52,211,153,.35);border-radius:0 0 8px 8px;padding:3px 10px;font-size:10px;color:#34d399;font-weight:700;white-space:nowrap;">🎁 绑码免费领X1</span>
       <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;margin-top:14px;">
         <div style="width:34px;height:34px;background:rgba(52,211,153,.12);border:.5px solid rgba(52,211,153,.28);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#34d399;flex-shrink:0;letter-spacing:-.04em;">SPL</div>
@@ -1175,7 +1199,8 @@ img { image-rendering: -webkit-optimize-contrast; }
     </div>
 
     <!-- Tangem -->
-    <div style="background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;">
+    <div style="position:relative;background:var(--bg-card);border:.5px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;">
+      <div style="margin:-18px -18px 12px;padding:5px 14px;background:rgba(96,165,250,.15);border-bottom:.5px solid rgba(96,165,250,.3);border-radius:12px 12px 0 0;font-size:9px;font-weight:800;color:#60a5fa;letter-spacing:.06em;text-align:left;">⭐ 入门级</div>
       <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
         <div style="width:34px;height:34px;background:rgba(96,165,250,.12);border:.5px solid rgba(96,165,250,.28);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#60a5fa;flex-shrink:0;letter-spacing:-.04em;">TGM</div>
         <div>
@@ -1185,12 +1210,13 @@ img { image-rendering: -webkit-optimize-contrast; }
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:9px;">
         <span style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);border:.5px solid rgba(96,165,250,.25);padding:2px 7px;border-radius:4px;">卡片式</span>
-        <span style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);border:.5px solid rgba(96,165,250,.25);padding:2px 7px;border-radius:4px;">无需记助记词</span>
+        <span style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);border:.5px solid rgba(96,165,250,.25);padding:2px 7px;border-radius:4px;">无需助记词</span>
       </div>
-      <div style="font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:12px;flex:1;">信用卡大小，NFC触碰即用，无需助记词，极致便携</div>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:6px;flex:1;">信用卡大小，NFC触碰即用，无需助记词，极致便携</div>
+      <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.08);border:.5px solid rgba(96,165,250,.2);border-radius:6px;padding:4px 8px;margin-bottom:10px;letter-spacing:.02em;">🏷 折扣码：<strong>TALAKANG</strong></div>
       <div style="display:flex;gap:7px;">
-        <a href="#" onclick="showColdTip(this);return false;" style="flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px 0;border-radius:8px;background:var(--accent);color:#0a0c10;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;" style="flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px 0;border-radius:8px;background:var(--accent);color:#0a0c10;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;position:relative;">立即购买 →<span style="display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a2235;color:#fcd34d;font-size:10px;font-weight:600;padding:6px 12px;border-radius:7px;border:.5px solid rgba(252,211,77,.3);white-space:nowrap;z-index:999;pointer-events:none;">⏳ 紧急更新中</span></a>
-        <a href="#" onclick="showColdTip(this);return false;" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;position:relative;">查看教程<span style="display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a2235;color:#fcd34d;font-size:10px;font-weight:600;padding:6px 12px;border-radius:7px;border:.5px solid rgba(252,211,77,.3);white-space:nowrap;z-index:999;pointer-events:none;">⏳ 紧急更新中</span></a>
+        <a href="https://tangem.com/invite/TALAKANG" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px 0;border-radius:8px;background:var(--accent);color:#0a0c10;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">立即购买 →</a>
+        <a href="#" onclick="showColdTip(this);return false;" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;position:relative;">查看教程<span style="display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a2235;color:#fcd34d;font-size:10px;font-weight:600;padding:6px 12px;border-radius:7px;border:.5px solid rgba(252,211,77,.3);white-space:nowrap;z-index:999;pointer-events:none;">⏳ 紧急更新中</span></a>
       </div>
     </div>
 
