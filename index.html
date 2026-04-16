@@ -840,6 +840,53 @@ img { image-rendering: -webkit-optimize-contrast; }
 @media(max-width:480px){
   #disclaimer-box{padding:20px 18px 18px;}
 }
+
+
+/* ── Preview cold wallet code boxes ── */
+.pcw-discount-box {
+  background: rgba(167,139,250,.07);
+  border: .5px solid rgba(167,139,250,.2);
+  border-radius: 7px;
+  padding: 7px 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.pcw-invite-box {
+  background: rgba(255,255,255,.04);
+  border: .5px solid rgba(255,255,255,.1);
+  border-radius: 7px;
+  padding: 7px 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+[data-theme="light"] .pcw-invite-box {
+  background: rgba(0,0,0,.03) !important;
+  border-color: rgba(0,0,0,.1) !important;
+}
+.pcw-label { font-size: 10px; color: var(--text-dim); }
+.pcw-code-val { font-size: 12px; font-weight: 700; font-family: monospace; letter-spacing: .04em; flex: 1; text-align: center; }
+.pcw-discount-val { color: #a78bfa; }
+.pcw-invite-val   { color: var(--accent); }
+.pcw-copy {
+  display: inline-flex; align-items: center;
+  font-size: 9px; font-weight: 700;
+  padding: 2px 7px; border-radius: 4px;
+  border: .5px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.06);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.pcw-copy:hover, .pcw-copy.copied { background: rgba(52,211,153,.15); color: #34d399; border-color: rgba(52,211,153,.3); }
+[data-theme="light"] .pcw-copy { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.15); color: #52586a; }
 </style>
 
 <script>
@@ -1149,6 +1196,7 @@ img { image-rendering: -webkit-optimize-contrast; }
         <span style="font-size:10px;color:var(--accent);background:var(--accent-dim);border:.5px solid var(--accent-border);padding:2px 7px;border-radius:4px;">国产</span>
       </div>
       <div style="font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:12px;flex:1;">国产开源，支持多链，中文界面友好，性价比首选</div>
+      <div class="pcw-discount-box"><span class="pcw-label">购买折扣码</span><span class="pcw-code-val pcw-discount-val">NIFULEI</span><button class="pcw-copy" onclick="pcwCopy(this,'NIFULEI')">复制</button></div>
       <div style="display:flex;gap:7px;">
         <a href="https://onekey.so/r/NIFULEI" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px 0;border-radius:8px;background:var(--accent);color:#0a0c10;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">立即购买 →</a>
         <a href="https://youtu.be/dI1OIJURrys" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">查看教程</a>
@@ -1170,9 +1218,10 @@ img { image-rendering: -webkit-optimize-contrast; }
         <span style="font-size:10px;color:#a78bfa;background:rgba(167,139,250,.1);border:.5px solid rgba(167,139,250,.25);padding:2px 7px;border-radius:4px;">5500+资产</span>
       </div>
       <div style="font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:12px;flex:1;">全球最主流，安全芯片级保护，支持 5500+ 链与资产</div>
+      <div class="pcw-discount-box"><span class="pcw-label">购买折扣码</span><span class="pcw-code-val pcw-discount-val"></span></div>
       <div style="display:flex;gap:7px;">
         <a href="https://shop.ledger.com/?r=978a08f57a21" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px 0;border-radius:8px;background:var(--accent);color:#0a0c10;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">立即购买 →</a>
-        <a href="https://x.com/Nicole_yang88/status/2044066081472688442?s=20" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">查看教程</a>
+        <a href="https://youtu.be/yDl2hPuNR7o" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">查看教程</a>
       </div>
     </div>
 
@@ -1192,6 +1241,7 @@ img { image-rendering: -webkit-optimize-contrast; }
         <span style="font-size:10px;color:#34d399;background:rgba(52,211,153,.1);border:.5px solid rgba(52,211,153,.25);padding:2px 7px;border-radius:4px;">双离线签名</span>
       </div>
       <div style="font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:12px;flex:1;">币安投资，蓝牙+二维码双离线，绑定邀请码可免费领</div>
+      <div class="pcw-invite-box"><span class="pcw-label">邀请码</span><span class="pcw-code-val pcw-invite-val">766177</span><button class="pcw-copy" onclick="pcwCopy(this,'766177')">复制</button></div>
       <div style="display:flex;gap:7px;">
         <a href="https://www.safepal.com/store/s1?ref=yjnmywv" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px 0;border-radius:8px;background:var(--accent);color:#0a0c10;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">立即购买 →</a>
         <a href="https://youtu.be/1Kh__95rGX8" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid rgba(52,211,153,.3);color:#34d399;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">查看教程</a>
@@ -1213,10 +1263,11 @@ img { image-rendering: -webkit-optimize-contrast; }
         <span style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.1);border:.5px solid rgba(96,165,250,.25);padding:2px 7px;border-radius:4px;">无需助记词</span>
       </div>
       <div style="font-size:11px;color:var(--text-muted);line-height:1.75;margin-bottom:6px;flex:1;">信用卡大小，NFC触碰即用，无需助记词，极致便携</div>
-      <div style="font-size:10px;color:#60a5fa;background:rgba(96,165,250,.08);border:.5px solid rgba(96,165,250,.2);border-radius:6px;padding:4px 8px;margin-bottom:10px;letter-spacing:.02em;">🏷 折扣码：<strong>TALAKANG</strong></div>
+      
+      <div class="pcw-discount-box"><span class="pcw-label">折扣码</span><span class="pcw-code-val pcw-discount-val">TALAKANG</span><button class="pcw-copy" onclick="pcwCopy(this,'TALAKANG')">复制</button></div>
       <div style="display:flex;gap:7px;">
         <a href="https://tangem.com/invite/TALAKANG" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px 0;border-radius:8px;background:var(--accent);color:#0a0c10;text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">立即购买 →</a>
-        <a href="#" onclick="showColdTip(this);return false;" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;position:relative;">查看教程<span style="display:none;position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a2235;color:#fcd34d;font-size:10px;font-weight:600;padding:6px 12px;border-radius:7px;border:.5px solid rgba(252,211,77,.3);white-space:nowrap;z-index:999;pointer-events:none;">⏳ 紧急更新中</span></a>
+        <a href="https://x.com/Nicole_yang88/status/2044333809987166609" target="_blank" rel="noopener" style="flex:1;text-align:center;font-size:11px;font-weight:600;padding:7px 0;border-radius:8px;border:.5px solid var(--border);color:var(--text-muted);text-decoration:none;-webkit-tap-highlight-color:transparent;display:block;">查看教程</a>
       </div>
     </div>
 
@@ -1514,6 +1565,23 @@ function showColdTip(btn) {
   clearTimeout(btn._ct);
   tip.style.display = 'block';
   btn._ct = setTimeout(function() { tip.style.display = 'none'; }, 2200);
+}
+</script>
+<script>
+function pcwCopy(btn, code) {
+  try {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(code);
+    } else {
+      var el = document.createElement('textarea');
+      el.value = code; document.body.appendChild(el);
+      el.select(); document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+    btn.classList.add('copied');
+    btn.textContent = '✓ 已复制';
+    setTimeout(function() { btn.classList.remove('copied'); btn.textContent = '复制'; }, 2000);
+  } catch(e) {}
 }
 </script>
 </body>
