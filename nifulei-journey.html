@@ -38,16 +38,13 @@ nav { position: sticky; top: 0; z-index: 200; background: rgba(10,12,16,.92); ba
 .logo { font-size: 13px; font-weight: 700; color: var(--accent); }
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-item { position: relative; }
+.nav-item::after { content:''; position:absolute; top:100%; left:0; right:0; height:8px; background:transparent; }
 .nav-item > .nav-label { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; cursor: pointer; transition: color .15s, background .15s; white-space: nowrap; }
-.nav-item:hover > .nav-label { color: var(--text); background: rgba(255,255,255,.05); }
+
 .arr { font-size: 8px; color: var(--text-dim); transition: transform .2s; display: inline-block; }
-.nav-item:hover .arr { transform: rotate(180deg); color: var(--accent); }
-.dropdown { position: absolute; top: calc(100% + 6px); left: 0; min-width: 148px; background: var(--bg-dropdown); border: .5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 6px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity .18s, transform .18s; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+
 .nav-item:hover 
-.dropdown a { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); padding: 7px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
-.dropdown a:hover { color: var(--text); background: rgba(255,255,255,.06); }
-.dropdown-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); flex-shrink: 0; }
-.dropdown a:hover .dropdown-dot { background: var(--accent); }
+
 .nav-single { font-size: 12px; color: var(--text-muted); padding: 6px 10px; border-radius: 6px; transition: color .15s, background .15s; white-space: nowrap; }
 .nav-single:hover { color: var(--text); background: rgba(255,255,255,.05); }
 .nav-cta { font-size: 11px; color: #0a0c10; background: var(--accent); padding: 6px 16px; border-radius: 6px; font-weight: 700; margin-left: 8px; }
@@ -325,7 +322,6 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
   .guide-panel.active { grid-template-columns: 1fr; }
 }
 
-
 /* ── INLINE CODE HIGHLIGHT (邀请码/折扣码) ── */
 .code-tag {
   display: inline-block;
@@ -340,7 +336,6 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
   letter-spacing: .06em;
   vertical-align: middle;
 }
-
 
 /* ── CHECKLIST PROGRESS ── */
 .stage-progress {
@@ -433,13 +428,10 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
   animation:jtSlideUp .4s ease;position:relative;text-align:center;
 }
 
-
   50%      { box-shadow: 0 0 0 4px rgba(240,180,41,.25); border-color: var(--accent); }
 }
 
  to{opacity:1} }
-
-
 
 /* ── Checklist visual guide ── */
 /* All unchecked boxes glow subtly to invite clicking */
@@ -464,7 +456,6 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
   0%,100% { box-shadow: none; border-color: rgba(240,180,41,.4); }
   50%      { box-shadow: 0 0 0 5px rgba(240,180,41,.2); border-color: var(--accent); }
 }
-
 
 @media (max-width: 768px) {
   #stage-prompt { bottom: 72px; right: 12px; left: 12px; max-width: none; }
@@ -639,7 +630,7 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
 }
 [data-theme="light"] body { background: var(--bg); color: var(--text); }
 [data-theme="light"] nav  { background: rgba(244,245,247,.96); border-bottom-color: rgba(0,0,0,.08); }
-[data-theme="light"] .dropdown { background: #fff; border-color: rgba(0,0,0,.09); }
+[data-theme="light"] 
 [data-theme="light"] .nav-donate { background: rgba(212,146,10,.08); border-color: rgba(212,146,10,.35); }
 [data-theme="light"] footer { background: #e8eaee; border-top-color: rgba(0,0,0,.08); }
 [data-theme="light"] .footer-copy,
@@ -854,7 +845,6 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
 /* info-banner */
 [data-theme="light"] .info-banner { background: rgba(212,146,10,.06) !important; border-color: rgba(212,146,10,.2) !important; color: #52586a !important; }
 
-
 /* ── Light mode inline color fixes ── */
 
 /* Hero gradient text → dark in light mode */
@@ -955,7 +945,6 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
   color: #1a1d24 !important;
 }
 
-
 /* light-fix-nifulei-journey.html */
 [data-theme="light"] .sol-card      { background: #fff !important; border-color: rgba(0,0,0,.08) !important; }
 [data-theme="light"] .sol-card.featured { border-color: rgba(212,146,10,.4) !important; }
@@ -1010,13 +999,8 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
 }
 
 /* Nav item hover background (dark mode uses white-alpha, wrong in light) */
-[data-theme="light"] .nav-item:hover > .nav-label {
-  background: rgba(0,0,0,.05) !important;
-}
-[data-theme="light"] .dropdown a:hover {
-  background: rgba(0,0,0,.05) !important;
-  color: #1a1d24 !important;
-}
+[data-theme="light"] 
+[data-theme="light"] 
 
 /* Journey tip overlay inner box */
 [data-theme="light"] #journey-tip-overlay > div {
@@ -1089,7 +1073,6 @@ footer { border-top: .5px solid var(--border); padding: 28px 32px; display: flex
 }
 [data-theme="light"] .risk-toast-bar { background: rgba(0,0,0,.06) !important; }
 [data-theme="light"] #risk-cd { color: #ef4444 !important; }
-
 
 /* ── Mobile compatibility fixes ── */
 
@@ -1173,7 +1156,6 @@ img { image-rendering: -webkit-optimize-contrast; }
 /* Prevent font-smoothing issues on Firefox mobile */
 * { -moz-osx-font-smoothing: grayscale; }
 
-
 /* ── Journey popup mobile fix ── */
 @media (max-width: 600px) {
   /* stage-prompt: slide up from bottom on mobile */
@@ -1204,6 +1186,19 @@ img { image-rendering: -webkit-optimize-contrast; }
   }
 }
 
+
+/* ── Nav dropdown: JS-controlled open state ── */
+.nav-item.open .dropdown {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+.nav-item.open .arr {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
 </style>
 </head>
 <body>
@@ -1220,8 +1215,6 @@ img { image-rendering: -webkit-optimize-contrast; }
     <button class="guide-btn-next" id="guide-btn-next" onclick="guideNext()">我知道了 →</button>
   </div>
 </div>
-
-
 
 <!-- Stage completion prompt -->
 <div id="stage-prompt">
@@ -1349,34 +1342,197 @@ document.addEventListener('DOMContentLoaded', function() {
 <style>
 @keyframes jtFadeIn { from{opacity:0} to{opacity:1} }
 @keyframes jtSlideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:.5px solid var(--border);}
+[data-theme="light"] nav{background:rgba(244,245,247,.95);}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:52px;}
+.logo{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em;text-decoration:none;white-space:nowrap;margin-right:auto;}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-item{position:relative;}
+.nav-label{font-size:12px;color:var(--text-muted);padding:6px 9px;border-radius:6px;cursor:pointer;
+           display:flex;align-items:center;gap:4px;transition:color .15s,background .15s;white-space:nowrap;}
+.nav-label:hover{color:var(--text);background:rgba(255,255,255,.05);}
+.arr{font-size:9px;transition:transform .2s;}
+
+.nav-single{font-size:12px;color:var(--text-muted);padding:6px 9px;border-radius:6px;
+            text-decoration:none;white-space:nowrap;transition:color .15s,background .15s;}
+.nav-single:hover{color:var(--text);background:rgba(255,255,255,.05);}
+
+.nav-item:hover 
+
+.dd{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5;flex-shrink:0;}
+.nav-cta{font-size:11px;font-weight:700;color:#0a0c10;background:var(--accent);
+         padding:5px 13px;border-radius:6px;text-decoration:none;margin-left:6px;white-space:nowrap;transition:opacity .15s;}
+.nav-cta:hover{opacity:.88;}
+.nav-donate{font-size:12px;color:var(--accent);padding:5px 9px;border-radius:6px;
+            text-decoration:none;white-space:nowrap;transition:background .15s;}
+.nav-donate:hover{background:var(--accent-dim);}
+.theme-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;
+           border:none;background:none;font-size:16px;cursor:pointer;border-radius:8px;
+           transition:background .15s;margin-left:4px;flex-shrink:0;}
+.theme-btn:hover{background:rgba(255,255,255,.07);}
+.mob-btn{display:none;align-items:center;justify-content:center;width:36px;height:36px;
+         border:.5px solid var(--border);background:none;color:var(--text-muted);font-size:18px;
+         cursor:pointer;border-radius:8px;margin-left:4px;}
+@media(max-width:768px){.nav-links{display:none;}.mob-btn{display:flex;}}
+/* FOOTER */
+.footer-bar{border-top:.5px solid var(--border);}
+.footer-inner{max-width:1080px;margin:0 auto;padding:16px 24px;
+              display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.fc{font-size:11px;color:var(--text-dim);display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.sep{opacity:.4;}
+.fsoc{display:flex;gap:6px;}
+.fsb{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-dim);
+     background:rgba(255,255,255,.04);border:.5px solid var(--border);border-radius:6px;
+     padding:5px 10px;text-decoration:none;transition:color .15s,border-color .15s;}
+.fsb:hover{color:var(--text);border-color:var(--border-hover);}
+[data-theme="light"] .fsb{color:#52586a;}
+
+.dd{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5;flex-shrink:0;display:inline-block;}
+
+/* ── v2 Nav CSS ── */
+.dd{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5;flex-shrink:0;display:inline-block;}
+
+nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:.5px solid var(--border);}
+[data-theme="light"] nav{background:rgba(244,245,247,.95);}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:52px;}
+.logo{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em;text-decoration:none;white-space:nowrap;margin-right:auto;}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-item{position:relative;}
+.nav-label{font-size:12px;color:var(--text-muted);padding:6px 9px;border-radius:6px;cursor:pointer;
+           display:flex;align-items:center;gap:4px;transition:color .15s,background .15s;white-space:nowrap;}
+.nav-label:hover{color:var(--text);background:rgba(255,255,255,.05);}
+.arr{font-size:9px;transition:transform .2s;}
+
+.nav-single{font-size:12px;color:var(--text-muted);padding:6px 9px;border-radius:6px;
+            text-decoration:none;white-space:nowrap;transition:color .15s,background .15s;}
+.nav-single:hover{color:var(--text);background:rgba(255,255,255,.05);}
+
+.nav-item:hover 
+
+.dd{width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5;flex-shrink:0;}
+.nav-cta{font-size:11px;font-weight:700;color:#0a0c10;background:var(--accent);
+         padding:5px 13px;border-radius:6px;text-decoration:none;margin-left:6px;white-space:nowrap;transition:opacity .15s;}
+.nav-cta:hover{opacity:.88;}
+.nav-donate{font-size:12px;color:var(--accent);padding:5px 9px;border-radius:6px;
+            text-decoration:none;white-space:nowrap;transition:background .15s;}
+.nav-donate:hover{background:var(--accent-dim);}
+.theme-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;
+           border:none;background:none;font-size:16px;cursor:pointer;border-radius:8px;
+           transition:background .15s;margin-left:4px;flex-shrink:0;}
+.theme-btn:hover{background:rgba(255,255,255,.07);}
+.mob-btn{display:none;align-items:center;justify-content:center;width:36px;height:36px;
+         border:.5px solid var(--border);background:none;color:var(--text-muted);font-size:18px;
+         cursor:pointer;border-radius:8px;margin-left:4px;}
+@media(max-width:768px){.nav-links{display:none;}.mob-btn{display:flex;}}
+
+.footer-bar{border-top:.5px solid var(--border);}
+.footer-inner{max-width:1080px;margin:0 auto;padding:16px 24px;
+              display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.fc{font-size:11px;color:var(--text-dim);display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.sep{opacity:.4;}
+.fsoc{display:flex;gap:6px;}
+.fsb{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-dim);
+     background:rgba(255,255,255,.04);border:.5px solid var(--border);border-radius:6px;
+     padding:5px 10px;text-decoration:none;transition:color .15s,border-color .15s;}
+.fsb:hover{color:var(--text);border-color:var(--border-hover);}
+[data-theme="light"] .fsb{color:#52586a;}
+
+/* ── Dropdown nav (clean) ── */
+.nav-item { position: relative; }
+.nav-item > .nav-label { display:flex;align-items:center;gap:4px;font-size:12px;color:var(--text-muted);padding:6px 10px;border-radius:6px;cursor:pointer;transition:color .15s,background .15s;white-space:nowrap; }
+.nav-item > .nav-label:hover { color:var(--text);background:rgba(255,255,255,.05); }
+.nav-item:hover > .nav-label { color:var(--text);background:rgba(255,255,255,.05); }
+.nav-item:hover .arr { transform:rotate(180deg);color:var(--accent); }
+.dropdown {
+  position:absolute; top:calc(100% + 6px); left:0; min-width:148px;
+  background:var(--bg-dropdown); border:.5px solid var(--border);
+  border-radius:10px; padding:6px; box-shadow:0 12px 40px rgba(0,0,0,.5);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transform:translateY(-5px);
+  transition:opacity .18s, transform .18s, visibility .18s;
+  z-index:999;
+}
+.nav-item:hover .dropdown {
+  opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
+}
+.dropdown a { display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:12px;color:var(--text-muted);text-decoration:none;transition:color .12s,background .12s;white-space:nowrap; }
+.dropdown a:hover { color:var(--text);background:rgba(255,255,255,.05); }
+.dropdown-dot { width:4px;height:4px;border-radius:50%;background:var(--text-dim);flex-shrink:0; }
+.dropdown a:hover .dropdown-dot { background:var(--accent); }
+[data-theme="light"] .dropdown { background:#fff;border-color:rgba(0,0,0,.09); }
+[data-theme="light"] .dropdown a:hover { background:rgba(0,0,0,.04);color:#1a1d24; }
 </style>
 
 
 
 
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo">泥伏雷闯关记</a>
     <div class="nav-links">
-      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-bank.html'" style="cursor:pointer;">国外银行卡 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-bank.html#intl" ><span class="dropdown-dot"></span>国外银行卡</a><a href="nifulei-bank.html#us" ><span class="dropdown-dot"></span>美国银行卡</a><a href="nifulei-bank.html#hk" ><span class="dropdown-dot"></span>香港地区银行卡</a><a href="nifulei-bank.html#cn" ><span class="dropdown-dot"></span>国内代办</a></div></div>
-      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-broker.html'" style="cursor:pointer;">港美股券商 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-broker.html#hk" ><span class="dropdown-dot"></span>港股券商</a><a href="nifulei-broker.html#us" ><span class="dropdown-dot"></span>美股券商</a><a href="nifulei-broker.html#chain-stock" ><span class="dropdown-dot"></span>链上美股</a></div></div>
-      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-crypto.html'" style="cursor:pointer;">加密 Web3 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-crypto.html#exchange" ><span class="dropdown-dot"></span>交易所</a><a href="nifulei-crypto.html#card" ><span class="dropdown-dot"></span>加密银行卡</a><a href="nifulei-crypto.html#cold" ><span class="dropdown-dot"></span>冷钱包</a><a href="nifulei-crypto.html#hot" ><span class="dropdown-dot"></span>热钱包</a></div></div>
-      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-esim.html'" style="cursor:pointer;">跨境通讯 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-esim.html#esim-num" ><span class="dropdown-dot"></span>eSIM 号码</a><a href="nifulei-esim.html#esim-data" ><span class="dropdown-dot"></span>eSIM 流量平台</a><a href="nifulei-esim.html#esim-writer" ><span class="dropdown-dot"></span>eSIM 写卡器</a></div></div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="location.href='nifulei-bank.html'" style="cursor:pointer;">国外银行卡 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-bank.html#intl"><span class="dd"></span>国外银行卡</a>
+          <a href="nifulei-bank.html#us"><span class="dd"></span>美国银行卡</a>
+          <a href="nifulei-bank.html#hk"><span class="dd"></span>香港地区银行卡</a>
+          <a href="nifulei-bank.html#cn"><span class="dd"></span>国内代办</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="location.href='nifulei-broker.html'" style="cursor:pointer;">港美股券商 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-broker.html#hk"><span class="dd"></span>港股券商</a>
+          <a href="nifulei-broker.html#us"><span class="dd"></span>美股券商</a>
+          <a href="nifulei-broker.html#chain-stock"><span class="dd"></span>链上美股</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="location.href='nifulei-crypto.html'" style="cursor:pointer;">加密 Web3 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-crypto.html#exchange"><span class="dd"></span>交易所</a>
+          <a href="nifulei-crypto.html#card"><span class="dd"></span>加密银行卡</a>
+          <a href="nifulei-crypto.html#cold"><span class="dd"></span>冷钱包</a>
+          <a href="nifulei-crypto.html#hot"><span class="dd"></span>热钱包</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <div class="nav-label" onclick="location.href='nifulei-esim.html'" style="cursor:pointer;">跨境通讯 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-esim.html#esim-num"><span class="dd"></span>eSIM 号码</a>
+          <a href="nifulei-esim.html#esim-data"><span class="dd"></span>eSIM 流量平台</a>
+          <a href="nifulei-esim.html#esim-writer"><span class="dd"></span>eSIM 写卡器</a>
+        </div>
+      </div>
       <a href="nifulei-roadmap.html" class="nav-single">金融路线图</a>
-      <a href="nifulei-journey.html" class="nav-single" style="color:var(--accent);">出海路线图</a>
-      <div class="nav-item"><div class="nav-label" onclick="location.href='nifulei-about.html'" style="cursor:pointer;">关于泥伏雷 <span class="arr">▾</span></div><div class="dropdown"><a href="nifulei-about.html#origin" ><span class="dropdown-dot"></span>泥伏雷缘起</a><a href="nifulei-about.html#contact" ><span class="dropdown-dot"></span>联系方式</a></div></div>
+      <a href="nifulei-journey.html" class="nav-single">出海路线图</a>
+      <div class="nav-item">
+        <div class="nav-label" onclick="location.href='nifulei-about.html'" style="cursor:pointer;">关于泥伏雷 <span class="arr">▾</span></div>
+        <div class="dropdown">
+          <a href="nifulei-about.html#origin"><span class="dd"></span>泥伏雷缘起</a>
+          <a href="nifulei-about.html#contact"><span class="dd"></span>联系方式</a>
+        </div>
+      </div>
       <a href="nifulei-about.html#donate" class="nav-donate">☕ 打赏</a>
       <a href="https://x.com/nicole_yang88" target="_blank" class="nav-cta">关注 𝕏</a>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()" title="切换明暗模式">☀️</button>
-    <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+    <button class="theme-btn" id="themeBtnD" onclick="toggleTheme()" title="切换明暗模式">🌙</button>
+    <button class="mob-btn" onclick="toggleMenu()">☰</button>
   </div>
-  <div id="mobileMenu" style="display:none;border-top:.5px solid var(--border);padding:12px 16px;background:var(--bg-dropdown);">
-    <div style="padding:10px 0;border-bottom:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;"><span style="font-size:13px;color:var(--text-muted);">🌓 明暗模式</span><button class="theme-toggle" onclick="toggleTheme()" style="width:36px;height:36px;">☀️</button></div>
-    <a href="nifulei-bank.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">🏦 国外银行卡</a>
-    <a href="nifulei-broker.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📈 港美股券商</a>
-    <a href="nifulei-crypto.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">₿ 加密 Web3</a>
-    <a href="nifulei-esim.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📡 跨境通讯</a>
+  <div id="mobMenu" style="display:none;border-top:.5px solid var(--border);padding:12px 16px;background:var(--bg-dropdown);">
+    <div style="padding:10px 0;border-bottom:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:var(--text-muted);">🌓 明暗模式</span>
+      <button class="theme-btn" id="themeBtnM" onclick="toggleTheme()" style="width:36px;height:36px;">🌙</button>
+    </div>
+    <a href="nifulei-bank.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">🏦 国外银行卡</a>
+    <a href="nifulei-broker.html"  style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📈 港美股券商</a>
+    <a href="nifulei-crypto.html"  style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">₿ 加密 Web3</a>
+    <a href="nifulei-esim.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📡 跨境通讯</a>
     <a href="nifulei-roadmap.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">🗺 金融路线图</a>
     <a href="nifulei-journey.html" style="display:block;padding:10px 0;font-size:13px;color:var(--accent);border-bottom:.5px solid var(--border);">🚀 出海路线图</a>
     <a href="nifulei-about.html#donate" style="display:block;padding:10px 0;font-size:13px;color:var(--accent);border-bottom:.5px solid var(--border);">☕ 打赏支持泥伏雷</a>
@@ -1432,25 +1588,27 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </div>
 
-<footer>
-  <div class="footer-copy">
-    © 2026 泥伏雷闯关记
-    <span class="sep">·</span>内容仅供参考，不构成投资建议
-    <span class="sep">·</span>投资有风险，入市需谨慎
-  </div>
-  <div class="footer-socials">
-    <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="footer-social-btn">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      𝕏 关注
-    </a>
-    <a href="https://t.me/talakang" target="_blank" rel="noopener" class="footer-social-btn">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-      TG
-    </a>
-    <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="footer-social-btn">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-      YouTube
-    </a>
+<footer class="footer-bar">
+  <div class="footer-inner">
+    <div class="fc">
+      © 2026 泥伏雷闯关记
+      <span class="sep">·</span>内容仅供参考，不构成投资建议
+      <span class="sep">·</span>投资有风险，入市需谨慎
+    </div>
+    <div class="fsoc">
+      <a href="https://x.com/nicole_yang88" target="_blank" rel="noopener" class="fsb">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.243 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        𝕏 关注
+      </a>
+      <a href="https://t.me/talakang" target="_blank" rel="noopener" class="fsb">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Telegram
+      </a>
+      <a href="https://www.youtube.com/@tala-kang" target="_blank" rel="noopener" class="fsb">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -2111,12 +2269,6 @@ function closeSidebar() {
 }
 
 // ── MOBILE NAV ──
-function toggleMenu() {
-  const m = document.getElementById('mobileMenu');
-  const btn = document.getElementById('menuBtn');
-  m.style.display = m.style.display === 'none' ? 'block' : 'none';
-  btn.textContent = m.style.display === 'none' ? '☰' : '✕';
-}
 function checkScreen() {
   const btn = document.getElementById('menuBtn');
   const links = document.querySelector('.nav-links');
@@ -2516,14 +2668,6 @@ function skipGuide() {
   var btns = document.querySelectorAll('.theme-toggle');
   btns.forEach(function(b){ b.textContent = icon; });
 })();
-function toggleTheme() {
-  var cur = document.documentElement.getAttribute('data-theme') || 'dark';
-  var next = cur === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('nifulei_theme', next);
-  var icon = next === 'light' ? '🌙' : '☀️';
-  document.querySelectorAll('.theme-toggle').forEach(function(b){ b.textContent = icon; });
-}
 </script>
 <script>
 /* Hash scroll fix for cross-page anchor navigation */
@@ -2546,6 +2690,99 @@ function toggleTheme() {
     scrollToHash();
   }
   window.addEventListener('load', scrollToHash);
+})();
+</script>
+
+<script>
+/* SHARED_NAV_JS */
+
+(function(){
+  var t=localStorage.getItem('theme')||'dark';
+  document.documentElement.setAttribute('data-theme',t);
+  var ic=t==='dark'?'🌙':'☀️';
+  ['themeBtnD','themeBtnM'].forEach(function(id){var b=document.getElementById(id);if(b)b.textContent=ic;});
+})();
+function toggleTheme(){
+  var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('theme',t);
+  var ic=t==='dark'?'🌙':'☀️';
+  ['themeBtnD','themeBtnM'].forEach(function(id){var b=document.getElementById(id);if(b)b.textContent=ic;});
+}
+function toggleMenu(){
+  var m=document.getElementById('mobMenu');
+  m.style.display=m.style.display==='none'?'block':'none';
+}
+function filterAc(cat,btn){
+  document.querySelectorAll('.cat-tab').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  document.querySelectorAll('#acGrid .ac').forEach(function(c){
+    c.classList.toggle('hid',cat!=='all'&&c.getAttribute('data-cat')!==cat);
+  });
+}
+function acCopy(btn,code){
+  try{
+    if(navigator.clipboard){navigator.clipboard.writeText(code);}
+    else{var el=document.createElement('textarea');el.value=code;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);}
+    var o=btn.textContent;btn.classList.add('ok');btn.textContent='✓ 已复制';
+    setTimeout(function(){btn.classList.remove('ok');btn.textContent=o;},2000);
+  }catch(e){}
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=a.getAttribute('href').slice(1);
+    var el=document.getElementById(id);
+    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+</script>
+<script>
+/* ── Nav dropdown: click-to-open (works on all devices) ── */
+(function(){
+  document.querySelectorAll('.nav-item').forEach(function(item){
+    var label = item.querySelector('.nav-label');
+    var drop  = item.querySelector('.dropdown');
+    if (!label || !drop) return;
+
+    // Click on label toggles dropdown
+    label.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = item.classList.contains('open');
+      // Close all others
+      document.querySelectorAll('.nav-item.open').forEach(function(o){
+        o.classList.remove('open');
+      });
+      if (!isOpen) item.classList.add('open');
+    });
+
+    // Allow hover on desktop (pointer: fine devices)
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      item.addEventListener('mouseenter', function(){
+        document.querySelectorAll('.nav-item.open').forEach(function(o){
+          o.classList.remove('open');
+        });
+        item.classList.add('open');
+      });
+      item.addEventListener('mouseleave', function(e){
+        // Check if moving TO the dropdown
+        var rect = drop.getBoundingClientRect();
+        var toX = e.clientX, toY = e.clientY;
+        if (toX >= rect.left && toX <= rect.right && toY >= rect.top && toY <= rect.bottom) return;
+        item.classList.remove('open');
+      });
+      drop.addEventListener('mouseleave', function(){
+        item.classList.remove('open');
+      });
+    }
+  });
+
+  // Click outside closes all
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.nav-item.open').forEach(function(o){
+      o.classList.remove('open');
+    });
+  });
 })();
 </script>
 </body>

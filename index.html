@@ -399,95 +399,75 @@ h1.hero-h1 em{font-style:normal;color:var(--accent);}
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
       <div>
         <p class="sec-label">STEP 02 · 立即行动</p>
-        <h2 class="sec-title">带折扣码的精选工具</h2>
+        <h2 class="sec-title">新人必备工具</h2>
       </div>
-      <a href="nifulei-crypto.html" style="font-size:11px;color:var(--accent);text-decoration:none;opacity:.8;white-space:nowrap;padding-bottom:4px;">查看完整工具库 →</a>
+      <a id="toolLibLink" href="nifulei-crypto.html" style="font-size:11px;color:var(--accent);text-decoration:none;opacity:.8;white-space:nowrap;padding-bottom:4px;">查看完整工具库 →</a>
     </div>
     <div class="cat-tabs">
-      <button class="cat-tab on" onclick="filterAc('all',this)">全部</button>
-      <button class="cat-tab" onclick="filterAc('crypto',this)">₿ 加密交易所</button>
+      <button class="cat-tab on" onclick="filterAc('crypto',this)">₿ 加密交易所</button>
       <button class="cat-tab" onclick="filterAc('cold',this)">🔒 冷钱包</button>
       <button class="cat-tab" onclick="filterAc('broker',this)">📈 券商</button>
       <button class="cat-tab" onclick="filterAc('bank',this)">🏦 银行卡</button>
+      <button class="cat-tab" onclick="filterAc('esim',this)">📡 跨境通讯</button>
     </div>
-    <div class="acgrid" id="acGrid">
+    <div class="acgrid" <div class="acgrid" id="acGrid">
 
-      <!-- OKX: SOL999 · promooboost.com/join/SOL999 · 20% -->
+      <!-- ─ OKX ─ SOL999 · promooboost.com/join/SOL999 · 20% -->
       <div class="ac" data-cat="crypto">
         <div class="ac-hd">
           <div class="ac-logo" style="background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border);">OKX</div>
           <div><div class="ac-name">欧易 OKX</div><div class="ac-tag">全球合约第一</div></div>
         </div>
         <span class="ac-perk">返佣 20%</span>
-        <div class="ac-code">
-          <span class="ac-cl">邀请码</span>
-          <span class="ac-cv">SOL999</span>
-          <button class="ac-cp" onclick="acCopy(this,'SOL999')">复制</button>
-        </div>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">SOL999</span><button class="ac-cp" onclick="acCopy(this,'SOL999')">复制</button></div>
         <a href="https://www.promooboost.com/join/SOL999" target="_blank" rel="noopener" class="ac-btn">立即开通 →</a>
       </div>
 
-      <!-- Binance: TALA888 · binance.com/zh-CN/join?ref=TALA888 · 20% -->
+      <!-- ─ Binance ─ TALA888 · binance.com/zh-CN/join?ref=TALA888 · 20% -->
       <div class="ac" data-cat="crypto">
         <div class="ac-hd">
           <div class="ac-logo" style="background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border);">BNB</div>
           <div><div class="ac-name">币安 Binance</div><div class="ac-tag">全球最大现货</div></div>
         </div>
         <span class="ac-perk">返佣 20%</span>
-        <div class="ac-code">
-          <span class="ac-cl">邀请码</span>
-          <span class="ac-cv">TALA888</span>
-          <button class="ac-cp" onclick="acCopy(this,'TALA888')">复制</button>
-        </div>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">TALA888</span><button class="ac-cp" onclick="acCopy(this,'TALA888')">复制</button></div>
         <a href="https://www.binance.com/zh-CN/join?ref=TALA888" target="_blank" rel="noopener" class="ac-btn">立即开通 →</a>
       </div>
 
-      <!-- Bybit: NIFULEI20 · partner.bybit.com/b/NIFULEI20 · 20% -->
+      <!-- ─ Bybit ─ NIFULEI20 · partner.bybit.com/b/NIFULEI20 · 20% -->
       <div class="ac" data-cat="crypto">
         <div class="ac-hd">
           <div class="ac-logo" style="background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.28);">BB</div>
           <div><div class="ac-name">Bybit</div><div class="ac-tag">衍生品 + 现货全能</div></div>
         </div>
         <span class="ac-perk">返佣 20%</span>
-        <div class="ac-code">
-          <span class="ac-cl">邀请码</span>
-          <span class="ac-cv">NIFULEI20</span>
-          <button class="ac-cp" onclick="acCopy(this,'NIFULEI20')">复制</button>
-        </div>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">NIFULEI20</span><button class="ac-cp" onclick="acCopy(this,'NIFULEI20')">复制</button></div>
         <a href="https://partner.bybit.com/b/NIFULEI20" target="_blank" rel="noopener" class="ac-btn">立即开通 →</a>
       </div>
 
-      <!-- Bitget: nifulei20 · partner.hdmune.cn/bg/nifulei20 · 20% -->
+      <!-- ─ Bitget ─ nifulei20 · partner.hdmune.cn/bg/nifulei20 · 20% -->
       <div class="ac" data-cat="crypto">
         <div class="ac-hd">
           <div class="ac-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28);">BG</div>
           <div><div class="ac-name">Bitget</div><div class="ac-tag">跟单功能第一</div></div>
         </div>
         <span class="ac-perk">返佣 20%</span>
-        <div class="ac-code">
-          <span class="ac-cl">邀请码</span>
-          <span class="ac-cv">nifulei20</span>
-          <button class="ac-cp" onclick="acCopy(this,'nifulei20')">复制</button>
-        </div>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">nifulei20</span><button class="ac-cp" onclick="acCopy(this,'nifulei20')">复制</button></div>
         <a href="https://partner.hdmune.cn/bg/nifulei20" target="_blank" rel="noopener" class="ac-btn">立即开通 →</a>
       </div>
 
-      <!-- OneKey: NIFULEI · onekey.so/r/NIFULEI -->
+      <!-- ─ OneKey ─ NIFULEI · onekey.so/r/NIFULEI -->
       <div class="ac" data-cat="cold">
         <div class="ac-hd">
           <div class="ac-logo" style="background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border);">OK</div>
           <div><div class="ac-name">OneKey</div><div class="ac-tag">⭐ 进阶首选 · 国产开源</div></div>
         </div>
         <span class="ac-perk">🔥 泥伏雷自用</span>
-        <div class="ac-code">
-          <span class="ac-cl">折扣码</span>
-          <span class="ac-cv">NIFULEI</span>
-          <button class="ac-cp" onclick="acCopy(this,'NIFULEI')">复制</button>
-        </div>
+        <div class="ac-code"><span class="ac-cl">折扣码</span><span class="ac-cv">NIFULEI</span><button class="ac-cp" onclick="acCopy(this,'NIFULEI')">复制</button></div>
         <a href="https://onekey.so/r/NIFULEI" target="_blank" rel="noopener" class="ac-btn">立即购买 →</a>
       </div>
 
-      <!-- SafePal: 766177 · safepal.com/store/s1?ref=yjnmywv -->
+      <!-- ─ SafePal ─ 766177 · safepal.com/store/s1?ref=yjnmywv -->
       <div class="ac" data-cat="cold" style="position:relative;">
         <div style="position:absolute;top:-1px;right:12px;background:rgba(52,211,153,.14);border:.5px solid rgba(52,211,153,.3);border-radius:0 0 8px 8px;padding:3px 9px;font-size:9px;color:#34d399;font-weight:700;white-space:nowrap;">🎁 绑码免费领 X1</div>
         <div class="ac-hd" style="margin-top:13px;">
@@ -495,54 +475,180 @@ h1.hero-h1 em{font-style:normal;color:var(--accent);}
           <div><div class="ac-name">SafePal</div><div class="ac-tag">⭐ 进阶首选 · 币安背书</div></div>
         </div>
         <span class="ac-perk" style="color:#34d399;background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.25);">绑码免费领设备</span>
-        <div class="ac-code">
-          <span class="ac-cl">邀请码</span>
-          <span class="ac-cv" style="color:#34d399;">766177</span>
-          <button class="ac-cp" onclick="acCopy(this,'766177')">复制</button>
-        </div>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv" style="color:#34d399;">766177</span><button class="ac-cp" onclick="acCopy(this,'766177')">复制</button></div>
         <a href="https://www.safepal.com/store/s1?ref=yjnmywv" target="_blank" rel="noopener" class="ac-btn">立即购买 →</a>
       </div>
 
-      <!-- Tangem: TALAKANG · tangem.com/invite/TALAKANG -->
+      <!-- ─ Ledger ─ shop.ledger.com/?r=978a08f57a21 -->
+      <div class="ac" data-cat="cold">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.28);">LGR</div>
+          <div><div class="ac-name">Ledger</div><div class="ac-tag">⭐ 专业级 · 行业标杆</div></div>
+        </div>
+        <span class="ac-perk" style="color:#a78bfa;background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25);">5500+ 资产</span>
+        <div class="ac-no">返佣已内嵌购买链接</div>
+        <a href="https://shop.ledger.com/?r=978a08f57a21" target="_blank" rel="noopener" class="ac-btn">立即购买 →</a>
+      </div>
+
+      <!-- ─ Tangem ─ TALAKANG · tangem.com/invite/TALAKANG -->
       <div class="ac" data-cat="cold">
         <div class="ac-hd">
           <div class="ac-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28);">TGM</div>
           <div><div class="ac-name">Tangem</div><div class="ac-tag">⭐ 入门级 · 卡片冷钱包</div></div>
         </div>
         <span class="ac-perk" style="color:#60a5fa;background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.25);">无需助记词</span>
-        <div class="ac-code">
-          <span class="ac-cl">折扣码</span>
-          <span class="ac-cv" style="color:#60a5fa;">TALAKANG</span>
-          <button class="ac-cp" onclick="acCopy(this,'TALAKANG')">复制</button>
-        </div>
+        <div class="ac-code"><span class="ac-cl">折扣码</span><span class="ac-cv" style="color:#60a5fa;">TALAKANG</span><button class="ac-cp" onclick="acCopy(this,'TALAKANG')">复制</button></div>
         <a href="https://tangem.com/invite/TALAKANG" target="_blank" rel="noopener" class="ac-btn">立即购买 →</a>
       </div>
 
-      <!-- 长桥: 32V2M2 · app.longbridgehk.com/ac/oa?... -->
+      <!-- ─ 盈立证券 ─ U02662 · m.usmart66.com -->
       <div class="ac" data-cat="broker">
         <div class="ac-hd">
-          <div class="ac-logo" style="background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border);">长桥</div>
-          <div><div class="ac-name">长桥证券</div><div class="ac-tag">港美股 · 费率极低</div></div>
+          <div class="ac-logo" style="background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border);">盈立</div>
+          <div><div class="ac-name">盈立证券 uSMART</div><div class="ac-tag">港美股 · 低佣金</div></div>
         </div>
-        <span class="ac-perk">新人免佣礼包</span>
-        <div class="ac-code">
-          <span class="ac-cl">邀请码</span>
-          <span class="ac-cv">32V2M2</span>
-          <button class="ac-cp" onclick="acCopy(this,'32V2M2')">复制</button>
-        </div>
-        <a href="https://app.longbridgehk.com/ac/oa?account_channel=lb&channel=HB100036&invite-code=32V2M2" target="_blank" rel="noopener" class="ac-btn">立即开户 →</a>
+        <span class="ac-perk">新人礼遇</span>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">U02662</span><button class="ac-cp" onclick="acCopy(this,'U02662')">复制</button></div>
+        <a href="https://m.usmart66.com/webapp/open-account/apply.html?ICode=U02662#/register" target="_blank" rel="noopener" class="ac-btn">立即开户 →</a>
       </div>
 
-      <!-- Wise: haiyang27 · wise.com/register?referralCode=haiyang27 -->
+      <!-- ─ 必贝证券 ─ stcb8stkb · landing.bbaecache.com -->
+      <div class="ac" data-cat="broker">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28);">BB</div>
+          <div><div class="ac-name">必贝证券 BBAE</div><div class="ac-tag">美股 · 0 佣金</div></div>
+        </div>
+        <span class="ac-perk">新人免佣</span>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">stcb8stkb</span><button class="ac-cp" onclick="acCopy(this,'stcb8stkb')">复制</button></div>
+        <a href="https://landing.bbaecache.com/m/h5/new-user-reward-v4?lang=zh-CN&f=invite&referral=stcb8stkb" target="_blank" rel="noopener" class="ac-btn">立即开户 →</a>
+      </div>
+
+      <!-- ─ 嘉信证券 ─ REFERF8MARZGG · schwab.com -->
+      <div class="ac" data-cat="broker">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.28);">CS</div>
+          <div><div class="ac-name">嘉信证券 Schwab</div><div class="ac-tag">美股 · 全球顶级券商</div></div>
+        </div>
+        <span class="ac-perk">新人礼遇</span>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv" style="font-size:9px;letter-spacing:.01em;">REFERF8MARZGG</span><button class="ac-cp" onclick="acCopy(this,'REFERF8MARZGG')">复制</button></div>
+        <a href="https://www.schwab.com/client-referral?refrid=REFERF8MARZGG" target="_blank" rel="noopener" class="ac-btn">立即开户 →</a>
+      </div>
+
+      <!-- ─ 盈透证券 IBKR ─ ibkr.com/referral/yanming865 -->
+      <div class="ac" data-cat="broker">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.28);">IB</div>
+          <div><div class="ac-name">盈透证券 IBKR</div><div class="ac-tag">港美股 · 机构级平台</div></div>
+        </div>
+        <span class="ac-perk" style="color:#f87171;background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.25);">新人礼遇</span>
+        <div class="ac-no">专属链接，无邀请码</div>
+        <a href="https://ibkr.com/referral/yanming865" target="_blank" rel="noopener" class="ac-btn">立即开户 →</a>
+      </div>
+
+      <!-- ─ Wise ─ haiyang27 · wise.com/register -->
       <div class="ac" data-cat="bank">
         <div class="ac-hd">
           <div class="ac-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.28);">W</div>
           <div><div class="ac-name">Wise</div><div class="ac-tag">多币种 · 0 隐藏费用</div></div>
         </div>
         <span class="ac-perk" style="color:#34d399;background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.25);">首次免费转账</span>
-        <div class="ac-no">通过链接注册自动绑定返佣</div>
+        <div class="ac-no">专属链接，无邀请码</div>
         <a href="https://wise.com/register?referralCode=haiyang27" target="_blank" rel="noopener" class="ac-btn">立即注册 →</a>
       </div>
+      <!-- ─ N26 ─ yanmingk73062c · n26.com -->
+      <div class="ac" data-cat="bank">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28);">N26</div>
+          <div><div class="ac-name">N26</div><div class="ac-tag">欧洲数字银行 · 德国持牌</div></div>
+        </div>
+        <span class="ac-perk" style="color:#60a5fa;background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.25);">新人礼遇</span>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv" style="color:#60a5fa;font-size:10px;">yanmingk73062c</span><button class="ac-cp" onclick="acCopy(this,'yanmingk73062c')">复制</button></div>
+        <a href="https://n26.com/r/haiyang85196c" target="_blank" rel="noopener" class="ac-btn">立即注册 →</a>
+      </div>
+
+      <!-- ─ iFAST ─ YA00W68M · ifastgb.com -->
+      <div class="ac" data-cat="bank">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.28);">IF</div>
+          <div><div class="ac-name">iFAST GB</div><div class="ac-tag">英国券商级银行账户</div></div>
+        </div>
+        <span class="ac-perk" style="color:#a78bfa;background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25);">新人礼遇</span>
+        <div class="ac-no">专属链接，无邀请码</div>
+        <a href="https://www.ifastgb.com/tellafriend/yanjunk5073" target="_blank" rel="noopener" class="ac-btn">立即注册 →</a>
+      </div>
+      <!-- giffgaff -->
+      <div class="ac" data-cat="esim">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(240,180,41,.12);color:var(--accent);border-color:var(--accent-border);">gg</div>
+          <div><div class="ac-name">giffgaff</div><div class="ac-tag">英国 eSIM 号码</div></div>
+        </div>
+        <span class="ac-perk">英国实体号码</span>
+        <div class="ac-no">专属链接，无邀请码</div>
+        <a href="http://www.giffgaff.com/orders/affiliate/mjboo546_1731680040526" target="_blank" rel="noopener" class="ac-btn">立即获取 →</a>
+      </div>
+      <!-- 德国沃达丰 -->
+      <div class="ac" data-cat="esim">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.28);">Voda</div>
+          <div><div class="ac-name">德国沃达丰</div><div class="ac-tag">德国 eSIM 号码</div></div>
+        </div>
+        <span class="ac-perk" style="color:#f87171;background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.25);">德国实体号码</span>
+        <div class="ac-no">专属链接，无邀请码</div>
+        <a href="https://www.vodafone.de/freikarten/callya-classic-form/?icmp=prepaid-ohne-vertrag_tile_classic" target="_blank" rel="noopener" class="ac-btn">立即获取 →</a>
+      </div>
+      <!-- RedteGo -->
+      <div class="ac" data-cat="esim">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(251,146,60,.12);color:#fb923c;border-color:rgba(251,146,60,.28);">RT</div>
+          <div><div class="ac-name">RedteGo</div><div class="ac-tag">eSIM 流量平台</div></div>
+        </div>
+        <span class="ac-perk" style="color:#fb923c;background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.25);">全球流量</span>
+        <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv" style="color:#fb923c;">RTGF94EFR</span><button class="ac-cp" onclick="acCopy(this,'RTGF94EFR')">复制</button></div>
+        <a href="https://esim.redteago.com?c=pfkq0ygi" target="_blank" rel="noopener" class="ac-btn">立即购买 →</a>
+      </div>
+      <!-- Eskimo -->
+      <div class="ac" data-cat="esim">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.28);">ESK</div>
+          <div><div class="ac-name">Eskimo</div><div class="ac-tag">eSIM 流量平台</div></div>
+        </div>
+        <span class="ac-perk" style="color:#34d399;background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.25);">全球流量</span>
+        <div class="ac-code"><span class="ac-cl">折扣码</span><span class="ac-cv" style="color:#34d399;">NIFULEI</span><button class="ac-cp" onclick="acCopy(this,'NIFULEI')">复制</button></div>
+        <a href="https://eskimo.travel/TALAKANG/NIFULEI" target="_blank" rel="noopener" class="ac-btn">立即购买 →</a>
+      </div>
+      <!-- Xesim写卡器 -->
+      <div class="ac" data-cat="esim">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28);">Xe</div>
+          <div><div class="ac-name">Xesim 写卡器</div><div class="ac-tag">eSIM 写卡器</div></div>
+        </div>
+        <span class="ac-perk" style="color:#60a5fa;background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.25);">写卡神器</span>
+        <div class="ac-code"><span class="ac-cl">折扣码</span><span class="ac-cv" style="color:#60a5fa;">NIFULEI</span><button class="ac-cp" onclick="acCopy(this,'NIFULEI')">复制</button></div>
+        <a href="https://xeSim.cc/?DIST=QkVOHQ==" target="_blank" rel="noopener" class="ac-btn">立即购买 →</a>
+      </div>
+      <!-- 9esim写卡器 -->
+      <div class="ac" data-cat="esim">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.28);">9e</div>
+          <div><div class="ac-name">9esim 写卡器</div><div class="ac-tag">eSIM 写卡器</div></div>
+        </div>
+        <span class="ac-perk" style="color:#a78bfa;background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25);">写卡神器</span>
+        <div class="ac-code"><span class="ac-cl">折扣码</span><span class="ac-cv" style="color:#a78bfa;">nifulei</span><button class="ac-cp" onclick="acCopy(this,'nifulei')">复制</button></div>
+        <a href="https://www.9eSim.com/?coupon=nifulei" target="_blank" rel="noopener" class="ac-btn">立即购买 →</a>
+      </div>
+
+      <!-- ─ PayPal UK ─ py.pl/X0rNf ─ no code -->
+      <div class="ac" data-cat="bank">
+        <div class="ac-hd">
+          <div class="ac-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28);">PP</div>
+          <div><div class="ac-name">英国 PayPal</div><div class="ac-tag">境外支付 · 英镑账户</div></div>
+        </div>
+        <span class="ac-perk" style="color:#60a5fa;background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.25);">英镑账户</span>
+        <div class="ac-no">专属链接，无邀请码</div>
+        <a href="https://py.pl/X0rNf" target="_blank" rel="noopener" class="ac-btn">立即注册 →</a>
+      </div>
+
+    </div>
 
     </div>
   </div>
@@ -702,11 +808,30 @@ function toggleMenu(){
   var m=document.getElementById('mobMenu');
   m.style.display=m.style.display==='none'?'block':'none';
 }
+var CAT_LINKS={
+  'crypto':'nifulei-crypto.html',
+  'cold':'nifulei-crypto.html#cold',
+  'broker':'nifulei-broker.html',
+  'bank':'nifulei-bank.html'
+};
+var CAT_LABELS={
+  'crypto':'查看完整交易所列表 →',
+  'cold':'查看完整冷钱包列表 →',
+  'broker':'查看完整券商列表 →',
+  'bank':'查看完整银行卡列表 →'
+};
 function filterAc(cat,btn){
   document.querySelectorAll('.cat-tab').forEach(function(b){b.classList.remove('on');});
   btn.classList.add('on');
   document.querySelectorAll('#acGrid .ac').forEach(function(c){
-    c.classList.toggle('hid',cat!=='all'&&c.getAttribute('data-cat')!==cat);
+    c.classList.toggle('hid',c.getAttribute('data-cat')!==cat);
+  });
+  var lnk=document.getElementById('toolLibLink');
+  if(lnk){lnk.href=CAT_LINKS[cat]||'nifulei-crypto.html';lnk.textContent=CAT_LABELS[cat]||'查看完整工具库 →';}
+}
+function initTools(){
+  document.querySelectorAll('#acGrid .ac').forEach(function(c){
+    if(c.getAttribute('data-cat')!=='crypto')c.classList.add('hid');
   });
 }
 function acCopy(btn,code){
@@ -717,6 +842,7 @@ function acCopy(btn,code){
     setTimeout(function(){btn.classList.remove('ok');btn.textContent=o;},2000);
   }catch(e){}
 }
+initTools();
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
     var id=a.getAttribute('href').slice(1);
