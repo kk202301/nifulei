@@ -1018,6 +1018,135 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
   color: var(--accent);
 }
 
+
+/* ══ DEX Section ══ */
+.dex-tabs {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.dex-tab {
+  font-size: 11px; font-weight: 700; padding: 6px 16px;
+  border-radius: 20px; border: .5px solid var(--border);
+  background: none; color: var(--text-muted);
+  cursor: pointer; transition: all .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.dex-tab.on { background: var(--accent-dim); color: var(--accent); border-color: var(--accent-border); }
+.dex-tab:hover:not(.on) { background: rgba(255,255,255,.05); color: var(--text); }
+
+.dex-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+@media (max-width: 860px) { .dex-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .dex-grid { grid-template-columns: 1fr 1fr; gap: 8px; } }
+
+.dex-card {
+  background: var(--bg-card); border: .5px solid var(--border);
+  border-radius: 14px; overflow: visible;
+  position: relative;
+  transition: border-color .18s, transform .18s, box-shadow .18s;
+  position: relative;
+}
+.dex-card:hover {
+  border-color: rgba(240,180,41,.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+}
+.dex-card-front {
+  padding: 18px 16px 14px;
+  cursor: pointer;
+  position: relative;
+}
+.dex-logo-row {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+}
+.dex-logo {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; flex-shrink: 0;
+  border: .5px solid;
+}
+.dex-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.dex-chain { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+.dex-type-badge {
+  font-size: 9px; font-weight: 700; padding: 2px 8px;
+  border-radius: 10px; display: inline-block; margin-bottom: 8px;
+  letter-spacing: .04em;
+}
+.dex-desc {
+  font-size: 11px; color: var(--text-muted); line-height: 1.65;
+  margin-bottom: 12px;
+}
+.dex-info-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 6px;
+}
+.dex-toggle-btn {
+  font-size: 10px; font-weight: 600; color: var(--accent);
+  background: var(--accent-dim); border: .5px solid var(--accent-border);
+  border-radius: 6px; padding: 4px 10px; cursor: pointer;
+  transition: opacity .15s; white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.dex-toggle-btn:hover { opacity: .8; }
+.dex-visit-btn {
+  font-size: 10px; font-weight: 600; color: var(--text-muted);
+  background: rgba(255,255,255,.05); border: .5px solid var(--border);
+  border-radius: 6px; padding: 4px 10px; text-decoration: none;
+  transition: border-color .15s, color .15s; white-space: nowrap;
+}
+.dex-visit-btn:hover { border-color: var(--border-hover); color: var(--text); }
+
+/* Expandable info panel */
+.dex-info-panel {
+  max-height: 0; overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+  border-top: 0 solid var(--border);
+}
+.dex-info-panel.open {
+  max-height: 400px;
+  border-top-width: .5px;
+  padding: 14px 16px 16px;
+}
+.dex-info-title {
+  font-size: 9px; font-weight: 700; letter-spacing: .1em;
+  color: var(--text-dim); margin-bottom: 7px; text-transform: uppercase;
+}
+.dex-wallet-tags {
+  display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px;
+}
+.dex-wtag {
+  font-size: 10px; padding: 2px 7px; border-radius: 4px;
+  background: rgba(255,255,255,.05); border: .5px solid var(--border);
+  color: var(--text-muted);
+}
+.dex-wtag.key {
+  background: rgba(240,180,41,.1); border-color: var(--accent-border);
+  color: var(--accent); font-weight: 600;
+}
+.dex-cex-desc {
+  font-size: 11px; color: var(--text-muted); line-height: 1.7;
+  border-left: 2px solid var(--accent-border); padding-left: 10px;
+}
+/* Light mode */
+[data-theme="light"] .dex-card { background: #fff; }
+[data-theme="light"] .dex-toggle-btn { background: rgba(240,180,41,.08); }
+[data-theme="light"] .dex-visit-btn { background: rgba(0,0,0,.03); }
+[data-theme="light"] .dex-wtag { background: rgba(0,0,0,.04); }
+[data-theme="light"] .dex-info-panel { border-top-color: rgba(0,0,0,.07); }
+
+
+
+/* DEX main badge - inline, no overflow needed */
+.dex-main-badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 9px; font-weight: 800; letter-spacing: .04em;
+  background: rgba(96,165,250,.18); color: #60a5fa;
+  border: .5px solid rgba(96,165,250,.4);
+  padding: 2px 8px; border-radius: 10px;
+  position: absolute; top: 10px; right: 12px;
+  white-space: nowrap; z-index: 2;
+}
+[data-theme="light"] .dex-main-badge { background: rgba(96,165,250,.12); color: #2563eb; }
 </style>
 </head>
 <body>
@@ -1094,6 +1223,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
 
 <div class="anchor-nav">
   <a href="#exchange" class="anchor-btn active">🏦 交易所</a>
+  <a href="#dex"      class="anchor-btn">⚡ DEX</a>
   <a href="#card"     class="anchor-btn">💳 加密银行卡</a>
   <a href="#cold"     class="anchor-btn">🧊 冷钱包</a>
   <a href="#hot"      class="anchor-btn">🔥 热钱包</a>
@@ -1254,6 +1384,242 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
           <div class="card-btns"><a href="https://backpack.exchange/refer/a5fim073" target="_blank" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
     </div>
 
+  </div>
+</div>
+
+
+<div class="section-divider"></div>
+
+<!-- ══ 去中心化交易所 DEX ══ -->
+<div class="crypto-section" id="dex">
+  <div class="section-heading">
+    <h2>⚡ 去中心化交易所 DEX</h2>
+    <span class="section-count">8 个平台</span>
+  </div>
+  <p class="section-sub">链上自托管交易，无需 KYC，资产完全由你掌控。点击卡片查看支持的钱包与 CEX 联动方式。</p>
+
+  <!-- Sub tabs -->
+  <div class="dex-tabs">
+    <button class="dex-tab on" onclick="filterDex('all',this)">全部 8 个</button>
+    <button class="dex-tab" onclick="filterDex('spot',this)">📈 现货 / AMM</button>
+    <button class="dex-tab" onclick="filterDex('perp',this)">⚡ 永续合约 / Perp</button>
+  </div>
+
+  <div class="dex-grid" id="dexGrid">
+
+    <!-- Uniswap -->
+    <div class="dex-card" id="dex-uniswap">
+      <div class="dex-card-front" onclick="toggleDex('uniswap')"><span class="dex-main-badge">⭐ 主流</span>
+        
+        <div class="dex-logo-row">
+          <div class="dex-logo" style="background:rgba(248,113,113,.12);color:#f87171;border-color:rgba(248,113,113,.28);">UNI</div>
+          <div>
+            <div class="dex-name">Uniswap</div>
+            <div class="dex-chain">Ethereum · Base · Arbitrum</div>
+          </div>
+        </div>
+        <span class="dex-type-badge" style="background:rgba(96,165,250,.15);color:#60a5fa;border:.5px solid rgba(96,165,250,.3);">现货/AMM</span>
+        <div class="dex-desc">最大链上现货 AMM，多链部署，MetaMask 深度集成，流动性全球第一</div>
+        
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span><button class="copy-btn" style="opacity:.4;cursor:default;">复制</button></div>
+        <div class="dex-info-toggle">
+          <button class="dex-toggle-btn" onclick="event.stopPropagation();toggleDex('uniswap')">钱包支持 ↕</button>
+          <a href="https://app.uniswap.org/" target="_blank" rel="noopener" class="dex-visit-btn" onclick="event.stopPropagation()">查看官方 →</a>
+        </div>
+      </div>
+      <div class="dex-info-panel" id="dex-panel-uniswap">
+        <div class="dex-info-title">支持的主流钱包</div>
+        <div class="dex-wallet-tags"><span class="dex-wtag key">MetaMask ★</span><span class="dex-wtag key">Uniswap Wallet</span><span class="dex-wtag">Coinbase Wallet</span><span class="dex-wtag">Binance Wallet</span><span class="dex-wtag">OKX Wallet</span><span class="dex-wtag">WalletConnect</span><span class="dex-wtag">Ledger</span><span class="dex-wtag">Trezor</span><span class="dex-wtag">Bitget Wallet</span></div>
+        <div class="dex-info-title">与 CEX 的联动方式</div>
+        <div class="dex-cex-desc">OKX（X Layer集成）、Binance生态联动；许多CEX充值到Uniswap支持的链地址；MetaMask与Uniswap API深度合作。</div>
+      </div>
+    </div>
+    <!-- PancakeSwap -->
+    <div class="dex-card" id="dex-pancakeswap">
+      <div class="dex-card-front" onclick="toggleDex('pancakeswap')"><span class="dex-main-badge">⭐ 主流</span>
+        
+        <div class="dex-logo-row">
+          <div class="dex-logo" style="background:rgba(251,191,36,.12);color:#fbbf24;border-color:rgba(251,191,36,.28);">CAKE</div>
+          <div>
+            <div class="dex-name">PancakeSwap</div>
+            <div class="dex-chain">BNB Chain · ETH · Arbitrum</div>
+          </div>
+        </div>
+        <span class="dex-type-badge" style="background:rgba(96,165,250,.15);color:#60a5fa;border:.5px solid rgba(96,165,250,.3);">现货/AMM</span>
+        <div class="dex-desc">BNB Chain 原生最大 AMM，费率超低，币安生态深度绑定</div>
+        
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span><button class="copy-btn" style="opacity:.4;cursor:default;">复制</button></div>
+        <div class="dex-info-toggle">
+          <button class="dex-toggle-btn" onclick="event.stopPropagation();toggleDex('pancakeswap')">钱包支持 ↕</button>
+          <a href="https://pancakeswap.finance/" target="_blank" rel="noopener" class="dex-visit-btn" onclick="event.stopPropagation()">查看官方 →</a>
+        </div>
+      </div>
+      <div class="dex-info-panel" id="dex-panel-pancakeswap">
+        <div class="dex-info-title">支持的主流钱包</div>
+        <div class="dex-wallet-tags"><span class="dex-wtag">MetaMask</span><span class="dex-wtag key">Trust Wallet ★</span><span class="dex-wtag key">Binance Wallet ★</span><span class="dex-wtag">OKX Wallet</span><span class="dex-wtag">Bitget Wallet</span><span class="dex-wtag">Phantom</span><span class="dex-wtag">Rabby</span></div>
+        <div class="dex-info-title">与 CEX 的联动方式</div>
+        <div class="dex-cex-desc">Binance Wallet深度支持（BNB Chain原生）；Bitget Wallet等常作为入口；从Binance等CEX直接提现到BSC地址使用。</div>
+      </div>
+    </div>
+    <!-- Curve Finance -->
+    <div class="dex-card" id="dex-curve">
+      <div class="dex-card-front" onclick="toggleDex('curve')">
+        <div class="dex-logo-row">
+          <div class="dex-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28);">CRV</div>
+          <div>
+            <div class="dex-name">Curve Finance</div>
+            <div class="dex-chain">EVM多链 · 稳定币为主</div>
+          </div>
+        </div>
+        <span class="dex-type-badge" style="background:rgba(96,165,250,.15);color:#60a5fa;border:.5px solid rgba(96,165,250,.3);">现货/AMM</span>
+        <div class="dex-desc">稳定币/同类资产交换专家，低滑点，大额稳定币换汇首选</div>
+        
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span><button class="copy-btn" style="opacity:.4;cursor:default;">复制</button></div>
+        <div class="dex-info-toggle">
+          <button class="dex-toggle-btn" onclick="event.stopPropagation();toggleDex('curve')">钱包支持 ↕</button>
+          <a href="https://www.curve.finance/" target="_blank" rel="noopener" class="dex-visit-btn" onclick="event.stopPropagation()">查看官方 →</a>
+        </div>
+      </div>
+      <div class="dex-info-panel" id="dex-panel-curve">
+        <div class="dex-info-title">支持的主流钱包</div>
+        <div class="dex-wallet-tags"><span class="dex-wtag key">MetaMask ★</span><span class="dex-wtag">1inch Wallet</span><span class="dex-wtag">Coinbase Wallet</span><span class="dex-wtag">Ledger</span><span class="dex-wtag">Trezor</span></div>
+        <div class="dex-info-title">与 CEX 的联动方式</div>
+        <div class="dex-cex-desc">较少直接CEX内置；通过MetaMask或Coinbase Wallet连接；CEX充值USDC/USDT后在Curve低滑点交换。</div>
+      </div>
+    </div>
+    <!-- 1inch -->
+    <div class="dex-card" id="dex-1inch">
+      <div class="dex-card-front" onclick="toggleDex('1inch')">
+        <div class="dex-logo-row">
+          <div class="dex-logo" style="background:rgba(167,139,250,.12);color:#a78bfa;border-color:rgba(167,139,250,.28);">1IN</div>
+          <div>
+            <div class="dex-name">1inch</div>
+            <div class="dex-chain">多链聚合器</div>
+          </div>
+        </div>
+        <span class="dex-type-badge" style="background:rgba(96,165,250,.15);color:#60a5fa;border:.5px solid rgba(96,165,250,.3);">现货/AMM</span>
+        <div class="dex-desc">DEX聚合路由，自动找最优价格，支持多链，Ledger Live内置Swap</div>
+        
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span><button class="copy-btn" style="opacity:.4;cursor:default;">复制</button></div>
+        <div class="dex-info-toggle">
+          <button class="dex-toggle-btn" onclick="event.stopPropagation();toggleDex('1inch')">钱包支持 ↕</button>
+          <a href="https://1inch.com/" target="_blank" rel="noopener" class="dex-visit-btn" onclick="event.stopPropagation()">查看官方 →</a>
+        </div>
+      </div>
+      <div class="dex-info-panel" id="dex-panel-1inch">
+        <div class="dex-info-title">支持的主流钱包</div>
+        <div class="dex-wallet-tags"><span class="dex-wtag key">1inch Wallet ★</span><span class="dex-wtag">MetaMask</span><span class="dex-wtag">Rabby</span><span class="dex-wtag">Coinbase Wallet</span><span class="dex-wtag">OKX Wallet</span><span class="dex-wtag key">Ledger（via WC）</span><span class="dex-wtag">Phantom</span></div>
+        <div class="dex-info-title">与 CEX 的联动方式</div>
+        <div class="dex-cex-desc">Ledger Live内置1inch Swap；OKX/Coinbase Wallet支持；作为聚合器，常被CEX钱包集成作为Swap路由。</div>
+      </div>
+    </div>
+
+    <!-- Hyperliquid -->
+    <div class="dex-card" id="dex-hyperliquid">
+      <div class="dex-card-front" onclick="toggleDex('hyperliquid')"><span class="dex-main-badge">⭐ 主流</span>
+        
+        <div class="dex-logo-row">
+          <div class="dex-logo" style="background:rgba(52,211,153,.12);color:#34d399;border-color:rgba(52,211,153,.28);">HL</div>
+          <div>
+            <div class="dex-name">Hyperliquid</div>
+            <div class="dex-chain">HyperEVM / L1</div>
+          </div>
+        </div>
+        <span class="dex-type-badge" style="background:rgba(248,113,113,.15);color:#f87171;border:.5px solid rgba(248,113,113,.3);">永续合约/Perp</span>
+        <div class="dex-desc">永续合约 DEX 中性能最强，链上订单簿，延迟极低，交易体验接近 CEX</div>
+        
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span><button class="copy-btn" style="opacity:.4;cursor:default;">复制</button></div>
+        <div class="dex-info-toggle">
+          <button class="dex-toggle-btn" onclick="event.stopPropagation();toggleDex('hyperliquid')">钱包支持 ↕</button>
+          <a href="https://app.hyperliquid.xyz/trade" target="_blank" rel="noopener" class="dex-visit-btn" onclick="event.stopPropagation()">查看官方 →</a>
+        </div>
+      </div>
+      <div class="dex-info-panel" id="dex-panel-hyperliquid">
+        <div class="dex-info-title">支持的主流钱包</div>
+        <div class="dex-wallet-tags"><span class="dex-wtag key">OneKey ★</span><span class="dex-wtag">MetaMask</span><span class="dex-wtag">Rabby</span><span class="dex-wtag">Coinbase Wallet</span><span class="dex-wtag">OKX Wallet</span><span class="dex-wtag">Phantom（部分）</span><span class="dex-wtag">Ledger/Trezor（via连接）</span><span class="dex-wtag">SafePal</span></div>
+        <div class="dex-info-title">与 CEX 的联动方式</div>
+        <div class="dex-cex-desc">Binance/Bybit等CEX提供USDC充值通道；OneKey、MetaMask移动端直接内置Hyperliquid Perps；部分CEX钱包（如Binance Wallet）有联动。</div>
+      </div>
+    </div>
+    <!-- Aster (ASter) -->
+    <div class="dex-card" id="dex-aster">
+      <div class="dex-card-front" onclick="toggleDex('aster')"><span class="dex-main-badge">⭐ 主流</span>
+        
+        <div class="dex-logo-row">
+          <div class="dex-logo" style="background:rgba(251,191,36,.12);color:#fbbf24;border-color:rgba(251,191,36,.28);">AST</div>
+          <div>
+            <div class="dex-name">Aster (ASter)</div>
+            <div class="dex-chain">BNB Chain · Solana · ETH</div>
+          </div>
+        </div>
+        <span class="dex-type-badge" style="background:rgba(248,113,113,.15);color:#f87171;border:.5px solid rgba(248,113,113,.3);">永续合约/Perp</span>
+        <div class="dex-desc">Binance生态绑定 Perp DEX，BNB Chain原生，Trust Wallet深度合作</div>
+        
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">3Fd91f</span><button class="copy-btn" onclick="copyCode(this,'3Fd91f')">复制</button></div>
+        <div class="dex-info-toggle">
+          <button class="dex-toggle-btn" onclick="event.stopPropagation();toggleDex('aster')">钱包支持 ↕</button>
+          <a href="https://www.asterdex.com/en/referral/3Fd91f" target="_blank" rel="noopener" class="dex-visit-btn" onclick="event.stopPropagation()">查看官方 →</a>
+        </div>
+      </div>
+      <div class="dex-info-panel" id="dex-panel-aster">
+        <div class="dex-info-title">支持的主流钱包</div>
+        <div class="dex-wallet-tags"><span class="dex-wtag key">Binance Wallet ★</span><span class="dex-wtag key">Trust Wallet ★</span><span class="dex-wtag">MetaMask</span><span class="dex-wtag">Phantom</span><span class="dex-wtag">Rabby</span><span class="dex-wtag">OneKey</span></div>
+        <div class="dex-info-title">与 CEX 的联动方式</div>
+        <div class="dex-cex-desc">Binance生态强绑定（Binance Wallet直接in-app交易Aster Perps，资金自托管）；Trust Wallet合作活动；从Binance CEX提现到对应链地址。</div>
+      </div>
+    </div>
+    <!-- dYdX -->
+    <div class="dex-card" id="dex-dydx">
+      <div class="dex-card-front" onclick="toggleDex('dydx')">
+        <div class="dex-logo-row">
+          <div class="dex-logo" style="background:rgba(129,140,248,.12);color:#818cf8;border-color:rgba(129,140,248,.28);">dYdX</div>
+          <div>
+            <div class="dex-name">dYdX</div>
+            <div class="dex-chain">Cosmos链（dYdX Chain）</div>
+          </div>
+        </div>
+        <span class="dex-type-badge" style="background:rgba(248,113,113,.15);color:#f87171;border:.5px solid rgba(248,113,113,.3);">永续合约/Perp</span>
+        <div class="dex-desc">老牌永续合约 DEX，迁移至 Cosmos 链，机构级深度，合规性强</div>
+        
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span><button class="copy-btn" style="opacity:.4;cursor:default;">复制</button></div>
+        <div class="dex-info-toggle">
+          <button class="dex-toggle-btn" onclick="event.stopPropagation();toggleDex('dydx')">钱包支持 ↕</button>
+          <a href="#" class="dex-visit-btn" onclick="event.stopPropagation();showUpdating(this);return false;" style="position:relative;">查看官方<span class="updating-tip">⏳ 紧急更新中</span></a>
+        </div>
+      </div>
+      <div class="dex-info-panel" id="dex-panel-dydx">
+        <div class="dex-info-title">支持的主流钱包</div>
+        <div class="dex-wallet-tags"><span class="dex-wtag key">MetaMask ★</span><span class="dex-wtag">Coinbase Wallet</span><span class="dex-wtag">Phantom</span><span class="dex-wtag key">Keplr（Cosmos链）</span><span class="dex-wtag">WalletConnect</span><span class="dex-wtag">Trust Wallet</span><span class="dex-wtag">Rainbow</span></div>
+        <div class="dex-info-title">与 CEX 的联动方式</div>
+        <div class="dex-cex-desc">通过钱包连接为主；Coinbase Wallet支持较好；CEX充值到dYdX链地址。</div>
+      </div>
+    </div>
+    <!-- GMX -->
+    <div class="dex-card" id="dex-gmx">
+      <div class="dex-card-front" onclick="toggleDex('gmx')">
+        <div class="dex-logo-row">
+          <div class="dex-logo" style="background:rgba(251,146,60,.12);color:#fb923c;border-color:rgba(251,146,60,.28);">GMX</div>
+          <div>
+            <div class="dex-name">GMX</div>
+            <div class="dex-chain">Arbitrum · Avalanche</div>
+          </div>
+        </div>
+        <span class="dex-type-badge" style="background:rgba(248,113,113,.15);color:#f87171;border:.5px solid rgba(248,113,113,.3);">永续合约/Perp</span>
+        <div class="dex-desc">Arbitrum 上流动性最深的永续 DEX，零资金费率，GLP 流动性池模式</div>
+        
+        <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code" style="color:var(--text-dim);">无</span><button class="copy-btn" style="opacity:.4;cursor:default;">复制</button></div>
+        <div class="dex-info-toggle">
+          <button class="dex-toggle-btn" onclick="event.stopPropagation();toggleDex('gmx')">钱包支持 ↕</button>
+          <a href="#" class="dex-visit-btn" onclick="event.stopPropagation();showUpdating(this);return false;" style="position:relative;">查看官方<span class="updating-tip">⏳ 紧急更新中</span></a>
+        </div>
+      </div>
+      <div class="dex-info-panel" id="dex-panel-gmx">
+        <div class="dex-info-title">支持的主流钱包</div>
+        <div class="dex-wallet-tags"><span class="dex-wtag key">MetaMask ★</span><span class="dex-wtag">Rabby</span><span class="dex-wtag key">OneKey</span><span class="dex-wtag">Coinbase Wallet</span><span class="dex-wtag">Ledger/Trezor</span><span class="dex-wtag">SafePal</span></div>
+        <div class="dex-info-title">与 CEX 的联动方式</div>
+        <div class="dex-cex-desc">通过MetaMask/Rabby连接；部分多链钱包（如OneKey）支持良好；CEX提现到Arbitrum/AVAX地址使用。</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1541,31 +1907,35 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
 </footer>
 
 <script>
-const btns = document.querySelectorAll('.anchor-btn');
-btns.forEach(btn => {
+var btns = document.querySelectorAll('.anchor-btn');
+btns.forEach(function(btn) {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    var target = document.querySelector(this.getAttribute('href'));
     if (!target) return;
-    const navH = document.querySelector('nav').offsetHeight;
-    const anchorH = document.querySelector('.anchor-nav').offsetHeight;
-    const offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
+    var navEl = document.querySelector('nav');
+    var anchorEl = document.querySelector('.anchor-nav');
+    var navH = navEl ? navEl.offsetHeight : 52;
+    var anchorH = anchorEl ? anchorEl.offsetHeight : 0;
+    var offset = target.getBoundingClientRect().top + window.scrollY - navH - anchorH - 16;
     window.scrollTo({ top: offset, behavior: 'smooth' });
-    btns.forEach(b => b.classList.remove('active'));
+    btns.forEach(function(b) { b.classList.remove('active'); });
     this.classList.add('active');
   });
 });
-const sections = document.querySelectorAll('.crypto-section');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      btns.forEach(b => b.classList.remove('active'));
-      const a = document.querySelector(`.anchor-btn[href="#${e.target.id}"]`);
-      if (a) a.classList.add('active');
-    }
-  });
-}, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
-sections.forEach(s => observer.observe(s));
+var sections = document.querySelectorAll('.crypto-section');
+if (typeof IntersectionObserver !== 'undefined') {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        btns.forEach(function(b) { b.classList.remove('active'); });
+        var a = document.querySelector('.anchor-btn[href="#' + e.target.id + '"]');
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-52px 0px -60% 0px', threshold: 0 });
+  sections.forEach(function(s) { observer.observe(s); });
+}
 
 // Show mobile btn on small screens
 function checkScreen() {
@@ -1646,8 +2016,6 @@ function copyCode(btn, code) {
     }, 1000);
   }, 1500);
 })();
-, 300);
-}
 </script>
 <script>
 function showUpdating(btn) {
@@ -1831,6 +2199,34 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     });
   });
 })();
+</script>
+<script>
+/* ── DEX section JS ── */
+function toggleDex(id) {
+  var panel = document.getElementById('dex-panel-' + id);
+  if (!panel) return;
+  var isOpen = panel.classList.contains('open');
+  document.querySelectorAll('.dex-info-panel.open').forEach(function(p){ p.classList.remove('open'); });
+  document.querySelectorAll('.dex-toggle-btn').forEach(function(b){ b.textContent = '钱包支持 ↕'; });
+  if (!isOpen) {
+    panel.classList.add('open');
+    var btn = document.querySelector('#dex-' + id + ' .dex-toggle-btn');
+    if (btn) btn.textContent = '收起 ↑';
+  }
+}
+function filterDex(type, btn) {
+  document.querySelectorAll('.dex-tab').forEach(function(b){ b.classList.remove('on'); });
+  btn.classList.add('on');
+  var spotIds = ['uniswap','pancakeswap','curve','1inch'];
+  var perpIds = ['hyperliquid','aster','dydx','gmx'];
+  document.querySelectorAll('.dex-card').forEach(function(card){
+    var id = card.id.replace('dex-', '');
+    var show = type === 'all' ||
+               (type === 'spot' && spotIds.indexOf(id) > -1) ||
+               (type === 'perp' && perpIds.indexOf(id) > -1);
+    card.style.display = show ? '' : 'none';
+  });
+}
 </script>
 </body>
 </html>
