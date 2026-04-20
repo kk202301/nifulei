@@ -657,8 +657,8 @@ footer .sep { margin: 0 10px; opacity: .3; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 /* iOS Safari: fix sticky nav */
-nav { position: -webkit-sticky; position: sticky; }
-.anchor-nav { position: -webkit-sticky; position: sticky; }
+nav { position: sticky; }
+.anchor-nav { position: sticky; }
 
 /* iOS Safari: fix button tap highlight */
 button, a {
@@ -1018,7 +1018,6 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
   color: var(--accent);
 }
 
-
 /* ══ DEX Section ══ */
 .dex-tabs {
   display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
@@ -1134,8 +1133,6 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
 [data-theme="light"] .dex-wtag { background: rgba(0,0,0,.04); }
 [data-theme="light"] .dex-info-panel { border-top-color: rgba(0,0,0,.07); }
 
-
-
 /* DEX main badge - inline, no overflow needed */
 .dex-main-badge {
   display: inline-flex; align-items: center; gap: 3px;
@@ -1147,6 +1144,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
   white-space: nowrap; z-index: 2;
 }
 [data-theme="light"] .dex-main-badge { background: rgba(96,165,250,.12); color: #2563eb; }
+
 </style>
 </head>
 <body>
@@ -1202,21 +1200,22 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
       <a href="nifulei-about.html#donate" class="nav-donate">☕ 打赏</a>
       <a href="https://x.com/nicole_yang88" target="_blank" class="nav-cta">关注 𝕏</a>
     </div>
+    
     <button class="theme-btn" id="themeBtnD" onclick="toggleTheme()" title="切换明暗模式">🌙</button>
     <button class="mob-btn" onclick="toggleMenu()">☰</button>
   </div>
   <div id="mobMenu" style="display:none;border-top:.5px solid var(--border);padding:12px 16px;background:var(--bg-dropdown);">
-    <div style="padding:10px 0;border-bottom:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+    <div style="padding:10px 0display:flex;align-items:center;justify-content:space-between;">
       <span style="font-size:13px;color:var(--text-muted);">🌓 明暗模式</span>
       <button class="theme-btn" id="themeBtnM" onclick="toggleTheme()" style="width:36px;height:36px;">🌙</button>
     </div>
-    <a href="nifulei-bank.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">🏦 国外银行卡</a>
-    <a href="nifulei-broker.html"  style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📈 港美股券商</a>
-    <a href="nifulei-crypto.html"  style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">₿ 加密 Web3</a>
-    <a href="nifulei-esim.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">📡 跨境通讯</a>
-    <a href="nifulei-roadmap.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);border-bottom:.5px solid var(--border);">🗺 金融路线图</a>
-    <a href="nifulei-journey.html" style="display:block;padding:10px 0;font-size:13px;color:var(--accent);border-bottom:.5px solid var(--border);">🚀 出海路线图</a>
-    <a href="nifulei-about.html#donate" style="display:block;padding:10px 0;font-size:13px;color:var(--accent);border-bottom:.5px solid var(--border);">☕ 打赏支持泥伏雷</a>
+    <a href="nifulei-bank.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted)">🏦 国外银行卡</a>
+    <a href="nifulei-broker.html"  style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted)">📈 港美股券商</a>
+    <a href="nifulei-crypto.html"  style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted)">₿ 加密 Web3</a>
+    <a href="nifulei-esim.html"    style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted)">📡 跨境通讯</a>
+    <a href="nifulei-roadmap.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted)">🗺 金融路线图</a>
+    <a href="nifulei-journey.html" style="display:block;padding:10px 0;font-size:13px;color:var(--accent)">🚀 出海路线图</a>
+    <a href="nifulei-about.html#donate" style="display:block;padding:10px 0;font-size:13px;color:var(--accent)">☕ 打赏支持泥伏雷</a>
     <a href="nifulei-about.html" style="display:block;padding:10px 0;font-size:13px;color:var(--text-muted);">👤 关于泥伏雷</a>
   </div>
 </nav>
@@ -1257,7 +1256,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
         <div class="card-name">欧易 OKX</div>
       </div>
       <div class="card-desc">全球知名合约+现货交易所，产品线丰富，中文支持最好，新手首选</div>
-      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="rebate-box"><span class="rebate-label">新人欢迎礼</span><span class="rebate-val">50U-100U</span></div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">SOL999</span><button class="copy-btn" onclick="copyCode(this,'SOL999')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
       <div class="card-btns"><a href="https://www.promooboost.com/join/SOL999" target="_blank" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=fBlVgOUhMso" target="_blank" class="btn-ghost">查看教程</a></div>
@@ -1271,7 +1270,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
         <div class="card-name">币安 Binance</div>
       </div>
       <div class="card-desc">全球最大加密货币交易所，流动性最强，现货/合约/理财一站搞定</div>
-      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="rebate-box"><span class="rebate-label">新人欢迎礼</span><span class="rebate-val">50U-100U</span></div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALA888</span><button class="copy-btn" onclick="copyCode(this,'TALA888')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
       <div class="card-btns"><a href="https://www.binance.com/zh-CN/join?ref=TALA888" target="_blank" class="btn-primary">立即开通 →</a><a href="https://youtu.be/SUlWCBSIETQ" target="_blank" class="btn-ghost">查看教程</a></div>
@@ -1285,7 +1284,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
         <div class="card-name">Bybit</div>
       </div>
       <div class="card-desc">全球知名衍生品交易所，合约体验优秀，虚拟 U 卡功能实用，新人礼丰厚</div>
-      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="rebate-box"><span class="rebate-label">新人欢迎礼</span><span class="rebate-val">50U-100U</span></div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">NIFULEI20</span><button class="copy-btn" onclick="copyCode(this,'NIFULEI20')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">5.0</span></div>
       <div class="card-btns"><a href="https://partner.bybit.com/b/NIFULEI20" target="_blank" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=gdS4yXA-orI" target="_blank" class="btn-ghost">查看教程</a></div>
@@ -1299,7 +1298,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
         <div class="card-name">Bitget</div>
       </div>
       <div class="card-desc">全球领先合约交易所，跟单功能强大，新人礼与返佣业内一流</div>
-      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="rebate-box"><span class="rebate-label">新人欢迎礼</span><span class="rebate-val">50U-100U</span></div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">nifulei20</span><button class="copy-btn" onclick="copyCode(this,'nifulei20')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
           <div class="card-btns"><a href="https://partner.hdmune.cn/bg/nifulei20" target="_blank" class="btn-primary">立即开通 →</a><a href="https://www.youtube.com/watch?v=d50Iw04RXPg" target="_blank" class="btn-ghost">查看教程</a></div>
@@ -1313,7 +1312,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
         <div class="card-name">Gate.io</div>
       </div>
       <div class="card-desc">山寨币种最全的交易所，适合寻找低市值潜力币，现货深度良好</div>
-      <div class="rebate-box"><span class="rebate-label">返佣比例</span><span class="rebate-val">20%</span></div>
+      <div class="rebate-box"><span class="rebate-label">新人欢迎礼</span><span class="rebate-val">50U-100U</span></div>
       <div class="invite-box"><span class="invite-label">邀请码</span><span class="invite-code">TALAUSDT</span><button class="copy-btn" onclick="copyCode(this,'TALAUSDT')">复制</button></div>
       <div class="stars"><span style="color:var(--accent);">★★★★</span><span style="color:var(--text-dim);">★</span><span class="star-score">4.0</span></div>
       <div class="card-btns"><a href="https://www.gateport.company/share/TALAUSDT" target="_blank" class="btn-primary">立即开通 →</a><a href="#" class="btn-ghost" onclick="showUpdating(this);return false;">查看教程<span class="updating-tip">⏳ 紧急更新中</span></a></div>
@@ -1387,6 +1386,10 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
   </div>
 </div>
 
+<p style="text-align:center;font-size:10.5px;color:var(--text-dim);
+  margin:16px 0 0;padding:0 16px;line-height:1.7;">
+  ⚠ 以官方最新活动为准，新人福利以实际页面展示为准。
+</p>
 
 <div class="section-divider"></div>
 
@@ -1773,7 +1776,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
         <div class="card-name">Ledger</div>
       </div>
       <div class="card-desc">全球最知名硬件钱包品牌，Nano X/S Plus 系列成熟稳定，支持 5500+ 币种</div>
-            <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val"></span></div>
+            <div class="discount-box"><span class="discount-label">购买折扣码</span><span class="discount-val">暂无</span></div>
 <div class="stars"><span style="color:var(--accent);">★★★★★</span><span class="star-score">4.5</span></div>
       <div class="card-btns"><a href="https://shop.ledger.com/?r=978a08f57a21" target="_blank" class="btn-buy">立即购买 →</a><a href="https://youtu.be/yDl2hPuNR7o" target="_blank" rel="noopener" class="btn-ghost">查看教程</a></div>
     </div>
@@ -1884,8 +1887,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
 
 <footer class="footer-bar">
   <div class="footer-inner">
-    <div class="fc">
-      © 2026 泥伏雷闯关记
+    <div class="fc">© 2026 泥伏雷闯关记
       <span class="sep">·</span>内容仅供参考，不构成投资建议
       <span class="sep">·</span>投资有风险，入市需谨慎
     </div>
@@ -1904,6 +1906,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(10,12,16,.92);
       </a>
     </div>
   </div>
+
 </footer>
 
 <script>
@@ -1973,8 +1976,6 @@ function copyCode(btn, code) {
   btn.innerHTML = '✓ 已复制';
   setTimeout(function(){ btn.classList.remove('copied'); btn.innerHTML = '复制'; }, 2000);
 }</script>
-
-
 
 <!-- ── 风险警示 ── -->
 <div id="risk-modal">
@@ -2059,7 +2060,6 @@ function showUpdating(btn) {
 })();
 </script>
 <script>
-
 
 </script>
 <script>
@@ -2228,5 +2228,6 @@ function filterDex(type, btn) {
   });
 }
 </script>
+
 </body>
 </html>

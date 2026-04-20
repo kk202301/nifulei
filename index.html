@@ -224,7 +224,49 @@ h1.hero-h1 em{font-style:normal;color:var(--accent);}
 .fu{animation:fadeUp .5s ease both;}
 .fu1{animation-delay:.07s;}.fu2{animation-delay:.14s;}.fu3{animation-delay:.21s;}
 @keyframes glow{0%,100%{opacity:.85;}50%{opacity:1;}}
-  </style>
+  
+/* ── 新人限时活动 bonus badge ── */
+.ac-bonus {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f87171;
+  background: rgba(248,113,113,.08);
+  border: .5px solid rgba(248,113,113,.25);
+  border-radius: 6px;
+  padding: 5px 9px;
+  line-height: 1.3;
+}
+.ac-bonus-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.ac-bonus-val {
+  color: #f87171;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+.ac-bonus-icon {
+  font-size: 11px;
+  flex-shrink: 0;
+}
+[data-theme="light"] .ac-bonus {
+  color: #dc2626;
+  background: rgba(220,38,38,.06);
+  border-color: rgba(220,38,38,.2);
+}
+[data-theme="light"] .ac-bonus-val { color: #dc2626; }
+/* Pulse animation for the bonus icon */
+@keyframes bonusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.ac-bonus-icon { animation: bonusPulse 2s ease-in-out infinite; }
+</style>
 </head>
 <body>
 
@@ -418,7 +460,11 @@ h1.hero-h1 em{font-style:normal;color:var(--accent);}
           <div class="ac-logo" style="background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border);">OKX</div>
           <div><div class="ac-name">欧易 OKX</div><div class="ac-tag">全球合约第一</div></div>
         </div>
-        <span class="ac-perk">返佣 20%</span>
+        <div class="ac-bonus">
+          <span class="ac-bonus-icon">🎁</span>
+          <span class="ac-bonus-label">官方新人福利：</span>
+          <span class="ac-bonus-val">50U – 150U</span>
+        </div>
         <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">SOL999</span><button class="ac-cp" onclick="acCopy(this,'SOL999')">复制</button></div>
         <a href="https://www.promooboost.com/join/SOL999" target="_blank" rel="noopener" class="ac-btn">立即开通 →</a>
       </div>
@@ -429,7 +475,11 @@ h1.hero-h1 em{font-style:normal;color:var(--accent);}
           <div class="ac-logo" style="background:var(--accent-dim);color:var(--accent);border-color:var(--accent-border);">BNB</div>
           <div><div class="ac-name">币安 Binance</div><div class="ac-tag">全球最大现货</div></div>
         </div>
-        <span class="ac-perk">返佣 20%</span>
+        <div class="ac-bonus">
+          <span class="ac-bonus-icon">🎁</span>
+          <span class="ac-bonus-label">官方新人福利：</span>
+          <span class="ac-bonus-val">200U – 500U</span>
+        </div>
         <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">TALA888</span><button class="ac-cp" onclick="acCopy(this,'TALA888')">复制</button></div>
         <a href="https://www.binance.com/zh-CN/join?ref=TALA888" target="_blank" rel="noopener" class="ac-btn">立即开通 →</a>
       </div>
@@ -440,7 +490,11 @@ h1.hero-h1 em{font-style:normal;color:var(--accent);}
           <div class="ac-logo" style="background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.28);">BB</div>
           <div><div class="ac-name">Bybit</div><div class="ac-tag">衍生品 + 现货全能</div></div>
         </div>
-        <span class="ac-perk">返佣 20%</span>
+        <div class="ac-bonus">
+          <span class="ac-bonus-icon">🎁</span>
+          <span class="ac-bonus-label">官方新人福利：</span>
+          <span class="ac-bonus-val">50U – 800U</span>
+        </div>
         <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">NIFULEI20</span><button class="ac-cp" onclick="acCopy(this,'NIFULEI20')">复制</button></div>
         <a href="https://partner.bybit.com/b/NIFULEI20" target="_blank" rel="noopener" class="ac-btn">立即开通 →</a>
       </div>
@@ -451,10 +505,18 @@ h1.hero-h1 em{font-style:normal;color:var(--accent);}
           <div class="ac-logo" style="background:rgba(96,165,250,.12);color:#60a5fa;border-color:rgba(96,165,250,.28);">BG</div>
           <div><div class="ac-name">Bitget</div><div class="ac-tag">跟单功能第一</div></div>
         </div>
-        <span class="ac-perk">返佣 20%</span>
+        <div class="ac-bonus">
+          <span class="ac-bonus-icon">🎁</span>
+          <span class="ac-bonus-label">官方新人福利：</span>
+          <span class="ac-bonus-val">150U</span>
+        </div>
         <div class="ac-code"><span class="ac-cl">邀请码</span><span class="ac-cv">nifulei20</span><button class="ac-cp" onclick="acCopy(this,'nifulei20')">复制</button></div>
         <a href="https://partner.hdmune.cn/bg/nifulei20" target="_blank" rel="noopener" class="ac-btn">立即开通 →</a>
       </div>
+      <p style="grid-column:1/-1;font-size:10px;color:var(--text-dim);text-align:center;
+        margin-top:4px;padding:0 4px;line-height:1.7;">
+        ⚠ 以官方最新活动为准，新人福利以实际页面展示为准。
+      </p>
 
       <!-- ─ OneKey ─ NIFULEI · onekey.so/r/NIFULEI -->
       <div class="ac" data-cat="cold">
